@@ -3,10 +3,6 @@ import './styles.scss';
 // == Composant
 const Rules = () => (
   <div className="rules">
-    <a
-    href="#"
-    onClick={(event)=>{event.preventDefault()}}
-    >Se connecter</a>
 
     <p className="rules__h1">Règles du jeu</p>
 
