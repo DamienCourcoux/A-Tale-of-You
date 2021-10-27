@@ -1,5 +1,4 @@
-import Signup from 'src/components/Signup';
-import Signin from 'src/components/Signin';
+import { Link, NavLink } from 'react-router-dom';
 
 import Logo from 'src/assets/logo.gif';
 import { FaBook, FaScroll } from 'react-icons/fa';
@@ -11,21 +10,52 @@ const Header = () => (
     <nav className="header__nav">
       <ul className="header__nav--games">
         <li>
-          <a href="/" title="A Tale of You"><img src={Logo} alt="Logo du site" /></a>
+          <Link
+            to="/"
+            title="A Tale of You"
+          >
+            <img src={Logo} alt="Logo du site" />
+          </Link>
         </li>
         <li>
-          <a href="/" title="Jouer"><FaBook /> Jouer</a>
+          <NavLink
+            to="/histoire"
+            title="Jouer"
+          >
+            <FaBook />
+            Jouer
+          </NavLink>
         </li>
         <li>
-          <a href="/" title="Règles du jeu"><FaScroll /> Règles du jeu</a>
+          <NavLink
+            to="/regles"
+            title="Règles du jeu"
+          >
+            <FaScroll />
+            Règles du jeu
+          </NavLink>
         </li>
       </ul>
       <ul className="header__nav--settings">
         <li>
-          <Signup />
+          <a
+            href="#"
+            onClick={(event) => {
+              event.preventDefault();
+            }}
+          >
+            Se connecter
+          </a>
         </li>
         <li>
-          <Signin />
+          <a
+            href="#"
+            onClick={(event) => {
+              event.preventDefault();
+            }}
+          >
+            S'inscrire
+          </a>
         </li>
       </ul>
     </nav>
