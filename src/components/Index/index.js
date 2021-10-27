@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Schema from 'src/assets/schema.png';
 import './index.scss';
 
@@ -21,7 +23,7 @@ const Index = () => (
           Aventurez-vous !
         </p>
         <span className="hr"> </span>
-        <a href="/">Jouer</a>
+        <Link to="/histoire">Jouer</Link>
       </div>
       <div className="index__book--pageRight">
         <img src={Schema} alt="illustration" />
