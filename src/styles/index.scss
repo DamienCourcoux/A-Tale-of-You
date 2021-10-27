@@ -1,8 +1,10 @@
 @use 'reset';
 @use 'vars';
 
-body {
-  font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+*, body {
+  font-family: 'MedievalSharp', cursive;
 }
 
 /* 
