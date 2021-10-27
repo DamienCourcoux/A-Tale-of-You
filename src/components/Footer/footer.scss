@@ -1,0 +1,43 @@
+@use 'src/styles/vars';
+
+.footer {
+  background: vars.$background;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+
+  &__logo img {
+    width: 150px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &--reseaux {
+      display: flex;
+
+      li {
+        margin-left: 1rem;
+
+        a svg {
+          font-size: 1.5rem;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    &--aboutUs {
+      margin: 1rem 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
