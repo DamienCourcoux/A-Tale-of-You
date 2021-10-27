@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from 'src/components/Header';
 import Index from 'src/components/Index';
 import Footer from 'src/components/Footer';
+import Rules from 'src/components/Rules';
 
 // == Composant
 const App = () => (
@@ -17,7 +18,7 @@ const App = () => (
         Histoire
       </Route>
       <Route exact path="/regles">
-        Règles
+        <Rules />
       </Route>
       <Route exact path="/a-propos">
         A Propos de Nous
