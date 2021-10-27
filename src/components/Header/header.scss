@@ -1,0 +1,47 @@
+@use 'src/styles/vars';
+
+.header {
+  background: vars.$background;
+
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 2rem 1rem 2rem;
+
+    &--games {
+      display: flex;
+      align-items: flex-end;
+
+      li {
+        margin: .5rem 1rem;
+
+        &:first-child {
+          margin: 0rem 1rem;
+        }
+
+        a {
+          display: flex;
+          color: vars.$darkColor;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          img {
+            width: 150px;
+          }
+
+          svg {
+            margin-right: .5rem;
+          }
+        }
+      }
+    }
+
+    &--settings {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
