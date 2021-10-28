@@ -29,7 +29,7 @@ const App = () => {
           <Rules />
         </Route>
         <Route exact path="/a-propos">
-          A Propos de Nous
+          <About />
         </Route>
         <Route exact path="/jouer">
           Jouer
