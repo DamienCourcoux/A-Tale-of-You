@@ -6,7 +6,7 @@
   &__nav {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
     padding: 0 2rem 1rem 2rem;
 
     &--games {
@@ -41,7 +41,24 @@
 
     &--settings {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
+
+      li {
+        margin: .5rem 1rem;
+
+        a {
+          display: flex;
+          color: vars.$darkColor;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          svg {
+            margin-right: .5rem;
+          }
+        }
+      }
     }
   }
 }

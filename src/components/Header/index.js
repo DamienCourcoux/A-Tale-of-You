@@ -1,7 +1,12 @@
 import { Link, NavLink } from 'react-router-dom';
 
 import Logo from 'src/assets/logo.gif';
-import { FaBook, FaScroll } from 'react-icons/fa';
+import {
+  FaBook,
+  FaScroll,
+  FaUserAlt,
+  FaUserPlus,
+} from 'react-icons/fa';
 
 import './header.scss';
 
@@ -44,6 +49,7 @@ const Header = () => (
               event.preventDefault();
             }}
           >
+            <FaUserAlt />
             Se connecter
           </a>
         </li>
@@ -54,6 +60,7 @@ const Header = () => (
               event.preventDefault();
             }}
           >
+            <FaUserPlus />
             S'inscrire
           </a>
         </li>
