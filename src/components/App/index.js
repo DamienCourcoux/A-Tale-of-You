@@ -5,6 +5,7 @@ import Header from 'src/components/Header';
 import Index from 'src/components/Index';
 import Footer from 'src/components/Footer';
 import Rules from 'src/components/Rules';
+import Profile from 'src/components/Profile';
 
 // == Composant
 const App = () => (
@@ -27,7 +28,7 @@ const App = () => (
         Jouer
       </Route>
       <Route exact path="/profil">
-        Profil
+        <Profile />
       </Route>
       <Route>
         error404

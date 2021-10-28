@@ -135,4 +135,4 @@ const Rules = () => (
 );
 
 // == Export
-export default Rules
+export default Rules;
