@@ -5,6 +5,7 @@ import Header from 'src/components/Header';
 import Index from 'src/components/Index';
 import Footer from 'src/components/Footer';
 import Rules from 'src/components/Rules';
+import About from 'src/components/About';
 
 // == Composant
 const App = () => (
@@ -21,7 +22,7 @@ const App = () => (
         <Rules />
       </Route>
       <Route exact path="/a-propos">
-        A Propos de Nous
+        <About />
       </Route>
       <Route exact path="/jouer">
         Jouer
