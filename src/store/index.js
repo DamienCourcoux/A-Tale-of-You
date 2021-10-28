@@ -1,21 +1,15 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-// import authMiddleware from 'src/middlewares/recipes';
+import user from 'src/middlewares/user';
+import game from 'src/middlewares/game';
 
-import reducer from 'src/reducer';
+import reducer from 'src/reducers';
 
-// If we have more than 1 reducer
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// const enhancers = composeEnhancers(
-//   applyMiddleware(authMiddleware),
-// );
-
-// const store = createStore(reducer, enhancers);
-
-// If we have only 1 reducer
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+const enhancers = composeEnhancers(
+  applyMiddleware(user, game),
 );
+
+const store = createStore(reducer, enhancers);
 
 export default store;

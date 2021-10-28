@@ -1,5 +1,5 @@
 // import { CHANGE_FIELD, SAVE_USER, LOGOUT } from 'src/actions/user';
-import { CHANGE_FIELD } from 'src/actions';
+import { CHANGE_FIELD } from 'src/actions/user';
 
 export const initialState = {
   pseudo: '',
@@ -12,7 +12,6 @@ export const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_FIELD:
-      console.log(action.name, action.value);
       return {
         ...state,
         [action.name]: action.value,

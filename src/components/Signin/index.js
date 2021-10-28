@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { changeField, handleLogin } from 'src/actions';
+import { changeField, handleLogin } from 'src/actions/user';
 import { FaTimes } from 'react-icons/fa';
 
 import './styles.scss';
@@ -10,14 +10,14 @@ const Signin = () => {
   const dispatch = useDispatch();
 
   const { email, password, signinIsOpen } = useSelector(state => ({
-    email: state.email,
-    password: state.password,
-    signinIsOpen: state.signinIsOpen,
+    email: state.user.email,
+    password: state.user.password,
+    signinIsOpen: state.user.signinIsOpen,
   }))
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleLogin();
+    dispatch(handleLogin());
   };
 
   const handleChangeField = (value, name) => {

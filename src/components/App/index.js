@@ -11,7 +11,7 @@ import Signin from 'src/components/Signin';
 // == Composant
 const App = () => {
   const { signinIsOpen } = useSelector(state => ({
-    signinIsOpen: state.signinIsOpen
+    signinIsOpen: state.user.signinIsOpen
   }));
 
   return (

@@ -1,5 +1,5 @@
 export const CHANGE_FIELD = 'CHANGE_FIELD';
-export const LOGIN = 'LOGIN';
+export const HANDLE_LOGIN = 'LOGIN';
 
 export const changeField = (value, name) => ({
   type: CHANGE_FIELD,
@@ -7,6 +7,6 @@ export const changeField = (value, name) => ({
   name,
 });
 
-export const login = () => ({
-  type: LOGIN,
+export const handleLogin = () => ({
+  type: HANDLE_LOGIN,
 });
