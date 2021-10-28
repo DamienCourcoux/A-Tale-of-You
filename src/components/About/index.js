@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 import './about.scss';
@@ -17,8 +15,26 @@ const About = () => (
         <div className="about__container--alexandre--right">
           <h2>Réseaux</h2>
           <ul>
-            <li><Link to="https://www.linkedin.com/in/alexandre-morvan-65361199/" title="Linkedin d'Alexandre" target="_blank" rel="noopener noreferrer"><FaLinkedin /></Link></li>
-            <li><Link to="https://github.com/AlexandreMorvan" title="GitHub d'Alexandre" target="_blank" rel="noopener noreferrer"><FaGithub /></Link></li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/alexandre-morvan-65361199/"
+                title="Linkedin d'Alexandre"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/AlexandreMorvan"
+                title="GitHub d'Alexandre"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -31,8 +47,26 @@ const About = () => (
         <div className="about__container--damien--right">
           <h2>Réseaux</h2>
           <ul>
-            <li><Link to="https://www.linkedin.com/in/damiencourcoux/" title="Linkedin de Damien" target="_blank" rel="noopener noreferrer"><FaLinkedin /></Link></li>
-            <li><Link to="https://github.com/DamienCourcoux" title="GitHub de Damien" target="_blank" rel="noopener noreferrer"><FaGithub /></Link></li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/damiencourcoux/"
+                title="Linkedin de Damien"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/DamienCourcoux"
+                title="GitHub de Damien"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -45,8 +79,26 @@ const About = () => (
         <div className="about__container--mikhael--right">
           <h2>Réseaux</h2>
           <ul>
-            <li><Link to="https://www.linkedin.com/in/mikhael-orloff-612091176" title="Linkedin de Mikhael" target="_blank" rel="noopener noreferrer"><FaLinkedin /></Link></li>
-            <li><Link to="https://github.com/RaX-T1" title="GitHub de Mikhael" target="_blank" rel="noopener noreferrer"><FaGithub /></Link></li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/mikhael-orloff-612091176"
+                title="Linkedin de Mikhael"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/RaX-T1"
+                title="GitHub de Mikhael"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -59,8 +111,26 @@ const About = () => (
         <div className="about__container--guillaume--right">
           <h2>Réseaux</h2>
           <ul>
-            <li><Link to="https://www.linkedin.com/in/GuillaumeBodart/" title="Linkedin de Guillaume" target="_blank" rel="noopener noreferrer"><FaLinkedin /></Link></li>
-            <li><Link to="https://github.com/guillaume806" title="GitHub de Guillaume" target="_blank" rel="noopener noreferrer"><FaGithub /></Link></li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/GuillaumeBodart/"
+                title="Linkedin de Guillaume"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/guillaume806"
+                title="GitHub de Guillaume"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -73,8 +143,26 @@ const About = () => (
         <div className="about__container--maxence--right">
           <h2>Réseaux</h2>
           <ul>
-            <li><Link to="https://www.linkedin.com/in/maxence-tassery-8b5045202/" title="Linkedin de Maxence" target="_blank" rel="noopener noreferrer"><FaLinkedin /></Link></li>
-            <li><Link to="https://github.com/Maxence-TASSERY" title="GitHub de Maxence" target="_blank" rel="noopener noreferrer"><FaGithub /></Link></li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/maxence-tassery-8b5045202/"
+                title="Linkedin de Maxence"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/Maxence-TASSERY"
+                title="GitHub de Maxence"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
