@@ -31,7 +31,7 @@ const App = () => (
         Profil
       </Route>
       <Route>
-        error404
+        error 404
       </Route>
     </Switch>
     <Footer />
