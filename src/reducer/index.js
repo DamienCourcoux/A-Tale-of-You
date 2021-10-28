@@ -1,19 +1,21 @@
 // import { CHANGE_FIELD, SAVE_USER, LOGOUT } from 'src/actions/user';
+import { CHANGE_FIELD } from 'src/actions';
 
 export const initialState = {
   pseudo: '',
-  email: '',
+  email: 'toto',
   password: '',
-  logged: false,
+  isLogged: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    // case CHANGE_FIELD:
-    //   return {
-    //     ...state,
-    //     [action.name]: action.value,
-    //   };
+    case CHANGE_FIELD:
+      console.log(action.name, action.value);
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
     // case SAVE_USER:
     //   return {
     //     ...state,
@@ -28,8 +30,6 @@ const reducer = (state = initialState, action = {}) => {
     //     return {
     //       ...initialState,
     //     };
-    case 'TOTO':
-      return state;
     default:
       return state;
   }

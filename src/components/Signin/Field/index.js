@@ -1,86 +1,60 @@
+// == Import : npm
 import PropTypes from 'prop-types';
 
-import Field from './Field';
+// == Import : local
+import './styles.scss';
 
-import './style.scss';
+// == Composant
+const Field = ({
+  value,
+  type,
+  name,
+  placeholder,
+  onChange,
+}) => {
+  const handleChange = (evt) => {
+    onChange(evt.target.value, name);
+  };
 
-const Signin = () => {
-  <div>Signin</div>
-  // const email = 'toto'
-  // const {
-  //   email,
-  //   password,
-  //   logged,
-  //   pseudo,
-  // } = useSelector((state) => ({
-  //   email: state.user.email,
-  //   password: state.user.password,
-  //   logged: state.user.logged,
-  //   pseudo: state.user.pseudo,
-  // }));
+  const inputId = `field-${name}`;
 
-  // const handleSubmit = (evt) => {
-  //   evt.preventDefault();
-  //   handleLogin();
-  // };
+  return (
+    <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+      <input
+        // React - state
+        value={value}
+        onChange={handleChange}
+        // infos de base
+        id={inputId}
+        type={type}
+        className="field-input"
+        placeholder={placeholder}
+        name={name}
+      />
 
-  // return (
-  //   <div className="login-form">
-  //     {isLogged && (
-  //       <div className="login-form-logged">
-  //         <p className="login-form-message">
-  //           {loggedMessage}
-  //         </p>
-  //         <button
-  //           type="button"
-  //           className="login-form-button"
-  //           onClick={handleLogout}
-  //         >
-  //           Déconnexion
-  //         </button>
-  //       </div>
-  //     )}
-  //     {!isLogged && (
-
-  //       <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-  //         <Field
-  //           name="email"
-  //           placeholder="Adresse Email"
-  //           onChange={changeField}
-  //           value={email}
-  //         />
-  //         <Field
-  //           name="password"
-  //           type="password"
-  //           placeholder="Mot de passe"
-  //           onChange={changeField}
-  //           value={password}
-  //         />
-  //         <button
-  //           type="submit"
-  //           className="login-form-button"
-  //         >
-  //           OK
-  //         </button>
-  //       </form>
-  //     )}
-  //   </div>
-  // );
+      <label
+        htmlFor={inputId}
+        className="field-label"
+      >
+        {placeholder}
+      </label>
+    </div>
+  );
 };
 
-// LoginForm.propTypes = {
-//   email: PropTypes.string.isRequired,
-//   password: PropTypes.string.isRequired,
-//   changeField: PropTypes.func.isRequired,
-//   handleLogin: PropTypes.func.isRequired,
-//   handleLogout: PropTypes.func.isRequired,
-//   isLogged: PropTypes.bool,
-//   loggedMessage: PropTypes.string,
-// };
+Field.propTypes = {
+  value: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
-// LoginForm.defaultProps = {
-//   isLogged: false,
-//   loggedMessage: 'Connecté',
-// };
+// Valeurs par défaut pour les props
+Field.defaultProps = {
+  value: '',
+  type: 'text',
+};
 
-export default Signin;
+// == Export
+export default Field;
