@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 
 import Logo from 'src/assets/logo.gif';
-import { FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { FaDiscord, FaTwitter, FaFacebook } from 'react-icons/fa';
 
 import './footer.scss';
 
@@ -21,7 +21,7 @@ const Footer = () => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub />
+            <FaDiscord />
           </Link>
         </li>
         <li>
