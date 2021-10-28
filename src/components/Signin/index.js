@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { changeField } from 'src/actions';
+import { changeField, handleLogin } from 'src/actions';
+import { FaTimes } from 'react-icons/fa';
 
 import './styles.scss';
 
@@ -8,16 +9,15 @@ import Field from './Field';
 const Signin = () => {
   const dispatch = useDispatch();
 
-  const { email, password, isLogged } = useSelector(state => ({
+  const { email, password, signinIsOpen } = useSelector(state => ({
     email: state.email,
     password: state.password,
-    isLogged: state.isLogged,
+    signinIsOpen: state.signinIsOpen,
   }))
-  
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    // handleLogin();
-    console.log('handleSubmit');
+    handleLogin();
   };
 
   const handleChangeField = (value, name) => {
@@ -25,14 +25,17 @@ const Signin = () => {
   }
 
   return (
-    <div className="Signin">
-      {isLogged && (null)}
-      {!isLogged && (
-
-        <form className="Signin__form" onSubmit={handleSubmit}>
+    <div className="signin">
+      <div className="signin__content">
+        <FaTimes
+          className="signin__close"
+          onClick={() => console.log('test')}
+        />
+        <div className="signin__h1">Se connecter</div>
+        <form className="signin__form" onSubmit={handleSubmit}>
           <Field
             name="email"
-            placeholder="Adresse Email"
+            placeholder="Adresse mail"
             onChange={handleChangeField}
             value={email}
           />
@@ -43,14 +46,21 @@ const Signin = () => {
             onChange={handleChangeField}
             value={password}
           />
+          <a
+            href="#"
+            onClick={(event) => event.preventDefault()}
+            className="signin__a"
+          >
+            Pas de compte ? Inscris-toi !
+          </a>
           <button
             type="submit"
-            className="Signin__button"
+            className="signin__button"
           >
-            OK
+            Valider
           </button>
         </form>
-      )}
+      </div>
     </div>
   );
 }

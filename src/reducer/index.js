@@ -3,9 +3,10 @@ import { CHANGE_FIELD } from 'src/actions';
 
 export const initialState = {
   pseudo: '',
-  email: 'toto',
+  email: '',
   password: '',
   isLogged: false,
+  signinIsOpen: true,
 };
 
 const reducer = (state = initialState, action = {}) => {

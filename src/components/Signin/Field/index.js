@@ -19,7 +19,8 @@ const Field = ({
   const inputId = `field-${name}`;
 
   return (
-    <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+    <div className="field">
+      <div className="field-label">{placeholder}</div>
       <input
         // React - state
         value={value}
@@ -32,18 +33,12 @@ const Field = ({
         name={name}
       />
 
-      <label
-        htmlFor={inputId}
-        className="field-label"
-      >
-        {placeholder}
-      </label>
     </div>
   );
 };
 
 Field.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
@@ -52,7 +47,6 @@ Field.propTypes = {
 
 // Valeurs par défaut pour les props
 Field.defaultProps = {
-  value: '',
   type: 'text',
 };
 
