@@ -1,12 +1,27 @@
-import { HANDLE_LOGIN } from 'src/actions/user';
+import axios from 'axios';
+import { HANDLE_LOGIN, saveUser } from 'src/actions/user';
 
 const user = (store) => (next) => (action) => {
   switch (action.type) {
     case HANDLE_LOGIN: {
       const { user: {email, password} } = store.getState();
 
-      console.log(email, password);
-      
+      const login = async () => {
+        try {
+          const response = await axios.post('http://localhost:3000/signin', {
+            email,
+            password,
+          });
+          const actionSaveUser = saveUser(response.data);
+          store.dispatch(actionSaveUser);
+        }
+        catch (error) {
+          // créer une fonction pour indiquer l'utilisateur n'existe pas dans la BDD
+          console.log(error);
+        }
+      }
+
+      login();
       break;
     }
     default:
