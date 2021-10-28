@@ -5,11 +5,13 @@ import Header from 'src/components/Header';
 import Index from 'src/components/Index';
 import Footer from 'src/components/Footer';
 import Rules from 'src/components/Rules';
+import Signin from 'src/components/Signin';
 
 // == Composant
 const App = () => (
   <div className="app">
     <Header />
+    <Signin />
     <Switch>
       <Route exact path="/">
         <Index />
