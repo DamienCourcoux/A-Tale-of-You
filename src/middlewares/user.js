@@ -8,7 +8,7 @@ const user = (store) => (next) => (action) => {
 
       const login = async () => {
         try {
-          const response = await axios.post('http://localhost:3000/signin', {
+          const response = await axios.post('http://34.224.61.45:3000/signin', {
             email,
             password,
           });
