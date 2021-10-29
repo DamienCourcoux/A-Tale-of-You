@@ -1,14 +1,20 @@
 import axios from 'axios';
-import { HANDLE_LOGIN, saveUser } from 'src/actions/user';
+import {
+  HANDLE_SIGNIN,
+  saveUser,
+  HANDLE_SIGNUP,
+  showPasswordWrong,
+} from 'src/actions/user';
 
 const user = (store) => (next) => (action) => {
   switch (action.type) {
-    case HANDLE_LOGIN: {
+    case HANDLE_SIGNIN: {
       const { user: { email, password } } = store.getState();
 
-      const login = async () => {
+      const signin = async () => {
         try {
-          const response = await axios.post('http://34.224.61.45:3000/signin', {
+          const response = await axios.post('http://localhost:3000/signin', {
+          // const response = await axios.post('http://34.224.61.45:3000/signin', {
             email,
             password,
           });
@@ -21,7 +27,46 @@ const user = (store) => (next) => (action) => {
         }
       };
 
-      login();
+      signin();
+      break;
+    }
+    case HANDLE_SIGNUP: {
+      const {
+        user: {
+          pseudo,
+          email,
+          password,
+          passwordConfirm,
+        },
+      } = store.getState();
+
+      const signup = async () => {
+        try {
+          console.log('signup request');
+          const response = await axios.post('http://localhost:3000/signup', {
+          // const response = await axios.post('http://34.224.61.45:3000/signup', {
+            pseudo,
+            email,
+            password,
+            passwordConfirm,
+          });
+          const actionSaveUser = saveUser(response.data);
+          store.dispatch(actionSaveUser);
+        }
+        catch (error) {
+          // créer une fonction pour indiquer à l'utilisateur
+          // que le pseudo et ou le mail existe déjà dans la BDD
+          console.log(error);
+        }
+      };
+
+      if (password !== passwordConfirm) {
+        const actionShowPasswordWrong = showPasswordWrong();
+        store.dispatch(actionShowPasswordWrong);
+      }
+      else {
+        signup();
+      }
       break;
     }
     default:

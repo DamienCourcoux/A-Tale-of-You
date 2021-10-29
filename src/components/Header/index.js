@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { showSignin } from 'src/actions/user';
+import { showSignin, showSignup } from 'src/actions/user';
 
 import Logo from 'src/assets/logo.gif';
 import {
@@ -22,7 +22,7 @@ const Header = () => {
 
   const handleShowSignup = (event) => {
     event.preventDefault();
-    console.log('SHOW_SIGNUP');
+    dispatch(showSignup());
   };
 
   return (

@@ -1,7 +1,7 @@
 // == Import
 import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { hideSignin } from 'src/actions/user';
+import { hideSignin, hideSignup } from 'src/actions/user';
 
 import Header from 'src/components/Header';
 import Index from 'src/components/Index';
@@ -10,23 +10,26 @@ import Rules from 'src/components/Rules';
 import Profile from 'src/components/Profile';
 import About from 'src/components/About';
 import Signin from 'src/components/Signin';
+import Signup from 'src/components/Signup';
 
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
 
-  const { signinIsOpen } = useSelector((state) => ({
+  const { signinIsOpen, signupIsOpen } = useSelector((state) => ({
     signinIsOpen: state.user.signinIsOpen,
+    signupIsOpen: state.user.signupIsOpen,
   }));
 
   const handleHideModals = (event) => {
     if (event.target.className === 'signin') dispatch(hideSignin());
+    if (event.target.className === 'signup') dispatch(hideSignup());
   };
 
   return (
     <div
       className="app"
-      onClick={(event) => handleHideModals(event)}
+      onMouseDown={(event) => handleHideModals(event)}
     >
       <Header />
       <Switch>
@@ -54,6 +57,9 @@ const App = () => {
       </Switch>
       {signinIsOpen && (
         <Signin />
+      )}
+      {signupIsOpen && (
+        <Signup />
       )}
       <Footer />
     </div>
