@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { HANDLE_SIGNIN, saveUser, HANDLE_SIGNUP, showPasswordWrong } from 'src/actions/user';
+import {
+  HANDLE_SIGNIN,
+  saveUser,
+  HANDLE_SIGNUP,
+  showPasswordWrong,
+} from 'src/actions/user';
 
 const user = (store) => (next) => (action) => {
   switch (action.type) {
@@ -9,6 +14,7 @@ const user = (store) => (next) => (action) => {
       const signin = async () => {
         try {
           const response = await axios.post('http://localhost:3000/signin', {
+          // const response = await axios.post('http://34.224.61.45:3000/signin', {
             email,
             password,
           });
@@ -37,13 +43,15 @@ const user = (store) => (next) => (action) => {
       const signup = async () => {
         try {
           console.log('signup request');
-          // const response = await axios.post('http://localhost:3000/signup', {
-          //   pseudo,
-          //   email,
-          //   password,
-          // });
-          // const actionSaveUser = saveUser(response.data);
-          // store.dispatch(actionSaveUser);
+          const response = await axios.post('http://localhost:3000/signup', {
+          // const response = await axios.post('http://34.224.61.45:3000/signup', {
+            pseudo,
+            email,
+            password,
+            passwordConfirm,
+          });
+          const actionSaveUser = saveUser(response.data);
+          store.dispatch(actionSaveUser);
         }
         catch (error) {
           // créer une fonction pour indiquer à l'utilisateur
@@ -55,7 +63,8 @@ const user = (store) => (next) => (action) => {
       if (password !== passwordConfirm) {
         const actionShowPasswordWrong = showPasswordWrong();
         store.dispatch(actionShowPasswordWrong);
-      } else {
+      }
+      else {
         signup();
       }
       break;

@@ -41,6 +41,7 @@ const reducer = (state = initialState, action = {}) => {
       };
     case SAVE_USER: {
       console.log('SAVE_USER');
+      console.log(action.payload);
       return state;
       // return {
       //   ...state,
