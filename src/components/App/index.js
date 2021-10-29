@@ -1,6 +1,7 @@
 // == Import
 import { Switch, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { hideSignin } from 'src/actions/user';
 
 import Header from 'src/components/Header';
 import Index from 'src/components/Index';
@@ -12,12 +13,21 @@ import Signin from 'src/components/Signin';
 
 // == Composant
 const App = () => {
-  const { signinIsOpen } = useSelector(state => ({
-    signinIsOpen: state.user.signinIsOpen
+  const dispatch = useDispatch();
+
+  const { signinIsOpen } = useSelector((state) => ({
+    signinIsOpen: state.user.signinIsOpen,
   }));
 
+  const handleHideModals = (event) => {
+    if (event.target.className === 'signin') dispatch(hideSignin());
+  };
+
   return (
-    <div className="app">
+    <div
+      className="app"
+      onClick={(event) => handleHideModals(event)}
+    >
       <Header />
       <Switch>
         <Route exact path="/">

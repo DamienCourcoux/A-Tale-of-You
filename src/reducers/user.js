@@ -1,5 +1,10 @@
 // import { CHANGE_FIELD, SAVE_USER, LOGOUT } from 'src/actions/user';
-import { CHANGE_FIELD, SAVE_USER } from 'src/actions/user';
+import {
+  CHANGE_FIELD,
+  SHOW_SIGNIN,
+  HIDE_SIGNIN,
+  SAVE_USER,
+} from 'src/actions/user';
 
 export const initialState = {
   pseudo: '',
@@ -16,8 +21,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
+    case SHOW_SIGNIN:
+      return {
+        ...state,
+        signinIsOpen: true,
+      };
+    case HIDE_SIGNIN:
+      return {
+        ...state,
+        signinIsOpen: false,
+      };
     case SAVE_USER: {
-      console.log("SAVE_USER");
+      console.log('SAVE_USER');
       return state;
       // return {
       //   ...state,
