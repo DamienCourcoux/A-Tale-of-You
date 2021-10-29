@@ -1,5 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { changeField, handleLogin, hideSignin } from 'src/actions/user';
+import {
+  changeField,
+  handleSignin,
+  hideSignin,
+  showSignup,
+} from 'src/actions/user';
+
 import { FaTimes } from 'react-icons/fa';
 
 import './styles.scss';
@@ -17,7 +23,7 @@ const Signin = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(handleLogin());
+    dispatch(handleSignin());
   };
 
   const handleChangeField = (value, name) => {
@@ -32,7 +38,7 @@ const Signin = () => {
   const handleShowSignup = (event) => {
     event.preventDefault();
     dispatch(hideSignin());
-    console.log('SHOW_SIGNUP');
+    dispatch(showSignup());
   };
 
   return (
