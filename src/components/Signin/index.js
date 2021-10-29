@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { changeField, handleLogin } from 'src/actions/user';
+import { changeField, handleLogin, hideSignin } from 'src/actions/user';
 import { FaTimes } from 'react-icons/fa';
 
 import './styles.scss';
@@ -9,11 +9,11 @@ import Field from './Field';
 const Signin = () => {
   const dispatch = useDispatch();
 
-  const { email, password, signinIsOpen } = useSelector(state => ({
+  const { email, password } = useSelector((state) => ({
     email: state.user.email,
     password: state.user.password,
     signinIsOpen: state.user.signinIsOpen,
-  }))
+  }));
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -22,14 +22,25 @@ const Signin = () => {
 
   const handleChangeField = (value, name) => {
     dispatch(changeField(value, name));
-  }
+  };
+
+  const handleHideSignin = (event) => {
+    event.preventDefault();
+    dispatch(hideSignin());
+  };
+
+  const handleShowSignup = (event) => {
+    event.preventDefault();
+    dispatch(hideSignin());
+    console.log('SHOW_SIGNUP');
+  };
 
   return (
     <div className="signin">
       <div className="signin__content">
         <FaTimes
           className="signin__close"
-          onClick={() => console.log('test')}
+          onClick={(event) => handleHideSignin(event)}
         />
         <div className="signin__h1">Se connecter</div>
         <form className="signin__form" onSubmit={handleSubmit}>
@@ -48,7 +59,7 @@ const Signin = () => {
           />
           <a
             href="#"
-            onClick={(event) => event.preventDefault()}
+            onClick={(event) => handleShowSignup(event)}
             className="signin__a"
           >
             Pas de compte ? Inscris-toi !
@@ -63,6 +74,6 @@ const Signin = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Signin;
