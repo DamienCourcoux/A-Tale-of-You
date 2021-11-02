@@ -38,14 +38,14 @@
     overflow-y: auto;
 
     &__right {
-      display: grid;
-      grid-template-columns: calc(100px + 2rem) auto;
-      grid-template-rows: 1rem calc(100px + 2rem) auto;
-      grid-template-areas: 
-        "recommended recommended"
-        "fake_image description"
-        "button button";
-      align-items: center;
+      // display: grid;
+      // grid-template-columns: calc(100px + 2rem) auto;
+      // grid-template-rows: 1rem calc(100px + 2rem) auto;
+      // grid-template-areas: 
+      //   "recommended recommended"
+      //   "fake_image description"
+      //   "button button";
+      // align-items: center;
 
 
       &__recommended {
