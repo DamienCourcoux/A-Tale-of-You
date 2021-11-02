@@ -18,7 +18,7 @@ const Rules = () => (
             A Tale of You a pour but de s’inspirer de grands classiques des livres dont vous êtes le héros ainsi que des jeux de rôle pour proposer de prendre part à des aventures inédites à ses utilisateurs. A Tale of You possède ses propres mécaniques de jeu, notamment pour les combats.
           </div> */}
 
-          <div className="rules__h2">Caractéristiques des entités</div>
+          <h2>Caractéristiques des entités</h2>
 
           <p>
             Les entités possèdent toutes une caractéristique variable au cours de la partie : les points de vie. Cette caractéristique représente la force vitale. Lorsqu'elle tombe à 0, l'entité est vaincue.
@@ -47,9 +47,9 @@ const Rules = () => (
             Ces caractéristiques seront aussi très importantes lors des combats (cf plus bas).
           </p>
 
-          <div className="rules__h2">Classes jouables</div>
+          <h2>Classes jouables</h2>
 
-          <div className="rules__text">
+          <p>
             A ce stade, quatre classes sont jouables. La caractéristique primaire de la classe en question sera supérieure à la moyenne. La caractéristique primaire de chaque classe est :
             <ul>
               <li>Le guerrier : force</li>
@@ -57,54 +57,54 @@ const Rules = () => (
               <li>Le magicien : intelligence</li>
               <li>Le barde : charisme</li>
             </ul>
-          </div>
+          </p>
 
-          <div className="rules__h2">Les jets</div>
+          <h2>Les jets</h2>
 
-          <div className="rules__text">
+          <p>
             Un jet consiste à lancer un dé à 20 faces et y ajouter d'autres valeurs telles celle d'une caractéristique ou d'un bonus d'équipement. Trois types de jets peuvent avoir lieux au cours d'une partie :
             <ul>
               <li>Les jets d'action, lorsque le joueur doit effectuer un jet pour déterminer l'issue d'une action.</li>
               <li>Les jets d'attaque, en combat lorsque le joueur tente d'attaquer un ennemi.</li>
               <li>Les jets de parade, en combat lorsque le joueur tente de parer une attaque ennemie.</li>
             </ul>
-          </div>
+          </p>
 
-          <div className="rules__h2">Conditions de réussite d'un jet d'action</div>
+          <h2>Conditions de réussite d'un jet d'action</h2>
 
-          <div className="rules__text">
+          <p>
             Au cours de son aventure, le joueur pourrait être amené à effectuer un jet afin de déterminer l'issue d'une action. Cette action est appelée "jet d'action". Le joueur lance alors un dé à 20 faces et additionne le résultat du lancer à la caractéristique liée à l'action. Si le résultat est supérieur ou égale à une valeur (stockée sur nos serveurs), alors l'action est réussie!
-          </div>
+          </p>
 
-          <div className="rules__h2">Equipements</div>
+          <h2>Equipements</h2>
 
-          <div className="rules__text">
+          <p>
             Le personnage incarné par le héros commence son aventure avec des équipements ne procurant aucun effet particulier.
-          </div>
-          <div className="rules__text">
+          </p>
+          <p>
             Il sera amené au cours de ses péripéties à en trouver de plus performants. Les équipements procureront des bonus fixes aux jets effectués par le joueur.
-          </div>
-          <div className="rules__text">
+          </p>
+          <p>
             Il sera amené au cours de ses péripéties à en trouver de plus performants. Les équipements procureront des bonus fixes aux jets effectués par le joueur.
-          </div>
-          <div className="rules__text">
+          </p>
+          <p>
             Il existe trois types d'équipements :
             <ul>
               <li>Les armes : bonus aux jets d'attaque</li>
               <li>Les armures : bonus aux jets de défense</li>
               <li>Les accessoires : bonus aux jets d'action</li>
             </ul>
-          </div>
+          </p>
 
-          <div className="rules__h2">L'inventaire</div>
+          <h2>L'inventaire</h2>
 
-          <div className="rules__text">
+          <p>
             Au cours de l'aventure, le personnage sera amené à prendre possession d'objets tels que des clés, des parchemins ou encore des artefacts. Ces objets permettront au joueur d'avoir accès à de nouvelles actions à certains moments de l'aventure, ils sont donc très importants et peuvent même être indispensables à la réussite de l'aventure, alors ne les ratez pas!
-          </div>
+          </p>
 
-          <div className="rules__h2">Interface de jeu en dehors des combats</div>
+          <h2>Interface de jeu en dehors des combats</h2>
 
-          <div className="rules__text">
+          <p>
             Cette interface sera décomposée en 2 parties :
             <ul>
               <li>A gauche :
@@ -128,14 +128,14 @@ const Rules = () => (
                 </ul>
               </li>
             </ul>
-          </div>
+          </p>
 
-          <div className="rules__h2">Interface de jeu durant les combats</div>
+          <h2>Interface de jeu durant les combats</h2>
           {/* à compléter */}
         </div>
         </div>
         <div className="rules__page rules__page__right shadow">
-
+          
             
         </div>
       </div>
