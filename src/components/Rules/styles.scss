@@ -69,42 +69,16 @@
     padding: 2rem;
     overflow-y: auto;
 
-    &__right {
-      display: grid;
-      grid-template-columns: calc(100px + 2rem) auto;
-      grid-template-rows: 1rem calc(100px + 2rem) auto;
-      grid-template-areas: 
-        "recommended recommended"
-        "fake_image description"
-        "button button";
-      align-items: center;
-
-
-      &__recommended {
-        grid-area: recommended;
-      }
+    &__right__fake_image {  
     
-      &__fake_image {
-        grid-area: fake_image;
-    
-        background-color: white;
-        width: 100px;
-        height: 100px;
-        display: flex;
+        background-color: gray;
+        width: 100%;
+        height: 100%;
+        
         align-items: center;
         justify-content: center;
-        margin: 1rem;
-      }
+        
     
-      &__description {
-        grid-area: description;
-        height: auto;
-      }
-    
-      &__button {
-        grid-area: button;
-      }
-
     }
   }
 
@@ -133,6 +107,10 @@
     margin: .5rem 0;
   }
 
+  ul {
+    margin-left: 2rem;
+    list-style: square;
+  }
   
 }
 
