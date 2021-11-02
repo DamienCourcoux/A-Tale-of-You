@@ -7,6 +7,7 @@ import {
   SHOW_SIGNUP,
   HIDE_SIGNUP,
   SHOW_PASSWORD_WRONG,
+  LOGOUT,
 } from 'src/actions/user';
 
 export const initialState = {
@@ -40,16 +41,15 @@ const reducer = (state = initialState, action = {}) => {
         signinIsOpen: false,
       };
     case SAVE_USER: {
-      console.log('SAVE_USER');
       console.log(action.payload);
-      return state;
-      // return {
-      //   ...state,
-      //   // pseudo: action.payload.pseudo,
-      //   // logged: action.payload.logged,
-      //   // token: action.payload.token,
-      //   ...action.payload,
-      // };
+      return {
+        ...state,
+        isLogged: action.payload.isLogged,
+        userPseudo: action.payload.pseudo,
+        userMail: action.payload.email,
+        signinIsOpen: false,
+        signupIsOpen: false,
+      };
     }
     case SHOW_SIGNUP:
       return {
@@ -71,12 +71,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         passwordWrong: true,
       };
-    //   case LOGOUT:
-    //     // ici on vient réinitialiser notre state
-    //     // en partant des valeurs du state initial
-    //     return {
-    //       ...initialState,
-    //     };
+    case LOGOUT:
+      // ici on vient réinitialiser notre state
+      // en partant des valeurs du state initial
+      return {
+        ...initialState,
+      };
     default:
       return state;
   }

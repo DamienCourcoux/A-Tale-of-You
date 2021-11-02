@@ -7,6 +7,7 @@ export const SHOW_SIGNUP = 'SHOW_SIGNUP';
 export const HIDE_SIGNUP = 'HIDE_SIGNUP';
 export const HANDLE_SIGNUP = 'HANDLE_SIGNUP';
 export const SHOW_PASSWORD_WRONG = 'SHOW_PASSWORD_WRONG';
+export const LOGOUT = 'LOGOUT';
 
 export const changeField = (value, name) => ({
   type: CHANGE_FIELD,
@@ -45,4 +46,8 @@ export const handleSignup = () => ({
 
 export const showPasswordWrong = () => ({
   type: SHOW_PASSWORD_WRONG,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
 });

@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { showSignin, showSignup } from 'src/actions/user';
+import { useDispatch, useSelector } from 'react-redux';
+import { showSignin, showSignup, logout } from 'src/actions/user';
 
 import Logo from 'src/assets/logo.gif';
 import {
@@ -24,6 +24,16 @@ const Header = () => {
     event.preventDefault();
     dispatch(showSignup());
   };
+
+  const handleLogout = (event) => {
+    event.preventDefault();
+    dispatch(logout());
+  };
+
+  const { isLogged, userPseudo } = useSelector((state) => ({
+    isLogged: state.user.isLogged,
+    userPseudo: state.user.userPseudo,
+  }));
 
   return (
     <header className="header">
@@ -56,26 +66,42 @@ const Header = () => {
             </NavLink>
           </li>
         </ul>
-        <ul className="header__nav--settings">
-          <li>
-            <a
-              href="#"
-              onClick={(event) => handleShowSignin(event)}
-            >
+        {isLogged && (
+          <ul className="header__nav--settings">
+            <li>
               <FaUserAlt />
-              Se connecter
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              onClick={(event) => handleShowSignup(event)}
-            >
-              <FaUserPlus />
-              S'inscrire
-            </a>
-          </li>
-        </ul>
+              <p>Bonjour {userPseudo}</p>
+            </li>
+            <li>
+              <a href="#" onClick={(event) => handleShowSignup(event)}>
+                <FaUserPlus />
+                <p>profil</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" onClick={(event) => handleLogout(event)}>
+                <FaUserPlus />
+                <p>se déconnecter</p>
+              </a>
+            </li>
+          </ul>
+        )}
+        {!isLogged && (
+          <ul className="header__nav--settings">
+            <li>
+              <a href="#" onClick={(event) => handleShowSignin(event)}>
+                <FaUserAlt />
+                <p>se connecter</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" onClick={(event) => handleShowSignup(event)}>
+                <FaUserPlus />
+                <p>S'inscrire</p>
+              </a>
+            </li>
+          </ul>
+        )}
       </nav>
     </header>
   );
