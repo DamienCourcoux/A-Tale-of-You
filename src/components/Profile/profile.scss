@@ -93,7 +93,7 @@
           z-index: 2;
 
           li {
-            padding: 1rem;
+            padding: .5rem 1rem;
             border: 3px solid #000;
             cursor: pointer;
 
@@ -148,8 +148,8 @@
 
           &--title {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
 
             h2 {
               font-weight: bold;
@@ -160,8 +160,8 @@
 
           &--mail p {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             margin: 1rem 0;
 
             span {
@@ -171,11 +171,16 @@
 
           &--password {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
+            font-weight: bold;
+            position: relative;
 
             span {
-              font-weight: bold;
+              position: absolute;
+              top: 50%;
+              right: 5%;
+              cursor: pointer;
             }
           }
 

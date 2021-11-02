@@ -9,6 +9,8 @@ import {
   SHOW_PASSWORD_WRONG,
   MENU_DROPDOWN_IS_OPEN,
   EDIT_PROFIL,
+  SUBMIT_EDIT_SUCCESS,
+  VISIBILITY_PASSWORD,
 } from 'src/actions/user';
 
 export const initialState = {
@@ -22,6 +24,7 @@ export const initialState = {
   signupIsOpen: false,
   menuDropdownIsOpen: false,
   isEdit: false,
+  isVisibilyPassword: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -87,6 +90,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         menuDropdownIsOpen: false,
         isEdit: true,
+      };
+
+    case SUBMIT_EDIT_SUCCESS:
+      return {
+        ...state,
+        isEdit: false,
+      };
+
+    case VISIBILITY_PASSWORD:
+      return {
+        ...state,
+        isVisibilyPassword: !state.isVisibilyPassword,
       };
 
     //   case LOGOUT:

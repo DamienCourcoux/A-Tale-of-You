@@ -4,11 +4,13 @@ import {
   createMenuDropdownIsOpenAction,
   createEditProfilAction,
   changeField,
+  createSubmitEditFormAction,
+  createVisibilityPasswordAction,
 } from 'src/actions/user';
 
 import profileData from 'src/data/profile';
 
-import { FaEllipsisH } from 'react-icons/fa';
+import { FaEllipsisH, FaEye, FaEyeSlash } from 'react-icons/fa';
 import Schema from 'src/assets/schema.png';
 import Field from './Field';
 
@@ -21,6 +23,7 @@ const Profile = () => {
   const pseudo = useSelector((state) => state.user.pseudo);
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
+  const isVisibilyPassword = useSelector((state) => state.user.isVisibilyPassword);
 
   const dispatch = useDispatch();
 
@@ -36,9 +39,23 @@ const Profile = () => {
     dispatch(changeField(value, name));
   };
 
-  const handleSubmitEdit = (event) => {
+  const handleSubmitEditForm = (event) => {
     event.preventDefault();
-    console.log('submit');
+    dispatch(createSubmitEditFormAction());
+  };
+
+  const handleVisibilityPassword = () => {
+    // const inputPassword = document.querySelector('#field-password');
+    // const eye = document.querySelector('#visibilityPassword');
+    // if (inputPassword.type === 'password') {
+    //   inputPassword.type = 'text';
+    //   eye.innerText = <FaEyeSlash />;
+    // }
+    // else {
+    //   inputPassword.type = 'password';
+    //   eye.innerText = <FaEye />;
+    // }
+    dispatch(createVisibilityPasswordAction());
   };
 
   const handleDelete = () => {
@@ -73,7 +90,7 @@ const Profile = () => {
                 <img src={data.image} alt="Votre img de profil" />
               </div>
               <form
-                onSubmit={handleSubmitEdit}
+                onSubmit={handleSubmitEditForm}
                 className="profile__book--pageRight__myProfile--data"
               >
                 <div className="profile__book--pageRight__myProfile--data--title">
@@ -87,9 +104,12 @@ const Profile = () => {
                           className="field-input"
                           placeholder="Pseudo"
                           name="pseudo"
+                          minLength="3"
+                          pattern="[a-zA-Z0-9\s]+"
+                          title="Doit contenir un magnifique pseudo"
                         />
                       )
-                      : <h2>{data.pseudo}</h2>
+                      : <h2>{pseudo}</h2>
                   }
                 </div>
                 <div className="profile__book--pageRight__myProfile--data--mail">
@@ -103,25 +123,49 @@ const Profile = () => {
                           className="field-input"
                           placeholder="Email"
                           name="email"
+                          minLength="1"
+                          pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}"
+                          title="Doit contenir une adresse email valide"
                         />
                       )
-                      : <p><span>Mail:</span> {data.email}</p>
+                      : <p><span>Mail:</span> {email}</p>
                   }
                 </div>
                 <div className="profile__book--pageRight__myProfile--data--password">
                   {
                     isEdit
                       ? (
-                        <Field
-                          value={password}
-                          onChange={handleChangeField}
-                          type="password"
-                          className="field-input"
-                          placeholder="Mot de passe"
-                          name="password"
-                        />
+                        <>
+                          <Field
+                            value={password}
+                            onChange={handleChangeField}
+                            type={isVisibilyPassword ? 'text' : 'password'}
+                            className="field-input"
+                            placeholder="Mot de passe"
+                            name="password"
+                            minLength="7"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Doit contenir au moins un chiffre,
+                            une lettre majuscule ainsi qu'une minuscule,
+                            pour une taille de 7 caractères minimum"
+                          />
+                          <span id="visibilityPassword" onClick={handleVisibilityPassword}>
+                            {
+                              isVisibilyPassword
+                                ? <FaEyeSlash />
+                                : <FaEye />
+                            }
+                          </span>
+                        </>
                       )
-                      : <p><span>Mot de passe:</span> {data.password}</p>
+                      : (
+                        <>
+                          <p>Mot de passe:</p>
+                          {/* <input type="password" name="password"
+                          id="passwordProfile" value={password} readOnly /> */}
+                          **********
+                        </>
+                      )
                   }
                 </div>
                 {

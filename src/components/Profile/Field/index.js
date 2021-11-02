@@ -11,6 +11,9 @@ const Field = ({
   name,
   placeholder,
   onChange,
+  minLength,
+  pattern,
+  title,
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
@@ -31,6 +34,9 @@ const Field = ({
         className="field-input"
         placeholder={placeholder}
         name={name}
+        minLength={minLength}
+        pattern={pattern}
+        title={title}
       />
 
     </div>
@@ -43,11 +49,18 @@ Field.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  minLength: PropTypes.string,
+  pattern: PropTypes.string,
+  title: PropTypes.string,
 };
 
 // Valeurs par défaut pour les props
 Field.defaultProps = {
   type: 'text',
+  minLength: '',
+  // eslint-disable-next-line no-useless-escape
+  pattern: '',
+  title: '',
 };
 
 // == Export

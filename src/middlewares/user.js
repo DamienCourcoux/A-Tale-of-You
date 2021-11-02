@@ -4,6 +4,8 @@ import {
   saveUser,
   HANDLE_SIGNUP,
   showPasswordWrong,
+  SUBMIT_EDIT_FORM,
+  createSubmitEditSuccessAction,
 } from 'src/actions/user';
 
 // const urlServer = 'http://localhost:3000';
@@ -67,6 +69,34 @@ const user = (store) => (next) => (action) => {
       else {
         signup();
       }
+      break;
+    }
+
+    case SUBMIT_EDIT_FORM: {
+      const state = store.getState();
+
+      const config = {
+        method: 'patch',
+        url: 'http://3.80.80.108:3000/profil',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          id: 1,
+          pseudo: state.user.pseudo,
+          email: state.user.email,
+          password: state.user.password,
+        },
+      };
+
+      axios(config)
+        .then((response) => {
+          // console.log(response.data);
+          store.dispatch(createSubmitEditSuccessAction(response.data.pseudo, response.data.email));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       break;
     }
     default:

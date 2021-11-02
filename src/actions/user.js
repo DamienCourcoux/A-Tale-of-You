@@ -9,6 +9,9 @@ export const HANDLE_SIGNUP = 'HANDLE_SIGNUP';
 export const SHOW_PASSWORD_WRONG = 'SHOW_PASSWORD_WRONG';
 export const MENU_DROPDOWN_IS_OPEN = 'MENU_DROPDOWN_IS_OPEN';
 export const EDIT_PROFIL = 'EDIT_PROFIL';
+export const SUBMIT_EDIT_FORM = 'SUBMIT_EDIT_FORM';
+export const SUBMIT_EDIT_SUCCESS = 'SUBMIT_EDIT_SUCCESS';
+export const VISIBILITY_PASSWORD = 'VISIBILITY_PASSWORD';
 
 export const changeField = (value, name) => ({
   type: CHANGE_FIELD,
@@ -55,4 +58,18 @@ export const createMenuDropdownIsOpenAction = () => ({
 
 export const createEditProfilAction = () => ({
   type: EDIT_PROFIL,
+});
+
+export const createSubmitEditFormAction = () => ({
+  type: SUBMIT_EDIT_FORM,
+});
+
+export const createSubmitEditSuccessAction = (pseudo, email) => ({
+  type: SUBMIT_EDIT_SUCCESS,
+  pseudo,
+  email,
+});
+
+export const createVisibilityPasswordAction = () => ({
+  type: VISIBILITY_PASSWORD,
 });
