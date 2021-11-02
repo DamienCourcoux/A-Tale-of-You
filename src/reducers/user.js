@@ -7,6 +7,8 @@ import {
   SHOW_SIGNUP,
   HIDE_SIGNUP,
   SHOW_PASSWORD_WRONG,
+  SHOW_SELECT_CHARACTER,
+  HIDE_SELECT_CHARACTER,
 } from 'src/actions/user';
 
 export const initialState = {
@@ -18,6 +20,7 @@ export const initialState = {
   isLogged: false,
   signinIsOpen: false,
   signupIsOpen: false,
+  selectCharacterIsOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -71,6 +74,20 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         passwordWrong: true,
       };
+    case SHOW_SELECT_CHARACTER: {
+      console.log('SHOW_SELECT_CHARACTER');
+      return {
+        ...state,
+        selectCharacterIsOpen: true,
+      };
+    }
+    case HIDE_SELECT_CHARACTER: {
+      console.log('HIDE_SELECT_CHARACTER');
+      return {
+        ...state,
+        selectCharacterIsOpen: false,
+      };
+    }
     //   case LOGOUT:
     //     // ici on vient réinitialiser notre state
     //     // en partant des valeurs du state initial

@@ -1,11 +1,16 @@
 import { FaImages } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
 
 import './styles.scss';
 
+import { showSelectCharacter } from 'src/actions/user';
+
 // == Composant
 const Story = () => {
-  const handleSelectCharacter = () => {
-    console.log('SELECT_CHARACTER');
+  const dispatch = useDispatch();
+
+  const handleShowSelectCharacter = () => {
+    dispatch(showSelectCharacter());
   };
 
   return (
@@ -41,7 +46,7 @@ const Story = () => {
             <button
               className="story__page__right__button"
               type="button"
-              onClick={() => handleSelectCharacter()}
+              onClick={() => handleShowSelectCharacter()}
             >
               Jouer
             </button>
