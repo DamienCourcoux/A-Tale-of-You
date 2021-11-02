@@ -6,7 +6,7 @@ import {
   showPasswordWrong,
 } from 'src/actions/user';
 
-// const url_back = 'http://localhost:3000';
+// const urlServer = 'http://localhost:3000';
 const urlServer = 'http://3.80.80.108:3000';
 
 const user = (store) => (next) => (action) => {
@@ -16,7 +16,7 @@ const user = (store) => (next) => (action) => {
 
       const signin = async () => {
         try {
-          const response = await axios.post(`${urlServer}/signin'`, {
+          const response = await axios.post(`${urlServer}/signin`, {
             email,
             password,
           });
@@ -44,7 +44,7 @@ const user = (store) => (next) => (action) => {
 
       const signup = async () => {
         try {
-          const response = await axios.post(`${urlServer}/signup'`, {
+          const response = await axios.post(`${urlServer}/signup`, {
             pseudo,
             email,
             password,
