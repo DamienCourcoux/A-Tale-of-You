@@ -6,6 +6,9 @@ import {
   showPasswordWrong,
 } from 'src/actions/user';
 
+// const url_back = 'http://localhost:3000';
+const urlServer = 'http://3.80.80.108:3000';
+
 const user = (store) => (next) => (action) => {
   switch (action.type) {
     case HANDLE_SIGNIN: {
@@ -13,8 +16,7 @@ const user = (store) => (next) => (action) => {
 
       const signin = async () => {
         try {
-          const response = await axios.post('http://localhost:3000/signin', {
-          // const response = await axios.post('http://34.224.61.45:3000/signin', {
+          const response = await axios.post(`${urlServer}/signin'`, {
             email,
             password,
           });
@@ -42,9 +44,7 @@ const user = (store) => (next) => (action) => {
 
       const signup = async () => {
         try {
-          console.log('signup request');
-          const response = await axios.post('http://localhost:3000/signup', {
-          // const response = await axios.post('http://34.224.61.45:3000/signup', {
+          const response = await axios.post(`${urlServer}/signup'`, {
             pseudo,
             email,
             password,
