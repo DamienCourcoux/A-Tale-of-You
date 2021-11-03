@@ -8,6 +8,13 @@ import {
   HIDE_SIGNUP,
   SHOW_PASSWORD_WRONG,
   LOGOUT,
+  SHOW_SELECT_CHARACTER,
+  HIDE_SELECT_CHARACTER,
+  MENU_DROPDOWN_IS_OPEN,
+  EDIT_PROFIL,
+  SUBMIT_EDIT_SUCCESS,
+  VISIBILITY_PASSWORD,
+  DELETE_PROFIL_SUCCESS,
 } from 'src/actions/user';
 
 export const initialState = {
@@ -19,6 +26,10 @@ export const initialState = {
   isLogged: false,
   signinIsOpen: false,
   signupIsOpen: false,
+  selectCharacterIsOpen: false,
+  menuDropdownIsOpen: false,
+  isEdit: false,
+  isVisibilyPassword: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -71,12 +82,61 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         passwordWrong: true,
       };
+      
     case LOGOUT:
       // ici on vient réinitialiser notre state
       // en partant des valeurs du state initial
       return {
         ...initialState,
       };
+      
+    case SHOW_SELECT_CHARACTER: {
+      console.log('SHOW_SELECT_CHARACTER');
+      return {
+        ...state,
+        selectCharacterIsOpen: true,
+      };
+    }
+      
+    case HIDE_SELECT_CHARACTER: {
+      console.log('HIDE_SELECT_CHARACTER');
+      return {
+        ...state,
+        selectCharacterIsOpen: false,
+      };
+    }
+
+    case MENU_DROPDOWN_IS_OPEN:
+      return {
+        ...state,
+        menuDropdownIsOpen: !state.menuDropdownIsOpen,
+      };
+
+    case EDIT_PROFIL:
+      return {
+        ...state,
+        menuDropdownIsOpen: false,
+        isEdit: true,
+      };
+
+    case SUBMIT_EDIT_SUCCESS:
+      return {
+        ...state,
+        isEdit: false,
+      };
+
+    case VISIBILITY_PASSWORD:
+      return {
+        ...state,
+        isVisibilyPassword: !state.isVisibilyPassword,
+      };
+
+    case DELETE_PROFIL_SUCCESS:
+      return {
+        ...state,
+        isLogged: false,
+      };
+      
     default:
       return state;
   }

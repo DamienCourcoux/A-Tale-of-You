@@ -4,6 +4,10 @@ import {
   saveUser,
   HANDLE_SIGNUP,
   showPasswordWrong,
+  SUBMIT_EDIT_FORM,
+  createSubmitEditSuccessAction,
+  DELETE_PROFIL,
+  createDeleteProfilSuccessAction,
 } from 'src/actions/user';
 
 // const urlServer = 'http://localhost:3000';
@@ -69,6 +73,62 @@ const user = (store) => (next) => (action) => {
       }
       break;
     }
+
+    case SUBMIT_EDIT_FORM: {
+      const state = store.getState();
+
+      const config = {
+        method: 'patch',
+        url: 'http://3.80.80.108:3000/profil',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // TODO Une fois récupperer les vrai données, ne pas oublier de les changé
+        data: {
+          id: 1,
+          pseudo: state.user.pseudo,
+          email: state.user.email,
+          password: state.user.password,
+        },
+      };
+
+      axios(config)
+        .then((response) => {
+          store.dispatch(createSubmitEditSuccessAction(response.data.pseudo, response.data.email));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    }
+
+    case DELETE_PROFIL: {
+      const state = store.getState();
+
+      const config = {
+        method: 'delete',
+        url: 'http://3.80.80.108:3000/profil',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          id: 1,
+          pseudo: state.user.pseudo,
+          email: state.user.email,
+          password: state.user.password,
+        },
+      };
+
+      axios(config)
+        .then(() => {
+          store.dispatch(createDeleteProfilSuccessAction());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    }
+
     default:
       next(action);
   }

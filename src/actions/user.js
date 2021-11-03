@@ -8,6 +8,15 @@ export const HIDE_SIGNUP = 'HIDE_SIGNUP';
 export const HANDLE_SIGNUP = 'HANDLE_SIGNUP';
 export const SHOW_PASSWORD_WRONG = 'SHOW_PASSWORD_WRONG';
 export const LOGOUT = 'LOGOUT';
+export const SHOW_SELECT_CHARACTER = 'SHOW_SELECT_CHARACTER';
+export const HIDE_SELECT_CHARACTER = 'HIDE_SELECT_CHARACTER';
+export const MENU_DROPDOWN_IS_OPEN = 'MENU_DROPDOWN_IS_OPEN';
+export const EDIT_PROFIL = 'EDIT_PROFIL';
+export const SUBMIT_EDIT_FORM = 'SUBMIT_EDIT_FORM';
+export const SUBMIT_EDIT_SUCCESS = 'SUBMIT_EDIT_SUCCESS';
+export const VISIBILITY_PASSWORD = 'VISIBILITY_PASSWORD';
+export const DELETE_PROFIL = 'DELETE_PROFIL';
+export const DELETE_PROFIL_SUCCESS = 'DELETE_PROFIL_SUCCESS';
 
 export const changeField = (value, name) => ({
   type: CHANGE_FIELD,
@@ -50,4 +59,42 @@ export const showPasswordWrong = () => ({
 
 export const logout = () => ({
   type: LOGOUT,
+});
+
+export const showSelectCharacter = () => ({
+  type: SHOW_SELECT_CHARACTER,
+});
+
+export const hideSelectCharacter = () => ({
+  type: HIDE_SELECT_CHARACTER,
+});
+
+export const createMenuDropdownIsOpenAction = () => ({
+  type: MENU_DROPDOWN_IS_OPEN,
+});
+
+export const createEditProfilAction = () => ({
+  type: EDIT_PROFIL,
+});
+
+export const createSubmitEditFormAction = () => ({
+  type: SUBMIT_EDIT_FORM,
+});
+
+export const createSubmitEditSuccessAction = (pseudo, email) => ({
+  type: SUBMIT_EDIT_SUCCESS,
+  pseudo,
+  email,
+});
+
+export const createVisibilityPasswordAction = () => ({
+  type: VISIBILITY_PASSWORD,
+});
+
+export const createDeleteProfilAction = () => ({
+  type: DELETE_PROFIL,
+});
+
+export const createDeleteProfilSuccessAction = () => ({
+  type: DELETE_PROFIL_SUCCESS,
 });
