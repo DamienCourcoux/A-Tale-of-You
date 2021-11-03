@@ -44,33 +44,48 @@ const Ingame = () => {
             </button>
           </div>
           <div className="ingame__page ingame__page__right shadow">
-          <h1 className="ingame__page__right__title">Fiche Personnage</h1>
-          
+            <h1 className="ingame__page__right__title">Fiche Personnage</h1>
+
+            <div className="ingame__page__right__illustration ingame__page__fake_image ingame__page__fake_image--150">
+              <FaImages size={100} />
+            </div>
+
             <div className="ingame__page__right__stats">
 
-            <h2>Caractéristiques</h2>
-              <ul>
-              <li>Points de vie</li>
-              <li>Force</li>
-              <li>Dextérité</li>
-              <li>Intelligence</li>
-              <li>Charisme</li>
+              <h2 >Caractéristiques</h2>
+              <ul> 
+                <li>Points de vie</li>
+                <li>Force</li>
+                <li>Dextérité</li>
+                <li>Intelligence</li>
+                <li>Charisme</li>
               </ul>
             </div>
 
-
-            <div className="ingame__page__right__items"></div>
-              <h2>Equipements</h2>
-              <div className="ingame__page__right__fake_image">
-                <FaImages size={50} />
+            <h2 className="ingame__page__right__equipments">Equipements</h2>
+            <div className="ingame__page__right__weapon"> 
+              <div className="ingame__page__fake_image ingame__page__fake_image--50">
+                <FaImages size={40} />
               </div>
-              <div className="ingame__page__right__fake_image">
-                <FaImages size={50} />
-              </div>
-              <div className="ingame__page__right__fake_image">
-                <FaImages size={50} />
-              </div>
+              <p>+1</p>
             </div>
+            <div className="ingame__page__right__armor"> 
+            <div className="ingame__page__right__armor ingame__page__fake_image ingame__page__fake_image--50">
+              <FaImages size={40} />
+            </div>
+            <p>+5</p>
+            </div>
+            <div className="ingame__page__right__accessory"> 
+            <div className="ingame__page__right__accessory ingame__page__fake_image ingame__page__fake_image--50">
+              <FaImages size={40} />
+            </div>
+            <p></p>
+            </div>
+
+            <div className="ingame__page__right__inventory">
+              <h2>Inventaire</h2>
+            </div>
+          </div>
         </div>
       </div>
     </section>
