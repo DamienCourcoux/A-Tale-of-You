@@ -1,11 +1,14 @@
 // == Import
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import {
   createMenuDropdownIsOpenAction,
   createEditProfilAction,
   changeField,
   createSubmitEditFormAction,
   createVisibilityPasswordAction,
+  createDeleteProfilAction,
 } from 'src/actions/user';
 
 import profileData from 'src/data/profile';
@@ -29,6 +32,8 @@ const Profile = () => {
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
   const isVisibilyPassword = useSelector((state) => state.user.isVisibilyPassword);
+
+  const history = useHistory();
 
   const dispatch = useDispatch();
 
@@ -54,7 +59,8 @@ const Profile = () => {
   };
 
   const handleDelete = () => {
-    console.log('supprimer');
+    dispatch(createDeleteProfilAction());
+    history.replace('/');
   };
 
   return (
