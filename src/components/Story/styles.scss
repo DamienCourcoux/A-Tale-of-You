@@ -38,36 +38,12 @@
     overflow-y: auto;
 
     &__right {
-      // display: grid;
-      // grid-template-columns: calc(100px + 2rem) auto;
-      // grid-template-rows: 1rem calc(100px + 2rem) auto;
-      // grid-template-areas: 
-      //   "recommended recommended"
-      //   "fake_image description"
-      //   "button button";
-      // align-items: center;
-
-
-      &__recommended {
-        grid-area: recommended;
-      }
-    
-      &__fake_image {
-        grid-area: fake_image;
-    
-        background-color: white;
-        width: 100px;
-        height: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1rem;
-      }
-    
-      &__description {
-        grid-area: description;
-        height: auto;
-      }
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-template-areas: 
+        "button";
+      align-items: center;
     
       &__button {
         grid-area: button;

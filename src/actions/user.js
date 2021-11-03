@@ -7,6 +7,8 @@ export const SHOW_SIGNUP = 'SHOW_SIGNUP';
 export const HIDE_SIGNUP = 'HIDE_SIGNUP';
 export const HANDLE_SIGNUP = 'HANDLE_SIGNUP';
 export const SHOW_PASSWORD_WRONG = 'SHOW_PASSWORD_WRONG';
+export const SHOW_SELECT_CHARACTER = 'SHOW_SELECT_CHARACTER';
+export const HIDE_SELECT_CHARACTER = 'HIDE_SELECT_CHARACTER';
 export const MENU_DROPDOWN_IS_OPEN = 'MENU_DROPDOWN_IS_OPEN';
 export const EDIT_PROFIL = 'EDIT_PROFIL';
 export const SUBMIT_EDIT_FORM = 'SUBMIT_EDIT_FORM';
@@ -52,6 +54,14 @@ export const handleSignup = () => ({
 
 export const showPasswordWrong = () => ({
   type: SHOW_PASSWORD_WRONG,
+});
+
+export const showSelectCharacter = () => ({
+  type: SHOW_SELECT_CHARACTER,
+});
+
+export const hideSelectCharacter = () => ({
+  type: HIDE_SELECT_CHARACTER,
 });
 
 export const createMenuDropdownIsOpenAction = () => ({

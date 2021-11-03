@@ -7,6 +7,8 @@ import {
   SHOW_SIGNUP,
   HIDE_SIGNUP,
   SHOW_PASSWORD_WRONG,
+  SHOW_SELECT_CHARACTER,
+  HIDE_SELECT_CHARACTER,
   MENU_DROPDOWN_IS_OPEN,
   EDIT_PROFIL,
   SUBMIT_EDIT_SUCCESS,
@@ -23,6 +25,7 @@ export const initialState = {
   isLogged: false,
   signinIsOpen: false,
   signupIsOpen: false,
+  selectCharacterIsOpen: false,
   menuDropdownIsOpen: false,
   isEdit: false,
   isVisibilyPassword: false,
@@ -79,6 +82,22 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         passwordWrong: true,
       };
+      
+    case SHOW_SELECT_CHARACTER: {
+      console.log('SHOW_SELECT_CHARACTER');
+      return {
+        ...state,
+        selectCharacterIsOpen: true,
+      };
+    }
+      
+    case HIDE_SELECT_CHARACTER: {
+      console.log('HIDE_SELECT_CHARACTER');
+      return {
+        ...state,
+        selectCharacterIsOpen: false,
+      };
+    }
 
     case MENU_DROPDOWN_IS_OPEN:
       return {
