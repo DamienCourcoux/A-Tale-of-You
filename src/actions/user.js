@@ -7,6 +7,7 @@ export const SHOW_SIGNUP = 'SHOW_SIGNUP';
 export const HIDE_SIGNUP = 'HIDE_SIGNUP';
 export const HANDLE_SIGNUP = 'HANDLE_SIGNUP';
 export const SHOW_PASSWORD_WRONG = 'SHOW_PASSWORD_WRONG';
+export const LOGOUT = 'LOGOUT';
 export const SHOW_SELECT_CHARACTER = 'SHOW_SELECT_CHARACTER';
 export const HIDE_SELECT_CHARACTER = 'HIDE_SELECT_CHARACTER';
 export const MENU_DROPDOWN_IS_OPEN = 'MENU_DROPDOWN_IS_OPEN';
@@ -54,6 +55,10 @@ export const handleSignup = () => ({
 
 export const showPasswordWrong = () => ({
   type: SHOW_PASSWORD_WRONG,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
 });
 
 export const showSelectCharacter = () => ({
