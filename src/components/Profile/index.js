@@ -69,13 +69,13 @@ const Profile = () => {
         <div className="profile__border shadow">
           <div className="profile__pages shadow">
             <div className="profile__page  shadow">
-              <img src={Schema} alt="illustration" />
+              <img className="illustration" src={Schema} alt="illustration" />
               {/* <div className="profile__page__right__fake_image">
                 <FaImages size={400} />
               </div> */}
             </div>
             <div className="profile__page right shadow">
-              <div className="profile__page--title">
+              <div className="profile__page right--title">
                 <h1>Profil</h1>
                 <button
                   type="button"
@@ -83,21 +83,21 @@ const Profile = () => {
                 >
                   <FaEllipsisH />
                 </button>
-                <ul className={menuDropdownIsOpen ? 'profile__book--pageRight__title--menu' : 'profile__book--pageRight__title--menu menuDropdownIsOpen'}>
+                <ul className={menuDropdownIsOpen ? 'right--title--menu' : 'right--title--menu menuDropdownIsOpen'}>
                   <li onClick={handleEdit}>Modifier mon profil</li>
                   <li onClick={handleDelete}>Supprimer mon profil</li>
                 </ul>
               </div>
               <span className="hr"> </span>
-              <div className="profile__book--pageRight__myProfile">
-                <div className="profile__book--pageRight__myProfile--image">
+              <div className="right--myProfile">
+                <div className="right--myProfile--image">
                   <img src={data.image} alt="Votre img de profil" />
                 </div>
                 <form
                   onSubmit={handleSubmitEditForm}
-                  className="profile__book--pageRight__myProfile--data"
+                  className="right--myProfile--data"
                 >
-                  <div className="profile__book--pageRight__myProfile--data--title">
+                  <div className="right--myProfile--data--title">
                     {
                       isEdit
                         ? (
@@ -117,7 +117,7 @@ const Profile = () => {
                         : <h2>{pseudo}</h2>
                     }
                   </div>
-                  <div className="profile__book--pageRight__myProfile--data--mail">
+                  <div className="right--myProfile--data--mail">
                     {
                       isEdit
                         ? (
@@ -137,7 +137,7 @@ const Profile = () => {
                         : <p><span>Mail:</span> {email}</p>
                     }
                   </div>
-                  <div className="profile__book--pageRight__myProfile--data--password">
+                  <div className="right--myProfile--data--password">
                     {
                       isEdit
                         ? (
