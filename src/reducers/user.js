@@ -7,6 +7,10 @@ import {
   SHOW_SIGNUP,
   HIDE_SIGNUP,
   SHOW_PASSWORD_WRONG,
+  MENU_DROPDOWN_IS_OPEN,
+  EDIT_PROFIL,
+  SUBMIT_EDIT_SUCCESS,
+  VISIBILITY_PASSWORD,
 } from 'src/actions/user';
 
 export const initialState = {
@@ -18,6 +22,9 @@ export const initialState = {
   isLogged: false,
   signinIsOpen: false,
   signupIsOpen: false,
+  menuDropdownIsOpen: false,
+  isEdit: false,
+  isVisibilyPassword: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -71,6 +78,32 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         passwordWrong: true,
       };
+
+    case MENU_DROPDOWN_IS_OPEN:
+      return {
+        ...state,
+        menuDropdownIsOpen: !state.menuDropdownIsOpen,
+      };
+
+    case EDIT_PROFIL:
+      return {
+        ...state,
+        menuDropdownIsOpen: false,
+        isEdit: true,
+      };
+
+    case SUBMIT_EDIT_SUCCESS:
+      return {
+        ...state,
+        isEdit: false,
+      };
+
+    case VISIBILITY_PASSWORD:
+      return {
+        ...state,
+        isVisibilyPassword: !state.isVisibilyPassword,
+      };
+
     //   case LOGOUT:
     //     // ici on vient réinitialiser notre state
     //     // en partant des valeurs du state initial
