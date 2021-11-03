@@ -89,7 +89,7 @@ const Header = () => {
             <li>
               <a href="#" onClick={(event) => handleLogout(event)}>
                 <FaUserSlash />
-                <p>se déconnecter</p>
+                <p>Se déconnecter</p>
               </a>
             </li>
           </ul>
@@ -99,7 +99,7 @@ const Header = () => {
             <li>
               <a href="#" onClick={(event) => handleShowSignin(event)}>
                 <FaUserAlt />
-                <p>se connecter</p>
+                <p>Se connecter</p>
               </a>
             </li>
             <li>
