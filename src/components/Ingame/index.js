@@ -1,7 +1,6 @@
 import './ingame.scss';
 import { FaImages } from 'react-icons/fa';
 
-
 const Ingame = () => {
   const handleSelectChoice = () => {
     console.log('SELECT_Choice');
@@ -45,7 +44,7 @@ const Ingame = () => {
           </div>
           <div className="ingame__page ingame__page__right shadow">
             <h1 className="ingame__page__right__title">Fiche Personnage</h1>
-            {/* 
+            {/*
               character's statistics
               grid
               stats_illustration stats_title stats_title
