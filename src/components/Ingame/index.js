@@ -44,19 +44,19 @@ const Ingame = () => {
             </button>
           </div>
           <div className="ingame__page ingame__page__right shadow">
-            <h2 className="ingame__page__right__recommended">Fiche Personnage</h2>
-            <h2>Caractéristiques</h2>
-            <div className="ingame__page__right__fake_image">
-              <FaImages size={80} />
-            </div>
+          <h1 className="ingame__page__right__title">Fiche Personnage</h1>
+          
+            <div className="ingame__page__right__stats">
 
-            <ul className="ingame__page__right__stats">
+            <h2>Caractéristiques</h2>
+              <ul>
               <li>Points de vie</li>
               <li>Force</li>
               <li>Dextérité</li>
               <li>Intelligence</li>
               <li>Charisme</li>
-            </ul>
+              </ul>
+            </div>
 
 
             <div className="ingame__page__right__items"></div>
@@ -70,13 +70,7 @@ const Ingame = () => {
               <div className="ingame__page__right__fake_image">
                 <FaImages size={50} />
               </div>
-
-              <div className="ingame__page__right__inventory">
-              <h2>Inventaires</h2>
-
-              </div>
-
-          </div>
+            </div>
         </div>
       </div>
     </section>
