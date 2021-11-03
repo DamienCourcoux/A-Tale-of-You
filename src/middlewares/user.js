@@ -81,6 +81,7 @@ const user = (store) => (next) => (action) => {
         headers: {
           'Content-Type': 'application/json',
         },
+        // TODO Une fois récupperer les vrai données, ne pas oublier de les changé
         data: {
           id: 1,
           pseudo: state.user.pseudo,
@@ -91,7 +92,6 @@ const user = (store) => (next) => (action) => {
 
       axios(config)
         .then((response) => {
-          // console.log(response.data);
           store.dispatch(createSubmitEditSuccessAction(response.data.pseudo, response.data.email));
         })
         .catch((error) => {

@@ -10,7 +10,11 @@ import {
 
 import profileData from 'src/data/profile';
 
-import { FaEllipsisH, FaEye, FaEyeSlash } from 'react-icons/fa';
+import {
+  FaEllipsisH,
+  FaEye,
+  FaEyeSlash,
+} from 'react-icons/fa';
 import Schema from 'src/assets/schema.png';
 import Field from './Field';
 
@@ -20,6 +24,7 @@ import './profile.scss';
 const Profile = () => {
   const menuDropdownIsOpen = useSelector((state) => state.user.menuDropdownIsOpen);
   const isEdit = useSelector((state) => state.user.isEdit);
+  // TODO changer le pseudo, email, password pars ce de l'utilisateur une fois connecté
   const pseudo = useSelector((state) => state.user.pseudo);
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
@@ -45,16 +50,6 @@ const Profile = () => {
   };
 
   const handleVisibilityPassword = () => {
-    // const inputPassword = document.querySelector('#field-password');
-    // const eye = document.querySelector('#visibilityPassword');
-    // if (inputPassword.type === 'password') {
-    //   inputPassword.type = 'text';
-    //   eye.innerText = <FaEyeSlash />;
-    // }
-    // else {
-    //   inputPassword.type = 'password';
-    //   eye.innerText = <FaEye />;
-    // }
     dispatch(createVisibilityPasswordAction());
   };
 
@@ -109,6 +104,7 @@ const Profile = () => {
                           title="Doit contenir un magnifique pseudo"
                         />
                       )
+                    // TODO changer le pseudo pars celui de l'utilisateur une fois connecté
                       : <h2>{pseudo}</h2>
                   }
                 </div>
@@ -128,6 +124,7 @@ const Profile = () => {
                           title="Doit contenir une adresse email valide"
                         />
                       )
+                      // TODO changer l'email, pars celui de l'utilisateur une fois connecté
                       : <p><span>Mail:</span> {email}</p>
                   }
                 </div>
@@ -137,6 +134,7 @@ const Profile = () => {
                       ? (
                         <>
                           <Field
+                          // TODO changer le password pars celui de l'utilisateur une fois connecté
                             value={password}
                             onChange={handleChangeField}
                             type={isVisibilyPassword ? 'text' : 'password'}
