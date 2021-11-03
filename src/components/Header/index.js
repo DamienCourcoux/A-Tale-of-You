@@ -65,15 +65,17 @@ const Header = () => {
               title="Règles du jeu"
             >
               <FaScroll />
-              Règles du jeu
+              <p>Règles du jeu</p>
             </NavLink>
           </li>
         </ul>
         {isLogged && (
           <ul className="header__nav--settings">
             <li>
-              <FaUserAlt />
-              <p className="welcome-message">Bonjour {userPseudo}</p>
+              <a href="#">
+                <FaUserAlt />
+                <p className="welcome-message">Bonjour {userPseudo}</p>
+              </a>
             </li>
             <li>
               <NavLink
