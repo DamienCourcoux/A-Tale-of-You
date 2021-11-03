@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { showSignin, showSignup, logout } from 'src/actions/user';
 
@@ -14,6 +14,7 @@ import {
 import './header.scss';
 
 const Header = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const handleShowSignin = (event) => {
@@ -29,6 +30,7 @@ const Header = () => {
   const handleLogout = (event) => {
     event.preventDefault();
     dispatch(logout());
+    history.replace('/');
   };
 
   const { isLogged, userPseudo } = useSelector((state) => ({
