@@ -45,43 +45,67 @@ const Ingame = () => {
           </div>
           <div className="ingame__page ingame__page__right shadow">
             <h1 className="ingame__page__right__title">Fiche Personnage</h1>
-
-            <div className="ingame__page__right__illustration ingame__page__fake_image ingame__page__fake_image--150">
-              <FaImages size={100} />
-            </div>
-
+            {/* 
+              character's statistics
+              grid
+              stats_illustration stats_title stats_title
+              stats_illustration stats_name  stats_value
+             */}
             <div className="ingame__page__right__stats">
+              <div className="ingame__page__right__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
+                <FaImages size={100} />
+              </div>
 
-              <h2 >Caractéristiques</h2>
-              <ul> 
+              <h2 className="ingame__page__right__stats__title">Caractéristiques</h2>
+
+              <ul className="ingame__page__right__stats__name">
                 <li>Points de vie</li>
                 <li>Force</li>
                 <li>Dextérité</li>
                 <li>Intelligence</li>
                 <li>Charisme</li>
               </ul>
+
+              <ul className="ingame__page__right__stats__value">
+                <li>50</li>
+                <li>25</li>
+                <li>20</li>
+                <li>20</li>
+                <li>20</li>
+              </ul>
             </div>
 
-            <h2 className="ingame__page__right__equipments">Equipements</h2>
-            <div className="ingame__page__right__weapon"> 
-              <div className="ingame__page__fake_image ingame__page__fake_image--50">
-                <FaImages size={40} />
+            {/* character's equipments */}
+            <h2 className="ingame__page__right__equipments__title">Equipements</h2>
+
+            <div className="ingame__page__right__equipments">
+              <div className="ingame__page__right__equipments__item">
+                <div className="ingame__page__fake_image ingame__page__fake_image--50">
+                  <FaImages size={40} />
+                </div>
+                <div className="ingame__page__right__equipments__item__value">
+                  +1
+                </div>
               </div>
-              <p>+1</p>
-            </div>
-            <div className="ingame__page__right__armor"> 
-            <div className="ingame__page__right__armor ingame__page__fake_image ingame__page__fake_image--50">
-              <FaImages size={40} />
-            </div>
-            <p>+5</p>
-            </div>
-            <div className="ingame__page__right__accessory"> 
-            <div className="ingame__page__right__accessory ingame__page__fake_image ingame__page__fake_image--50">
-              <FaImages size={40} />
-            </div>
-            <p></p>
+              <div className="ingame__page__right__equipments__item">
+                <div className="ingame__page__fake_image ingame__page__fake_image--50">
+                  <FaImages size={40} />
+                </div>
+                <div className="ingame__page__right__equipments__item__value">
+                  +2
+                </div>
+              </div>
+              <div className="ingame__page__right__equipments__item">
+                <div className="ingame__page__fake_image ingame__page__fake_image--50">
+                  <FaImages size={40} />
+                </div>
+                <div className="ingame__page__right__equipments__item__value">
+                  +0
+                </div>
+              </div>
             </div>
 
+            {/* character's inventory */}
             <div className="ingame__page__right__inventory">
               <h2>Inventaire</h2>
             </div>
@@ -91,6 +115,5 @@ const Ingame = () => {
     </section>
   );
 };
-
 
 export default Ingame;

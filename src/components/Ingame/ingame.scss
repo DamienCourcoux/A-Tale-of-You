@@ -57,29 +57,57 @@
     &__right {
       height: 100%;
       width: 50%;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 2rem 10rem 2rem 6rem auto;
-      
-      grid-template-areas: 
-        "title title title title title"
-        "illustration stats stats stats stats"
-        "equipments equipments equipments equipments equipments"
-        "weapon armor armor accessory accessory"
-        "inventory inventory inventory inventory inventory";
-      justif-items: center;
-
 
       &__title {
-        // text-align: center;
-        grid-area: title;
-        margin-bottom: 4rem;
+        margin-bottom: 1rem;
       }
-    
-      &__illustration {
-        grid-area: illustration;
-    
+      
+      &__stats {
+        display: grid;
+        width: calc(150px + 8rem + 4rem);
+        margin: 0 auto;
+        grid-template-columns: 150px 8rem 4rem;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+          "stats_illustration stats_title stats_title"
+          "stats_illustration stats_name  stats_value";
+        margin-bottom: 1.5rem;
+
+          &__illustration {
+            grid-area: stats_illustration;
+          }
+
+          &__title {
+            grid-area: stats_title;
+            justify-self: start;
+            padding-left: 1rem;
+          }
+
+          &__name {
+            grid-area: stats_name;
+          }
+
+          &__value {
+            grid-area: stats_value;
+          }
       }
+
+      &__equipments {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        &__item {
+          margin: 1rem;
+          text-align: center;
+
+          &__value {
+            margin: .5rem;
+          }
+        }
+      } 
+
+    
     
       &__stats {
         grid-area: stats;
@@ -163,7 +191,7 @@
   ul {
     margin-top: 1rem;
     margin-left: 2rem;
-    list-style: square;
+    // list-style: square;
     
   }
   li {
