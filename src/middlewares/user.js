@@ -6,6 +6,7 @@ import {
   showPasswordWrong,
   SUBMIT_EDIT_FORM,
   createSubmitEditSuccessAction,
+  DELETE_PROFIL,
 } from 'src/actions/user';
 
 // const urlServer = 'http://localhost:3000';
@@ -99,6 +100,34 @@ const user = (store) => (next) => (action) => {
         });
       break;
     }
+
+    case DELETE_PROFIL: {
+      const state = store.getState();
+
+      const config = {
+        method: 'delete',
+        url: 'http://3.80.80.108:3000/profil',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          id: 1,
+          pseudo: state.user.pseudo,
+          email: state.user.email,
+          password: state.user.password,
+        },
+      };
+
+      axios(config)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    }
+
     default:
       next(action);
   }

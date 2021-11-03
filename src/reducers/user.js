@@ -11,6 +11,7 @@ import {
   EDIT_PROFIL,
   SUBMIT_EDIT_SUCCESS,
   VISIBILITY_PASSWORD,
+  DELETE_PROFIL_SUCCESS,
 } from 'src/actions/user';
 
 export const initialState = {
@@ -102,6 +103,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isVisibilyPassword: !state.isVisibilyPassword,
+      };
+
+    case DELETE_PROFIL_SUCCESS:
+      return {
+        ...state,
+        isLogged: false,
       };
 
     //   case LOGOUT:
