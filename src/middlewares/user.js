@@ -7,6 +7,7 @@ import {
   SUBMIT_EDIT_FORM,
   createSubmitEditSuccessAction,
   DELETE_PROFIL,
+  createDeleteProfilSuccessAction,
 } from 'src/actions/user';
 
 // const urlServer = 'http://localhost:3000';
@@ -119,8 +120,8 @@ const user = (store) => (next) => (action) => {
       };
 
       axios(config)
-        .then((response) => {
-          console.log(response.data);
+        .then(() => {
+          store.dispatch(createDeleteProfilSuccessAction());
         })
         .catch((error) => {
           console.log(error);
