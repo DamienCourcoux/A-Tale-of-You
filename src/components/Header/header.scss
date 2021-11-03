@@ -5,24 +5,23 @@
 
   &__nav {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    padding: 0 2rem 1rem 2rem;
+    justify-content: space-between;
+    
+    // * {
+    //   white-space: nowrap;
+    // }
 
     &--games {
       display: flex;
-      align-items: flex-end;
 
       li {
-        margin: .5rem 1rem;
-
-        &:first-child {
-          margin: 0rem 1rem;
-        }
+        align-self: flex-end;
+        margin: 0rem 1rem;
 
         a {
-          display: flex;
           color: vars.$darkColor;
+          display: flex;
+          align-items: flex-end;
 
           &:hover {
             text-decoration: underline;
@@ -30,10 +29,12 @@
 
           img {
             width: 150px;
+            margin-left: 2rem;
           }
 
           svg {
             margin-right: .5rem;
+            width: 2rem;
           }
         }
       }
@@ -41,7 +42,7 @@
 
     &--settings {
       display: flex;
-      align-items: flex-end;
+      padding: 0rem 1.5rem;
 
       .welcome-message {
         font-size: 1.2rem;
@@ -49,16 +50,13 @@
       }
 
       li {
-        margin: .5rem 1rem;
-        display: flex;
-
-        p {
-          margin-left: 0.5rem;
-        }
+        margin: 0rem 1rem;
+        align-self: flex-end;
 
         a {
-          display: flex;
           color: vars.$darkColor;
+          display: flex;
+          align-items: flex-end;
 
           &:hover {
             text-decoration: underline;
@@ -66,6 +64,7 @@
 
           svg {
             margin-right: .5rem;
+            width: 2rem;
           }
         }
       }

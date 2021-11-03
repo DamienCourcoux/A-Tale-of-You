@@ -1,4 +1,3 @@
-// import { CHANGE_FIELD, SAVE_USER, LOGOUT } from 'src/actions/user';
 import {
   CHANGE_FIELD,
   SHOW_SIGNIN,
