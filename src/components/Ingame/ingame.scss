@@ -1,0 +1,147 @@
+@use 'src/styles/vars';
+
+.shadow {
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+}
+
+.ingame {
+  background: vars.$background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+  overflow: hidden;
+
+  &__border {
+    background: vars.$book;
+    border-radius: 7px;
+    max-width: calc(100% - 2rem);
+    height: 100%;
+    width: 80%;
+  }
+
+  &__pages {
+    margin: 1rem;
+    background: vars.$bookPage;
+    height: calc(100% - 2rem);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__page {
+    width: calc(50% - 1rem);
+    background: vars.$bookPage;
+    padding: 2rem;
+    overflow-y: auto;
+  
+
+
+    &__right {
+      height: 100%;
+      width: 50%;
+      // display: grid;
+      // grid-template-columns: calc(100px + 2rem) auto;
+      // grid-template-rows: 1rem calc(100px + 2rem) auto;
+      // grid-template-areas: 
+      //   "recommended recommended"
+      //   "fake_image description"
+      //   "button button";
+      // align-items: center;
+
+
+      &__recommended {
+        text-align: center;
+        grid-area: recommended;
+        margin-bottom: 2rem;
+      }
+    
+
+    
+      &__stats {
+        grid-area: description;
+        height: auto;
+        width: auto;
+        text-align: left;
+      }
+
+      &__fake_image {
+        grid-area: fake_image;
+        width: 50%;
+        float: left;
+        background-color: white;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+        margin-right: 2rem;
+      }
+
+      &__items {
+        text-align: center;
+        grid-area: recommended;
+        margin-bottom: 2rem;
+      }
+    
+
+
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .hr {
+    height: 1px;
+    width: 50%;
+    background-image: linear-gradient(to right, vars.$bookPage, vars.$darkColor, vars.$bookPage);
+    margin: 1.5rem auto;
+  }
+
+  p {
+    text-align: justify;
+    margin: .5rem 0;
+  }
+
+
+  ul {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    list-style: square;
+    
+  }
+  li {
+    margin-top: 0.5rem;
+  }
+
+  button {
+    background: blue;
+    color: white;
+    border: 3px solid #000;
+    padding: .5rem 1rem;
+    display: block;
+    text-align: center;
+    width: 90%;
+    height: 3rem;
+    margin: 0 auto;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+
+  }
+}
+

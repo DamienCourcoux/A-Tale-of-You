@@ -12,6 +12,7 @@ import Profile from 'src/components/Profile';
 import About from 'src/components/About';
 import Signin from 'src/components/Signin';
 import Signup from 'src/components/Signup';
+import Ingame from 'src/components/Ingame';
 
 // == Composant
 const App = () => {
@@ -47,7 +48,7 @@ const App = () => {
           <About />
         </Route>
         <Route exact path="/jouer">
-          Jouer
+          <Ingame />
         </Route>
         <Route exact path="/profil">
           <Profile />
