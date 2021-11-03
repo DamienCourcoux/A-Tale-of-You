@@ -8,6 +8,7 @@ import {
   FaScroll,
   FaUserAlt,
   FaUserPlus,
+  FaUserSlash,
 } from 'react-icons/fa';
 
 import './header.scss';
@@ -70,17 +71,20 @@ const Header = () => {
           <ul className="header__nav--settings">
             <li>
               <FaUserAlt />
-              <p>Bonjour {userPseudo}</p>
+              <p className="welcome-message">Bonjour {userPseudo}</p>
             </li>
             <li>
-              <a href="#" onClick={(event) => handleShowSignup(event)}>
-                <FaUserPlus />
-                <p>profil</p>
-              </a>
+              <NavLink
+                to="/profil"
+                title="Profil"
+              >
+                <FaBook />
+                Profil
+              </NavLink>
             </li>
             <li>
               <a href="#" onClick={(event) => handleLogout(event)}>
-                <FaUserPlus />
+                <FaUserSlash />
                 <p>se déconnecter</p>
               </a>
             </li>
