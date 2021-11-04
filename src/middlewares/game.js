@@ -1,6 +1,10 @@
+// import axios from 'axios';
+
 import {
   LOAD_STORY,
   saveStory,
+  REQUEST_PARAGRAPH,
+  /* saveParagraph, */
 } from 'src/actions/game';
 
 // temporaire, à la place importer axios
@@ -25,6 +29,22 @@ const game = (store) => (next) => (action) => {
         }
       };
       serverRequest();
+      break;
+    }
+    case REQUEST_PARAGRAPH: {
+      const id = action.choice;
+
+      console.log('Request paragraph: ', id);
+
+      // axios.get(`http://3.80.80.108:3000/paragraph/${id}`)
+      //   .then((response) => {
+      //     // aller dans le reducer pour l'action success
+      //     store.dispatch(saveParagraph(response.data));
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+      next(action);
       break;
     }
     default:
