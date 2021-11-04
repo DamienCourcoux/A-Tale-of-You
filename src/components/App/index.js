@@ -14,6 +14,7 @@ import Signin from 'src/components/Signin';
 import Signup from 'src/components/Signup';
 import SelectCharacter from 'src/components/SelectCharacter';
 import Ingame from 'src/components/Ingame';
+import Error404 from 'src/components/Error404';
 
 // == Composant
 const App = () => {
@@ -67,7 +68,7 @@ const App = () => {
           )
         }
         <Route>
-          error404
+          <Error404 />
         </Route>
       </Switch>
       {signinIsOpen && (
