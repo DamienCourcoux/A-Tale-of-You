@@ -1,10 +1,17 @@
+import { useSelector } from 'react-redux';
 import './ingame.scss';
+import { GiBroadsword, GiShoulderArmor, GiPearlNecklace } from 'react-icons/gi';
 import { FaImages } from 'react-icons/fa';
 
 const Ingame = () => {
   const handleSelectChoice = () => {
     console.log('SELECT_Choice');
   };
+
+  const { characterMaxHp, characterCurrentHp } = useSelector((state) => ({
+    characterMaxHp: state.game.characterMaxHp,
+    characterCurrentHp: state.game.characterCurrentHp,
+  }));
 
   return (
     <section className="ingame">
@@ -44,7 +51,7 @@ const Ingame = () => {
           </div>
           <div className="ingame__page ingame__page__right shadow">
             <h1 className="ingame__page__right__title">Fiche Personnage</h1>
- 
+
             <div className="ingame__page__right__stats">
               <div className="ingame__page__right__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
                 <FaImages size={100} />
@@ -61,7 +68,7 @@ const Ingame = () => {
               </ul>
 
               <ul className="ingame__page__right__stats__value">
-                <li>50</li>
+                <li>{characterCurrentHp}/{characterMaxHp}</li>
                 <li>25</li>
                 <li>20</li>
                 <li>20</li>
@@ -75,7 +82,7 @@ const Ingame = () => {
             <div className="ingame__page__right__equipments">
               <div className="ingame__page__right__equipments__item">
                 <div className="ingame__page__fake_image ingame__page__fake_image--50">
-                  <FaImages size={40} />
+                  <GiBroadsword size={40} />
                 </div>
                 <div className="ingame__page__right__equipments__item__value">
                   +1
@@ -83,7 +90,7 @@ const Ingame = () => {
               </div>
               <div className="ingame__page__right__equipments__item">
                 <div className="ingame__page__fake_image ingame__page__fake_image--50">
-                  <FaImages size={40} />
+                  <GiShoulderArmor size={40} />
                 </div>
                 <div className="ingame__page__right__equipments__item__value">
                   +2
@@ -91,7 +98,7 @@ const Ingame = () => {
               </div>
               <div className="ingame__page__right__equipments__item">
                 <div className="ingame__page__fake_image ingame__page__fake_image--50">
-                  <FaImages size={40} />
+                  <GiPearlNecklace size={40} />
                 </div>
                 <div className="ingame__page__right__equipments__item__value">
                   +0
@@ -103,14 +110,13 @@ const Ingame = () => {
             <div className="ingame__page__right__inventory">
               <h2>Inventaire</h2>
               <div className="ingame__page__right__inventory__scroller">
-              <ul>
-                <li>clé squellette </li>
-                <li>clé squellette </li>
-                <li>clé squellette </li>
-                <li>clé squellette </li>
-              </ul>
-              
-              </div> 
+                <ul>
+                  <li>clé squellette </li>
+                  <li>clé squellette </li>
+                  <li>clé squellette </li>
+                  <li>clé squellette </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
