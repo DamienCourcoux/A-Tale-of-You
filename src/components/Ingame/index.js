@@ -44,12 +44,7 @@ const Ingame = () => {
           </div>
           <div className="ingame__page ingame__page__right shadow">
             <h1 className="ingame__page__right__title">Fiche Personnage</h1>
-            {/*
-              character's statistics
-              grid
-              stats_illustration stats_title stats_title
-              stats_illustration stats_name  stats_value
-             */}
+ 
             <div className="ingame__page__right__stats">
               <div className="ingame__page__right__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
                 <FaImages size={100} />
@@ -107,6 +102,15 @@ const Ingame = () => {
             {/* character's inventory */}
             <div className="ingame__page__right__inventory">
               <h2>Inventaire</h2>
+              <div className="ingame__page__right__inventory__scroller">
+              <ul>
+                <li>clé squellette </li>
+                <li>clé squellette </li>
+                <li>clé squellette </li>
+                <li>clé squellette </li>
+              </ul>
+              
+              </div> 
             </div>
           </div>
         </div>

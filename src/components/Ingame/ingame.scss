@@ -111,9 +111,6 @@
     
       &__stats {
         grid-area: stats;
-        // height: auto;
-        // width: auto;
-        // text-align: left;
         justify-self: start;
       }
 
@@ -135,29 +132,28 @@
 
 
 
-      // &__items {
-      //   // text-align: center;
-      //   grid-area: items;
-      //   // margin-bottom: 2rem;
-      // }
+
     
       &__inventory {
-        // text-align: center;
-        grid-area: inventory;
-        // margin-bottom: 2rem;
+        height: calc(100% - 22rem);
+        min-height: 8rem;
+
+
+        &__scroller {
+          margin-top: 2rem;
+          justify-content: center;
+          border: solid 2px black;
+          height: calc(100% - 3rem);
+          width: 100%;
+          
+          overflow-y: scroll;
+          scrollbar-color: rebeccapurple green;
+          scrollbar-width: thin;
+        }
+
       }
 
-      &__fake_image {
-        grid-area: fake_image;
-    
-        background-color: white;
-        width: 100px;
-        height: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 1rem;
-      }
+
 
 
     }
@@ -191,7 +187,7 @@
   ul {
     margin-top: 1rem;
     margin-left: 2rem;
-    // list-style: square;
+
     
   }
   li {
