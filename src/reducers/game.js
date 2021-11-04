@@ -19,7 +19,7 @@ export const initialState = {
   weaponBonus: '+0',
   armorName: 'cape en coton',
   armorBonus: '+0',
-  accessoryName: '',
+  accessoryName: 'bijoux de famille',
   accessoryBonus: '+0',
   inventoryName: [
     'clé',

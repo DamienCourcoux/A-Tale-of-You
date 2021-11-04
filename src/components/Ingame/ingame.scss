@@ -43,6 +43,7 @@
       align-items: center;
       justify-content: center;
 
+
       &--150 {
         width: 150px;
         height: 150px;
@@ -193,6 +194,11 @@
   li {
     margin-top: 0.5rem;
   }
+
+  img {
+    width: 6rem;
+  }
+
 
   button {
     background: blue;
