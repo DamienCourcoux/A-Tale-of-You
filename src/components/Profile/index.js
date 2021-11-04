@@ -11,8 +11,6 @@ import {
   createDeleteProfilAction,
 } from 'src/actions/user';
 
-import profileData from 'src/data/profile';
-
 import {
   FaEllipsisH,
   FaEye,
@@ -27,11 +25,11 @@ import './profile.scss';
 const Profile = () => {
   const menuDropdownIsOpen = useSelector((state) => state.user.menuDropdownIsOpen);
   const isEdit = useSelector((state) => state.user.isEdit);
-  // TODO changer le pseudo, email, password pars ce de l'utilisateur une fois connecté
-  const pseudo = useSelector((state) => state.user.pseudo);
-  const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
   const isVisibilyPassword = useSelector((state) => state.user.isVisibilyPassword);
+  const userPseudo = useSelector((state) => state.user.userPseudo);
+  const userMail = useSelector((state) => state.user.userMail);
+  const userAvatar = useSelector((state) => state.user.userAvatar);
 
   const history = useHistory();
 
@@ -64,86 +62,79 @@ const Profile = () => {
   };
 
   return (
-    profileData.map((data) => (
-      <section key={data.id} className="profile">
-        <div className="profile__border shadow">
-          <div className="profile__pages shadow">
-            <div className="profile__page  shadow">
-              <img className="illustration" src={Schema} alt="illustration" />
-              {/* <div className="profile__page__right__fake_image">
-                <FaImages size={400} />
-              </div> */}
+    <section className="profile">
+      <div className="profile__border shadow">
+        <div className="profile__pages shadow">
+          <div className="profile__page  shadow">
+            <img className="illustration" src={Schema} alt="illustration" />
+          </div>
+          <div className="profile__page right shadow">
+            <div className="profile__page right--title">
+              <h1>Profil</h1>
+              <button
+                type="button"
+                onClick={handleMenuDropdown}
+              >
+                <FaEllipsisH />
+              </button>
+              <ul className={menuDropdownIsOpen ? 'right--title--menu' : 'right--title--menu menuDropdownIsOpen'}>
+                <li onClick={handleEdit}>Modifier mon profil</li>
+                <li onClick={handleDelete}>Supprimer mon profil</li>
+              </ul>
             </div>
-            <div className="profile__page right shadow">
-              <div className="profile__page right--title">
-                <h1>Profil</h1>
-                <button
-                  type="button"
-                  onClick={handleMenuDropdown}
-                >
-                  <FaEllipsisH />
-                </button>
-                <ul className={menuDropdownIsOpen ? 'right--title--menu' : 'right--title--menu menuDropdownIsOpen'}>
-                  <li onClick={handleEdit}>Modifier mon profil</li>
-                  <li onClick={handleDelete}>Supprimer mon profil</li>
-                </ul>
+            <span className="hr"> </span>
+            <div className="right--myProfile">
+              <div className="right--myProfile--image">
+                <img src={userAvatar} alt="Votre img de profil" />
               </div>
-              <span className="hr"> </span>
-              <div className="right--myProfile">
-                <div className="right--myProfile--image">
-                  <img src={data.image} alt="Votre img de profil" />
-                </div>
-                <form
-                  onSubmit={handleSubmitEditForm}
-                  className="right--myProfile--data"
-                >
-                  <div className="right--myProfile--data--title">
-                    {
+              <form
+                onSubmit={handleSubmitEditForm}
+                className="right--myProfile--data"
+              >
+                <div className="right--myProfile--data--title">
+                  {
                       isEdit
                         ? (
                           <Field
-                            value={pseudo}
+                            value={userPseudo}
                             onChange={handleChangeField}
                             type="text"
                             className="field-input"
                             placeholder="Pseudo"
-                            name="pseudo"
+                            name="userPseudo"
                             minLength="3"
                             pattern="[a-zA-Z0-9\s]+"
                             title="Doit contenir un magnifique pseudo"
                           />
                         )
-                      // TODO changer le pseudo pars celui de l'utilisateur une fois connecté
-                        : <h2>{pseudo}</h2>
+                        : <h2>{userPseudo}</h2>
                     }
-                  </div>
-                  <div className="right--myProfile--data--mail">
-                    {
+                </div>
+                <div className="right--myProfile--data--mail">
+                  {
                       isEdit
                         ? (
                           <Field
-                            value={email}
+                            value={userMail}
                             onChange={handleChangeField}
                             type="email"
                             className="field-input"
                             placeholder="Email"
-                            name="email"
+                            name="userMail"
                             minLength="1"
                             pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}"
                             title="Doit contenir une adresse email valide"
                           />
                         )
-                        // TODO changer l'email, pars celui de l'utilisateur une fois connecté
-                        : <p><span>Mail:</span> {email}</p>
+                        : <p><span>Mail:</span> {userMail}</p>
                     }
-                  </div>
-                  <div className="right--myProfile--data--password">
-                    {
+                </div>
+                <div className="right--myProfile--data--password">
+                  {
                       isEdit
                         ? (
                           <>
                             <Field
-                          // TODO changer le password pars celui de l'utilisateur une fois connecté
                               value={password}
                               onChange={handleChangeField}
                               type={isVisibilyPassword ? 'text' : 'password'}
@@ -168,27 +159,23 @@ const Profile = () => {
                         : (
                           <>
                             <p>Mot de passe:</p>
-                            {/* <input type="password" name="password"
-                            id="passwordProfile" value={password} readOnly /> */}
                             **********
                           </>
                         )
                     }
-                  </div>
-                  {
+                </div>
+                {
                     isEdit
                       ? <button type="submit">Valider</button>
                       : ''
                   }
-                </form>
-              </div>
-              <span className="hr"> </span>
+              </form>
             </div>
+            <span className="hr"> </span>
           </div>
         </div>
-      </section>
-      //---------------------------------------
-    ))
+      </div>
+    </section>
   );
 };
 
