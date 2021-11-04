@@ -1,17 +1,42 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import {
+  requestParagraph,
+} from 'src/actions/game';
+
+import parse from 'html-react-parser';
+
 import './ingame.scss';
 import { GiBroadsword, GiShoulderArmor, GiPearlNecklace } from 'react-icons/gi';
 import { FaImages } from 'react-icons/fa';
 
 const Ingame = () => {
-  const handleSelectChoice = () => {
-    console.log('SELECT_Choice');
-  };
-
-  const { characterMaxHp, characterCurrentHp } = useSelector((state) => ({
+  const {
+    paragraphDescription,
+    paragraphOption1Id,
+    paragraphOption1Text,
+    paragraphOption2Id,
+    paragraphOption2Text,
+    paragraphRollsId,
+    paragraphRollsText,
+    characterMaxHp,
+    characterCurrentHp,
+  } = useSelector((state) => ({
+    paragraphDescription: state.game.paragraphDescription,
+    paragraphOption1Id: state.game.paragraphOption1Id,
+    paragraphOption1Text: state.game.paragraphOption1Text,
+    paragraphOption2Id: state.game.paragraphOption2Id,
+    paragraphOption2Text: state.game.paragraphOption2Text,
+    paragraphRollsId: state.game.paragraphRollsId,
     characterMaxHp: state.game.characterMaxHp,
     characterCurrentHp: state.game.characterCurrentHp,
   }));
+
+  const dispatch = useDispatch();
+
+  const handleSelectChoice = (choice) => {
+    dispatch(requestParagraph(choice));
+  };
 
   return (
     <section className="ingame">
@@ -21,35 +46,43 @@ const Ingame = () => {
             <div className="ingame__page--history">
               <h1>Le Chevalier Noir</h1>
               <div className="hr" />
-              <p>
-                Il y a bien longtemps, un petit mais puissant royaume humanoïde existait
-                là où maintenant se trouve une étendue sauvage. Des guerriers gobelours
-                et ogres firent une brutale guerre d’expansion, gagnant en renommée et
-                amassant une considérable fortune de leurs prédations. Ceux qui
-                mourraient au combat étaient enterrés dans de larges complexes
-                tombaux creusés aux flancs des collines, et honorés par leur peuple
-                comme des exemples à suivre. Parmi ces tombes ce trouvait le large
-                pic connu sous le nom de Haute-Tour. Bien qu’il ne s’agissait ni
-                de la plus grande ni du plus connue des tombes du royaume,
-                Haute-Tour représente un exemple type de ces structures
-              </p>
-              <div className="hr" />
+              {parse(paragraphDescription)}
             </div>
             <div className="ingame_page--options">
-              <button
-                className="ingame__page__button"
-                type="button"
-                onClick={() => handleSelectChoice()}
-              >
-                Fuir
-              </button>
-              <button
-                className="ingame__page__button"
-                type="button"
-                onClick={() => handleSelectChoice()}
-              >
-                Discuter
-              </button>
+              <div className="hr" />
+              {
+                paragraphOption1Id && (
+                  <button
+                    className="ingame__page__button"
+                    type="button"
+                    onClick={() => handleSelectChoice(paragraphOption1Id)}
+                  >
+                    {paragraphOption1Text}
+                  </button>
+                )
+              }
+              {
+                paragraphOption2Id && (
+                  <button
+                    className="ingame__page__button"
+                    type="button"
+                    onClick={() => handleSelectChoice(paragraphOption2Id)}
+                  >
+                    {paragraphOption2Text}
+                  </button>
+                )
+              }
+              {
+                paragraphRollsId && (
+                  <button
+                    className="ingame__page__button"
+                    type="button"
+                    onClick={() => handleSelectChoice(paragraphRollsId)}
+                  >
+                    {paragraphRollsText}
+                  </button>
+                )
+              }
             </div>
           </div>
           <div className="ingame__page ingame__page__right shadow">
