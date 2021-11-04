@@ -29,6 +29,10 @@ export const initialState = {
   menuDropdownIsOpen: false,
   isEdit: false,
   isVisibilyPassword: false,
+  userPseudo: '',
+  userMail: '',
+  userId: null,
+  userAvatar: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -51,12 +55,14 @@ const reducer = (state = initialState, action = {}) => {
         signinIsOpen: false,
       };
     case SAVE_USER: {
-      console.log(action.payload);
+      console.log('payload', action.payload);
       return {
         ...state,
         isLogged: action.payload.isLogged,
         userPseudo: action.payload.pseudo,
         userMail: action.payload.email,
+        userId: action.payload.id,
+        userAvatar: action.payload.avatar,
         signinIsOpen: false,
         signupIsOpen: false,
       };
@@ -81,14 +87,14 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         passwordWrong: true,
       };
-      
+
     case LOGOUT:
       // ici on vient réinitialiser notre state
       // en partant des valeurs du state initial
       return {
         ...initialState,
       };
-      
+
     case SHOW_SELECT_CHARACTER: {
       console.log('SHOW_SELECT_CHARACTER');
       return {
@@ -96,7 +102,7 @@ const reducer = (state = initialState, action = {}) => {
         selectCharacterIsOpen: true,
       };
     }
-      
+
     case HIDE_SELECT_CHARACTER: {
       console.log('HIDE_SELECT_CHARACTER');
       return {
@@ -134,8 +140,9 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: false,
+        menuDropdownIsOpen: false,
       };
-      
+
     default:
       return state;
   }

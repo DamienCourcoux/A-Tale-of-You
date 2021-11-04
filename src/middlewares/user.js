@@ -79,19 +79,17 @@ const user = (store) => (next) => (action) => {
 
       const config = {
         method: 'patch',
-        url: 'http://3.80.80.108:3000/profil',
+        url: 'http://3.80.80.108:3000/profile',
         headers: {
           'Content-Type': 'application/json',
         },
-        // TODO Une fois récupperer les vrai données, ne pas oublier de les changé
         data: {
-          id: 1,
-          pseudo: state.user.pseudo,
-          email: state.user.email,
+          id: state.user.userId,
+          pseudo: state.user.userPseudo,
+          email: state.user.userMail,
           password: state.user.password,
         },
       };
-
       axios(config)
         .then((response) => {
           store.dispatch(createSubmitEditSuccessAction(response.data.pseudo, response.data.email));
@@ -107,14 +105,14 @@ const user = (store) => (next) => (action) => {
 
       const config = {
         method: 'delete',
-        url: 'http://3.80.80.108:3000/profil',
+        url: 'http://3.80.80.108:3000/profile',
         headers: {
           'Content-Type': 'application/json',
         },
         data: {
-          id: 1,
-          pseudo: state.user.pseudo,
-          email: state.user.email,
+          id: state.user.userId,
+          pseudo: state.user.userPseudo,
+          email: state.user.userMail,
           password: state.user.password,
         },
       };

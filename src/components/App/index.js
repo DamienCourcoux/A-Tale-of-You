@@ -23,10 +23,12 @@ const App = () => {
     signinIsOpen,
     signupIsOpen,
     selectCharacterIsOpen,
+    isLogged,
   } = useSelector((state) => ({
     signinIsOpen: state.user.signinIsOpen,
     signupIsOpen: state.user.signupIsOpen,
     selectCharacterIsOpen: state.user.selectCharacterIsOpen,
+    isLogged: state.user.isLogged,
   }));
 
   const handleHideModals = (event) => {
@@ -57,9 +59,13 @@ const App = () => {
         <Route exact path="/jouer">
           <Ingame />
         </Route>
-        <Route exact path="/profil">
-          <Profile />
-        </Route>
+        {
+          isLogged && (
+          <Route exact path="/profil">
+            <Profile />
+          </Route>
+          )
+        }
         <Route>
           error404
         </Route>
