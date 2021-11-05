@@ -1,6 +1,8 @@
 import {
   SAVE_STORY,
   SAVE_PARAGRAPH,
+  SHOW_DICE_ROLLER,
+  HIDE_DICE_ROLLER,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -23,8 +25,8 @@ export const initialState = {
   paragraphOption1Text: 'Ouvrir la porte de droite',
   paragraphOption2Id: 7,
   paragraphOption2Text: 'Avancer',
-  paragraphRollsId: null,
-  paragraphRollsText: '',
+  paragraphRollsId: 42,
+  paragraphRollsText: 'Faire un lancer de dé',
   // Data for /jouer - right page
   characterName: 'guerrier',
   characterPicture: 'https://cdn.pixabay.com/photo/2016/03/31/23/05/armor-1297380_960_720.png',
@@ -46,6 +48,7 @@ export const initialState = {
     'émeraude',
     'oeil de cyclope',
   ],
+  diceRollerIsOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -69,6 +72,18 @@ const reducer = (state = initialState, action = {}) => {
         paragraphOption2Text: action.payload.option_2,
         paragraphRollsId: action.payload.paragraphRollsId,
         paragraphRollsText: action.payload.paragraphRollsText,
+      };
+    }
+    case SHOW_DICE_ROLLER: {
+      return {
+        ...state,
+        diceRollerIsOpen: true,
+      };
+    }
+    case HIDE_DICE_ROLLER: {
+      return {
+        ...state,
+        diceRollerIsOpen: false,
       };
     }
     default:
