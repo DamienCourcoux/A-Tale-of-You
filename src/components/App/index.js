@@ -1,7 +1,14 @@
 // == Import
 import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { hideSignin, hideSignup, hideSelectCharacter } from 'src/actions/user';
+import {
+  hideSignin,
+  hideSignup,
+  hideSelectCharacter,
+} from 'src/actions/user';
+import {
+  hideDiceRoller,
+} from 'src/actions/game';
 
 import Header from 'src/components/Header';
 import Index from 'src/components/Index';
@@ -15,6 +22,7 @@ import Signup from 'src/components/Signup';
 import SelectCharacter from 'src/components/SelectCharacter';
 import Ingame from 'src/components/Ingame';
 import Error404 from 'src/components/Error404';
+import DiceRoller from 'src/components/DiceRoller';
 
 // == Composant
 const App = () => {
@@ -25,17 +33,20 @@ const App = () => {
     signupIsOpen,
     selectCharacterIsOpen,
     isLogged,
+    diceRollerIsOpen,
   } = useSelector((state) => ({
     signinIsOpen: state.user.signinIsOpen,
     signupIsOpen: state.user.signupIsOpen,
     selectCharacterIsOpen: state.user.selectCharacterIsOpen,
     isLogged: state.user.isLogged,
+    diceRollerIsOpen: state.game.diceRollerIsOpen,
   }));
 
   const handleHideModals = (event) => {
     if (event.target.className === 'signin') dispatch(hideSignin());
     if (event.target.className === 'signup') dispatch(hideSignup());
     if (event.target.className === 'select_character') dispatch(hideSelectCharacter());
+    if (event.target.className === 'diceRoller') dispatch(hideDiceRoller());
   };
 
   return (
@@ -80,6 +91,11 @@ const App = () => {
       {selectCharacterIsOpen && (
         <SelectCharacter />
       )}
+      {
+        diceRollerIsOpen && (
+          <DiceRoller />
+        )
+      }
       <Footer />
     </div>
   );

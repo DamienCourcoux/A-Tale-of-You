@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import {
   requestParagraph,
+  showDiceRoller,
 } from 'src/actions/game';
 
 import parse from 'html-react-parser';
@@ -43,6 +44,7 @@ const Ingame = () => {
     paragraphOption2Id: state.game.paragraphOption2Id,
     paragraphOption2Text: state.game.paragraphOption2Text,
     paragraphRollsId: state.game.paragraphRollsId,
+    paragraphRollsText: state.game.paragraphRollsText,
     characterMaxHp: state.game.characterMaxHp,
     characterCurrentHp: state.game.characterCurrentHp,
     characterStrength: state.game.characterStrength,
@@ -74,6 +76,10 @@ const Ingame = () => {
       {item}
     </li>
   ));
+
+  const handleShowDiceRoller = () => {
+    dispatch(showDiceRoller());
+  };
 
   return (
     <section className="ingame">
@@ -114,7 +120,7 @@ const Ingame = () => {
                   <button
                     className="ingame__page__button"
                     type="button"
-                    onClick={() => handleSelectChoice(paragraphRollsId)}
+                    onClick={handleShowDiceRoller}
                   >
                     {paragraphRollsText}
                   </button>
