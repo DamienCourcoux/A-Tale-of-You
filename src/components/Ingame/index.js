@@ -7,14 +7,15 @@ import {
 
 import parse from 'html-react-parser';
 
-import './ingame.scss';
-import { GiBroadsword, GiShoulderArmor, GiPearlNecklace } from 'react-icons/gi';
-import { FaImages } from 'react-icons/fa';
+import {
+  GiBroadsword,
+  GiShoulderArmor,
+  GiPearlNecklace,
+} from 'react-icons/gi';
 
+import './ingame.scss';
 
 const Ingame = () => {
- 
-
   const {
     paragraphDescription,
     paragraphOption1Id,
@@ -25,7 +26,8 @@ const Ingame = () => {
     paragraphRollsText,
     characterMaxHp,
     characterCurrentHp,
-    characterStrength,characterDexterity,
+    characterStrength,
+    characterDexterity,
     characterIntelligence,
     characterCharism,
     weaponName,
@@ -48,34 +50,25 @@ const Ingame = () => {
     characterMaxHp: state.game.characterMaxHp,
     characterCurrentHp: state.game.characterCurrentHp,
     characterStrength: state.game.characterStrength,
-    characterDexterity:state.game.characterDexterity,
-    characterIntelligence:state.game.characterIntelligence,
-    characterCharism:state.game.characterCharism,
-    weaponName:state.game.weaponName,
-    weaponBonus:state.game.weaponBonus,
-    armorName:state.game.armorName,
-    armorBonus:state.game.armorBonus,
-    accessoryName:state.game.accessoryName,
-    accessoryBonus:state.game.accessoryBonus,
-    characterPicture:state.game.characterPicture,
-    inventoryName:state.game.inventoryName,
-    characterPrimaryCharacteristic:state.game.characterPrimaryCharacteristic,
-
+    characterDexterity: state.game.characterDexterity,
+    characterIntelligence: state.game.characterIntelligence,
+    characterCharism: state.game.characterCharism,
+    weaponName: state.game.weaponName,
+    weaponBonus: state.game.weaponBonus,
+    armorName: state.game.armorName,
+    armorBonus: state.game.armorBonus,
+    accessoryName: state.game.accessoryName,
+    accessoryBonus: state.game.accessoryBonus,
+    characterPicture: state.game.characterPicture,
+    inventoryName: state.game.inventoryName,
+    characterPrimaryCharacteristic: state.game.characterPrimaryCharacteristic,
   }));
-  
+
   const dispatch = useDispatch();
 
   const handleSelectChoice = (choice) => {
     dispatch(requestParagraph(choice));
   };
-    
-   const jsxItems = inventoryName.map((item, index) => (
-    <li 
-      key={index+1}
-    >
-      {item}
-    </li>
-  ));
 
   const handleShowDiceRoller = () => {
     dispatch(showDiceRoller());
@@ -133,46 +126,46 @@ const Ingame = () => {
 
             <div className="ingame__page__right__stats">
               <div className="ingame__page__right__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
-                <img className="fit-picture" src={characterPicture}></img>
+                <img className="fit-picture" src={characterPicture} alt="img de votre personnage" />
               </div>
 
               <h2 className="ingame__page__right__stats__title">Caractéristiques</h2>
 
               <ul className="ingame__page__right__stats__name">
                 <li>Points de vie</li>
-                <li 
+                <li
                   className={
                     characterPrimaryCharacteristic === 'strength'
                       ? 'bold'
                       : ''
-                  } 
+                  }
                 >
                   Force
-                </li> 
+                </li>
                 <li
                   className={
                     characterPrimaryCharacteristic === 'dexterity'
-                        ? 'bold'
-                        : ''
-                  } 
+                      ? 'bold'
+                      : ''
+                  }
                 >
                   Dextérité
                 </li>
                 <li
                   className={
                     characterPrimaryCharacteristic === 'intelligence'
-                        ? 'bold'
-                        : ''
-                  } 
+                      ? 'bold'
+                      : ''
+                  }
                 >
                   Intelligence
                 </li>
                 <li
                   className={
                     characterPrimaryCharacteristic === 'charism'
-                        ? 'bold'
-                        : ''
-                  } 
+                      ? 'bold'
+                      : ''
+                  }
                 >
                   Charisme
                 </li>
@@ -221,7 +214,18 @@ const Ingame = () => {
             <div className="ingame__page__right__inventory">
               <h2>Inventaire</h2>
               <div className="ingame__page__right__inventory__scroller">
-                <ul>{jsxItems}</ul>
+                <ul>
+                  {
+                    inventoryName.map((item) => (
+                      <li
+                        key={item}
+                        className="itemInventory"
+                      >
+                        {item}
+                      </li>
+                    ))
+                  }
+                </ul>
               </div>
             </div>
           </div>
@@ -230,7 +234,5 @@ const Ingame = () => {
     </section>
   );
 };
-
-
 
 export default Ingame;
