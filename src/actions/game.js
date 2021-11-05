@@ -7,10 +7,10 @@ export const loadStory = () => ({
   type: LOAD_STORY,
 });
 
-export const saveStory = (payload) => ({
+export const saveStory = (story, characters) => ({
   type: SAVE_STORY,
-  story: payload[0],
-  characters: payload[1],
+  story,
+  characters,
 });
 
 export const requestParagraph = (choice) => ({

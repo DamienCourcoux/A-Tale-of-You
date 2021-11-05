@@ -53,8 +53,9 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_STORY: {
       return {
         ...state,
-        storyTitle: action.story.name,
+        storyTitle: action.story.stories_name,
         storyDescription: action.story.description,
+        classlist: action.characters,
       };
     }
     case SAVE_PARAGRAPH: {
