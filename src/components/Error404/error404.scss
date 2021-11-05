@@ -6,7 +6,7 @@
   -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
 }
 
-.index {
+.error404 {
   background: vars.$background;
   display: flex;
   justify-content: center;
@@ -28,7 +28,7 @@
     height: calc(100% - 2rem);
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: left;
   }
 
   &__page {
@@ -56,25 +56,25 @@
 
     &::before {
       content: "";
-      background: #2d1709;
-      width: 60px;
-      height: 111%;
-      position: absolute;
-      top: -60px;
-      left: -60px;
-    }
-
-    &::after {
-      content: "";
       background: vars.$bookPage;
       width: 15px;
       height: 100%;
       position: absolute;
       top: 0;
-      right: -15px;
+      left: -15px;
       box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
       -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
       -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+    }
+
+    &::after {
+      content: "";
+      background: #2d1709;
+      width: 60px;
+      height: 111%;
+      position: absolute;
+      top: -60px;
+      right: -60px;
     }
   }
 
@@ -108,4 +108,6 @@
     font-style: italic;
   }
 
+  
+  
 }

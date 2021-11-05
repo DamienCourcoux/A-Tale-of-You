@@ -54,6 +54,7 @@ const Header = () => {
             <NavLink
               to="/histoire"
               title="Jouer"
+              activeClassName="is-active"
             >
               <FaBook />
               Jouer
@@ -63,6 +64,7 @@ const Header = () => {
             <NavLink
               to="/regles"
               title="Règles du jeu"
+              activeClassName="is-active"
             >
               <FaScroll />
               <p>Règles du jeu</p>
@@ -72,15 +74,13 @@ const Header = () => {
         {isLogged && (
           <ul className="header__nav--settings">
             <li>
-              <a href="#">
-                <FaUserAlt />
-                <p className="welcome-message">Bonjour {userPseudo}</p>
-              </a>
+              <p className="welcome-message"><FaUserAlt /> Bonjour {userPseudo}</p>
             </li>
             <li>
               <NavLink
                 to="/profil"
                 title="Profil"
+                activeClassName="is-active"
               >
                 <FaBook />
                 Profil

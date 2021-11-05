@@ -36,6 +36,9 @@
     background: vars.$bookPage;
     padding: 2rem;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &__fake_image {
       background-color: white;
@@ -108,8 +111,6 @@
         }
       } 
 
-    
-    
       &__stats {
         grid-area: stats;
         justify-self: start;
@@ -131,14 +132,9 @@
         grid-area: accessory;
       }
 
-
-
-
-    
       &__inventory {
         height: calc(100% - 22rem);
         min-height: 8rem;
-
 
         &__scroller {
           margin-top: 2rem;
@@ -151,12 +147,7 @@
           scrollbar-color: rebeccapurple green;
           scrollbar-width: thin;
         }
-
       }
-
-
-
-
     }
   }
 
@@ -184,12 +175,9 @@
     margin: .5rem 0;
   }
 
-
   ul {
     margin-top: 1rem;
     margin-left: 2rem;
-
-    
   }
 
   li {
@@ -206,15 +194,17 @@
 
 
   button {
-    background: blue;
-    color: white;
-    border: 3px solid #000;
+    background: vars.$lightColor;
+    color: vars.$darkColor;
+    border: 3px solid vars.$darkColor;
     padding: .5rem 1rem;
     display: block;
     text-align: center;
     width: 90%;
     height: 3rem;
-    margin: 0 auto;
+    margin: .5rem auto;
+    font-weight: bold;
+    font-size: 1rem;
 
     &:hover {
       transform: scale(0.9);

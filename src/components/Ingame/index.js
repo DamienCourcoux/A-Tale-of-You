@@ -1,4 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import {
+  requestParagraph,
+} from 'src/actions/game';
+
+import parse from 'html-react-parser';
+
 import './ingame.scss';
 import { GiBroadsword, GiShoulderArmor, GiPearlNecklace } from 'react-icons/gi';
 import { FaImages } from 'react-icons/fa';
@@ -9,8 +16,37 @@ const Ingame = () => {
     console.log('SELECT_Choice');
   };
 
-  const { characterMaxHp, characterCurrentHp, characterStrength,characterDexterity, characterIntelligence, characterCharism, weaponName,
-  weaponBonus, armorName, armorBonus, accessoryName, accessoryBonus, characterPicture, inventoryName, characterPrimaryCharacteristic} = useSelector((state) => ({
+  const {
+    paragraphDescription,
+    paragraphOption1Id,
+    paragraphOption1Text,
+    paragraphOption2Id,
+    paragraphOption2Text,
+    paragraphRollsId,
+    paragraphRollsText,
+    characterMaxHp,
+    characterCurrentHp,
+    characterMaxHp,
+    characterCurrentHp,
+    characterStrength,characterDexterity,
+    characterIntelligence,
+    characterCharism,
+    weaponName,
+    weaponBonus,
+    armorName,
+    armorBonus,
+    accessoryName,
+    accessoryBonus,
+    characterPicture,
+    inventoryName,
+    characterPrimaryCharacteristic,
+  } = useSelector((state) => ({
+    paragraphDescription: state.game.paragraphDescription,
+    paragraphOption1Id: state.game.paragraphOption1Id,
+    paragraphOption1Text: state.game.paragraphOption1Text,
+    paragraphOption2Id: state.game.paragraphOption2Id,
+    paragraphOption2Text: state.game.paragraphOption2Text,
+    paragraphRollsId: state.game.paragraphRollsId,
     characterMaxHp: state.game.characterMaxHp,
     characterCurrentHp: state.game.characterCurrentHp,
     characterStrength: state.game.characterStrength,
@@ -28,66 +64,73 @@ const Ingame = () => {
     characterPrimaryCharacteristic:state.game.characterPrimaryCharacteristic,
 
   }));
+  
+  const dispatch = useDispatch();
 
-
-
-  const jsxItems = inventoryName.map((item, index) => (
+  const handleSelectChoice = (choice) => {
+    dispatch(requestParagraph(choice));
+  };
+    
+   const jsxItems = inventoryName.map((item, index) => (
     <li 
       key={index+1}
     >
       {item}
     </li>
   ));
-  
-
-
-    
- 
-  
-
 
   return (
     <section className="ingame">
       <div className="ingame__border shadow">
         <div className="ingame__pages shadow">
           <div className="ingame__page shadow">
-            <h1>Le Chevalier Noir</h1>
-            <div className="hr" />
-            <p>
-              Il y a bien longtemps, un petit mais puissant royaume humanoïde existait
-              là où maintenant se trouve une étendue sauvage. Des guerriers gobelours
-              et ogres firent une brutale guerre d’expansion, gagnant en renommée et
-              amassant une considérable fortune de leurs prédations. Ceux qui
-              mourraient au combat étaient enterrés dans de larges complexes
-              tombaux creusés aux flancs des collines, et honorés par leur peuple
-              comme des exemples à suivre. Parmi ces tombes ce trouvait le large
-              pic connu sous le nom de Haute-Tour. Bien qu’il ne s’agissait ni
-              de la plus grande ni du plus connue des tombes du royaume,
-              Haute-Tour représente un exemple type de ces structures
-            </p>
-            <div className="hr" />
-            <button
-              className="ingame__page__button"
-              type="button"
-              onClick={() => handleSelectChoice()}
-            >
-              Fuir
-            </button>
-            <div className="hr" />
-            <button
-              className="ingame__page__button"
-              type="button"
-              onClick={() => handleSelectChoice()}
-            >
-              Discuter
-            </button>
+            <div className="ingame__page--history">
+              <h1>Le Chevalier Noir</h1>
+              <div className="hr" />
+              {parse(paragraphDescription)}
+            </div>
+            <div className="ingame_page--options">
+              <div className="hr" />
+              {
+                paragraphOption1Id && (
+                  <button
+                    className="ingame__page__button"
+                    type="button"
+                    onClick={() => handleSelectChoice(paragraphOption1Id)}
+                  >
+                    {paragraphOption1Text}
+                  </button>
+                )
+              }
+              {
+                paragraphOption2Id && (
+                  <button
+                    className="ingame__page__button"
+                    type="button"
+                    onClick={() => handleSelectChoice(paragraphOption2Id)}
+                  >
+                    {paragraphOption2Text}
+                  </button>
+                )
+              }
+              {
+                paragraphRollsId && (
+                  <button
+                    className="ingame__page__button"
+                    type="button"
+                    onClick={() => handleSelectChoice(paragraphRollsId)}
+                  >
+                    {paragraphRollsText}
+                  </button>
+                )
+              }
+            </div>
           </div>
           <div className="ingame__page ingame__page__right shadow">
             <h1 className="ingame__page__right__title">Fiche Personnage</h1>
 
             <div className="ingame__page__right__stats">
               <div className="ingame__page__right__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
-                {/* <FaImages size={100} /> */}
                 <img className="fit-picture" src={characterPicture}></img>
               </div>
 
@@ -102,32 +145,35 @@ const Ingame = () => {
                       : ''
                   } 
                 >
-                Force
+                  Force
                 </li> 
-
-                <li className={
-                      characterPrimaryCharacteristic === 'dexterity'
-                          ? 'bold'
-                          : ''
+                <li
+                  className={
+                    characterPrimaryCharacteristic === 'dexterity'
+                        ? 'bold'
+                        : ''
                   } 
                 >
-                Dextérité
+                  Dextérité
                 </li>
-                <li className={
-                      characterPrimaryCharacteristic === 'intelligence'
-                          ? 'bold'
-                          : ''
+                <li
+                  className={
+                    characterPrimaryCharacteristic === 'intelligence'
+                        ? 'bold'
+                        : ''
                   } 
                 >
-                Intelligence
-                  </li>
-                <li className={
-                      characterPrimaryCharacteristic === 'charism'
-                          ? 'bold'
-                          : ''
+                  Intelligence
+                </li>
+                <li
+                  className={
+                    characterPrimaryCharacteristic === 'charism'
+                        ? 'bold'
+                        : ''
                   } 
                 >
-                Charisme</li>
+                  Charisme
+                </li>
               </ul>
 
               <ul className="ingame__page__right__stats__value">
