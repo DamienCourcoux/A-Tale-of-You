@@ -12,9 +12,7 @@ import { FaImages } from 'react-icons/fa';
 
 
 const Ingame = () => {
-  const handleSelectChoice = () => {
-    console.log('SELECT_Choice');
-  };
+ 
 
   const {
     paragraphDescription,
@@ -24,8 +22,6 @@ const Ingame = () => {
     paragraphOption2Text,
     paragraphRollsId,
     paragraphRollsText,
-    characterMaxHp,
-    characterCurrentHp,
     characterMaxHp,
     characterCurrentHp,
     characterStrength,characterDexterity,
