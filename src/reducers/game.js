@@ -28,7 +28,7 @@ export const initialState = {
   // Data for /jouer - right page
   characterName: 'guerrier',
   characterPicture: 'https://cdn.pixabay.com/photo/2016/03/31/23/05/armor-1297380_960_720.png',
-  characterPrimaryCharacteristic: 'strength',
+  characterPrimaryCharacteristic: 'intelligence',
   characterMaxHp: 50,
   characterCurrentHp: 40,
   characterStrength: 25,
@@ -39,7 +39,7 @@ export const initialState = {
   weaponBonus: '+0',
   armorName: 'cape en coton',
   armorBonus: '+0',
-  accessoryName: '',
+  accessoryName: 'bijoux de famille',
   accessoryBonus: '+0',
   inventoryName: [
     'clé',

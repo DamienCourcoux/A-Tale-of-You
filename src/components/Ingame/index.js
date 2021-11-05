@@ -10,7 +10,12 @@ import './ingame.scss';
 import { GiBroadsword, GiShoulderArmor, GiPearlNecklace } from 'react-icons/gi';
 import { FaImages } from 'react-icons/fa';
 
+
 const Ingame = () => {
+  const handleSelectChoice = () => {
+    console.log('SELECT_Choice');
+  };
+
   const {
     paragraphDescription,
     paragraphOption1Id,
@@ -21,6 +26,20 @@ const Ingame = () => {
     paragraphRollsText,
     characterMaxHp,
     characterCurrentHp,
+    characterMaxHp,
+    characterCurrentHp,
+    characterStrength,characterDexterity,
+    characterIntelligence,
+    characterCharism,
+    weaponName,
+    weaponBonus,
+    armorName,
+    armorBonus,
+    accessoryName,
+    accessoryBonus,
+    characterPicture,
+    inventoryName,
+    characterPrimaryCharacteristic,
   } = useSelector((state) => ({
     paragraphDescription: state.game.paragraphDescription,
     paragraphOption1Id: state.game.paragraphOption1Id,
@@ -30,13 +49,35 @@ const Ingame = () => {
     paragraphRollsId: state.game.paragraphRollsId,
     characterMaxHp: state.game.characterMaxHp,
     characterCurrentHp: state.game.characterCurrentHp,
-  }));
+    characterStrength: state.game.characterStrength,
+    characterDexterity:state.game.characterDexterity,
+    characterIntelligence:state.game.characterIntelligence,
+    characterCharism:state.game.characterCharism,
+    weaponName:state.game.weaponName,
+    weaponBonus:state.game.weaponBonus,
+    armorName:state.game.armorName,
+    armorBonus:state.game.armorBonus,
+    accessoryName:state.game.accessoryName,
+    accessoryBonus:state.game.accessoryBonus,
+    characterPicture:state.game.characterPicture,
+    inventoryName:state.game.inventoryName,
+    characterPrimaryCharacteristic:state.game.characterPrimaryCharacteristic,
 
+  }));
+  
   const dispatch = useDispatch();
 
   const handleSelectChoice = (choice) => {
     dispatch(requestParagraph(choice));
   };
+    
+   const jsxItems = inventoryName.map((item, index) => (
+    <li 
+      key={index+1}
+    >
+      {item}
+    </li>
+  ));
 
   return (
     <section className="ingame">
@@ -90,25 +131,57 @@ const Ingame = () => {
 
             <div className="ingame__page__right__stats">
               <div className="ingame__page__right__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
-                <FaImages size={100} />
+                <img className="fit-picture" src={characterPicture}></img>
               </div>
 
               <h2 className="ingame__page__right__stats__title">Caractéristiques</h2>
 
               <ul className="ingame__page__right__stats__name">
                 <li>Points de vie</li>
-                <li>Force</li>
-                <li>Dextérité</li>
-                <li>Intelligence</li>
-                <li>Charisme</li>
+                <li 
+                  className={
+                    characterPrimaryCharacteristic === 'strength'
+                      ? 'bold'
+                      : ''
+                  } 
+                >
+                  Force
+                </li> 
+                <li
+                  className={
+                    characterPrimaryCharacteristic === 'dexterity'
+                        ? 'bold'
+                        : ''
+                  } 
+                >
+                  Dextérité
+                </li>
+                <li
+                  className={
+                    characterPrimaryCharacteristic === 'intelligence'
+                        ? 'bold'
+                        : ''
+                  } 
+                >
+                  Intelligence
+                </li>
+                <li
+                  className={
+                    characterPrimaryCharacteristic === 'charism'
+                        ? 'bold'
+                        : ''
+                  } 
+                >
+                  Charisme
+                </li>
               </ul>
 
               <ul className="ingame__page__right__stats__value">
                 <li>{characterCurrentHp}/{characterMaxHp}</li>
-                <li>25</li>
-                <li>20</li>
-                <li>20</li>
-                <li>20</li>
+                <li>{characterStrength}</li>
+                <li>{characterDexterity}</li>
+                <li>{characterIntelligence}</li>
+                <li>{characterCharism}</li>
               </ul>
             </div>
 
@@ -117,27 +190,27 @@ const Ingame = () => {
 
             <div className="ingame__page__right__equipments">
               <div className="ingame__page__right__equipments__item">
-                <div className="ingame__page__fake_image ingame__page__fake_image--50">
+                <div className="ingame__page__fake_image ingame__page__fake_image--50" title={weaponName}>
                   <GiBroadsword size={40} />
                 </div>
                 <div className="ingame__page__right__equipments__item__value">
-                  +1
+                  {weaponBonus}
                 </div>
               </div>
               <div className="ingame__page__right__equipments__item">
-                <div className="ingame__page__fake_image ingame__page__fake_image--50">
+                <div className="ingame__page__fake_image ingame__page__fake_image--50" title={armorName}>
                   <GiShoulderArmor size={40} />
                 </div>
                 <div className="ingame__page__right__equipments__item__value">
-                  +2
+                  {armorBonus}
                 </div>
               </div>
               <div className="ingame__page__right__equipments__item">
-                <div className="ingame__page__fake_image ingame__page__fake_image--50">
+                <div className="ingame__page__fake_image ingame__page__fake_image--50" title={accessoryName}>
                   <GiPearlNecklace size={40} />
                 </div>
                 <div className="ingame__page__right__equipments__item__value">
-                  +0
+                  {accessoryBonus}
                 </div>
               </div>
             </div>
@@ -146,12 +219,7 @@ const Ingame = () => {
             <div className="ingame__page__right__inventory">
               <h2>Inventaire</h2>
               <div className="ingame__page__right__inventory__scroller">
-                <ul>
-                  <li>clé squellette </li>
-                  <li>clé squellette </li>
-                  <li>clé squellette </li>
-                  <li>clé squellette </li>
-                </ul>
+                <ul>{jsxItems}</ul>
               </div>
             </div>
           </div>
@@ -160,5 +228,7 @@ const Ingame = () => {
     </section>
   );
 };
+
+
 
 export default Ingame;
