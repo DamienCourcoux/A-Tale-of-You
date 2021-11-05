@@ -13,7 +13,7 @@ const Error404 = () => (
           <h1>Error 404</h1>
           <div className="hr" />
           <img src={Dragon} alt="gif error404" />
-          <p>"C'est pas bien d'essayer de finir à la fin du livre...</p>
+          <p>"C'est pas bien d'essayer de venir à la fin du livre...</p>
           <p>Heureusement que le dragon ne te remarque pas !"</p>
           <div className="hr" />
           <Link to="/">Revenir dans l'aventure</Link>
