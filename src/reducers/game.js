@@ -8,7 +8,7 @@ export const initialState = {
   classList: [],
   characterName: 'guerrier',
   characterPicture: 'https://cdn.pixabay.com/photo/2016/03/31/23/05/armor-1297380_960_720.png',
-  characterPrimaryCharacteristic: 'strength',
+  characterPrimaryCharacteristic: 'intelligence',
   characterMaxHp: 50,
   characterCurrentHp: 40,
   characterStrength: 25,

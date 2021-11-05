@@ -10,7 +10,7 @@ const Ingame = () => {
   };
 
   const { characterMaxHp, characterCurrentHp, characterStrength,characterDexterity, characterIntelligence, characterCharism, weaponName,
-  weaponBonus, armorName, armorBonus, accessoryName, accessoryBonus, characterPicture, inventoryName} = useSelector((state) => ({
+  weaponBonus, armorName, armorBonus, accessoryName, accessoryBonus, characterPicture, inventoryName, characterPrimaryCharacteristic} = useSelector((state) => ({
     characterMaxHp: state.game.characterMaxHp,
     characterCurrentHp: state.game.characterCurrentHp,
     characterStrength: state.game.characterStrength,
@@ -25,6 +25,7 @@ const Ingame = () => {
     accessoryBonus:state.game.accessoryBonus,
     characterPicture:state.game.characterPicture,
     inventoryName:state.game.inventoryName,
+    characterPrimaryCharacteristic:state.game.characterPrimaryCharacteristic,
 
   }));
 
@@ -37,6 +38,12 @@ const Ingame = () => {
       {item}
     </li>
   ));
+  
+
+
+    
+ 
+  
 
 
   return (
@@ -88,19 +95,43 @@ const Ingame = () => {
 
               <ul className="ingame__page__right__stats__name">
                 <li>Points de vie</li>
+                <li 
+                  className={
+                    characterPrimaryCharacteristic === 'strength'
+                      ? 'bold'
+                      : ''
+                  } 
+                >
+                Force
+                </li> 
 
-                <li>Force</li>  
-                <li>Dextérité</li>
-                <li>Intelligence</li>
-                <li>Charisme</li>
+                <li className={
+                      characterPrimaryCharacteristic === 'dexterity'
+                          ? 'bold'
+                          : ''
+                  } 
+                >
+                Dextérité
+                </li>
+                <li className={
+                      characterPrimaryCharacteristic === 'intelligence'
+                          ? 'bold'
+                          : ''
+                  } 
+                >
+                Intelligence
+                  </li>
+                <li className={
+                      characterPrimaryCharacteristic === 'charism'
+                          ? 'bold'
+                          : ''
+                  } 
+                >
+                Charisme</li>
               </ul>
 
               <ul className="ingame__page__right__stats__value">
                 <li>{characterCurrentHp}/{characterMaxHp}</li>
-                {/* <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li> */}
                 <li>{characterStrength}</li>
                 <li>{characterDexterity}</li>
                 <li>{characterIntelligence}</li>
@@ -151,5 +182,7 @@ const Ingame = () => {
     </section>
   );
 };
+
+
 
 export default Ingame;
