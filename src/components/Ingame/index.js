@@ -43,23 +43,7 @@ const Ingame = () => {
       <div className="ingame__border shadow">
         <div className="ingame__pages shadow">
           <InGameLeft />
-          <InGameRight
-            characterMaxHp={characterMaxHp}
-            characterCurrentHp={characterCurrentHp}
-            characterPicture={characterPicture}
-            characterStrength={characterStrength}
-            characterDexterity={characterDexterity}
-            characterIntelligence={characterIntelligence}
-            characterCharism={characterCharism}
-            weaponName={weaponName}
-            weaponBonus={weaponBonus}
-            armorName={armorName}
-            armorBonus={armorBonus}
-            accessoryName={accessoryName}
-            accessoryBonus={accessoryBonus}
-            inventoryName={inventoryName}
-            characterPrimaryCharacteristic={characterPrimaryCharacteristic}
-          />
+          <InGameRight />
         </div>
       </div>
     </section>
