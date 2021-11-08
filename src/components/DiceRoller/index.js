@@ -11,6 +11,7 @@ import './diceRoller.scss';
 const DiceRoller = () => {
   const isRoll = useSelector((state) => state.game.isRoll);
   const numberDices = useSelector((state) => state.game.numberDices);
+  const id = useSelector((state) => state.game.paragraph);
 
   const dispatch = useDispatch();
 
@@ -57,9 +58,18 @@ const DiceRoller = () => {
   };
 
   const handleContinueAventure = () => {
+    // si réussite faire une action dans le middlewares pour aller chercher le suite de l'aventure
+    if (numberDices + 25 >= 27) {
+      console.log('réussite');
+      console.log(id);
+    }
+    // sinon choix 2
+    else {
+      console.log('Défaite');
+    }
     // il faudra surement faire une condition si "Réussite" continue le nouveau chemin,
     // si "Défaite" continue le premier chemin
-    console.log('continuer l\'aventure');
+    // console.log('continuer l\'aventure');
   };
 
   return (

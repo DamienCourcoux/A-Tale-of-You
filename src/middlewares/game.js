@@ -41,6 +41,7 @@ const game = (store) => (next) => (action) => {
 
       axios.get(`http://3.80.80.108:3000/paragraph/${id}`)
         .then((response) => {
+          // console.log(response);
           // aller dans le reducer pour l'action success
           store.dispatch(saveParagraph(response.data));
         })
