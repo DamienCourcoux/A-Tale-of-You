@@ -10,32 +10,17 @@ import './ingamefight.scss';
 
 const IngameFight = () => {
   const {
-    characterMaxHp,
+    character,
     characterCurrentHp,
-    characterStrength,
-    characterDexterity,
-    characterIntelligence,
-    characterCharism,
-    weaponBonus,
-    armorBonus,
-    characterPicture,
-    characterPrimaryCharacteristic
+    weapon,
+    armor,
   } = useSelector((state) => ({
-    characterMaxHp: state.game.characterMaxHp,
+    character: state.game.character,
     characterCurrentHp: state.game.characterCurrentHp,
-    characterStrength: state.game.characterStrength,
-    characterDexterity: state.game.characterDexterity,
-    characterIntelligence: state.game.characterIntelligence,
-    characterCharism: state.game.characterCharism,
-    weaponName: state.game.weaponName,
-    weaponBonus: state.game.weaponBonus,
-    armorName: state.game.armorName,
-    armorBonus: state.game.armorBonus,
-    accessoryName: state.game.accessoryName,
-    accessoryBonus: state.game.accessoryBonus,
-    characterPicture: state.game.characterPicture,
-    inventoryName: state.game.inventoryName,
-    characterPrimaryCharacteristic: state.game.characterPrimaryCharacteristic,
+    weapon: state.game.weapon,
+    armor: state.game.armor,
+    accessory: state.game.accessory,
+    inventory: state.game.inventory,
   }));
   return (
     <section className="ingame">
@@ -46,7 +31,7 @@ const IngameFight = () => {
 
             <div className="ingame__page__left__stats">
               <div className="ingame__page__left__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
-                <img className="fit-picture" src={characterPicture} alt="img de votre personnage" />
+                <img className="fit-picture" src={character.illustration} alt="img de votre personnage" />
               </div>
 
               <h2 className="ingame__page__left__stats__title">Caractéristiques</h2>
@@ -55,7 +40,7 @@ const IngameFight = () => {
                 <li>Points de vie</li>
                 <li
                   className={
-                    characterPrimaryCharacteristic === 'strength'
+                    character.primaryCharacteristic === 'strength'
                       ? 'bold'
                       : ''
                   }
@@ -64,7 +49,7 @@ const IngameFight = () => {
                 </li>
                 <li
                   className={
-                    characterPrimaryCharacteristic === 'dexterity'
+                    character.primaryCharacteristic === 'dexterity'
                       ? 'bold'
                       : ''
                   }
@@ -73,7 +58,7 @@ const IngameFight = () => {
                 </li>
                 <li
                   className={
-                    characterPrimaryCharacteristic === 'intelligence'
+                    character.primaryCharacteristic === 'intelligence'
                       ? 'bold'
                       : ''
                   }
@@ -82,7 +67,7 @@ const IngameFight = () => {
                 </li>
                 <li
                   className={
-                    characterPrimaryCharacteristic === 'charism'
+                    character.primaryCharacteristic === 'charism'
                       ? 'bold'
                       : ''
                   }
@@ -91,13 +76,45 @@ const IngameFight = () => {
                 </li>
               </ul>
 
-              <ul className="ingame__page__left__stats__value">
-                <li>{characterCurrentHp}/{characterMaxHp}</li>
-                <li>{characterStrength}</li>
-                <li>{characterDexterity}</li>
-                <li>{characterIntelligence}</li>
-                <li>{characterCharism}</li>
-              </ul>
+              <ul className="ingame__page__right__stats__value">
+          <li>{characterCurrentHp}/{character.maxHp}</li>
+          <li
+            className={
+              character.primaryCharacteristic === 'strength'
+                ? 'bold'
+                : ''
+            }
+          >
+            {character.strength}
+          </li>
+          <li
+            className={
+              character.primaryCharacteristic === 'dexterity'
+                ? 'bold'
+                : ''
+            }
+          >
+            {character.dexterity}
+          </li>
+          <li
+            className={
+              character.primaryCharacteristic === 'intelligence'
+                ? 'bold'
+                : ''
+            }
+          >
+            {character.intelligence}
+          </li>
+          <li
+            className={
+              character.primaryCharacteristic === 'charism'
+                ? 'bold'
+                : ''
+            }
+          >
+            {character.charism}
+          </li>
+        </ul>
             </div>
 
             {/* character's equipments */}
@@ -108,12 +125,11 @@ const IngameFight = () => {
               <div className="ingame__page__left__equipments__item">
               
                 <div className="ingame__page__left__equipments__item__value">
-                Attaque {weaponBonus}
+                Attaque + {weapon.bonus}
                 </div>
               
               
-                <div className="ingame__page__left__equipments__item__value">Parade
-                 {armorBonus}
+                <div className="ingame__page__left__equipments__item__value">Parade + {armor.bonus}
                 </div>
               </div>
             </div>
@@ -131,19 +147,17 @@ const IngameFight = () => {
           </div>          
           <div className="ingame__page ingame__page__right shadow">
             <h1 className="ingame__page__right__title">Ennemi</h1>
-
-            <div className="ingame__page__right__stats">
-              <div className="ingame__page__right__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
-                <img className="fit-picture" src={characterPicture} alt="img de votre personnage" />
-              </div>
-
-              <h2 className="ingame__page__right__stats__title">Caractéristiques</h2>
+              <div className="ingame__page__right__stats">
+                <div className="ingame__page__right__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
+                  <img className="fit-picture" src={character.illustration} alt="img de votre personnage" />
+                </div>
+                  <h2 className="ingame__page__right__stats__title">Caractéristiques</h2>
 
               <ul className="ingame__page__right__stats__name">
                 <li>Points de vie</li>
                 <li
                   className={
-                    characterPrimaryCharacteristic === 'strength'
+                    character.primaryCharacteristic === 'strength'
                       ? 'bold'
                       : ''
                   }
@@ -152,7 +166,7 @@ const IngameFight = () => {
                 </li>
                 <li
                   className={
-                    characterPrimaryCharacteristic === 'dexterity'
+                    character.primaryCharacteristic === 'dexterity'
                       ? 'bold'
                       : ''
                   }
@@ -161,7 +175,7 @@ const IngameFight = () => {
                 </li>
                 <li
                   className={
-                    characterPrimaryCharacteristic === 'intelligence'
+                    character.primaryCharacteristic === 'intelligence'
                       ? 'bold'
                       : ''
                   }
@@ -170,7 +184,7 @@ const IngameFight = () => {
                 </li>
                 <li
                   className={
-                    characterPrimaryCharacteristic === 'charism'
+                    character.primaryCharacteristic === 'charism'
                       ? 'bold'
                       : ''
                   }
@@ -180,15 +194,45 @@ const IngameFight = () => {
               </ul>
 
               <ul className="ingame__page__right__stats__value">
-                <li>{characterCurrentHp}/{characterMaxHp}</li>
-                <li>{characterStrength}</li>
-                <li>{characterDexterity}</li>
-                <li>{characterIntelligence}</li>
-                <li>{characterCharism}</li>
+                <li>{characterCurrentHp}/{character.maxHp}</li>
+                <li
+                  className={
+                    character.primaryCharacteristic === 'strength'
+                      ? 'bold'
+                      : ''
+                  }
+                >
+                  {character.strength}
+                </li>
+                <li
+                  className={
+                    character.primaryCharacteristic === 'dexterity'
+                      ? 'bold'
+                      : ''
+                  }
+                >
+                  {character.dexterity}
+                </li>
+                <li
+                  className={
+                    character.primaryCharacteristic === 'intelligence'
+                      ? 'bold'
+                      : ''
+                  }
+                >
+                  {character.intelligence}
+                </li>
+                <li
+                  className={
+                    character.primaryCharacteristic === 'charism'
+                      ? 'bold'
+                      : ''
+                  }
+                >
+                  {character.charism}
+                </li>
               </ul>
             </div>
-
-
 
             {/* character's inventory */}
             <div className="ingame__page__right__fight">
