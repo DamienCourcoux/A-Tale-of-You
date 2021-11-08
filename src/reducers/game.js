@@ -2,6 +2,9 @@ import {
   SAVE_STORY,
   SAVE_PARAGRAPH,
   SAVE_CHARACTERS,
+  SHOW_DICE_ROLLER,
+  HIDE_DICE_ROLLER,
+  ROLL_DICE,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -69,17 +72,79 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case SAVE_PARAGRAPH: {
+      if (action.payload.object) {
+        switch (action.payload.object.type) {
+          case 'item': {
+            const inventoryUpdated = [...state.inventory];
+            inventoryUpdated.push(action.payload.object.name);
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              inventory: inventoryUpdated,
+            };
+          }
+          case 'weapon': {
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              weapon: {
+                name: action.payload.object.name,
+                bonus: action.payload.object.bonus,
+              },
+            };
+          }
+          case 'armor': {
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              armor: {
+                name: action.payload.object.name,
+                bonus: action.payload.object.bonus,
+              },
+            };
+          }
+          case 'accessory': {
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              accessory: {
+                name: action.payload.object.name,
+                bonus: action.payload.object.bonus,
+              },
+            };
+          }
+          default: {
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              enemy: action.payload.enemy,
+            };
+          }
+        }
+      }
       return {
         ...state,
-        // TODO a voir pour le payload
-        // payload: action.payload,
-        paragraphDescription: action.payload.description,
-        paragraphOption1Id: action.payload.id_option_1,
-        paragraphOption1Text: action.payload.option_1,
-        paragraphOption2Id: action.payload.id_option_2,
-        paragraphOption2Text: action.payload.option_2,
-        paragraphRollsId: action.payload.paragraphRollsId,
-        paragraphRollsText: action.payload.paragraphRollsText,
+        paragraph: action.payload.paragraph,
+        enemy: action.payload.enemy,
+      };
+    }
+    case SHOW_DICE_ROLLER: {
+      return {
+        ...state,
+        diceRollerIsOpen: true,
+      };
+    }
+    case HIDE_DICE_ROLLER: {
+      return {
+        ...state,
+        diceRollerIsOpen: false,
+      };
+    }
+    case ROLL_DICE: {
+      return {
+        ...state,
+        isRoll: true,
+        numberDices: action.number,
       };
     }
     case SAVE_CHARACTERS: {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-// import Schema from 'src/assets/schema.png';
+import Schema from 'src/assets/schema.png';
 import './index.scss';
 
 const Index = () => (

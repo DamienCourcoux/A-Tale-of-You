@@ -2,22 +2,22 @@
 
 .header {
   background: vars.$background;
+  padding-bottom: 1rem;
 
   &__nav {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 1rem;
-    
-    // * {
-    //   white-space: nowrap;
-    // }
 
     &--games {
       display: flex;
 
       li {
         align-self: flex-end;
-        margin: 0rem 1rem;
+        margin: 0rem 1rem .5rem 1rem;
+
+        &:first-child {
+          margin: 0rem 1rem;
+        }
 
         a {
           color: vars.$darkColor;
@@ -38,6 +38,11 @@
             width: 2rem;
           }
         }
+
+        & .is-active {
+          text-decoration: underline;
+          font-weight: bold;
+        }
       }
     }
 
@@ -48,11 +53,18 @@
       .welcome-message {
         font-size: 1.2rem;
         font-weight: bold;
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: .5rem;
+          width: 2rem;
+        }
       }
 
       li {
-        margin: 0rem 1rem;
         align-self: flex-end;
+        margin: 0rem 1rem .5rem 1rem;
 
         a {
           color: vars.$darkColor;
