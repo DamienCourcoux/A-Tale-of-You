@@ -11,43 +11,47 @@ export const initialState = {
   storyDescription: '',
   classList: [],
   // Data for /jouer - left page
-  // paragraphe 1
-  // paragraphDescription: "<p>Vous vous trouvez face à une habitation, vous apercevez une porte.</p><p>Vous décidez d'entrer.</p>",
-  // paragraphOption1Id: 2,
-  // paragraphOption1Text: 'Continuer',
-  // paragraphOption2Id: null,
-  // paragraphOption2Text: '',
-  // paragraphRollsId: null,
-  // paragraphRollsText: '',
-  // paragraphe 2
-  paragraphDescription: "<p>Vous vous trouvez dans un couloir Nord-Sud. Vous avancez dans la direction nord jusqu'à une porte sur votre droite. Au bout du couloir vous distinguez une autre porte.</p><p>Souhaitez vous ouvrir la porte à droite ou continuer d'avancer dans le couloir?</p>",
-  paragraphOption1Id: 3,
-  paragraphOption1Text: 'Ouvrir la porte de droite',
-  paragraphOption2Id: 7,
-  paragraphOption2Text: 'Avancer',
-  paragraphRollsId: 42,
-  paragraphRollsText: 'Faire un lancer de dé',
+  paragraph: {
+    description: "<p>Vous vous trouvez face à une habitation, vous apercevez une porte.</p><p>Vous décidez d'entrer.<p>",
+    choices: [
+      {
+        description: 'Continuer',
+        success_condition: null,
+        consequences: [
+          {
+            boolean: true,
+            paragraph_id: 2,
+          },
+        ],
+      },
+    ],
+  },
+  enemy: null,
   // Data for /jouer - right page
-  characterName: 'guerrier',
-  characterPicture: 'https://cdn.pixabay.com/photo/2016/03/31/23/05/armor-1297380_960_720.png',
-  characterPrimaryCharacteristic: 'intelligence',
-  characterMaxHp: 50,
+  character: {
+    class: 'guerrier',
+    illustration: 'https://cdn.pixabay.com/photo/2016/03/31/23/05/armor-1297380_960_720.png',
+    primaryCharacteristic: 'strength',
+    maxHp: 50,
+    strength: 25,
+    dexterity: 20,
+    intelligence: 20,
+    charism: 20,
+  },
   characterCurrentHp: 40,
-  characterStrength: 25,
-  characterDexterity: 20,
-  characterIntelligence: 20,
-  characterCharism: 20,
-  weaponName: 'épée en fer',
-  weaponBonus: '+0',
-  armorName: 'cape en coton',
-  armorBonus: '+0',
-  accessoryName: 'bijoux de famille',
-  accessoryBonus: '+0',
-  inventoryName: [
-    'clé',
-    'émeraude',
-    'oeil de cyclope',
-  ],
+  weapon: {
+    name: 'épée en fer',
+    bonus: 0,
+  },
+  armor: {
+    name: 'cape en coton',
+    bonus: 0,
+  },
+  accessory: {
+    name: 'bijoux de famille',
+    bonus: 0,
+  },
+  inventory: [],
   diceRollerIsOpen: false,
 };
 
@@ -61,17 +65,60 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case SAVE_PARAGRAPH: {
+      if (action.payload.object) {
+        switch (action.payload.object.type) {
+          case 'item': {
+            const inventoryUpdated = [...state.inventory];
+            inventoryUpdated.push(action.payload.object.name);
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              inventory: inventoryUpdated,
+            };
+          }
+          case 'weapon': {
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              weapon: {
+                name: action.payload.object.name,
+                bonus: action.payload.object.bonus,
+              },
+            };
+          }
+          case 'armor': {
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              armor: {
+                name: action.payload.object.name,
+                bonus: action.payload.object.bonus,
+              },
+            };
+          }
+          case 'accessory': {
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              accessory: {
+                name: action.payload.object.name,
+                bonus: action.payload.object.bonus,
+              },
+            };
+          }
+          default: {
+            return {
+              ...state,
+              paragraph: action.payload.paragraph,
+              enemy: action.payload.enemy,
+            };
+          }
+        }
+      }
       return {
         ...state,
-        // TODO a voir pour le payload
-        // payload: action.payload,
-        paragraphDescription: action.payload.description,
-        paragraphOption1Id: action.payload.id_option_1,
-        paragraphOption1Text: action.payload.option_1,
-        paragraphOption2Id: action.payload.id_option_2,
-        paragraphOption2Text: action.payload.option_2,
-        paragraphRollsId: action.payload.paragraphRollsId,
-        paragraphRollsText: action.payload.paragraphRollsText,
+        paragraph: action.payload.paragraph,
+        enemy: action.payload.enemy,
       };
     }
     case SHOW_DICE_ROLLER: {

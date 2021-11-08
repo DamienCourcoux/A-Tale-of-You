@@ -1,75 +1,44 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
-  requestParagraph,
-  showDiceRoller,
+  selectChoice,
 } from 'src/actions/game';
 
 import parse from 'html-react-parser';
 
 import './ingameleft.scss';
 
-const InGameLeft = ({paragraphDescription,
-  paragraphOption1Id,
-  paragraphOption1Text,
-  paragraphOption2Id,
-  paragraphOption2Text,
-  paragraphRollsId,
-  paragraphRollsText}) => {
-
+const InGameLeft = () => {
   const dispatch = useDispatch();
 
-  const handleSelectChoice = (choice) => {
-    dispatch(requestParagraph(choice));
+  const { paragraph } = useSelector((state) => ({
+    paragraph: state.game.paragraph,
+  }));
+
+  const handleSelectChoice = (consequences) => {
+    dispatch(selectChoice(consequences));
   };
 
-  const handleShowDiceRoller = () => {
-    dispatch(showDiceRoller());
-  };
+  const jsxButtons = paragraph.choices.map((choice) => (
+    <button
+      key={choice.description}
+      className="ingame__page__button"
+      type="button"
+      onClick={() => handleSelectChoice(choice.consequences)}
+    >
+      {choice.description}
+    </button>
+  ));
 
   return (
-      <div className="ingame__page shadow">
-        <div className="ingame__page--history">
-          <h1>Le Chevalier Noir</h1>
-          <div className="hr" />
-          {parse(paragraphDescription)}
-        </div>
-        <div className="ingame_page--options">
-          <div className="hr" />
-          {
-            paragraphOption1Id && (
-              <button
-                className="ingame__page__button"
-                type="button"
-                onClick={() => handleSelectChoice(paragraphOption1Id)}
-              >
-                {paragraphOption1Text}
-              </button>
-            )
-          }
-          {
-            paragraphOption2Id && (
-              <button
-                className="ingame__page__button"
-                type="button"
-                onClick={() => handleSelectChoice(paragraphOption2Id)}
-              >
-                {paragraphOption2Text}
-              </button>
-            )
-          }
-          {
-            paragraphRollsId && (
-              <button
-                className="ingame__page__button"
-                type="button"
-                onClick={handleShowDiceRoller}
-              >
-                {paragraphRollsText}
-              </button>
-            )
-          }
-        </div>
+    <div className="ingame__page shadow">
+      <div className="ingame__page--history">
+        {parse(paragraph.description)}
       </div>
+      <div className="ingame_page--options">
+        <div className="hr" />
+        {jsxButtons}
+      </div>
+    </div>
   );
 };
 

@@ -6,13 +6,6 @@ import './ingame.scss';
 
 const Ingame = () => {
   const {
-    paragraphDescription,
-    paragraphOption1Id,
-    paragraphOption1Text,
-    paragraphOption2Id,
-    paragraphOption2Text,
-    paragraphRollsId,
-    paragraphRollsText,
     characterMaxHp,
     characterCurrentHp,
     characterStrength,
@@ -27,15 +20,8 @@ const Ingame = () => {
     accessoryBonus,
     characterPicture,
     inventoryName,
-    characterPrimaryCharacteristic
+    characterPrimaryCharacteristic,
   } = useSelector((state) => ({
-    paragraphDescription: state.game.paragraphDescription,
-    paragraphOption1Id: state.game.paragraphOption1Id,
-    paragraphOption1Text: state.game.paragraphOption1Text,
-    paragraphOption2Id: state.game.paragraphOption2Id,
-    paragraphOption2Text: state.game.paragraphOption2Text,
-    paragraphRollsId: state.game.paragraphRollsId,
-    paragraphRollsText: state.game.paragraphRollsText,
     characterMaxHp: state.game.characterMaxHp,
     characterCurrentHp: state.game.characterCurrentHp,
     characterStrength: state.game.characterStrength,
@@ -56,14 +42,7 @@ const Ingame = () => {
     <section className="ingame">
       <div className="ingame__border shadow">
         <div className="ingame__pages shadow">
-          <InGameLeft
-            paragraphDescription={paragraphDescription}
-            paragraphOption1Id={paragraphOption1Id}
-            paragraphOption1Text={paragraphOption1Text}
-            paragraphOption2Id={paragraphOption2Id}
-            paragraphOption2Text={paragraphOption2Text}
-            paragraphRollsId={paragraphRollsId}
-            paragraphRollsText={paragraphRollsText} />
+          <InGameLeft />
           <InGameRight
             characterMaxHp={characterMaxHp}
             characterCurrentHp={characterCurrentHp}
