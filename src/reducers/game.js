@@ -1,6 +1,7 @@
 import {
   SAVE_STORY,
   SAVE_PARAGRAPH,
+  SAVE_CHARACTERS,
   SHOW_DICE_ROLLER,
   HIDE_DICE_ROLLER,
   ROLL_DICE,
@@ -11,6 +12,7 @@ export const initialState = {
   storyTitle: '',
   storyDescription: '',
   classList: [],
+  paragraphStart: 0,
   // Data for /jouer - left page
   paragraph: {
     description: "<p>Vous vous trouvez face à une habitation, vous apercevez une porte.</p><p>Vous décidez d'entrer.<p>",
@@ -63,8 +65,10 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_STORY: {
       return {
         ...state,
-        storyTitle: action.story.name,
-        storyDescription: action.story.description,
+        storyTitle: action.payload.title,
+        storyDescription: action.payload.description,
+        classlist: action.payload.characters,
+        paragraphStart: action.payload.paragraph_id,
       };
     }
     case SAVE_PARAGRAPH: {
@@ -141,6 +145,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         isRoll: true,
         numberDices: action.number,
+      };
+    }
+    case SAVE_CHARACTERS: {
+      return {
+        ...state,
+        characters: action.characters,
       };
     }
     default:

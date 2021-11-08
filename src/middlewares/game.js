@@ -3,12 +3,11 @@ import axios from 'axios';
 import {
   LOAD_STORY,
   saveStory,
+  SELECT_CHARACTERS,
+  saveCharacters,
   SELECT_CHOICE,
   saveParagraph,
 } from 'src/actions/game';
-
-// temporaire, à la place importer axios
-import data from 'src/data/story';
 
 const game = (store) => (next) => (action) => {
   switch (action.type) {
@@ -16,12 +15,10 @@ const game = (store) => (next) => (action) => {
       next(action);
       const serverRequest = async () => {
         try {
-          // temporaire, à la place faire la requête axios
-          const response = data;
+          const { data: response } = await axios.get('http://3.80.80.108:3000/story');
+          console.log(response.story);
 
-          // A changer lorsqu'axios sera en place
-          // const actionLoadStory = loadStory (response.data);
-          const actionSaveStory = saveStory(response);
+          const actionSaveStory = saveStory(response.story);
           store.dispatch(actionSaveStory);
         }
         catch (error) {
@@ -37,8 +34,6 @@ const game = (store) => (next) => (action) => {
       // pour l'instant, tout est réussi
       const id = action.consequences[0].paragraph_id;
 
-      // console.log('Request paragraph: ', id);
-
       axios.get(`http://3.80.80.108:3000/paragraph/${id}`)
         .then((response) => {
           // aller dans le reducer pour l'action success
@@ -48,6 +43,35 @@ const game = (store) => (next) => (action) => {
           console.log(error);
         });
       next(action);
+      break;
+    }
+      case SELECT_CHARACTERS: {
+      next(action);
+      const serverRequest = async () => {
+        try {
+          const { data: response } = await axios.get('http://3.80.80.108:3000/story');
+          const characters = [];
+          response.story.characters.forEach((character) => {
+            characters.push({
+              name: character.class,
+              picture: character.illustration,
+              primary_characteristic: character.primary_characteristic,
+              hp: character.hp,
+              strength: character.strength,
+              dexterity: character.dexterity,
+              intelligence: character.intelligence,
+              charism: character.charism,
+            });
+          });
+
+          const actionSaveCharacters = saveCharacters(characters);
+          store.dispatch(actionSaveCharacters);
+        }
+        catch (error) {
+          console.log(error);
+        }
+      };
+      serverRequest();
       break;
     }
     default:
