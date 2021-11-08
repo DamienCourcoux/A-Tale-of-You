@@ -3,6 +3,7 @@ import {
   SAVE_PARAGRAPH,
   SHOW_DICE_ROLLER,
   HIDE_DICE_ROLLER,
+  ROLL_DICE,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -49,6 +50,8 @@ export const initialState = {
     'oeil de cyclope',
   ],
   diceRollerIsOpen: false,
+  isRoll: false,
+  numberDices: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -84,6 +87,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         diceRollerIsOpen: false,
+      };
+    }
+    case ROLL_DICE: {
+      return {
+        ...state,
+        isRoll: true,
+        numberDices: action.number,
       };
     }
     default:
