@@ -1,38 +1,58 @@
 // == Import
-import { FaImages } from 'react-icons/fa';
 import './styles.scss';
-import { useEffect, useState } from 'react';
-import { selectCharacters } from 'src/actions/game';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeSelectedCharacter, selectChoice } from 'src/actions/game';
+import { hideSelectCharacter } from 'src/actions/user';
 
 // == Composant
 const SelectCharacter = () => {
+  // const history = useHistory();
   const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(selectCharacters());
+  //   // console.log(selectCharacters);
+  // }, []);
 
-  useEffect(() => {
-    dispatch(selectCharacters());
-    // console.log(selectCharacters);
-  }, []);
-
-  const { character } = useSelector((state) => ({
+  const { character, classList, paragraph } = useSelector((state) => ({
     character: state.game.character,
+    classList: state.game.classList,
+    paragraph: state.game.paragraph,
   }));
+
+  const handleChangeSelectedCharacter = (selectedClass) => {
+    dispatch(changeSelectedCharacter(selectedClass));
+  };
+
+  const handleStartGame = () => {
+    dispatch(hideSelectCharacter());
+    dispatch(selectChoice(paragraph.choices[0].consequences));
+    console.log('handleStartGame');
+  };
+
+  const jsxButtons = classList.map((button, index) => (
+    <button
+      key={index + 1}
+      onClick={() => handleChangeSelectedCharacter(button.class)}
+      type="button"
+    >
+      {button.class}
+    </button>
+  ));
 
   return (
     <div className="select_character">
       <div className="select_character__content">
+        {jsxButtons}
         <p> choisis ta classe </p>
-        <div className="select_character__list">
-          {/* <button type="button" onClick={() => setSelectedChar(...selectedChar, ...selectWarrior)}>Guerrier</button>
-          <button type="button" onClick={() => selectThief}>Roublard</button>
-          <button type="button" onClick={() => selectWizard}>Magicien</button>
-          <button type="button" onClick={() => selectBard}>Barde</button> */}
-          <div className="ingame__page__right__stats__illustration ingame__page__fake_image
-          ingame__page__fake_image--100">
+        <div className="ingame__page__right__stats">
+          <div
+            className="ingame__page__right__stats__illustration ingame__page__fake_image
+          select_character__fake_image--100"
+          >
             <img className="fit-picture" src={character.illustration} alt="img de votre personnage" />
           </div>
 
-          <h2 className="ingame__page__right__stats__title">Caractéristiques</h2>
+          <h2 className="select_character__stats__title">Caractéristiques</h2>
 
           <ul className="ingame__page__right__stats__name">
             <li>Points de vie</li>
@@ -114,6 +134,12 @@ const SelectCharacter = () => {
             </li>
           </ul>
         </div>
+        <button
+          onClick={() => handleStartGame()}
+          type="button"
+        >
+          Jouer
+        </button>
       </div>
     </div>
   );
