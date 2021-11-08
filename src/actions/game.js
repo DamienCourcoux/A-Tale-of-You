@@ -4,6 +4,7 @@ export const REQUEST_PARAGRAPH = 'REQUEST_PARAGRAPH';
 export const SAVE_PARAGRAPH = 'SAVE_PARAGRAPH';
 export const SHOW_DICE_ROLLER = 'SHOW_DICE_ROLLER';
 export const HIDE_DICE_ROLLER = 'HIDE_DICE_ROLLER';
+export const ROLL_DICE = 'ROLL_DICE';
 
 export const loadStory = () => ({
   type: LOAD_STORY,
@@ -31,4 +32,9 @@ export const showDiceRoller = () => ({
 
 export const hideDiceRoller = () => ({
   type: HIDE_DICE_ROLLER,
+});
+
+export const rollDice = (number) => ({
+  type: ROLL_DICE,
+  number,
 });

@@ -6,9 +6,6 @@ import {
   hideSignup,
   hideSelectCharacter,
 } from 'src/actions/user';
-import {
-  hideDiceRoller,
-} from 'src/actions/game';
 
 import Header from 'src/components/Header';
 import Index from 'src/components/Index';
@@ -46,7 +43,6 @@ const App = () => {
     if (event.target.className === 'signin') dispatch(hideSignin());
     if (event.target.className === 'signup') dispatch(hideSignup());
     if (event.target.className === 'select_character') dispatch(hideSelectCharacter());
-    if (event.target.className === 'diceRoller') dispatch(hideDiceRoller());
   };
 
   return (
