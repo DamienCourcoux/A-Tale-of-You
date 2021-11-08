@@ -104,8 +104,9 @@ const IngameFight = () => {
             
 
             <div className="ingame__page__left__equipments">
-            <h2 className="ingame__page__left__equipments__title">Bonus</h2>
+            
               <div className="ingame__page__left__equipments__item">
+              
                 <div className="ingame__page__left__equipments__item__value">
                 Attaque {weaponBonus}
                 </div>

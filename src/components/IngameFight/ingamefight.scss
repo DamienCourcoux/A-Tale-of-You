@@ -47,20 +47,12 @@
       justify-content: center;
 
 
-      &--150 {
-        width: 150px;
-        height: 150px;
-      }
 
-      &--50 {
-        width: 50px;
-        height: 50px;
-      }
     }
     
     &__left {
       height: 100%;
-      width: 50%;
+      
 
       &__title {
         margin-bottom: 3rem;
@@ -103,7 +95,8 @@
 
         &__item {
           margin: 1rem;
-          text-align: center;
+          display: flex;
+          flex-direction: row;
 
           &__value {
             margin: .5rem;
@@ -132,7 +125,7 @@
 
     &__right {
       height: 100%;
-      width: 50%;
+      
 
       &__title {
         margin-bottom: 3rem;
@@ -209,7 +202,7 @@
   h2 {
     font-size: 1.2rem;
     font-weight: bold;
-    text-align: center;
+    
   }
 
   .hr {
