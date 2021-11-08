@@ -1,6 +1,7 @@
 import {
   SAVE_STORY,
   SAVE_PARAGRAPH,
+  SAVE_CHARACTERS,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -70,6 +71,12 @@ const reducer = (state = initialState, action = {}) => {
         paragraphOption2Text: action.payload.option_2,
         paragraphRollsId: action.payload.paragraphRollsId,
         paragraphRollsText: action.payload.paragraphRollsText,
+      };
+    }
+    case SAVE_CHARACTERS: {
+      return {
+        ...state,
+        characters: action.characters,
       };
     }
     default:
