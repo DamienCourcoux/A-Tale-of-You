@@ -9,44 +9,52 @@ export const initialState = {
   storyTitle: '',
   storyDescription: '',
   classList: [],
+  paragraphStart: 0,
   // Data for /jouer - left page
-  // paragraphe 1
-  // paragraphDescription: "<p>Vous vous trouvez face à une habitation, vous apercevez une porte.</p><p>Vous décidez d'entrer.</p>",
-  // paragraphOption1Id: 2,
-  // paragraphOption1Text: 'Continuer',
-  // paragraphOption2Id: null,
-  // paragraphOption2Text: '',
-  // paragraphRollsId: null,
-  // paragraphRollsText: '',
-  // paragraphe 2
-  paragraphDescription: "<p>Vous vous trouvez dans un couloir Nord-Sud. Vous avancez dans la direction nord jusqu'à une porte sur votre droite. Au bout du couloir vous distinguez une autre porte.</p><p>Souhaitez vous ouvrir la porte à droite ou continuer d'avancer dans le couloir?</p>",
-  paragraphOption1Id: 3,
-  paragraphOption1Text: 'Ouvrir la porte de droite',
-  paragraphOption2Id: 7,
-  paragraphOption2Text: 'Avancer',
-  paragraphRollsId: null,
-  paragraphRollsText: '',
+  paragraph: {
+    description: "<p>Vous vous trouvez face à une habitation, vous apercevez une porte.</p><p>Vous décidez d'entrer.<p>",
+    choices: [
+      {
+        description: 'Continuer',
+        success_condition: null,
+        consequences: [
+          {
+            boolean: true,
+            paragraph_id: 2,
+          },
+        ],
+      },
+    ],
+  },
+  enemy: null,
   // Data for /jouer - right page
-  characterName: 'guerrier',
-  characterPicture: 'https://cdn.pixabay.com/photo/2016/03/31/23/05/armor-1297380_960_720.png',
-  characterPrimaryCharacteristic: 'strength',
-  characterMaxHp: 50,
+  character: {
+    class: 'guerrier',
+    illustration: 'https://cdn.pixabay.com/photo/2016/03/31/23/05/armor-1297380_960_720.png',
+    primaryCharacteristic: 'strength',
+    maxHp: 50,
+    strength: 25,
+    dexterity: 20,
+    intelligence: 20,
+    charism: 20,
+  },
   characterCurrentHp: 40,
-  characterStrength: 25,
-  characterDexterity: 20,
-  characterIntelligence: 20,
-  characterCharism: 20,
-  weaponName: 'épée en fer',
-  weaponBonus: '+0',
-  armorName: 'cape en coton',
-  armorBonus: '+0',
-  accessoryName: '',
-  accessoryBonus: '+0',
-  inventoryName: [
-    'clé',
-    'émeraude',
-    'oeil de cyclope',
-  ],
+  weapon: {
+    name: 'épée en fer',
+    bonus: 0,
+  },
+  armor: {
+    name: 'cape en coton',
+    bonus: 0,
+  },
+  accessory: {
+    name: 'bijoux de famille',
+    bonus: 0,
+  },
+  inventory: [],
+  diceRollerIsOpen: false,
+  isRoll: false,
+  numberDices: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -54,9 +62,10 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_STORY: {
       return {
         ...state,
-        storyTitle: action.story.stories_name,
-        storyDescription: action.story.description,
-        classlist: action.characters,
+        storyTitle: action.payload.title,
+        storyDescription: action.payload.description,
+        classlist: action.payload.characters,
+        paragraphStart: action.payload.paragraph_id,
       };
     }
     case SAVE_PARAGRAPH: {

@@ -9,10 +9,9 @@ export const loadStory = () => ({
   type: LOAD_STORY,
 });
 
-export const saveStory = (story, characters) => ({
+export const saveStory = (payload) => ({
   type: SAVE_STORY,
-  story,
-  characters,
+  payload,
 });
 
 export const requestParagraph = (choice) => ({

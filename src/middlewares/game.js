@@ -4,7 +4,6 @@ import {
   LOAD_STORY,
   saveStory,
   REQUEST_PARAGRAPH,
-  selectCharacters,
   SELECT_CHARACTERS,
   saveCharacters,
   /* saveParagraph, */
@@ -18,29 +17,32 @@ const game = (store) => (next) => (action) => {
         try {
           const { data: response } = await axios.get('http://3.80.80.108:3000/story');
           // console.log(response);
-          // console.log(response.story);
+          console.log(response.story);
 
-          const story = {
-            stories_name: response.story[0].title,
-            description: response.story[0].description,
-          };
-
-          const characters = [];
-          response.story.forEach((character) => {
-            characters.push({
-              name: character.class,
-              picture: character.illustration,
-              primary_characteristic: character.primary_characteristic,
-              hp: character.hp,
-              strength: character.strength,
-              dexterity: character.dexterity,
-              intelligence: character.intelligence,
-              charism: character.charism,
-            });
-          });
-
-          const actionSaveStory = saveStory(story, characters);
+          const actionSaveStory = saveStory(response.story);
           store.dispatch(actionSaveStory);
+          
+          // const story = {
+          //   stories_name: response.story.title,
+          //   description: response.story.description,
+          // };
+
+          // const charactersList = [];
+          // response.story.characters.forEach((character) => {
+          //   charactersList.push({
+          //     name: character.class,
+          //     picture: character.illustration,
+          //     primary_characteristic: character.primary_characteristic,
+          //     hp: character.hp,
+          //     strength: character.strength,
+          //     dexterity: character.dexterity,
+          //     intelligence: character.intelligence,
+          //     charism: character.charism,
+          //   });
+          // });
+
+          // const actionSaveStory = saveStory(story, charactersList);
+          // store.dispatch(actionSaveStory);
         }
         catch (error) {
           console.log(error);
@@ -54,9 +56,9 @@ const game = (store) => (next) => (action) => {
       const serverRequest = async () => {
         try {
           const { data: response } = await axios.get('http://3.80.80.108:3000/story');
-          console.log(response);
+          // console.log(response);
           const characters = [];
-          response.story.forEach((character) => {
+          response.story.characters.forEach((character) => {
             characters.push({
               name: character.class,
               picture: character.illustration,
