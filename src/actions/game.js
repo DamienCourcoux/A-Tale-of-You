@@ -7,6 +7,8 @@ export const SAVE_CHARACTERS = 'SAVE_CHARACTERS';
 export const SHOW_DICE_ROLLER = 'SHOW_DICE_ROLLER';
 export const HIDE_DICE_ROLLER = 'HIDE_DICE_ROLLER';
 export const ROLL_DICE = 'ROLL_DICE';
+export const CHANGE_SELECTED_CHARACTER = 'CHANGE_SELECTED_CHARACTER';
+export const START_GAME = 'START_GAME';
 
 export const loadStory = () => ({
   type: LOAD_STORY,
@@ -27,15 +29,6 @@ export const saveParagraph = (payload) => ({
   payload,
 });
 
-export const selectCharacters = () => ({
-  type: SELECT_CHARACTERS,
-});
-
-export const saveCharacters = (characters) => ({
-  type: SAVE_CHARACTERS,
-  characters,
-});
-
 export const showDiceRoller = () => ({
   type: SHOW_DICE_ROLLER,
 });
@@ -47,4 +40,13 @@ export const hideDiceRoller = () => ({
 export const rollDice = (number) => ({
   type: ROLL_DICE,
   number,
+});
+
+export const changeSelectedCharacter = (selectedClass) => ({
+  type: CHANGE_SELECTED_CHARACTER,
+  selectedClass,
+});
+
+export const startGame = () => ({
+  type: START_GAME,
 });

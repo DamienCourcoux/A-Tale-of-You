@@ -3,8 +3,6 @@ import axios from 'axios';
 import {
   LOAD_STORY,
   saveStory,
-  SELECT_CHARACTERS,
-  saveCharacters,
   SELECT_CHOICE,
   saveParagraph,
 } from 'src/actions/game';
@@ -16,7 +14,6 @@ const game = (store) => (next) => (action) => {
       const serverRequest = async () => {
         try {
           const { data: response } = await axios.get('http://3.80.80.108:3000/story');
-          console.log(response.story);
 
           const actionSaveStory = saveStory(response.story);
           store.dispatch(actionSaveStory);
@@ -47,38 +44,35 @@ const game = (store) => (next) => (action) => {
       next(action);
       break;
     }
-
-    console.log(id);
-
-      case SELECT_CHARACTERS: {
-      next(action);
-      const serverRequest = async () => {
-        try {
-          const { data: response } = await axios.get('http://3.80.80.108:3000/story');
-          const characters = [];
-          response.story.characters.forEach((character) => {
-            characters.push({
-              name: character.class,
-              picture: character.illustration,
-              primary_characteristic: character.primary_characteristic,
-              hp: character.hp,
-              strength: character.strength,
-              dexterity: character.dexterity,
-              intelligence: character.intelligence,
-              charism: character.charism,
-            });
+    case SELECT_CHARACTERS: {
+    next(action);
+    const serverRequest = async () => {
+      try {
+        const { data: response } = await axios.get('http://3.80.80.108:3000/story');
+        const characters = [];
+        response.story.characters.forEach((character) => {
+          characters.push({
+            name: character.class,
+            picture: character.illustration,
+            primary_characteristic: character.primary_characteristic,
+            hp: character.hp,
+            strength: character.strength,
+            dexterity: character.dexterity,
+            intelligence: character.intelligence,
+            charism: character.charism,
           });
+        });
 
-          const actionSaveCharacters = saveCharacters(characters);
-          store.dispatch(actionSaveCharacters);
-        }
-        catch (error) {
-          console.log(error);
-        }
-      };
-      serverRequest();
-      break;
-    }
+        const actionSaveCharacters = saveCharacters(characters);
+        store.dispatch(actionSaveCharacters);
+      }
+      catch (error) {
+        console.log(error);
+      }
+    };
+    serverRequest();
+    break;
+  }
     default:
       next(action);
   }

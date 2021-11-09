@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { loadStory } from 'src/actions/game';
+import { loadStory, selectChoice } from 'src/actions/game';
 import parse from 'html-react-parser';
 
 import './styles.scss';
@@ -11,19 +11,20 @@ import { showSelectCharacter } from 'src/actions/user';
 const Story = () => {
   const dispatch = useDispatch();
 
-  const handleShowSelectCharacter = () => {
-    dispatch(showSelectCharacter());
-  };
-
   useEffect(() => {
     dispatch(loadStory());
   }, []);
 
-  const { storyTitle, storyDescription } = useSelector((state) => ({
+  const { storyTitle, storyDescription, paragraph } = useSelector((state) => ({
     storyTitle: state.game.storyTitle,
     storyDescription: state.game.storyDescription,
+    paragraph: state.game.paragraph,
   }));
 
+  const handleShowSelectCharacter = () => {
+    dispatch(showSelectCharacter());
+    dispatch(selectChoice(paragraph.choices[0].consequences));
+  };
   return (
     <section className="story">
       <div className="story__border shadow">
