@@ -1,10 +1,10 @@
 import {
   SAVE_STORY,
   SAVE_PARAGRAPH,
-  SAVE_CHARACTERS,
   SHOW_DICE_ROLLER,
   HIDE_DICE_ROLLER,
   ROLL_DICE,
+  CHANGE_SELECTED_CHARACTER,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -12,22 +12,25 @@ export const initialState = {
   storyTitle: '',
   storyDescription: '',
   classList: [],
-  paragraphStart: 0,
   // Data for /jouer - left page
+  // paragraph: {
+  //   description: STRING, NOT NULL
+  //   choices: [
+  //     {
+  //       description: STRING, NOT NULL
+  //       success_condition: INTEGER
+  //       consequences: [
+  //         {
+  //           boolean: BOOLEAN, NOT NULL
+  //           paragraph_id: INTEGER, NOT NULL
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
   paragraph: {
-    description: "<p>Vous vous trouvez face à une habitation, vous apercevez une porte.</p><p>Vous décidez d'entrer.<p>",
-    choices: [
-      {
-        description: 'Continuer',
-        success_condition: null,
-        consequences: [
-          {
-            boolean: true,
-            paragraph_id: 2,
-          },
-        ],
-      },
-    ],
+    description: '',
+    choices: [],
   },
   enemy: null,
   // Data for /jouer - right page
@@ -67,8 +70,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         storyTitle: action.payload.title,
         storyDescription: action.payload.description,
-        classlist: action.payload.characters,
-        paragraphStart: action.payload.paragraph_id,
+        classList: action.payload.characters,
+        paragraph: {
+          choices: [
+            {
+              consequences: [
+                {
+                  paragraph_id: action.payload.paragraph_id,
+                },
+              ],
+            },
+          ],
+        },
       };
     }
     case SAVE_PARAGRAPH: {
@@ -147,10 +160,25 @@ const reducer = (state = initialState, action = {}) => {
         numberDices: action.number,
       };
     }
-    case SAVE_CHARACTERS: {
+    case CHANGE_SELECTED_CHARACTER: {
+      let selectedCharacter = {};
+      state.classList.forEach((target) => {
+        if (target.class === action.selectedClass) {
+          selectedCharacter = target;
+        }
+      });
       return {
         ...state,
-        characters: action.characters,
+        character: {
+          class: selectedCharacter.class,
+          illustration: selectedCharacter.illustration,
+          primaryCharacteristic: selectedCharacter.primary_characteristic,
+          maxHp: selectedCharacter.hp,
+          strength: selectedCharacter.strength,
+          dexterity: selectedCharacter.dexterity,
+          intelligence: selectedCharacter.intelligence,
+          charism: selectedCharacter.charism,
+        },
       };
     }
     default:

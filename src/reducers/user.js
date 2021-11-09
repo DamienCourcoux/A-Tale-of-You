@@ -55,7 +55,6 @@ const reducer = (state = initialState, action = {}) => {
         signinIsOpen: false,
       };
     case SAVE_USER: {
-      console.log('payload', action.payload);
       return {
         ...state,
         isLogged: action.payload.isLogged,
@@ -96,7 +95,6 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case SHOW_SELECT_CHARACTER: {
-      console.log('SHOW_SELECT_CHARACTER');
       return {
         ...state,
         selectCharacterIsOpen: true,
@@ -104,7 +102,6 @@ const reducer = (state = initialState, action = {}) => {
     }
 
     case HIDE_SELECT_CHARACTER: {
-      console.log('HIDE_SELECT_CHARACTER');
       return {
         ...state,
         selectCharacterIsOpen: false,
