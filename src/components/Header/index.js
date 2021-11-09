@@ -67,14 +67,22 @@ const Header = () => {
               activeClassName="is-active"
             >
               <FaScroll />
-              <p>Règles du jeu</p>
+              Règles du jeu
             </NavLink>
           </li>
         </ul>
         {isLogged && (
           <ul className="header__nav--settings">
             <li>
-              <p className="welcome-message"><FaUserAlt /> Bonjour {userPseudo}</p>
+              <NavLink
+                to="/profil"
+                title="Profil"
+                activeClassName="is-active"
+                className="welcome-message"
+              >
+                <FaUserAlt />
+                Bonjour {userPseudo}
+              </NavLink>
             </li>
             <li>
               <NavLink
@@ -89,7 +97,7 @@ const Header = () => {
             <li>
               <a href="#" onClick={(event) => handleLogout(event)}>
                 <FaUserSlash />
-                <p>Se déconnecter</p>
+                Se déconnecter
               </a>
             </li>
           </ul>
@@ -99,13 +107,13 @@ const Header = () => {
             <li>
               <a href="#" onClick={(event) => handleShowSignin(event)}>
                 <FaUserAlt />
-                <p>Se connecter</p>
+                Se connecter
               </a>
             </li>
             <li>
               <a href="#" onClick={(event) => handleShowSignup(event)}>
                 <FaUserPlus />
-                <p>S'inscrire</p>
+                S'inscrire
               </a>
             </li>
           </ul>
