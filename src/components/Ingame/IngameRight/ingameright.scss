@@ -6,35 +6,13 @@
       width: calc(50% - 1rem);
       background: vars.$bookPage;
       padding: 2rem;
-      
-
-
-      &__fake_image {
-        background-color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-  
-  
-        &--150 {
-          width: 150px;
-          height: 150px;
-        }
-  
-        &--50 {
-          width: 50px;
-          height: 50px;
-        }
-      }
-
-      &__title {
-        margin-bottom: 3rem;
-      }
+      position: relative;
       
       &__stats {
         display: grid;
+        align-items: center;
         width: calc(150px + 8rem + 4rem);
-        margin: 0 auto;
+        margin: 2rem auto;
         grid-template-columns: 150px 8rem 4rem;
         grid-template-rows: auto auto;
         grid-template-areas: 
@@ -44,20 +22,45 @@
 
           &__illustration {
             grid-area: stats_illustration;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            width: 150px;
+            height: 150px;
+            border: 3px solid #000;
+
+            & img {
+              width: 80px;
+            }
           }
 
           &__title {
             grid-area: stats_title;
             justify-self: start;
-            padding-left: 1rem;
+            margin-top: 0 !important;
+            margin-left: 1rem;
           }
 
           &__name {
             grid-area: stats_name;
+            margin-left: 1rem;
+
+            & li {
+              padding: .1rem 0;
+            }
           }
 
           &__value {
             grid-area: stats_value;
+
+            & li {
+              padding: .1rem 0;
+            }
+          }
+
+          & .bold {
+            font-weight: bold;
           }
       }
 
@@ -67,11 +70,19 @@
         justify-content: center;
 
         &__item {
-          margin: 1rem;
+          margin: 1rem 1rem 0;
           text-align: center;
+
+          &--img {
+            background: vars.$lightColor;
+            border: 3px solid vars.$darkColor;
+            padding: .5rem;
+          }
 
           &__value {
             margin: .5rem;
+            text-align: center;
+            font-weight: bold;
           }
         }
       } 
@@ -105,18 +116,37 @@
           margin-top: 1rem;
           justify-content: center;
           border: solid 3px black;
-          height: calc(100% - 3rem);
+          height: calc(100% - 5rem);
           width: 100%;
-          
-          overflow-y: scroll;
+          overflow-y: auto;
           scrollbar-color: rebeccapurple green;
           scrollbar-width: thin;
+
+          & .itemInventory {
+            padding: 0.5rem;
+
+            &:nth-child(2n+1) {
+              background: #bbb5a5;
+            }
+
+            &:nth-child(2n+2) {
+              background: #948f80;
+            }
+          }
         }
+      }
 
-
+      &::after {
+        content: "";
+        background: vars.$bookPage;
+        width: 15px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0px;
+        box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+        -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+        -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
       }
     }
   
-
-
-

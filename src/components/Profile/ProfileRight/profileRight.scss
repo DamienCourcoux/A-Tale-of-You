@@ -1,12 +1,13 @@
 @use 'src/styles/vars';
 
-.profile__page  {
+.profile__page--right  {
   width: calc(50% - 1rem);
   background: vars.$bookPage;
-  padding: 2rem 2rem 0 2rem;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .right {
@@ -22,34 +23,37 @@
     }
 
     &--action {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
       position: absolute;
-      top: 50%;
+      top: 20%;
       right: -40%;
 
       & button {
-        display: inline-block;
-        // position: absolute;
-        // right: -40%;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
+        display: inline-block !important;
+        background: none !important;
+        border: none !important;
+        font-size: 1.5rem !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 0 !important;
+        
+        &:hover {
+          transform: none !important;
+        }
       }
   
       &--menu {
         display: inline-flex;
         flex-direction: column;
-        // position: absolute;
-        // top: 60px;
-        // right: -40px;
+        position: absolute;
+        top: 30px;
+        right: -25px;
         background: vars.$lightColor;
         z-index: 2;
   
         li {
           padding: .5rem 1rem;
-          border: 3px solid #000;
+          border: 3px solid vars.$darkColor;
           cursor: pointer;
           text-align: center;
   
@@ -59,8 +63,8 @@
           }
   
           &:hover {
-            background: #000;
-            color: #fff;
+            background: vars.$darkColor;
+            color: vars.$lightColor;
   
             &:last-child {
               background: #a61b1b;
@@ -95,6 +99,7 @@
       img {
         border: 3px solid vars.$darkColor;
         width: 150px !important;
+        height: 150px;
       }
     }
 
@@ -113,6 +118,7 @@
           font-weight: bold;
           text-transform: uppercase;
           font-size: 1.5rem;
+          margin-top: 0 !important;
         }
       }
 
@@ -143,8 +149,8 @@
       }
 
       & button {
-        background: #fff;
-        border: 3px solid #000;
+        background: vars.$lightColor;
+        border: 3px solid vars.$darkColor;
         padding: .5rem 1rem;
         margin: .5rem 0;
 
@@ -157,5 +163,18 @@
     a {
       margin-left: .5rem;
     }
+  }
+
+  &::after {
+    content: "";
+    background: vars.$bookPage;
+    width: 15px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
   }
 }

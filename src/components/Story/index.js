@@ -6,14 +6,10 @@ import './styles.scss';
 
 // == Composant
 const Story = () => (
-  <section className="story">
-    <div className="story__border shadow">
-      <div className="story__pages shadow">
-        <StoryLeft />
-        <StoryRight />
-      </div>
-    </div>
-  </section>
+  <>
+    <StoryLeft />
+    <StoryRight />
+  </>
 );
 
 // == Export

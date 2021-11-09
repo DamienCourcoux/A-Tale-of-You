@@ -34,7 +34,7 @@ const InGameRight = () => {
   ));
 
   return (
-    <div className="ingame__page__right shadow">
+    <div className="ingame__page__right">
       <h1 className="ingame__page__right__title">Fiche Personnage</h1>
 
       <div className="ingame__page__right__stats">
@@ -130,28 +130,28 @@ const InGameRight = () => {
 
       <div className="ingame__page__right__equipments">
         <div className="ingame__page__right__equipments__item">
-          <div className="ingame__page__fake_image ingame__page__fake_image--50" title={weapon.name}>
+          <div className="ingame__page__right__equipments__item--img" title={weapon.name}>
             <GiBroadsword size={40} />
           </div>
-          <div className="ingame__page__right__equipments__item__value">
+          <p className="ingame__page__right__equipments__item__value">
             +{weapon.bonus}
-          </div>
+          </p>
         </div>
         <div className="ingame__page__right__equipments__item">
-          <div className="ingame__page__fake_image ingame__page__fake_image--50" title={armor.name}>
+          <div className="ingame__page__right__equipments__item--img" title={armor.name}>
             <GiShoulderArmor size={40} />
           </div>
-          <div className="ingame__page__right__equipments__item__value">
+          <p className="ingame__page__right__equipments__item__value">
             +{armor.bonus}
-          </div>
+          </p>
         </div>
         <div className="ingame__page__right__equipments__item">
-          <div className="ingame__page__fake_image ingame__page__fake_image--50" title={accessory.name}>
+          <div className="ingame__page__right__equipments__item--img" title={accessory.name}>
             <GiPearlNecklace size={40} />
           </div>
-          <div className="ingame__page__right__equipments__item__value">
+          <p className="ingame__page__right__equipments__item__value">
             +{accessory.bonus}
-          </div>
+          </p>
         </div>
       </div>
 

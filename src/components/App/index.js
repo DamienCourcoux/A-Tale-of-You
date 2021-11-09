@@ -22,6 +22,8 @@ import IngameFight from 'src/components/IngameFight';
 import Error404 from 'src/components/Error404';
 import DiceRoller from 'src/components/DiceRoller';
 
+import './app.scss';
+
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
@@ -52,36 +54,40 @@ const App = () => {
       onMouseDown={(event) => handleHideModals(event)}
     >
       <Header />
-      <Switch>
-        <Route exact path="/">
-          <Index />
-        </Route>
-        <Route exact path="/histoire">
-          <Story />
-        </Route>
-        <Route exact path="/regles">
-          <Rules />
-        </Route>
-        <Route exact path="/a-propos">
-          <About />
-        </Route>
-        <Route exact path="/jouer">
-          <Ingame />
-        </Route>
-        <Route exact path="/combat">
-          <IngameFight />
-        </Route>
-        {
-          isLogged && (
-          <Route exact path="/profil">
-            <Profile />
-          </Route>
-          )
-        }
-        <Route>
-          <Error404 />
-        </Route>
-      </Switch>
+      <section className="book">
+        <div className="book__border shadow">
+          <Switch>
+            <Route exact path="/">
+              <Index />
+            </Route>
+            <Route exact path="/histoire">
+              <Story />
+            </Route>
+            <Route exact path="/regles">
+              <Rules />
+            </Route>
+            <Route exact path="/a-propos">
+              <About />
+            </Route>
+            <Route exact path="/jouer">
+              <Ingame />
+            </Route>
+            <Route exact path="/combat">
+              <IngameFight />
+            </Route>
+            {
+              isLogged && (
+                <Route exact path="/profil">
+                  <Profile />
+                </Route>
+              )
+            }
+            <Route>
+              <Error404 />
+            </Route>
+          </Switch>
+        </div>
+      </section>
       {signinIsOpen && (
         <Signin />
       )}
