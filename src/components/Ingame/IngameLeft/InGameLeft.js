@@ -15,22 +15,21 @@ const InGameLeft = () => {
     paragraph: state.game.paragraph,
   }));
 
-  const handleSelectChoice = (successCondition, consequences) => {
+  const handleSelectChoice = (successCondition, consequences, choiceIndex) => {
     if (successCondition) {
-      dispatch(showDiceRoller());
+      dispatch(showDiceRoller(choiceIndex));
     }
     else {
-      dispatch(loadParagraph(consequences));
+      dispatch(loadParagraph(consequences[0]));
     }
-    // dispatch(selectChoice(consequences));
   };
 
-  const jsxButtons = paragraph.choices.map((choice) => (
+  const jsxButtons = paragraph.choices.map((choice, index) => (
     <button
       key={choice.description}
       className="ingame__page__button"
       type="button"
-      onClick={() => handleSelectChoice(choice.success_condition, choice.consequences)}
+      onClick={() => handleSelectChoice(choice.success_condition, choice.consequences, index)}
     >
       {choice.description}
     </button>

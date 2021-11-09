@@ -23,9 +23,9 @@ export const selectChoice = (consequences) => ({
   consequences,
 });
 
-export const loadParagraph = (consequences) => ({
+export const loadParagraph = (consequence) => ({
   type: LOAD_PARAGRAPH,
-  consequences,
+  consequence,
 });
 
 export const saveParagraph = (payload) => ({
@@ -33,8 +33,9 @@ export const saveParagraph = (payload) => ({
   payload,
 });
 
-export const showDiceRoller = () => ({
+export const showDiceRoller = (choiceIndex) => ({
   type: SHOW_DICE_ROLLER,
+  choiceIndex,
 });
 
 export const hideDiceRoller = () => ({

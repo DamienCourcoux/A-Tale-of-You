@@ -13,15 +13,29 @@ export const initialState = {
   classList: [],
   // Data for /jouer - left page
   paragraph: {
-    description: "<p>Vous vous trouvez face à une habitation, vous apercevez une porte.</p><p>Vous décidez d'entrer.<p>",
+    description: "<p>Vous vous trouvez dans une pièce. Vous apercevez un coffre, celui-ci semble coincé.</p><p>Vousavez le choix :</p><ul><li>User de votre habileté pour le débloquer.</li><li>Ignorer le coffre, quitter la pièce et aller au bout du couloir précédent.</li></ul>",
     choices: [
       {
-        description: 'Continuer',
+        description: 'Débloquer [DEX]',
+        success_condition: 27,
+        consequences: [
+          {
+            boolean: true,
+            paragraph_id: 4,
+          },
+          {
+            boolean: false,
+            paragraph_id: 5,
+          },
+        ],
+      },
+      {
+        description: 'Partir',
         success_condition: null,
         consequences: [
           {
             boolean: true,
-            paragraph_id: 2,
+            paragraph_id: 6,
           },
         ],
       },
@@ -53,9 +67,11 @@ export const initialState = {
     bonus: 0,
   },
   inventory: [],
+  // data for DiceRoller
   diceRollerIsOpen: false,
-  isRoll: false,
-  numberDices: null,
+  resultRoll: [],
+  choiceIndex: null,
+  // isRoll: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -142,6 +158,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         diceRollerIsOpen: true,
+        choiceIndex: action.choiceIndex,
       };
     }
     case HIDE_DICE_ROLLER: {
@@ -151,10 +168,15 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case ROLL_DICE: {
+      const resultRoll = [-1, -1];
+      resultRoll.forEach((roll, index) => {
+        resultRoll[index] = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+      });
       return {
         ...state,
-        isRoll: true,
-        numberDices: action.number,
+        resultRoll,
+        // isRoll: true,
+        // numberDices: action.number,
       };
     }
     default:

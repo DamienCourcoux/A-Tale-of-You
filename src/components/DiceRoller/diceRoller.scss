@@ -38,6 +38,30 @@
         margin: 0 auto;
         width: 100px;
         height: 100px;
+
+        &--1 {
+          background-position-x: 0px;
+        }
+
+        &--2 {
+          background-position-x: -100px;
+        }
+
+        &--3 {
+          background-position-x: -200px;
+        }
+
+        &--4 {
+          background-position-x: -300px;
+        }
+
+        &--5 {
+          background-position-x: -400px;
+        }
+
+        &--6 {
+          background-position-x: -500px;
+        }
       }
 
       .one {
