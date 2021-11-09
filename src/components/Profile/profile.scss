@@ -30,13 +30,4 @@
     flex-direction: row;
     justify-content: center;
   }
-
-  &__page {
-    width: calc(50% - 1rem);
-    background: vars.$bookPage;
-    padding: 2rem 2rem 0 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } 
 }
