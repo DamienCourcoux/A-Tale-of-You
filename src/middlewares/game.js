@@ -42,7 +42,6 @@ const game = (store) => (next) => (action) => {
       next(action);
       break;
     }
-
     default:
       next(action);
   }
