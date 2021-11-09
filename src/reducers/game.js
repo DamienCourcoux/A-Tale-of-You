@@ -119,12 +119,12 @@ const reducer = (state = initialState, action = {}) => {
         }
       }
       // TODO trouver le 33333
-      if (action.payload.paragraph.choices[0].success_condition === 27) {
-        return {
-          ...state,
-          diceRollerIsOpen: true,
-        };
-      }
+      // if (action.payload.paragraph.choices[0].success_condition != null) {
+      //   return {
+      //     ...state,
+      //     diceRollerIsOpen: true,
+      //   };
+      // }
       // if (action.payload.paragraph.choices[1].success_condition === null) {
       //   return {
       //     ...state,

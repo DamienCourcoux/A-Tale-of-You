@@ -110,7 +110,12 @@ const DiceRoller = () => {
               </h2>
               <button
                 type="button"
-                onClick={handleContinueAventure}
+                // j'ai commenter pour pas avoir d'erreur ^^
+                // onClick={() =>
+                //   handleSelectConsequence(numberDices + 25,
+                //     paragraph.consequences,
+                //     paragraph.choices.consequences);}
+                // }
               >
                 Continuer
               </button>

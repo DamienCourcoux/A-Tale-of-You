@@ -3,7 +3,7 @@ import axios from 'axios';
 import {
   LOAD_STORY,
   saveStory,
-  SELECT_CHOICE,
+  LOAD_PARAGRAPH,
   saveParagraph,
 } from 'src/actions/game';
 
@@ -31,18 +31,18 @@ const game = (store) => (next) => (action) => {
       serverRequest();
       break;
     }
-    case SELECT_CHOICE: {
+    case LOAD_PARAGRAPH: {
       // temporaire, il faudra entre deux déterminer quelles est la conséquence
       // (résultat d'un jet, issue d'un combat)
       // pour l'instant, tout est réussi
       const id = action.consequences[0].paragraph_id;
-
       // console.log('Request paragraph: ', id);
 
       axios.get(`http://3.80.80.108:3000/paragraph/${id}`)
         .then((response) => {
           // console.log(response);
           // aller dans le reducer pour l'action success
+          console.log(response.data.paragraph.choices[0].success_condition);
           store.dispatch(saveParagraph(response.data));
         })
         .catch((error) => {
