@@ -1,0 +1,9 @@
+@use 'src/styles/vars';
+
+.story__page__left {
+  width: calc(50% - 1rem);
+  background: vars.$bookPage;
+  padding: 2rem;
+  overflow-y: auto;
+
+}
