@@ -18,7 +18,8 @@ export const initialState = {
   //   choices: [
   //     {
   //       description: STRING, NOT NULL
-  //       success_condition: INTEGER
+  //       success_condition_value: INTEGER
+  //       success_condition_characteristic: STRING
   //       consequences: [
   //         {
   //           boolean: BOOLEAN, NOT NULL
@@ -32,6 +33,37 @@ export const initialState = {
     description: '',
     choices: [],
   },
+  // paragraph: {
+  //   description: "<p>Vous vous trouvez dans une pièce. Vous apercevez un coffre, celui-ci semble coincé.</p><p>Vous avez le choix :</p><ul><li>User de votre habileté pour le débloquer.</li><li>Ignorer le coffre, quitter la pièce et aller au bout du couloir précédent.</li></ul>",
+  //   choices: [
+  //     {
+  //       description: "Débloquer [DEX]",
+  //       success_condition_value: 27,
+  //       success_condition_characteristic: "dexterity",
+  //       consequences: [
+  //         {
+  //           boolean: true,
+  //           paragraph_id: 4,
+  //         },
+  //         {
+  //           boolean: false,
+  //           paragraph_id: 5,
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       description: "Partir",
+  //       success_condition_value: null,
+  //       success_condition_characteristic: null,
+  //       consequences: [
+  //         {
+  //           boolean: true,
+  //           paragraph_id: 6,
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
   enemy: null,
   // Data for /jouer - right page
   character: {
@@ -44,7 +76,7 @@ export const initialState = {
     intelligence: 20,
     charism: 20,
   },
-  characterCurrentHp: 40,
+  characterCurrentHp: 50,
   weapon: {
     name: 'épée en fer',
     bonus: 0,
@@ -58,9 +90,11 @@ export const initialState = {
     bonus: 0,
   },
   inventory: [],
+  // data for DiceRoller
   diceRollerIsOpen: false,
-  isRoll: false,
-  numberDices: null,
+  resultRoll: [],
+  choiceIndex: null,
+  // isRoll: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -145,6 +179,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         diceRollerIsOpen: true,
+        choiceIndex: action.choiceIndex,
       };
     }
     case HIDE_DICE_ROLLER: {
@@ -154,10 +189,13 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case ROLL_DICE: {
+      const resultRoll = [-1, -1];
+      resultRoll.forEach((roll, index) => {
+        resultRoll[index] = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+      });
       return {
         ...state,
-        isRoll: true,
-        numberDices: action.number,
+        resultRoll,
       };
     }
     case CHANGE_SELECTED_CHARACTER: {

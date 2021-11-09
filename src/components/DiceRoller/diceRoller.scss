@@ -38,49 +38,65 @@
         margin: 0 auto;
         width: 100px;
         height: 100px;
+
+        &--1 {
+          background-position-x: 0px;
+        }
+
+        &--2 {
+          background-position-x: -100px;
+        }
+
+        &--3 {
+          background-position-x: -200px;
+        }
+
+        &--4 {
+          background-position-x: -300px;
+        }
+
+        &--5 {
+          background-position-x: -400px;
+        }
+
+        &--6 {
+          background-position-x: -500px;
+        }
       }
 
-      .one {
-        background-position-x: 80%;
-      }
-
-      .two {
-        background-position-x: 40%;
-      }
-
-      .rolll{ 
-        animation-name: wobble;
-        animation-duration: 1s;
-       } 
-       @keyframes wobble {
-        from {
-          transform: translate3d(0, 0, 0);
-        }
+      // .rolll{ 
+      //   animation-name: wobble;
+      //   animation-duration: 1s;
+      //  } 
+      //  @keyframes wobble {
+      //   from {
+      //     transform: translate3d(0, 0, 0);
+      //   }
       
-        15% {
-          transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
-        }
+      //   15% {
+      //     transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+      //   }
       
-        30% {
-          transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
-        }
+      //   30% {
+      //     transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+      //   }
       
-        45% {
-          transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
-        }
+      //   45% {
+      //     transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+      //   }
       
-        60% {
-          transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
-        }
+      //   60% {
+      //     transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+      //   }
       
-        75% {
-          transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
-        }
+      //   75% {
+      //     transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+      //   }
       
-        to {
-          transform: translate3d(0, 0, 0);
-        }
-      }
+      //   to {
+      //     transform: translate3d(0, 0, 0);
+      //   }
+      // }
     }
 
     p {
@@ -112,10 +128,6 @@
       &:hover {
         transform: scale(0.9);
       }
-    }
-
-    .isRoll {
-      display: none;
     }
   }
 }

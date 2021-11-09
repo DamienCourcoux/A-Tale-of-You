@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  selectChoice,
+  loadParagraph,
+  showDiceRoller,
 } from 'src/actions/game';
 
 import parse from 'html-react-parser';
@@ -14,16 +15,21 @@ const InGameLeft = () => {
     paragraph: state.game.paragraph,
   }));
 
-  const handleSelectChoice = (consequences) => {
-    dispatch(selectChoice(consequences));
+  const handleSelectChoice = (successCondition, consequences, choiceIndex) => {
+    if (successCondition) {
+      dispatch(showDiceRoller(choiceIndex));
+    }
+    else {
+      dispatch(loadParagraph(consequences[0]));
+    }
   };
 
-  const jsxButtons = paragraph.choices.map((choice) => (
+  const jsxButtons = paragraph.choices.map((choice, index) => (
     <button
       key={choice.description}
       className="ingame__page__button"
       type="button"
-      onClick={() => handleSelectChoice(choice.consequences)}
+      onClick={() => handleSelectChoice(choice.success_condition_value, choice.consequences, index)}
     >
       {choice.description}
     </button>

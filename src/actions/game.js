@@ -1,6 +1,7 @@
 export const LOAD_STORY = 'LOAD_STORY';
 export const SAVE_STORY = 'SAVE_STORY';
 export const SELECT_CHOICE = 'SELECT_CHOICE';
+export const LOAD_PARAGRAPH = 'LOAD_PARAGRAPH';
 export const SAVE_PARAGRAPH = 'SAVE_PARAGRAPH';
 export const SELECT_CHARACTERS = 'SELECT_CHARACTERS';
 export const SAVE_CHARACTERS = 'SAVE_CHARACTERS';
@@ -24,13 +25,19 @@ export const selectChoice = (consequences) => ({
   consequences,
 });
 
+export const loadParagraph = (consequence) => ({
+  type: LOAD_PARAGRAPH,
+  consequence,
+});
+
 export const saveParagraph = (payload) => ({
   type: SAVE_PARAGRAPH,
   payload,
 });
 
-export const showDiceRoller = () => ({
+export const showDiceRoller = (choiceIndex) => ({
   type: SHOW_DICE_ROLLER,
+  choiceIndex,
 });
 
 export const hideDiceRoller = () => ({
