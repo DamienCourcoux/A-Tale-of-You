@@ -31,26 +31,31 @@
     justify-content: center;
   }
 
-  &__page {
+  &__page__left {
     width: calc(50% - 1rem);
     background: vars.$bookPage;
     padding: 2rem;
     overflow-y: auto;
 
-    &__right {
-      display: grid;
-      grid-template-columns: auto;
-      grid-template-rows: auto;
-      grid-template-areas: 
-        "button";
-      align-items: center;
+  }
+  &__page__right {
+    width: calc(50% - 1rem);
+    background: vars.$bookPage;
+    padding: 2rem;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "button";
+    align-items: center;
     
       &__button {
-        grid-area: button;
+          grid-area: button;
       }
 
     }
-  }
+  
 
   h1 {
     font-size: 1.5rem;

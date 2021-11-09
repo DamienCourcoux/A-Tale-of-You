@@ -29,13 +29,13 @@ const Story = () => {
     <section className="story">
       <div className="story__border shadow">
         <div className="story__pages shadow">
-          <div className="story__page shadow">
+          <div className="story__page__left shadow">
             <h1>{storyTitle}</h1>
             <div className="hr" />
             {parse(storyDescription)}
             <div className="hr" />
           </div>
-          <div className="story__page story__page__right shadow">
+          <div className="story__page__right shadow">
             <button
               className="story__page__right__button"
               type="button"
