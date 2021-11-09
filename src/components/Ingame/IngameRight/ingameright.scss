@@ -6,7 +6,7 @@
       width: calc(50% - 1rem);
       background: vars.$bookPage;
       padding: 2rem;
-      overflow-y: auto;
+      
 
 
       &__fake_image {
@@ -118,65 +118,5 @@
     }
   
 
-  h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .hr {
-    height: 1px;
-    width: 50%;
-    background-image: linear-gradient(to right, vars.$bookPage, vars.$darkColor, vars.$bookPage);
-    margin: 1.5rem auto;
-  }
-
-  p {
-    text-align: justify;
-    margin: .5rem 0;
-  }
-
-  ul {
-    margin-top: 1rem;
-    margin-left: 2rem;
-  }
-
-  li {
-    margin-top: 0.5rem;
-  }
-
-  .bold {
-    font-weight: bold;
-  }
-
-  img {
-    width: 6rem;
-  }
-
-
-  button {
-    background: vars.$lightColor;
-    color: vars.$darkColor;
-    border: 3px solid vars.$darkColor;
-    padding: .5rem 1rem;
-    display: block;
-    text-align: center;
-    width: 90%;
-    height: 3rem;
-    margin: .5rem auto;
-    font-weight: bold;
-    font-size: 1rem;
-
-    &:hover {
-      transform: scale(0.9);
-    }
-
-  }
 
 
