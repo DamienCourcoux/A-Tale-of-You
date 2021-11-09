@@ -33,7 +33,6 @@ const game = (store) => (next) => (action) => {
       const condition = action.description;
       axios.get(`http://3.80.80.108:3000/paragraph/${id}`)
         .then((response) => {
-
           console.log(condition);
           // aller dans le reducer pour l'action success
           store.dispatch(saveParagraph(response.data));
