@@ -33,9 +33,11 @@ const game = (store) => (next) => (action) => {
       // (résultat d'un jet, issue d'un combat)
       // pour l'instant, tout est réussi
       const id = action.consequences[0].paragraph_id;
-
+      const condition = action.description;
       axios.get(`http://3.80.80.108:3000/paragraph/${id}`)
         .then((response) => {
+
+          console.log(condition);
           // aller dans le reducer pour l'action success
           store.dispatch(saveParagraph(response.data));
         })
@@ -45,6 +47,9 @@ const game = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
+    console.log(id);
+
       case SELECT_CHARACTERS: {
       next(action);
       const serverRequest = async () => {
