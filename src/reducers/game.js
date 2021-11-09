@@ -13,11 +13,12 @@ export const initialState = {
   classList: [],
   // Data for /jouer - left page
   paragraph: {
-    description: "<p>Vous vous trouvez dans une pièce. Vous apercevez un coffre, celui-ci semble coincé.</p><p>Vousavez le choix :</p><ul><li>User de votre habileté pour le débloquer.</li><li>Ignorer le coffre, quitter la pièce et aller au bout du couloir précédent.</li></ul>",
+    description: '',
     choices: [
       {
-        description: 'Débloquer [DEX]',
-        success_condition: 27,
+        description: '',
+        success_condition_value: null,
+        success_condition_characteristic: '',
         consequences: [
           {
             boolean: true,
@@ -31,7 +32,8 @@ export const initialState = {
       },
       {
         description: 'Partir',
-        success_condition: null,
+        success_condition_value: null,
+        success_condition_characteristic: null,
         consequences: [
           {
             boolean: true,
@@ -53,7 +55,7 @@ export const initialState = {
     intelligence: 20,
     charism: 20,
   },
-  characterCurrentHp: 40,
+  characterCurrentHp: 50,
   weapon: {
     name: 'épée en fer',
     bonus: 0,
@@ -134,19 +136,6 @@ const reducer = (state = initialState, action = {}) => {
           }
         }
       }
-      // TODO trouver le 33333
-      // if (action.payload.paragraph.choices[0].success_condition != null) {
-      //   return {
-      //     ...state,
-      //     diceRollerIsOpen: true,
-      //   };
-      // }
-      // if (action.payload.paragraph.choices[1].success_condition === null) {
-      //   return {
-      //     ...state,
-      //     diceRollerIsOpen: true,
-      //   };
-      // }
       return {
         ...state,
         paragraph: action.payload.paragraph,
@@ -175,8 +164,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         resultRoll,
-        // isRoll: true,
-        // numberDices: action.number,
       };
     }
     default:

@@ -29,7 +29,7 @@ const InGameLeft = () => {
       key={choice.description}
       className="ingame__page__button"
       type="button"
-      onClick={() => handleSelectChoice(choice.success_condition, choice.consequences, index)}
+      onClick={() => handleSelectChoice(choice.success_condition_value, choice.consequences, index)}
     >
       {choice.description}
     </button>

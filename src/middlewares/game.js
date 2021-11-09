@@ -32,11 +32,7 @@ const game = (store) => (next) => (action) => {
       break;
     }
     case LOAD_PARAGRAPH: {
-      // temporaire, il faudra entre deux déterminer quelles est la conséquence
-      // (résultat d'un jet, issue d'un combat)
-      // pour l'instant, tout est réussi
       const id = action.consequence.paragraph_id;
-      // console.log('Request paragraph: ', id);
 
       axios.get(`http://3.80.80.108:3000/paragraph/${id}`)
         .then((response) => {
