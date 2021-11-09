@@ -34,12 +34,12 @@ export const initialState = {
     choices: [],
   },
   // paragraph: {
-  //   description: "<p>Vous vous trouvez dans une pièce. Vous apercevez un coffre, celui-ci semble coincé.</p><p>Vous avez le choix :</p><ul><li>User de votre habileté pour le débloquer.</li><li>Ignorer le coffre, quitter la pièce et aller au bout du couloir précédent.</li></ul>",
+  //   description: '<p>Vous vous trouvez dans une pièce. Vous apercevez un coffre, celui-ci semble coincé.</p><p>Vous avez le choix :</p><ul><li>User de votre habileté pour le débloquer.</li><li>Ignorer le coffre, quitter la pièce et aller au bout du couloir précédent.</li></ul>',
   //   choices: [
   //     {
-  //       description: "Débloquer [DEX]",
+  //       description: 'Débloquer [DEX]',
   //       success_condition_value: 27,
-  //       success_condition_characteristic: "dexterity",
+  //       success_condition_characteristic: 'dexterity',
   //       consequences: [
   //         {
   //           boolean: true,
@@ -52,7 +52,7 @@ export const initialState = {
   //       ],
   //     },
   //     {
-  //       description: "Partir",
+  //       description: 'Partir',
   //       success_condition_value: null,
   //       success_condition_characteristic: null,
   //       consequences: [

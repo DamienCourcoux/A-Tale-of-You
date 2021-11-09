@@ -56,11 +56,11 @@ const DiceRoller = () => {
           <h1>Lancer de dés</h1>
           <div className="diceRoller__content--container">
             <div
-              className={`dice dice--${resultRoll[0]}`}
+              className={`rolll dice dice--${resultRoll[0]}`}
               style={{ backgroundImage: `url(${Dice})` }}
             />
             <div
-              className={`dice dice--${resultRoll[1]}`}
+              className={`rolll dice dice--${resultRoll[1]}`}
               style={{ backgroundImage: `url(${Dice})` }}
             />
           </div>
