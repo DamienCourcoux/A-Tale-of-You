@@ -6,14 +6,10 @@ import './error404.scss';
 
 // == Composant
 const Error404 = () => (
-  <section className="error404">
-    <div className="error404__border shadow">
-      <div className="error404__pages">
-        <Error404Left />
-        <Error404Right />
-      </div>
-    </div>
-  </section>
+  <>
+    <Error404Left />
+    <Error404Right />
+  </>
 );
 
 // == Export

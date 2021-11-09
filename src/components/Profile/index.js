@@ -6,14 +6,10 @@ import './profile.scss';
 
 // == Composant
 const Profile = () => (
-  <section className="profile">
-    <div className="profile__border shadow">
-      <div className="profile__pages shadow">
-        <ProfileLeft />
-        <ProfileRight />
-      </div>
-    </div>
-  </section>
+  <>
+    <ProfileLeft />
+    <ProfileRight />
+  </>
 );
 
 // == Export

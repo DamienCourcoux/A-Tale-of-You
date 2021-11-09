@@ -6,14 +6,10 @@ import './index.scss';
 
 // == Composant
 const Index = () => (
-  <section className="index">
-    <div className="index__border shadow">
-      <div className="index__pages">
-        <IndexLeft />
-        <IndexRight />
-      </div>
-    </div>
-  </section>
+  <>
+    <IndexLeft />
+    <IndexRight />
+  </>
 );
 
 // == Export

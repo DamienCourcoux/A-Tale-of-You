@@ -61,8 +61,8 @@ const ProfileRight = () => {
   };
 
   return (
-    <div className="profile__page right shadow">
-      <div className="profile__page right--title">
+    <div className="profile__page--right right shadow">
+      <div className="right--title">
         <h1>Profil</h1>
         <div className="right--title--action">
           <button

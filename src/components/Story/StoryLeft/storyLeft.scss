@@ -5,5 +5,18 @@
   background: vars.$bookPage;
   padding: 2rem;
   overflow-y: auto;
+  position: relative;
 
+  &::before {
+    content: "";
+    background: vars.$bookPage;
+    width: 15px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+  }
 }
