@@ -4,6 +4,7 @@ import {
   SHOW_DICE_ROLLER,
   HIDE_DICE_ROLLER,
   ROLL_DICE,
+  CHANGE_SELECTED_CHARACTER,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -12,36 +13,25 @@ export const initialState = {
   storyDescription: '',
   classList: [],
   // Data for /jouer - left page
+  // paragraph: {
+  //   description: STRING, NOT NULL
+  //   choices: [
+  //     {
+  //       description: STRING, NOT NULL
+  //       success_condition_value: INTEGER
+  //       success_condition_characteristic: STRING
+  //       consequences: [
+  //         {
+  //           boolean: BOOLEAN, NOT NULL
+  //           paragraph_id: INTEGER, NOT NULL
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
   paragraph: {
     description: '',
-    choices: [
-      {
-        description: '',
-        success_condition_value: null,
-        success_condition_characteristic: '',
-        consequences: [
-          {
-            boolean: true,
-            paragraph_id: 4,
-          },
-          {
-            boolean: false,
-            paragraph_id: 5,
-          },
-        ],
-      },
-      {
-        description: 'Partir',
-        success_condition_value: null,
-        success_condition_characteristic: null,
-        consequences: [
-          {
-            boolean: true,
-            paragraph_id: 6,
-          },
-        ],
-      },
-    ],
+    choices: [],
   },
   enemy: null,
   // Data for /jouer - right page
@@ -81,8 +71,20 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_STORY: {
       return {
         ...state,
-        storyTitle: action.story.name,
-        storyDescription: action.story.description,
+        storyTitle: action.payload.title,
+        storyDescription: action.payload.description,
+        classList: action.payload.characters,
+        paragraph: {
+          choices: [
+            {
+              consequences: [
+                {
+                  paragraph_id: action.payload.paragraph_id,
+                },
+              ],
+            },
+          ],
+        },
       };
     }
     case SAVE_PARAGRAPH: {
@@ -140,7 +142,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         paragraph: action.payload.paragraph,
         enemy: action.payload.enemy,
-        diceRollerIsOpen: false,
       };
     }
     case SHOW_DICE_ROLLER: {
@@ -164,6 +165,27 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         resultRoll,
+      };
+    }
+    case CHANGE_SELECTED_CHARACTER: {
+      let selectedCharacter = {};
+      state.classList.forEach((target) => {
+        if (target.class === action.selectedClass) {
+          selectedCharacter = target;
+        }
+      });
+      return {
+        ...state,
+        character: {
+          class: selectedCharacter.class,
+          illustration: selectedCharacter.illustration,
+          primaryCharacteristic: selectedCharacter.primary_characteristic,
+          maxHp: selectedCharacter.hp,
+          strength: selectedCharacter.strength,
+          dexterity: selectedCharacter.dexterity,
+          intelligence: selectedCharacter.intelligence,
+          charism: selectedCharacter.charism,
+        },
       };
     }
     default:

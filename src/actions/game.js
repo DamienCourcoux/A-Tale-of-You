@@ -6,7 +6,6 @@ export const SAVE_PARAGRAPH = 'SAVE_PARAGRAPH';
 export const SHOW_DICE_ROLLER = 'SHOW_DICE_ROLLER';
 export const HIDE_DICE_ROLLER = 'HIDE_DICE_ROLLER';
 export const ROLL_DICE = 'ROLL_DICE';
-export const ROLL_DICE_SUCCESS = 'ROLE_DICE_SUCCESS';
 
 export const loadStory = () => ({
   type: LOAD_STORY,
@@ -45,8 +44,4 @@ export const hideDiceRoller = () => ({
 export const rollDice = (number) => ({
   type: ROLL_DICE,
   number,
-});
-
-export const rollDiceSuccess = () => ({
-  type: ROLL_DICE_SUCCESS,
 });
