@@ -64,16 +64,18 @@ const ProfileRight = () => {
     <div className="profile__page right shadow">
       <div className="profile__page right--title">
         <h1>Profil</h1>
-        <button
-          type="button"
-          onClick={handleMenuDropdown}
-        >
-          <FaEllipsisH />
-        </button>
-        <ul className={menuDropdownIsOpen ? 'right--title--menu' : 'right--title--menu menuDropdownIsOpen'}>
-          <li onClick={handleEdit}>Modifier mon profil</li>
-          <li onClick={handleDelete}>Supprimer mon profil</li>
-        </ul>
+        <div className="right--title--action">
+          <button
+            type="button"
+            onClick={handleMenuDropdown}
+          >
+            <FaEllipsisH />
+          </button>
+          <ul className={menuDropdownIsOpen ? 'right--title--action--menu' : 'right--title--action--menu menuDropdownIsOpen'}>
+            <li onClick={handleEdit}>Modifier mon profil</li>
+            <li onClick={handleDelete}>Supprimer mon profil</li>
+          </ul>
+        </div>
       </div>
       <span className="hr"> </span>
       <div className="right--myProfile">
