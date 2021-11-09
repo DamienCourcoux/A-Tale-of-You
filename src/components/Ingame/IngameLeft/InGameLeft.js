@@ -36,7 +36,7 @@ const InGameLeft = () => {
   ));
 
   return (
-    <div className="ingame__page shadow">
+    <div className="ingame__page__left shadow">
       <div className="ingame__page--history">
         {parse(paragraph.description)}
       </div>

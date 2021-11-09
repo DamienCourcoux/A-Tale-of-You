@@ -4,6 +4,7 @@ import {
   SHOW_DICE_ROLLER,
   HIDE_DICE_ROLLER,
   ROLL_DICE,
+  CHANGE_SELECTED_CHARACTER,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -195,6 +196,27 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         resultRoll,
+      };
+    }
+    case CHANGE_SELECTED_CHARACTER: {
+      let selectedCharacter = {};
+      state.classList.forEach((target) => {
+        if (target.class === action.selectedClass) {
+          selectedCharacter = target;
+        }
+      });
+      return {
+        ...state,
+        character: {
+          class: selectedCharacter.class,
+          illustration: selectedCharacter.illustration,
+          primaryCharacteristic: selectedCharacter.primary_characteristic,
+          maxHp: selectedCharacter.hp,
+          strength: selectedCharacter.strength,
+          dexterity: selectedCharacter.dexterity,
+          intelligence: selectedCharacter.intelligence,
+          charism: selectedCharacter.charism,
+        },
       };
     }
     default:

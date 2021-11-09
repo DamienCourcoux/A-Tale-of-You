@@ -17,7 +17,7 @@
     background-color: vars.$background;
     border: solid 5px vars.$book;
     width: 90%;
-    max-width: 300px;
+    max-width: 400px;
   }
     
   &__list {
@@ -42,5 +42,19 @@
       width: 100px;
       height: 100px;
     }
+  }
+
+  .fit-picture {
+    width: 4rem;
+  }
+
+  .bold {
+    font-weight: 700;
+  }
+
+  &__stats__title {
+    grid-area: stats_title;
+    justify-self: start;
+    padding-left: 1rem;
   }
 }

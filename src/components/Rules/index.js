@@ -6,7 +6,8 @@ const Rules = () => (
   <section className="rules">
     <div className="rules__border shadow">
       <div className="rules__pages shadow">
-        <div className="rules__page shadow">
+        
+        <div className="rules__page__left shadow">
           <h1>Règles du jeu</h1>
           <div className="hr" />
           {/* <div className="rules__h2">Introduction</div>
@@ -143,11 +144,11 @@ const Rules = () => (
           {/* à compléter */}
           <div className="hr" />
         </div>
-        <div className="rules__page  shadow">
-          <div className="rules__page__right__fake_image">
+        
+        <div className="rules__page__right shadow">
             <FaImages size={400} />
           </div>
-        </div>
+        
       </div>
     </div>
   </section>
