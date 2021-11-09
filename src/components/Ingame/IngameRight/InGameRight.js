@@ -34,11 +34,11 @@ const InGameRight = () => {
   ));
 
   return (
-    <div className="ingame__page ingame__page__right shadow">
+    <div className="ingame__page__right shadow">
       <h1 className="ingame__page__right__title">Fiche Personnage</h1>
 
       <div className="ingame__page__right__stats">
-        <div className="ingame__page__right__stats__illustration ingame__page__fake_image ingame__page__fake_image--150">
+        <div className="ingame__page__right__stats__illustration ingame__page__fake_image--150">
           <img className="fit-picture" src={character.illustration} alt="img de votre personnage" />
         </div>
 
