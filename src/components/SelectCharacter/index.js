@@ -1,22 +1,18 @@
 // == Import
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeSelectedCharacter, selectChoice } from 'src/actions/game';
+import { changeSelectedCharacter } from 'src/actions/game';
 import { hideSelectCharacter } from 'src/actions/user';
+import { useHistory } from 'react-router-dom';
 
 // == Composant
 const SelectCharacter = () => {
-  // const history = useHistory();
+  const history = useHistory();
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(selectCharacters());
-  //   // console.log(selectCharacters);
-  // }, []);
 
-  const { character, classList, paragraph } = useSelector((state) => ({
+  const { character, classList } = useSelector((state) => ({
     character: state.game.character,
     classList: state.game.classList,
-    paragraph: state.game.paragraph,
   }));
 
   const handleChangeSelectedCharacter = (selectedClass) => {
@@ -25,19 +21,22 @@ const SelectCharacter = () => {
 
   const handleStartGame = () => {
     dispatch(hideSelectCharacter());
-    dispatch(selectChoice(paragraph.choices[0].consequences));
-    console.log('handleStartGame');
+    history.replace('/jouer');
   };
 
-  const jsxButtons = classList.map((button, index) => (
-    <button
-      key={index + 1}
-      onClick={() => handleChangeSelectedCharacter(button.class)}
-      type="button"
-    >
-      {button.class}
-    </button>
-  ));
+  let indexButton = 0;
+  const jsxButtons = classList.map((button) => {
+    indexButton += 1;
+    return (
+      <button
+        key={indexButton}
+        onClick={() => handleChangeSelectedCharacter(button.class)}
+        type="button"
+      >
+        {button.class}
+      </button>
+    );
+  });
 
   return (
     <div className="select_character">

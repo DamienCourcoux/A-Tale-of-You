@@ -13,25 +13,25 @@ export const initialState = {
   storyDescription: '',
   classList: [],
   // Data for /jouer - left page
-  paragraph: {
-    description: "<p>Vous vous trouvez face à une habitation, vous apercevez une porte.</p><p>Vous décidez d'entrer.<p>",
-    choices: [
-      {
-        description: 'Continuer',
-        success_condition: null,
-        consequences: [
-          {
-            boolean: true,
-            paragraph_id: 2,
-          },
-        ],
-      },
-    ],
-  },
   // paragraph: {
-  //   description: '',
-  //   choices: [],
+  //   description: STRING, NOT NULL
+  //   choices: [
+  //     {
+  //       description: STRING, NOT NULL
+  //       success_condition: INTEGER
+  //       consequences: [
+  //         {
+  //           boolean: BOOLEAN, NOT NULL
+  //           paragraph_id: INTEGER, NOT NULL
+  //         },
+  //       ],
+  //     },
+  //   ],
   // },
+  paragraph: {
+    description: '',
+    choices: [],
+  },
   enemy: null,
   // Data for /jouer - right page
   character: {

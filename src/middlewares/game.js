@@ -14,7 +14,6 @@ const game = (store) => (next) => (action) => {
       const serverRequest = async () => {
         try {
           const { data: response } = await axios.get('http://3.80.80.108:3000/story');
-          console.log(response.story);
 
           const actionSaveStory = saveStory(response.story);
           store.dispatch(actionSaveStory);

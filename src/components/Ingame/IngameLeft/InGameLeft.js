@@ -14,8 +14,6 @@ const InGameLeft = () => {
     paragraph: state.game.paragraph,
   }));
 
-  console.log(paragraph);
-
   const handleSelectChoice = (consequences) => {
     dispatch(selectChoice(consequences));
   };
