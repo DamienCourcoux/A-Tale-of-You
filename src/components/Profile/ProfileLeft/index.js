@@ -6,7 +6,9 @@ import './style.scss';
 // == Composant
 const ProfileLeft = () => (
   <div className="page page_left shadow">
-    <img className="illustration" src={Schema} alt="illustration" />
+    <div className="page_img">
+      <img className="illustration" src={Schema} alt="illustration" />
+    </div>
   </div>
 );
 
