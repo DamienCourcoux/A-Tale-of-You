@@ -1,5 +1,5 @@
 // == Import
-import './indexLeft.scss';
+import './style.scss';
 
 // == Composant
 const IndexLeft = () => (

@@ -1,15 +1,15 @@
 // == Import
-import RulesLeft from 'src/components/Rules/RulesLeft/rulesLeft';
-import RulesRight from 'src/components/Rules/RulesRight/rulesRight';
+import RulesLeft from 'src/components/Rules/RulesLeft';
+import RulesRight from 'src/components/Rules/RulesRight';
 
-import './styles.scss';
+import './style.scss';
 
 // == Composant
 const Rules = () => (
-  <>
+  <div className="book__border shadow">
     <RulesLeft />
     <RulesRight />
-  </>
+  </div>
 );
 
 // == Export

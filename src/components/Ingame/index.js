@@ -1,14 +1,14 @@
 // == Import
-import InGameRight from './IngameRight/InGameRight';
-import InGameLeft from './IngameLeft/InGameLeft';
+import InGameRight from './IngameRight';
+import InGameLeft from './IngameLeft';
 
-import './ingame.scss';
+import './style.scss';
 
 const Ingame = () => (
-  <>
+  <div className="book__border shadow">
     <InGameLeft />
     <InGameRight />
-  </>
+  </div>
 );
 
 export default Ingame;

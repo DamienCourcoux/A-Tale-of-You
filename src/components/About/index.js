@@ -1,6 +1,6 @@
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
-import './about.scss';
+import './style.scss';
 
 const About = () => (
   <section className="about">

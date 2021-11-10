@@ -6,7 +6,7 @@ import {
 
 import parse from 'html-react-parser';
 
-import './ingameleft.scss';
+import './style.scss';
 
 const InGameLeft = () => {
   const dispatch = useDispatch();

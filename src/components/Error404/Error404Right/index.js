@@ -1,5 +1,5 @@
 // == Import
-import './error404Right.scss';
+import './style.scss';
 
 // == Composant
 const Error404Right = () => (

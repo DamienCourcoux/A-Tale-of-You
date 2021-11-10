@@ -1,7 +1,7 @@
 // == Import
 import Schema from 'src/assets/schema.png';
 
-import './profileLeft.scss';
+import './style.scss';
 
 // == Composant
 const ProfileLeft = () => (

@@ -1,15 +1,15 @@
 // == Import
-import StoryLeft from 'src/components/Story/StoryLeft/storyLeft';
-import StoryRight from 'src/components/Story/StoryRight/storyRight';
+import StoryLeft from 'src/components/Story/StoryLeft';
+import StoryRight from 'src/components/Story/StoryRight';
 
-import './styles.scss';
+import './style.scss';
 
 // == Composant
 const Story = () => (
-  <>
+  <div className="book__border shadow">
     <StoryLeft />
     <StoryRight />
-  </>
+  </div>
 );
 
 // == Export

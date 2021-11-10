@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux';
 import parse from 'html-react-parser';
 
-import './storyLeft.scss';
+import './style.scss';
 
 // == Composant
 const StoryLeft = () => {

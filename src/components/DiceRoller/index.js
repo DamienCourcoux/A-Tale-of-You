@@ -8,7 +8,7 @@ import {
 } from 'src/actions/game';
 
 import Dice from 'src/assets/dice-sprite.png';
-import './diceRoller.scss';
+import './style.scss';
 
 // == Composant
 const DiceRoller = () => {

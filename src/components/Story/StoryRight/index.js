@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { loadStory, loadParagraph } from 'src/actions/game';
 
-import './storyRight.scss';
+import './style.scss';
 
 import { showSelectCharacter } from 'src/actions/user';
 

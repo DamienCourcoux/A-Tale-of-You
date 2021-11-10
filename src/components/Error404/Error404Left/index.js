@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 import Dragon from 'src/assets/dragon.gif';
-import './error404Left.scss';
+import './style.scss';
 
 // == Composant
 const Error404Left = () => (

@@ -1,15 +1,15 @@
 // == Import
-import ProfileLeft from 'src/components/Profile/ProfileLeft/profileLeft';
-import ProfileRight from 'src/components/Profile/ProfileRight/profileRight';
+import ProfileLeft from 'src/components/Profile/ProfileLeft';
+import ProfileRight from 'src/components/Profile/ProfileRight';
 
-import './profile.scss';
+import './style.scss';
 
 // == Composant
 const Profile = () => (
-  <>
+  <div className="book__border shadow">
     <ProfileLeft />
     <ProfileRight />
-  </>
+  </div>
 );
 
 // == Export

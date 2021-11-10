@@ -1,9 +1,10 @@
 // == Import
-import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeSelectedCharacter } from 'src/actions/game';
 import { hideSelectCharacter } from 'src/actions/user';
 import { useHistory } from 'react-router-dom';
+
+import './style.scss';
 
 // == Composant
 const SelectCharacter = () => {

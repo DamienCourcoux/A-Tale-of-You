@@ -1,7 +1,7 @@
 // == Import
 import { Link } from 'react-router-dom';
 
-import './indexRight.scss';
+import './style.scss';
 
 // == Composant
 const IndexRight = () => (

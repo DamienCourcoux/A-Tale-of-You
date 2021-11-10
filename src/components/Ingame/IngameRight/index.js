@@ -5,7 +5,7 @@ import {
   GiPearlNecklace,
 } from 'react-icons/gi';
 
-import './ingameright.scss';
+import './style.scss';
 
 const InGameRight = () => {
   const {

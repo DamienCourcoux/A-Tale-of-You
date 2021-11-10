@@ -1,15 +1,15 @@
 // == Import
-import IndexLeft from 'src/components/Index/IndexLeft/indexLeft';
-import IndexRight from 'src/components/Index/IndexRight/indexRight';
+import IndexLeft from 'src/components/Index/IndexLeft';
+import IndexRight from 'src/components/Index/IndexRight';
 
-import './index.scss';
+import './style.scss';
 
 // == Composant
 const Index = () => (
-  <>
+  <div className="book__border shadow">
     <IndexLeft />
     <IndexRight />
-  </>
+  </div>
 );
 
 // == Export

@@ -1,5 +1,5 @@
 // == Import
-import './rulesLeft.scss';
+import './style.scss';
 
 // == Composant
 const RulesLeft = () => (

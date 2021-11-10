@@ -11,7 +11,7 @@ import {
   FaUserSlash,
 } from 'react-icons/fa';
 
-import './header.scss';
+import './style.scss';
 
 const Header = () => {
   const history = useHistory();

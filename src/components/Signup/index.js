@@ -3,7 +3,7 @@ import { hideSignup, handleSignup, changeField } from 'src/actions/user';
 
 import { FaTimes } from 'react-icons/fa';
 
-import './styles.scss';
+import './style.scss';
 
 import Field from './Field';
 

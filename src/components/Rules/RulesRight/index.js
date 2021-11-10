@@ -1,7 +1,7 @@
 // == Import
 import { FaImages } from 'react-icons/fa';
 
-import './rulesRight.scss';
+import './style.scss';
 
 // == Composant
 const RulesRight = () => (

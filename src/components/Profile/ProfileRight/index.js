@@ -18,7 +18,7 @@ import {
 } from 'react-icons/fa';
 import Field from '../Field';
 
-import './profileRight.scss';
+import './style.scss';
 
 // == Composant
 const ProfileRight = () => {

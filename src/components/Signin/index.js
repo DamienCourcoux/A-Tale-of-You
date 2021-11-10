@@ -8,7 +8,7 @@ import {
 
 import { FaTimes } from 'react-icons/fa';
 
-import './styles.scss';
+import './style.scss';
 
 import Field from './Field';
 
