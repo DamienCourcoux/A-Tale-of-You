@@ -1,5 +1,104 @@
 @use 'src/styles/vars';
 
+.page_right {
+  position: relative;
+
+  &--action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    top: 5%;
+    right: 10%;
+
+    &--button {
+      display: contents;
+      font-size: 1.5rem;
+
+      &:hover {
+        color: inherit;
+      }
+    }
+
+    &--menu {
+      background: vars.$lightColor;
+
+      & li {
+        padding: .5rem 1rem;
+        border: 3px solid vars.$darkColor;
+        cursor: pointer;
+        text-align: center;
+
+        &:last-child {
+          border-top: none;
+          color: vars.$danger;
+        }
+
+        &:hover {
+          background: vars.$darkColor;
+          color: vars.$lightColor;
+
+          &:last-child {
+            background: vars.$danger;
+          }
+        }
+      }
+    }
+
+    .menuDropdownIsOpen {
+      display: none;
+    }
+  }
+
+  &--myProfile {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &--image {
+      background: vars.$lightColor;
+      border: 3px solid vars.$darkColor;
+      padding: 1rem;
+      margin: 1rem;
+
+      & img {
+        width: 150px;
+      }
+    }
+
+    &--data {
+
+      &--mail {
+        margin: 1rem 0;
+      }
+
+      &--password {
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 50%;
+          right: 10%;
+          cursor: pointer;
+        }
+      }
+
+      & .field-label {
+        font-weight: bold;
+      }
+
+      & button {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+// TODO NORMALEMENT TOUT LA PARTIE COMMENTER TU PEUX L'ENLEVER,
+// TODO JE LE LAISSE TOUT DE MÊME, JE PENSE TU VEUX CHECK ^^
+
 // .profile__page--right  {
 //   width: calc(50% - 1rem);
 //   background: vars.$bookPage;
@@ -11,11 +110,11 @@
 //   transform-style: preserve-3d;
 // }
 
-.right {
+// .right {
 //   flex-direction: column;
 //   justify-content: flex-start !important;
 
-  &--title {
+// &--title {
 //     position: relative;
 
 //     h1 {
@@ -23,28 +122,28 @@
 //       font-weight: bold;
 //     }
 
-    &--action {
-      // position: absolute;
-      // top: 20%;
-      // right: -40%;
-      float: right;
-      cursor: pointer;
+// &--action {
+// position: absolute;
+// top: 20%;
+// right: -40%;
+// float: right;
+// cursor: pointer;
 
-      & button {
-        display: inline-block;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        height: 0;
-        margin: 0;
-        padding: 0;
-        width: 0;
-        
-        &:hover {
-          transform: none;
-        }
-      }
-  
+// & button {
+//   display: inline-block;
+//   background: none;
+//   border: none;
+//   font-size: 1.5rem;
+//   height: 0;
+//   margin: 0;
+//   padding: 0;
+//   width: 0;
+
+//   &:hover {
+//     transform: none;
+//   }
+// }
+
 //       &--menu {
 //         display: inline-flex;
 //         flex-direction: column;
@@ -53,34 +152,34 @@
 //         right: -25px;
 //         background: vars.$lightColor;
 //         z-index: 2;
-  
+
 //         li {
 //           padding: .5rem 1rem;
 //           border: 3px solid vars.$darkColor;
 //           cursor: pointer;
 //           text-align: center;
-  
+
 //           &:last-child {
 //             border-top: none;
-//             color: #a61b1b;
+//             color: vars.$danger;
 //           }
-  
+
 //           &:hover {
 //             background: vars.$darkColor;
 //             color: vars.$lightColor;
-  
+
 //             &:last-child {
-//               background: #a61b1b;
+//               background: vars.$danger;
 //             }
 //           }
 //         }
 //       }
-  
+
 //       .menuDropdownIsOpen {
 //         display: none;
 //       }
 //     }
-  }
+// }
 
 //   .hr {
 //     height: 1px;
@@ -193,5 +292,5 @@
 //     box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
 //     -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
 //     -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
-  }
-}
+//   }
+// }

@@ -10,6 +10,7 @@ import {
   SHOW_SELECT_CHARACTER,
   HIDE_SELECT_CHARACTER,
   MENU_DROPDOWN_IS_OPEN,
+  CLOSE_EDIT_PROFIL,
   EDIT_PROFIL,
   SUBMIT_EDIT_SUCCESS,
   VISIBILITY_PASSWORD,
@@ -112,6 +113,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         menuDropdownIsOpen: !state.menuDropdownIsOpen,
+      };
+
+    case CLOSE_EDIT_PROFIL:
+      return {
+        ...state,
+        isEdit: false,
       };
 
     case EDIT_PROFIL:
