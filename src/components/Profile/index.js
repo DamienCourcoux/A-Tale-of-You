@@ -6,7 +6,7 @@ import './style.scss';
 
 // == Composant
 const Profile = () => (
-  <div className="book__border shadow">
+  <div className="border shadow">
     <ProfileLeft />
     <ProfileRight />
   </div>

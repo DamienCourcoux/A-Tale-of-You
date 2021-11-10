@@ -6,7 +6,7 @@ import './style.scss';
 
 // == Composant
 const Error404 = () => (
-  <div className="book__border shadow">
+  <div className="border shadow">
     <Error404Left />
     <Error404Right />
   </div>

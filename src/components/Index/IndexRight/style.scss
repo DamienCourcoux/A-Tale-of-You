@@ -12,14 +12,9 @@
   transform-style: preserve-3d;
 
   a {
-    background: vars.$lightColor;
-    border: 3px solid vars.$darkColor;
-    padding: .5rem 1rem;
-    width: 100%;
-
-    &:hover {
-      transform: scale(0.9);
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &::before {

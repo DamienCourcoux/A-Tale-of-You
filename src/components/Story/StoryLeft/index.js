@@ -1,15 +1,26 @@
 // == Import
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import parse from 'html-react-parser';
+
+import { showSelectCharacter } from 'src/actions/user';
+import { loadParagraph } from 'src/actions/game';
 
 import './style.scss';
 
 // == Composant
 const StoryLeft = () => {
-  const { storyTitle, storyDescription } = useSelector((state) => ({
+  const dispatch = useDispatch();
+
+  const { storyTitle, storyDescription, paragraph } = useSelector((state) => ({
     storyTitle: state.game.storyTitle,
     storyDescription: state.game.storyDescription,
+    paragraph: state.game.paragraph,
   }));
+
+  const handleShowSelectCharacter = () => {
+    dispatch(showSelectCharacter());
+    dispatch(loadParagraph(paragraph.choices[0].consequences[0]));
+  };
 
   return (
     <div className="story__page__left shadow">
@@ -17,6 +28,13 @@ const StoryLeft = () => {
       <div className="hr" />
       {parse(storyDescription)}
       <div className="hr" />
+      <button
+        className="story__page__right__button"
+        type="button"
+        onClick={() => handleShowSelectCharacter()}
+      >
+        Jouer
+      </button>
     </div>
   );
 };

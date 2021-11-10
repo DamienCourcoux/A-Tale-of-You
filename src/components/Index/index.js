@@ -6,7 +6,7 @@ import './style.scss';
 
 // == Composant
 const Index = () => (
-  <div className="book__border shadow">
+  <div className="border shadow">
     <IndexLeft />
     <IndexRight />
   </div>

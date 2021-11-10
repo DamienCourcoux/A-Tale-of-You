@@ -26,7 +26,7 @@ const IndexRight = () => (
       Rejoignez-nous et aventurez-vous dans votre première aventure!
     </p>
     <div className="hr" />
-    <Link to="/histoire">Jouer</Link>
+    <Link className="button" to="/histoire">Jouer</Link>
   </div>
 );
 

@@ -1,16 +1,29 @@
 // == Import
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { loadStory } from 'src/actions/game';
+
 import StoryLeft from 'src/components/Story/StoryLeft';
 import StoryRight from 'src/components/Story/StoryRight';
 
 import './style.scss';
 
 // == Composant
-const Story = () => (
-  <div className="book__border shadow">
-    <StoryLeft />
-    <StoryRight />
-  </div>
-);
+const Story = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadStory());
+  }, []);
+
+  return (
+    <div className="border shadow">
+      <StoryLeft />
+      <StoryRight />
+    </div>
+  );
+};
 
 // == Export
 export default Story;

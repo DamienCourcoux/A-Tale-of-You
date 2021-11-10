@@ -32,98 +32,97 @@
 
 @use 'src/styles/vars';
 
-.shadow {
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
-  -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
-}
+// .shadow {
+//   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+//   -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+//   -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+// }
 
-.rules {
-  background: vars.$background;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 100px);
-  overflow: hidden;
+// .rules {
+//   background: vars.$background;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: calc(100vh - 100px);
+//   overflow: hidden;
 
-  &__border {
-    background: vars.$book;
-    border-radius: 7px;
-    max-width: calc(100% - 2rem);
-    height: 100%;
-    width: 80%;
-  }
+//   &__border {
+//     background: vars.$book;
+//     border-radius: 7px;
+//   max-width: calc(100% - 2rem);
+//   height: 100%;
+//   width: 80%;
+// }
 
-  &__pages {
-    margin: 1rem;
-    background: vars.$bookPage;
-    height: calc(100% - 2rem);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+// &__pages {
+//   margin: 1rem;
+//   background: vars.$bookPage;
+//   height: calc(100% - 2rem);
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
 
-  }
-
-
+// }
 
 
 
-    &__page__left {
-      
-      padding: 2rem;
-      overflow-y: auto;
-      width: calc(50% - 1rem);
-      background: vars.$bookPage;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-    }
 
-    &__page__right {  
-      
-        
-        padding: 2rem;
-        overflow-y: auto;
-        width: calc(50% - 1rem);
-        background: vars.$bookPage;
-        height: 100%;
-        
-        align-items: center;
-        justify-content: center;
-        
-    
-    }
-  
 
-  h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: .5rem;
-  }
+// &__page__left {
 
-  h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 1rem;
-  }
+//   padding: 2rem;
+//   overflow-y: auto;
+//   width: calc(50% - 1rem);
+//   background: vars.$bookPage;
+//   height: 100%;
+//   align-items: center;
+//   justify-content: center;
+// }
 
-  .hr {
-    height: 1px;
-    width: 50%;
-    background-image: linear-gradient(to right, vars.$bookPage, vars.$darkColor, vars.$bookPage);
-    margin: 1.5rem auto;
-  }
+// &__page__right {  
 
-  p {
-    text-align: justify;
-    margin: .5rem 0;
-  }
 
-  ul {
-    margin-left: 2rem;
-    list-style: square;
-  }
-  
-}
+//     padding: 2rem;
+//     overflow-y: auto;
+//     width: calc(50% - 1rem);
+//     background: vars.$bookPage;
+//     height: 100%;
 
+//     align-items: center;
+//     justify-content: center;
+
+
+// }
+
+
+// h1 {
+//   font-size: 1.5rem;
+//   font-weight: bold;
+//   text-align: center;
+//   margin-bottom: .5rem;
+// }
+
+// h2 {
+//   font-size: 1.2rem;
+//   font-weight: bold;
+//   margin-top: 1rem;
+// }
+
+// .hr {
+//   height: 1px;
+//   width: 50%;
+//   background-image: linear-gradient(to right, vars.$bookPage, vars.$darkColor, vars.$bookPage);
+//   margin: 1.5rem auto;
+// }
+
+// p {
+//   text-align: justify;
+//   margin: .5rem 0;
+// }
+
+// ul {
+//   margin-left: 2rem;
+//   list-style: square;
+// }
+
+// }

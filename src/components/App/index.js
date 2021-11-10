@@ -51,7 +51,7 @@ const App = () => {
   return (
     <div onMouseDown={(event) => handleHideModals(event)}>
       <Header />
-      <section className="book">
+      <section className="main">
         <Switch>
           <Route exact path="/">
             <Index />

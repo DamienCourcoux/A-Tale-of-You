@@ -5,7 +5,7 @@ import InGameLeft from './IngameLeft';
 import './style.scss';
 
 const Ingame = () => (
-  <div className="book__border shadow">
+  <div className="border shadow">
     <InGameLeft />
     <InGameRight />
   </div>

@@ -6,7 +6,7 @@ import './style.scss';
 
 // == Composant
 const Rules = () => (
-  <div className="book__border shadow">
+  <div className="border shadow">
     <RulesLeft />
     <RulesRight />
   </div>

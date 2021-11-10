@@ -3,18 +3,80 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Roboto:wght@300;400;700&display=swap');
 
-*, body {
-  font-family: 'Roboto', sans-serif;
+*,
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
-/* 
-  // or you can import your own font
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf');
-  }
+.shadow {
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+}
 
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-*/
+.border {
+    background: vars.$book;
+    border-radius: 7px;
+    max-width: calc(100% - 2rem);
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: .5rem;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: justify;
+    margin-bottom: .5rem;
+}
+
+ul {
+    margin-left: 2rem;
+}
+
+.ul__dot {
+    list-style: square;
+}
+
+.hr {
+    height: 1px;
+    width: 50%;
+    background-image: linear-gradient(to right, vars.$bookPage, vars.$darkColor, vars.$bookPage);
+    margin: 1.5rem auto;
+}
+
+button,
+.button {
+    background: vars.$lightColor;
+    color: vars.$darkColor;
+    border: 3px solid vars.$darkColor;
+    padding: .5rem 1rem;
+    display: block;
+    text-align: center;
+    width: 90%;
+    height: 3rem;
+    margin: .5rem auto;
+    font-weight: bold;
+    font-size: 1rem;
+
+    &:hover {
+        background: vars.$buttonHover;
+        color: vars.$lightColor;
+    }
+}
