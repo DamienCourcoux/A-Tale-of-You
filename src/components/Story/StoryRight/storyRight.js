@@ -1,7 +1,7 @@
 // == Import
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { loadStory, selectChoice } from 'src/actions/game';
+import { loadStory, loadParagraph } from 'src/actions/game';
 
 import './storyRight.scss';
 
@@ -21,7 +21,7 @@ const StoryRight = () => {
 
   const handleShowSelectCharacter = () => {
     dispatch(showSelectCharacter());
-    dispatch(selectChoice(paragraph.choices[0].consequences));
+    dispatch(loadParagraph(paragraph.choices[0].consequences[0]));
   };
   return (
     <div className="story__page__right shadow">
