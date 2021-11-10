@@ -40,21 +40,21 @@ const SelectCharacter = () => {
   });
 
   return (
-    <div className="select_character">
-      <div className="select_character__content">
+    <div className="modal modal--close">
+      <div className="modal__content select_character--modal__content">
         {jsxButtons}
-        <p> choisis ta classe </p>
-        <div className="ingame__page__right__stats">
+        <div className="step" />
+        <h2> choisis ta classe </h2>
+        <div className="stats">
           <div
-            className="ingame__page__right__stats__illustration ingame__page__fake_image
-          select_character__fake_image--100"
+            className="stats__illustration"
           >
-            <img className="fit-picture" src={character.illustration} alt="img de votre personnage" />
+            <img src={character.illustration} alt="img de votre personnage" />
           </div>
 
-          <h2 className="select_character__stats__title">Caractéristiques</h2>
+          <h2 className="stats__title">Caractéristiques</h2>
 
-          <ul className="ingame__page__right__stats__name">
+          <ul className="stats__name">
             <li>Points de vie</li>
             <li
               className={
@@ -94,7 +94,7 @@ const SelectCharacter = () => {
             </li>
           </ul>
 
-          <ul className="ingame__page__right__stats__value">
+          <ul className="stats__value">
             <li>{character.maxHp}</li>
             <li
               className={
