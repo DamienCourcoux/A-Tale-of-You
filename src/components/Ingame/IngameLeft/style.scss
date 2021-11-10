@@ -9,6 +9,8 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    transform-style: preserve-3d;
+    z-index: 2;
 
     &::before {
       content: "";

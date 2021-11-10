@@ -8,6 +8,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  transform-style: preserve-3d;
+  z-index: 2;
 
   & .illustration {
     min-width: 250px;

@@ -6,6 +6,8 @@
   padding: 2rem;
   overflow-y: auto;
   position: relative;
+  transform-style: preserve-3d;
+  z-index: 2;
 
   &::before {
     content: "";

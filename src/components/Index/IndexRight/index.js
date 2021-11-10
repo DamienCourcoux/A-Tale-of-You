@@ -9,17 +9,21 @@ const IndexRight = () => (
     <h1>Bienvenue sur <span>A Tale of You</span></h1>
     <div className="hr" />
     <p>
-      Ici, vous vivrez des aventures incroyables
-      en incarnant différents héros dans des histoires
-      épiques avec du loot, du gobelin et des
-      princesses à sauver !
+      Ici, vous vivrez des aventures incroyables en incarnant un héros dans des quêtes épiques.
     </p>
     <p>
-      Apprenez en plus sur les montres dans leBestiaire,
-      choisissez votre Héro et
+      Au programme :
     </p>
+    <ul>
+      <li>Différents personnages jouables,</li>
+      <li>Différentes quêtes,</li>
+      <li>Des choix ayant un impact direct sur votre aventure,</li>
+      <li>Des lancers de dés,</li>
+      <li>Du butin,</li>
+      <li>Des ennemis!</li>
+    </ul>
     <p>
-      Aventurez-vous !
+      Rejoignez-nous et aventurez-vous dans votre première aventure!
     </p>
     <div className="hr" />
     <Link to="/histoire">Jouer</Link>
