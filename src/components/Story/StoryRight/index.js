@@ -3,7 +3,7 @@ import './style.scss';
 
 // == Composant
 const StoryRight = () => (
-  <div className="story__page__right shadow" />
+  <div className="page page_right shadow" />
 );
 
 // == Export

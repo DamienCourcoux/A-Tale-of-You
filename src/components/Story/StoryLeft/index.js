@@ -23,7 +23,7 @@ const StoryLeft = () => {
   };
 
   return (
-    <div className="story__page__left shadow">
+    <div className="page page_left shadow">
       <h1>{storyTitle}</h1>
       <div className="hr" />
       {parse(storyDescription)}

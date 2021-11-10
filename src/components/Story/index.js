@@ -19,8 +19,10 @@ const Story = () => {
 
   return (
     <div className="border shadow">
-      <StoryLeft />
-      <StoryRight />
+      <div className="pages shadow">
+        <StoryLeft />
+        <StoryRight />
+      </div>
     </div>
   );
 };

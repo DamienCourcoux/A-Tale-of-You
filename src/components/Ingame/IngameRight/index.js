@@ -34,7 +34,7 @@ const InGameRight = () => {
   ));
 
   return (
-    <div className="ingame__page__right">
+    <div className="page page_right shadow">
       <h1 className="ingame__page__right__title">Fiche Personnage</h1>
 
       <div className="ingame__page__right__stats">

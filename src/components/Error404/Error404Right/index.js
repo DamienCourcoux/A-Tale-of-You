@@ -3,7 +3,7 @@ import './style.scss';
 
 // == Composant
 const Error404Right = () => (
-  <div className="error404Right__page" />
+  <div className="page page_empty" />
 );
 
 // == Export

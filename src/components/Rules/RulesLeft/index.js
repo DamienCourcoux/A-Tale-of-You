@@ -3,7 +3,7 @@ import './style.scss';
 
 // == Composant
 const RulesLeft = () => (
-  <div className="rulesLeft shadow">
+  <div className="page page_left shadow">
     <h1>Règles du jeu</h1>
     <div className="hr" />
 

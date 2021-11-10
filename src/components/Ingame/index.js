@@ -6,8 +6,10 @@ import './style.scss';
 
 const Ingame = () => (
   <div className="border shadow">
-    <InGameLeft />
-    <InGameRight />
+    <div className="pages">
+      <InGameLeft />
+      <InGameRight />
+    </div>
   </div>
 );
 

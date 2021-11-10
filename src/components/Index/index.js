@@ -7,8 +7,10 @@ import './style.scss';
 // == Composant
 const Index = () => (
   <div className="border shadow">
-    <IndexLeft />
-    <IndexRight />
+    <div className="pages">
+      <IndexLeft />
+      <IndexRight />
+    </div>
   </div>
 );
 

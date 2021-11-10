@@ -3,7 +3,7 @@ import './style.scss';
 
 // == Composant
 const IndexLeft = () => (
-  <div className="indexLeft__page" />
+  <div className="page_empty" />
 );
 
 // == Export

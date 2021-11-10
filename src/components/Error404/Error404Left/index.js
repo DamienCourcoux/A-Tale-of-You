@@ -6,7 +6,7 @@ import './style.scss';
 
 // == Composant
 const Error404Left = () => (
-  <div className="error404Left__page shadow">
+  <div className="page page_left shadow">
     <h1>Error 404</h1>
     <div className="hr" />
     <img src={Dragon} alt="gif error404Left" />

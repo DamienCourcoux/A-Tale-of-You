@@ -5,7 +5,7 @@ import './style.scss';
 
 // == Composant
 const IndexRight = () => (
-  <div className="indexRight__page shadow">
+  <div className="page page_right shadow">
     <h1>Bienvenue sur <span>A Tale of You</span></h1>
     <div className="hr" />
     <p>

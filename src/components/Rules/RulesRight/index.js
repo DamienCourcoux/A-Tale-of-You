@@ -5,7 +5,7 @@ import './style.scss';
 
 // == Composant
 const RulesRight = () => (
-  <div className="rulesRight shadow">
+  <div className="page page_right shadow">
     <FaImages size={400} />
   </div>
 );

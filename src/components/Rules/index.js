@@ -7,8 +7,10 @@ import './style.scss';
 // == Composant
 const Rules = () => (
   <div className="border shadow">
-    <RulesLeft />
-    <RulesRight />
+    <div className="pages">
+      <RulesLeft />
+      <RulesRight />
+    </div>
   </div>
 );
 

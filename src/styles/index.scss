@@ -8,23 +8,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.shadow {
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
-    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
-}
-
-.border {
-    background: vars.$book;
-    border-radius: 7px;
-    max-width: calc(100% - 2rem);
-    height: 100%;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-}
-
 h1 {
     font-size: 2rem;
     font-weight: bold;
@@ -52,6 +35,7 @@ ul {
 
 .ul__dot {
     list-style: square;
+    margin-bottom: .5rem;
 }
 
 .hr {
@@ -78,5 +62,51 @@ button,
     &:hover {
         background: vars.$buttonHover;
         color: vars.$lightColor;
+    }
+}
+
+.border {
+    background: vars.$book;
+    border-radius: 10px;
+    max-width: calc(100% - 2rem);
+    height: 100%;
+    width: 1600px;
+    padding: 1rem;
+}
+
+.shadow {
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+}
+
+.pages {
+    background: vars.$bookPage;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    }
+
+.page {
+    width: calc(50% - 1rem);
+    padding: 2rem;
+    overflow-y: auto;
+    position: relative;
+
+    &_empty {
+        width: 50%;
+        position: relative;
+        background: vars.$book;
+    }
+
+    &_left {
+        margin-left: 1rem;
+        background: vars.$bookPage;
+    }
+
+    &_right {
+        margin-right: 1rem;
+        background: vars.$bookPage;
     }
 }

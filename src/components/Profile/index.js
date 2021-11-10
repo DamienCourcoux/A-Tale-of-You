@@ -7,8 +7,10 @@ import './style.scss';
 // == Composant
 const Profile = () => (
   <div className="border shadow">
-    <ProfileLeft />
-    <ProfileRight />
+    <div className="pages">
+      <ProfileLeft />
+      <ProfileRight />
+    </div>
   </div>
 );
 

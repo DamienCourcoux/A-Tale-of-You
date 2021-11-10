@@ -7,8 +7,10 @@ import './style.scss';
 // == Composant
 const Error404 = () => (
   <div className="border shadow">
-    <Error404Left />
-    <Error404Right />
+    <div className="pages">
+      <Error404Left />
+      <Error404Right />
+    </div>
   </div>
 );
 

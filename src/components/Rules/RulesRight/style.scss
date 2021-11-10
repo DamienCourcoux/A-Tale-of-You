@@ -1,42 +1,42 @@
 @use 'src/styles/vars';
 
-.rulesRight {
-  padding: 2rem;
-  width: calc(50% - 1rem);
-  background: vars.$bookPage;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform-style: preserve-3d;
+// .rulesRight {
+//   padding: 2rem;
+//   width: calc(50% - 1rem);
+//   background: vars.$bookPage;
+//   height: 100%;
+//   align-items: center;
+//   justify-content: center;
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   transform-style: preserve-3d;
 
-  &::before {
-    content: "";
-    background: #2d1709;
-    width: 90px;
-    height: 200%;
-    position: absolute;
-    top: -60px;
-    left: -45px;
-    transform: translateZ(-1px);
-    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.7);
-    -webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.7);
-    -moz-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.7);
-  }
+//   &::before {
+//     content: "";
+//     background: #2d1709;
+//     width: 90px;
+//     height: 200%;
+//     position: absolute;
+//     top: -60px;
+//     left: -45px;
+//     transform: translateZ(-1px);
+//     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.7);
+//     -webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.7);
+//     -moz-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.7);
+//   }
 
-  &::after {
-    content: "";
-    background: vars.$bookPage;
-    width: 15px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0px;
-    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
-    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
-    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
-  }
-}
+//   &::after {
+//     content: "";
+//     background: vars.$bookPage;
+//     width: 15px;
+//     height: 100%;
+//     position: absolute;
+//     top: 0;
+//     right: 0px;
+//     box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+//     -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+//     -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+//   }
+// }
