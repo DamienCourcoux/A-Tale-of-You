@@ -29,7 +29,6 @@ const StoryLeft = () => {
       {parse(storyDescription)}
       <div className="hr" />
       <button
-        className="story__page__right__button"
         type="button"
         onClick={() => handleShowSelectCharacter()}
       >

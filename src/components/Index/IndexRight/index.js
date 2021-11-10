@@ -14,7 +14,7 @@ const IndexRight = () => (
     <p>
       Au programme :
     </p>
-    <ul>
+    <ul className="ul_description">
       <li>Différents personnages jouables,</li>
       <li>Différentes quêtes,</li>
       <li>Des choix ayant un impact direct sur votre aventure,</li>

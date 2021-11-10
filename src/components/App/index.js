@@ -43,9 +43,11 @@ const App = () => {
   }));
 
   const handleHideModals = (event) => {
-    if (event.target.className === 'signin') dispatch(hideSignin());
-    if (event.target.className === 'signup') dispatch(hideSignup());
-    if (event.target.className === 'select_character') dispatch(hideSelectCharacter());
+    if (event.target.className === 'modal modal--close') {
+      dispatch(hideSignin());
+      dispatch(hideSignup());
+      dispatch(hideSelectCharacter());
+    }
   };
 
   return (

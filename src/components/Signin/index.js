@@ -42,13 +42,13 @@ const Signin = () => {
   };
 
   return (
-    <div className="signin">
-      <div className="signin__content">
+    <div className="modal modal--close">
+      <div className="modal__content">
         <FaTimes
-          className="signin__close"
+          className="modal__close"
           onClick={(event) => handleHideSignin(event)}
         />
-        <div className="signin__h1">Se connecter</div>
+        <h2>Se connecter</h2>
         <form className="signin__form" onSubmit={handleSubmit}>
           <Field
             name="email"

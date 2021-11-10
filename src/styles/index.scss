@@ -33,9 +33,15 @@ ul {
     margin-left: 2rem;
 }
 
-.ul__dot {
+.ul_description {
     list-style: square;
     margin-bottom: .5rem;
+}
+
+a {
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .hr {
@@ -45,17 +51,20 @@ ul {
     margin: 1.5rem auto;
 }
 
+.step {
+    margin-bottom: 1rem;
+}
+
 button,
 .button {
     background: vars.$lightColor;
     color: vars.$darkColor;
     border: 3px solid vars.$darkColor;
-    padding: .5rem 1rem;
     display: block;
     text-align: center;
     width: 90%;
-    height: 3rem;
-    margin: .5rem auto;
+    margin: 0 auto;
+    padding: .5rem 1rem;
     font-weight: bold;
     font-size: 1rem;
 
@@ -86,7 +95,7 @@ button,
     width: 100%;
     display: flex;
     flex-direction: row;
-    }
+}
 
 .page {
     width: calc(50% - 1rem);
@@ -108,5 +117,58 @@ button,
     &_right {
         margin-right: 1rem;
         background: vars.$bookPage;
+    }
+
+    &_img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.modal {
+    position: fixed;
+    // z-index: 3;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+
+    &__content {
+        top: 5%;
+        padding: 0.5rem;
+        position: relative;
+        margin: 0 auto;
+        background-color: vars.$background;
+        border: solid 5px vars.$book;
+        width: 90%;
+        max-width: 300px;
+    }
+
+    &__close {
+        color: vars.$book;
+        float: right;
+        cursor: pointer;
+    }
+}
+
+.field {
+    margin-bottom: 0.5rem;
+
+    &-label {
+        margin-bottom: 0.2rem;
+    }
+
+    &-input {
+        background: vars.$lightColor;
+        color: vars.$darkColor;
+        border: 3px solid vars.$darkColor;
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        padding: .5rem 1rem;
     }
 }

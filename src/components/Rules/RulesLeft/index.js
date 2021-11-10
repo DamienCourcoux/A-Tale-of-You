@@ -19,7 +19,7 @@ const RulesLeft = () => (
       Les entités possèdent quatre caractéristiques fixes au cours de la partie :
     </p>
 
-    <ul>
+    <ul className="ul_description">
       <li>La force (FOR en jeu)</li>
       <li>La dextérité (DEX en jeu)</li>
       <li>L'intelligence (INT en jeu)</li>
@@ -37,7 +37,7 @@ const RulesLeft = () => (
       l'issue d'une action. Par exemple :
     </p>
 
-    <ul>
+    <ul className="ul_description">
       <li>
         Intimider une entité pourrait être plus simple pour un personnage
         possédant une force élevée
@@ -60,6 +60,8 @@ const RulesLeft = () => (
       Ces caractéristiques seront aussi très importantes lors des combats (cf plus bas).
     </p>
 
+    <div className="step" />
+
     <h2>Classes jouables</h2>
 
     <p>
@@ -68,12 +70,14 @@ const RulesLeft = () => (
       primaire de chaque classe est :
     </p>
 
-    <ul>
+    <ul className="ul_description">
       <li>Le guerrier : force</li>
       <li>Le roublard : dextérité</li>
       <li>Le magicien : intelligence</li>
       <li>Le barde : charisme</li>
     </ul>
+
+    <div className="step" />
 
     <h2>Les jets</h2>
 
@@ -83,7 +87,7 @@ const RulesLeft = () => (
       Trois types de jets peuvent avoir lieux au cours d'une partie :
     </p>
 
-    <ul>
+    <ul className="ul_description">
       <li>
         Les jets d'action, lorsque le joueur doit effectuer un jet
         pour déterminer l'issue d'une action.
@@ -98,6 +102,8 @@ const RulesLeft = () => (
       </li>
     </ul>
 
+    <div className="step" />
+
     <h2>Conditions de réussite d'un jet d'action</h2>
 
     <p>
@@ -108,6 +114,8 @@ const RulesLeft = () => (
       est supérieur ou égale à une valeur (stockée sur nos serveurs),
       alors l'action est réussie!
     </p>
+
+    <div className="step" />
 
     <h2>Equipements</h2>
 
@@ -130,11 +138,13 @@ const RulesLeft = () => (
       Il existe trois types d'équipements :
     </p>
 
-    <ul>
+    <ul className="ul_description">
       <li>Les armes : bonus aux jets d'attaque</li>
       <li>Les armures : bonus aux jets de défense</li>
       <li>Les accessoires : bonus aux jets d'action</li>
     </ul>
+
+    <div className="step" />
 
     <h2>L'inventaire</h2>
 
@@ -152,16 +162,16 @@ const RulesLeft = () => (
       Cette interface sera décomposée en 2 parties :
     </p>
 
-    <ul>
+    <ul className="ul_description">
       <li>A gauche :
-        <ul>
+        <ul className="ul_description">
           <li>
             La contenu textuel du paragraphe en cours. Décrit la scène et
             les différentes actions qui vous sont proposées de faire.
           </li>
           <li>
             Des boutons. Permet d'envoyer une information au jeu :
-            <ul>
+            <ul className="ul_description">
               <li>
                 Si un seul bouton : indique au jeu d'afficher le paragraphe suivant.
                 Généralement "Continuer" sera inscrit à l'intérieur du bouton.
@@ -192,6 +202,8 @@ const RulesLeft = () => (
         </ul>
       </li>
     </ul>
+
+    <div className="step" />
 
     <h2>Interface de jeu durant les combats</h2>
     {/* à compléter */}
