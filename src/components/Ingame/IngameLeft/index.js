@@ -27,7 +27,6 @@ const InGameLeft = () => {
   const jsxButtons = paragraph.choices.map((choice, index) => (
     <button
       key={choice.description}
-      className="ingame__page__button"
       type="button"
       onClick={() => handleSelectChoice(choice.success_condition_value, choice.consequences, index)}
     >
@@ -36,11 +35,11 @@ const InGameLeft = () => {
   ));
 
   return (
-    <div className="page page_left shadow">
-      <div className="ingame__page--history">
+    <div className="page page_left shadow ingame_left">
+      <div>
         {parse(paragraph.description)}
       </div>
-      <div className="ingame_page--options">
+      <div>
         <div className="hr" />
         {jsxButtons}
       </div>

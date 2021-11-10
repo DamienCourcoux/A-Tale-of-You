@@ -35,16 +35,16 @@ const InGameRight = () => {
 
   return (
     <div className="page page_right shadow">
-      <h1 className="ingame__page__right__title">Fiche Personnage</h1>
+      <h1>Fiche Personnage</h1>
 
-      <div className="ingame__page__right__stats">
-        <div className="ingame__page__right__stats__illustration ingame__page__fake_image--150">
-          <img className="fit-picture" src={character.illustration} alt="img de votre personnage" />
+      <div className="stats">
+        <div className="stats__illustration">
+          <img src={character.illustration} alt="img de votre personnage" />
         </div>
 
-        <h2 className="ingame__page__right__stats__title">Caractéristiques</h2>
+        <h2 className="stats__title">Caractéristiques</h2>
 
-        <ul className="ingame__page__right__stats__name">
+        <ul className="stats__name">
           <li>Points de vie</li>
           <li
             className={
@@ -84,7 +84,7 @@ const InGameRight = () => {
           </li>
         </ul>
 
-        <ul className="ingame__page__right__stats__value">
+        <ul className="stats__value">
           <li>{characterCurrentHp}/{character.maxHp}</li>
           <li
             className={
@@ -126,10 +126,10 @@ const InGameRight = () => {
       </div>
 
       {/* character's equipments */}
-      <h2 className="ingame__page__right__equipments__title">Equipements</h2>
+      <h2 className="ingame_right--h2">Equipements</h2>
 
-      <div className="ingame__page__right__equipments">
-        <div className="ingame__page__right__equipments__item">
+      <div className="ingame_right--equipments">
+        <div className="ingame_right--equipments__item">
           <div className="ingame__page__right__equipments__item--img" title={weapon.name}>
             <GiBroadsword size={40} />
           </div>
