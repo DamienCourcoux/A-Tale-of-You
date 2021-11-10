@@ -1,0 +1,35 @@
+@use 'src/styles/vars';
+
+.rulesLeft {
+  padding: 2rem;
+  overflow-y: auto;
+  width: calc(50% - 1rem);
+  background: vars.$bookPage;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  p {
+    text-align: justify;
+    margin: .5rem 0;
+  }
+  
+  ul {
+    margin-left: 2rem;
+    list-style: square;
+  }
+
+  &::before {
+    content: "";
+    background: vars.$bookPage;
+    width: 15px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.7);
+  }
+}
