@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import {
   createMenuDropdownIsOpenAction,
+  createCloseEditProfilAction,
   createEditProfilAction,
   changeField,
   createSubmitEditFormAction,
@@ -15,6 +16,7 @@ import {
   FaEllipsisH,
   FaEye,
   FaEyeSlash,
+  FaTimes,
 } from 'react-icons/fa';
 import Field from '../Field';
 
@@ -36,6 +38,10 @@ const ProfileRight = () => {
 
   const handleMenuDropdown = () => {
     dispatch(createMenuDropdownIsOpenAction());
+  };
+
+  const handleCloseEditProfil = () => {
+    dispatch(createCloseEditProfilAction());
   };
 
   const handleEdit = () => {
@@ -63,23 +69,39 @@ const ProfileRight = () => {
   return (
     <div className="page page_right shadow">
       <h1>Profil</h1>
-      <div className="page_right--action">
-        <button
-          type="button"
-          onClick={handleMenuDropdown}
-          className="page_right--action--button"
-        >
-          <FaEllipsisH />
-        </button>
-        <ul className={menuDropdownIsOpen ? 'page_right--action--menu' : 'page_right--action--menu menuDropdownIsOpen'}>
-          <li onClick={handleEdit}>Modifier mon profil</li>
-          <li onClick={handleDelete}>Supprimer mon profil</li>
-        </ul>
-      </div>
+      {
+        isEdit
+          ? (
+            <div className="page_right--action">
+              <button
+                type="button"
+                onClick={handleCloseEditProfil}
+                className="page_right--action--button close"
+              >
+                <FaTimes />
+              </button>
+            </div>
+          )
+          : (
+            <div className="page_right--action">
+              <button
+                type="button"
+                onClick={handleMenuDropdown}
+                className="page_right--action--button"
+              >
+                <FaEllipsisH />
+              </button>
+              <ul className={menuDropdownIsOpen ? 'page_right--action--menu' : 'page_right--action--menu menuDropdownIsOpen'}>
+                <li onClick={handleEdit}>Modifier mon profil</li>
+                <li onClick={handleDelete}>Supprimer mon profil</li>
+              </ul>
+            </div>
+          )
+      }
       <div className="hr" />
       <div className="page_right--myProfile">
         <div className="page_right--myProfile--image">
-          <img src={userAvatar} alt="Votre img de profil" />
+          <img title="Avatar" src={userAvatar} alt="Votre img de profil" />
         </div>
         <form
           onSubmit={handleSubmitEditForm}
@@ -101,7 +123,7 @@ const ProfileRight = () => {
                     title="Doit contenir un magnifique pseudo"
                   />
                 )
-                : <h2>{userPseudo}</h2>
+                : <h2 title="Pseudo">{userPseudo}</h2>
             }
           </div>
           <div className="page_right--myProfile--data--mail">
@@ -122,7 +144,7 @@ const ProfileRight = () => {
                 )
                 : (
                   <>
-                    <p>Mail:</p>
+                    <p title="Email" className="field-label">Mail:</p>
                     {userMail}
                   </>
                 )
@@ -157,7 +179,7 @@ const ProfileRight = () => {
                 )
                 : (
                   <>
-                    <p>Mot de passe:</p>
+                    <p title="Mot de passe" className="field-label">Mot de passe:</p>
                     **********
                   </>
                 )

@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: flex-end;
     position: absolute;
-    top: 6%;
+    top: 5%;
     right: 10%;
 
     &--button {
@@ -31,7 +31,7 @@
 
         &:last-child {
           border-top: none;
-          color: #a61b1b;
+          color: vars.$danger;
         }
 
         &:hover {
@@ -39,7 +39,7 @@
           color: vars.$lightColor;
 
           &:last-child {
-            background: #a61b1b;
+            background: vars.$danger;
           }
         }
       }
@@ -55,12 +55,13 @@
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
 
     &--image {
-      background: #fff;
-      border: 3px solid #000;
+      background: vars.$lightColor;
+      border: 3px solid vars.$darkColor;
       padding: 1rem;
+      margin: 1rem;
 
       & img {
         width: 150px;
@@ -72,9 +73,31 @@
       &--mail {
         margin: 1rem 0;
       }
+
+      &--password {
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 50%;
+          right: 10%;
+          cursor: pointer;
+        }
+      }
+
+      & .field-label {
+        font-weight: bold;
+      }
+
+      & button {
+        margin-top: 1rem;
+      }
     }
   }
 }
+
+// TODO NORMALEMENT TOUT LA PARTIE COMMENTER TU PEUX L'ENLEVER,
+// TODO JE LE LAISSE TOUT DE MÊME, JE PENSE TU VEUX CHECK ^^
 
 // .profile__page--right  {
 //   width: calc(50% - 1rem);
@@ -138,7 +161,7 @@
 
 //           &:last-child {
 //             border-top: none;
-//             color: #a61b1b;
+//             color: vars.$danger;
 //           }
 
 //           &:hover {
@@ -146,7 +169,7 @@
 //             color: vars.$lightColor;
 
 //             &:last-child {
-//               background: #a61b1b;
+//               background: vars.$danger;
 //             }
 //           }
 //         }
