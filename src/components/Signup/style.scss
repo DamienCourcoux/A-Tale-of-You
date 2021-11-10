@@ -1,6 +1,6 @@
 // @use 'src/styles/vars';
 
-// .signup {
+.signup {
 //   position: fixed;
 //   z-index: 3;
 //   left: 0;
@@ -30,14 +30,13 @@
 //     font-size: 1.5rem;
 //   }
 
-//   &__password_wrong {
-//     color: red;
-//     margin-top: .5rem;
-//   }
+  &__password_wrong {
+    color: red;
+  }
 
 //   &__button {
 //     margin-left: .5rem;
 //     margin-top: .5rem;
 //     margin-bottom: .5rem;
 //   }
-// }
+}

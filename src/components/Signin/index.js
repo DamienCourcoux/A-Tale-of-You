@@ -49,7 +49,7 @@ const Signin = () => {
           onClick={(event) => handleHideSignin(event)}
         />
         <h2>Se connecter</h2>
-        <form className="signin__form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <Field
             name="email"
             placeholder="Adresse mail"
