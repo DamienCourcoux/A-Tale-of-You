@@ -62,31 +62,30 @@ const ProfileRight = () => {
 
   return (
     <div className="page page_right shadow">
-      <div>
-        <h1>Profil</h1>
-        <div className="right--title--action">
-          <button
-            type="button"
-            onClick={handleMenuDropdown}
-          >
-            <FaEllipsisH />
-          </button>
-          <ul className={menuDropdownIsOpen ? 'right--title--action--menu' : 'right--title--action--menu menuDropdownIsOpen'}>
-            <li onClick={handleEdit}>Modifier mon profil</li>
-            <li onClick={handleDelete}>Supprimer mon profil</li>
-          </ul>
-        </div>
+      <h1>Profil</h1>
+      <div className="page_right--action">
+        <button
+          type="button"
+          onClick={handleMenuDropdown}
+          className="page_right--action--button"
+        >
+          <FaEllipsisH />
+        </button>
+        <ul className={menuDropdownIsOpen ? 'page_right--action--menu' : 'page_right--action--menu menuDropdownIsOpen'}>
+          <li onClick={handleEdit}>Modifier mon profil</li>
+          <li onClick={handleDelete}>Supprimer mon profil</li>
+        </ul>
       </div>
-      <span className="hr"> </span>
-      <div className="right--myProfile">
-        <div className="right--myProfile--image">
+      <div className="hr" />
+      <div className="page_right--myProfile">
+        <div className="page_right--myProfile--image">
           <img src={userAvatar} alt="Votre img de profil" />
         </div>
         <form
           onSubmit={handleSubmitEditForm}
-          className="right--myProfile--data"
+          className="page_right--myProfile--data"
         >
-          <div className="right--myProfile--data--title">
+          <div className="page_right--myProfile--data--title">
             {
               isEdit
                 ? (
@@ -105,7 +104,7 @@ const ProfileRight = () => {
                 : <h2>{userPseudo}</h2>
             }
           </div>
-          <div className="right--myProfile--data--mail">
+          <div className="page_right--myProfile--data--mail">
             {
               isEdit
                 ? (
@@ -121,10 +120,15 @@ const ProfileRight = () => {
                     title="Doit contenir une adresse email valide"
                   />
                 )
-                : <p><span>Mail:</span> {userMail}</p>
+                : (
+                  <>
+                    <p>Mail:</p>
+                    {userMail}
+                  </>
+                )
             }
           </div>
-          <div className="right--myProfile--data--password">
+          <div className="page_right--myProfile--data--password">
             {
               isEdit
                 ? (
@@ -166,7 +170,7 @@ const ProfileRight = () => {
           }
         </form>
       </div>
-      <span className="hr"> </span>
+      <div className="hr" />
     </div>
   );
 };
