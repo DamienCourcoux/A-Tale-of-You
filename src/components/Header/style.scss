@@ -1,92 +1,28 @@
 @use 'src/styles/vars';
 
-@media screen and (min-width: 850px) {
+@media screen and (max-width: 849px) {
+  .header_desktop {
+    display: none;
+  }
+
   .header {
-    background: vars.$background;
-    padding-bottom: 1rem;
-
-    &__nav {
-      display: flex;
-      justify-content: space-between;
-
-      &--games {
-        display: flex;
-
-        li {
-          align-self: flex-end;
-          margin: 0rem 1rem .5rem 1rem;
-
-          &:first-child {
-            margin: 0rem 1rem;
-          }
-
-          a {
-            color: vars.$darkColor;
-            display: flex;
-            align-items: flex-end;
-
-            &:hover {
-              text-decoration: underline;
-            }
-
-            img {
-              width: 150px;
-              margin-left: 2rem;
-            }
-
-            svg {
-              margin-right: .5rem;
-              width: 2rem;
-            }
-          }
-
-          & .is-active {
-            text-decoration: underline;
-            font-weight: bold;
-          }
-        }
-      }
-
-      &--settings {
-        display: flex;
-        padding: 0rem 1.5rem;
-
-        .welcome-message {
-          font-size: 1.2rem;
-          font-weight: bold;
-          display: flex;
-          align-items: center;
-
-          svg {
-            margin-right: .5rem;
-            width: 2rem;
-          }
-        }
-
-        li {
-          align-self: flex-end;
-          margin: 0rem 1rem .5rem 1rem;
-
-          a {
-            color: vars.$darkColor;
-            display: flex;
-            align-items: flex-end;
-
-            &:hover {
-              text-decoration: underline;
-            }
-
-            svg {
-              margin-right: .5rem;
-              width: 2rem;
-            }
-          }
-        }
-      }
-    }
+    border-bottom: solid 3px vars.$book;
   }
 }
 
-@media screen and (max-width: 850px) {
-  
+@media screen and (min-width: 850px) {
+  .header_mobile {
+    display: none;
+  }
+}
+
+.header {
+  background: vars.$background;
+  margin-bottom: .5rem;
+  padding-bottom: .5rem;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+  }
 }

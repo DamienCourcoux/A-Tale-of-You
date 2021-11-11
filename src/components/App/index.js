@@ -51,7 +51,7 @@ const App = () => {
   };
 
   return (
-    <div onMouseDown={(event) => handleHideModals(event)}>
+    <div className="app" onMouseDown={(event) => handleHideModals(event)}>
       <Header />
       <section className="main">
         <Switch>

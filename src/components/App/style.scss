@@ -1,5 +1,9 @@
 @use 'src/styles/vars';
 
+.app {
+  background: vars.$background;
+}
+
 .main {
   background: vars.$background;
   display: flex;
