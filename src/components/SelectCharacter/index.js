@@ -6,13 +6,14 @@ import { useHistory } from 'react-router-dom';
 
 import './style.scss';
 
+import Stats from 'src/components/Stats';
+
 // == Composant
 const SelectCharacter = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { character, classList } = useSelector((state) => ({
-    character: state.game.character,
+  const { classList } = useSelector((state) => ({
     classList: state.game.classList,
   }));
 
@@ -45,95 +46,7 @@ const SelectCharacter = () => {
         {jsxButtons}
         <div className="step" />
         <h2> choisis ta classe </h2>
-        <div className="stats">
-          <div
-            className="stats__illustration"
-          >
-            <img src={character.illustration} alt="img de votre personnage" />
-          </div>
-
-          <h2 className="stats__title">Caractéristiques</h2>
-
-          <ul className="stats__name">
-            <li>Points de vie</li>
-            <li
-              className={
-                character.primaryCharacteristic === 'strength'
-                  ? 'bold'
-                  : ''
-              }
-            >
-              Force
-            </li>
-            <li
-              className={
-                character.primaryCharacteristic === 'dexterity'
-                  ? 'bold'
-                  : ''
-              }
-            >
-              Dextérité
-            </li>
-            <li
-              className={
-                character.primaryCharacteristic === 'intelligence'
-                  ? 'bold'
-                  : ''
-              }
-            >
-              Intelligence
-            </li>
-            <li
-              className={
-                character.primaryCharacteristic === 'charism'
-                  ? 'bold'
-                  : ''
-              }
-            >
-              Charisme
-            </li>
-          </ul>
-
-          <ul className="stats__value">
-            <li>{character.maxHp}</li>
-            <li
-              className={
-                character.primaryCharacteristic === 'strength'
-                  ? 'bold'
-                  : ''
-              }
-            >
-              {character.strength}
-            </li>
-            <li
-              className={
-                character.primaryCharacteristic === 'dexterity'
-                  ? 'bold'
-                  : ''
-              }
-            >
-              {character.dexterity}
-            </li>
-            <li
-              className={
-                character.primaryCharacteristic === 'intelligence'
-                  ? 'bold'
-                  : ''
-              }
-            >
-              {character.intelligence}
-            </li>
-            <li
-              className={
-                character.primaryCharacteristic === 'charism'
-                  ? 'bold'
-                  : ''
-              }
-            >
-              {character.charism}
-            </li>
-          </ul>
-        </div>
+        <Stats />
         <button
           onClick={() => handleStartGame()}
           type="button"

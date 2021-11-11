@@ -7,17 +7,15 @@ import {
 
 import './style.scss';
 
+import Stats from 'src/components/Stats';
+
 const InGameRight = () => {
   const {
-    character,
-    characterCurrentHp,
     weapon,
     armor,
     accessory,
     inventory,
   } = useSelector((state) => ({
-    character: state.game.character,
-    characterCurrentHp: state.game.characterCurrentHp,
     weapon: state.game.weapon,
     armor: state.game.armor,
     accessory: state.game.accessory,
@@ -37,93 +35,7 @@ const InGameRight = () => {
     <div className="page page_right shadow">
       <h1>Fiche Personnage</h1>
 
-      <div className="stats">
-        <div className="stats__illustration">
-          <img src={character.illustration} alt="img de votre personnage" />
-        </div>
-
-        <h2 className="stats__title">Caractéristiques</h2>
-
-        <ul className="stats__name">
-          <li>Points de vie</li>
-          <li
-            className={
-              character.primaryCharacteristic === 'strength'
-                ? 'bold'
-                : ''
-            }
-          >
-            Force
-          </li>
-          <li
-            className={
-              character.primaryCharacteristic === 'dexterity'
-                ? 'bold'
-                : ''
-            }
-          >
-            Dextérité
-          </li>
-          <li
-            className={
-              character.primaryCharacteristic === 'intelligence'
-                ? 'bold'
-                : ''
-            }
-          >
-            Intelligence
-          </li>
-          <li
-            className={
-              character.primaryCharacteristic === 'charism'
-                ? 'bold'
-                : ''
-            }
-          >
-            Charisme
-          </li>
-        </ul>
-
-        <ul className="stats__value">
-          <li>{characterCurrentHp}/{character.maxHp}</li>
-          <li
-            className={
-              character.primaryCharacteristic === 'strength'
-                ? 'bold'
-                : ''
-            }
-          >
-            {character.strength}
-          </li>
-          <li
-            className={
-              character.primaryCharacteristic === 'dexterity'
-                ? 'bold'
-                : ''
-            }
-          >
-            {character.dexterity}
-          </li>
-          <li
-            className={
-              character.primaryCharacteristic === 'intelligence'
-                ? 'bold'
-                : ''
-            }
-          >
-            {character.intelligence}
-          </li>
-          <li
-            className={
-              character.primaryCharacteristic === 'charism'
-                ? 'bold'
-                : ''
-            }
-          >
-            {character.charism}
-          </li>
-        </ul>
-      </div>
+      <Stats />
 
       {/* character's equipments */}
       <h2 className="ingame_right--h2">Equipements</h2>
