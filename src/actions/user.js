@@ -11,6 +11,7 @@ export const LOGOUT = 'LOGOUT';
 export const SHOW_SELECT_CHARACTER = 'SHOW_SELECT_CHARACTER';
 export const HIDE_SELECT_CHARACTER = 'HIDE_SELECT_CHARACTER';
 export const MENU_DROPDOWN_IS_OPEN = 'MENU_DROPDOWN_IS_OPEN';
+export const CLOSE_EDIT_PROFIL = 'CLOSE_EDIT_PROFIL';
 export const EDIT_PROFIL = 'EDIT_PROFIL';
 export const SUBMIT_EDIT_FORM = 'SUBMIT_EDIT_FORM';
 export const SUBMIT_EDIT_SUCCESS = 'SUBMIT_EDIT_SUCCESS';
@@ -71,6 +72,10 @@ export const hideSelectCharacter = () => ({
 
 export const createMenuDropdownIsOpenAction = () => ({
   type: MENU_DROPDOWN_IS_OPEN,
+});
+
+export const createCloseEditProfilAction = () => ({
+  type: CLOSE_EDIT_PROFIL,
 });
 
 export const createEditProfilAction = () => ({

@@ -22,7 +22,7 @@ import IngameFight from 'src/components/IngameFight';
 import Error404 from 'src/components/Error404';
 import DiceRoller from 'src/components/DiceRoller';
 
-import './app.scss';
+import './style.scss';
 
 // == Composant
 const App = () => {
@@ -43,50 +43,47 @@ const App = () => {
   }));
 
   const handleHideModals = (event) => {
-    if (event.target.className === 'signin') dispatch(hideSignin());
-    if (event.target.className === 'signup') dispatch(hideSignup());
-    if (event.target.className === 'select_character') dispatch(hideSelectCharacter());
+    if (event.target.className === 'modal modal--close') {
+      dispatch(hideSignin());
+      dispatch(hideSignup());
+      dispatch(hideSelectCharacter());
+    }
   };
 
   return (
-    <div
-      className="app"
-      onMouseDown={(event) => handleHideModals(event)}
-    >
+    <div onMouseDown={(event) => handleHideModals(event)}>
       <Header />
-      <section className="book">
-        <div className="book__border shadow">
-          <Switch>
-            <Route exact path="/">
-              <Index />
-            </Route>
-            <Route exact path="/histoire">
-              <Story />
-            </Route>
-            <Route exact path="/regles">
-              <Rules />
-            </Route>
-            <Route exact path="/a-propos">
-              <About />
-            </Route>
-            <Route exact path="/jouer">
-              <Ingame />
-            </Route>
-            <Route exact path="/combat">
-              <IngameFight />
-            </Route>
-            {
-              isLogged && (
-                <Route exact path="/profil">
-                  <Profile />
-                </Route>
-              )
-            }
-            <Route>
-              <Error404 />
-            </Route>
-          </Switch>
-        </div>
+      <section className="main">
+        <Switch>
+          <Route exact path="/">
+            <Index />
+          </Route>
+          <Route exact path="/histoire">
+            <Story />
+          </Route>
+          <Route exact path="/regles">
+            <Rules />
+          </Route>
+          <Route exact path="/jouer">
+            <Ingame />
+          </Route>
+          <Route exact path="/combat">
+            <IngameFight />
+          </Route>
+          <Route exact path="/a-propos">
+            <About />
+          </Route>
+          {
+            isLogged && (
+              <Route exact path="/profil">
+                <Profile />
+              </Route>
+            )
+          }
+          <Route>
+            <Error404 />
+          </Route>
+        </Switch>
       </section>
       {signinIsOpen && (
         <Signin />

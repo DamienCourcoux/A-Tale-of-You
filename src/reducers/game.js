@@ -29,10 +29,6 @@ export const initialState = {
   //     },
   //   ],
   // },
-  paragraph: {
-    description: '',
-    choices: [],
-  },
   // paragraph: {
   //   description: '<p>Vous vous trouvez dans une pièce. Vous apercevez un coffre, celui-ci semble coincé.</p><p>Vous avez le choix :</p><ul><li>User de votre habileté pour le débloquer.</li><li>Ignorer le coffre, quitter la pièce et aller au bout du couloir précédent.</li></ul>',
   //   choices: [
@@ -64,6 +60,10 @@ export const initialState = {
   //     },
   //   ],
   // },
+  paragraph: {
+    description: '',
+    choices: [],
+  },
   enemy: null,
   // Data for /jouer - right page
   character: {

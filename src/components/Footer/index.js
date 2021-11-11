@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Logo from 'src/assets/logo.gif';
 import { FaDiscord, FaTwitter, FaFacebook } from 'react-icons/fa';
 
-import './footer.scss';
+import './style.scss';
 
 const Footer = () => (
   <footer className="footer">

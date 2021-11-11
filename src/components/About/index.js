@@ -1,6 +1,6 @@
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
-import './about.scss';
+import './style.scss';
 
 const About = () => (
   <section className="about">
@@ -10,7 +10,7 @@ const About = () => (
         <div className="about__container--alexandre--left">
           <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img d'Alexandre, un développeur d'A Tale of You" />
           <h2 title="Un excellent développeur">Alexandre</h2>
-          <p>Lead dev back</p>
+          <div>Lead dev back</div>
         </div>
         <div className="about__container--alexandre--right">
           <h2>Réseaux</h2>
@@ -42,7 +42,7 @@ const About = () => (
         <div className="about__container--damien--left">
           <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img de Damien, un développeur d'A Tale of You" />
           <h2 title="Un excellent développeur">Damien</h2>
-          <p>Dev front / Git master</p>
+          <div>Dev front / Git master</div>
         </div>
         <div className="about__container--damien--right">
           <h2>Réseaux</h2>
@@ -74,7 +74,7 @@ const About = () => (
         <div className="about__container--mikhael--left">
           <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img de Mikhael, un développeur d'A Tale of You" />
           <h2 title="Un excellent développeur">Mikhael</h2>
-          <p>Lead dev front</p>
+          <div>Lead dev front</div>
         </div>
         <div className="about__container--mikhael--right">
           <h2>Réseaux</h2>
@@ -106,7 +106,7 @@ const About = () => (
         <div className="about__container--guillaume--left">
           <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img de Guillaume, un développeur d'A Tale of You" />
           <h2 title="Un excellent développeur">Guillaume</h2>
-          <p>Dev front / Scrum master</p>
+          <div>Dev front / Scrum master</div>
         </div>
         <div className="about__container--guillaume--right">
           <h2>Réseaux</h2>
@@ -138,7 +138,7 @@ const About = () => (
         <div className="about__container--maxence--left">
           <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img de Maxence, un développeur d'A Tale of You" />
           <h2 title="Un excellent développeur">Maxence</h2>
-          <p>Dev front / Product owner</p>
+          <div>Dev front / Product owner</div>
         </div>
         <div className="about__container--maxence--right">
           <h2>Réseaux</h2>

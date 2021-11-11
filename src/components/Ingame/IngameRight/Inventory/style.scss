@@ -1,0 +1,22 @@
+@use 'src/styles/vars';
+
+.inventory {
+  height: calc(100% - 26.5rem);
+  min-height: 4rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: solid 3px black;
+  overflow-y: auto;
+
+  &--ul {
+    margin-left: 0;
+  }
+
+  &__item {
+    margin-bottom: 0.1rem;
+
+    &:hover {
+      background: #bbb5a5;
+    }
+  }
+}

@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 
 // == Import : local
-import './styles.scss';
+import './style.scss';
 
 // == Composant
 const Field = ({

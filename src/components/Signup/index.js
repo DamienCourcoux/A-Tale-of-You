@@ -3,7 +3,7 @@ import { hideSignup, handleSignup, changeField } from 'src/actions/user';
 
 import { FaTimes } from 'react-icons/fa';
 
-import './styles.scss';
+import './style.scss';
 
 import Field from './Field';
 
@@ -39,14 +39,14 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup">
-      <div className="signup__content">
+    <div className="modal modal--close">
+      <div className="modal__content">
         <FaTimes
-          className="signup__close"
+          className="modal__close"
           onClick={(event) => handleHideSignup(event)}
         />
-        <div className="signup__h1">S'inscrire</div>
-        <form className="signin__form" onSubmit={handleSubmit}>
+        <h2>S'inscrire</h2>
+        <form onSubmit={handleSubmit}>
           <Field
             name="pseudo"
             placeholder="Pseudonyme"
@@ -74,10 +74,11 @@ const Signup = () => {
             value={passwordConfirm}
           />
           {passwordWrong && (
-            <div className="signup__password_wrong">
+            <p className="signup__password_wrong">
               Les mots de passe ne correspondent pas
-            </div>
+            </p>
           )}
+          <div className="step" />
           <button
             type="submit"
             className="signup__button"

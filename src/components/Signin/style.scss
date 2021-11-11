@@ -1,0 +1,9 @@
+@use 'src/styles/vars';
+
+.signin {
+  &__a {
+    display: block;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+}

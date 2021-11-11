@@ -1,0 +1,14 @@
+@use 'src/styles/vars';
+
+.error404_left {
+  &--center {
+    &_img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    &_text {
+      text-align: center;
+    }
+  }
+}

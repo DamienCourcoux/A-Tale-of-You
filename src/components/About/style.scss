@@ -1,0 +1,80 @@
+@use 'src/styles/vars';
+
+.about {
+  background: vars.$background;
+  padding: 5rem;
+  min-height: calc(100vh - 236px);
+  text-align: center;
+  overflow: hidden;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+
+    &--alexandre,
+    &--damien,
+    &--mikhael,
+    &--guillaume,
+    &--maxence {
+      background: vars.$book;
+      padding: .5rem;
+      border-radius: 7px;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      margin: 1rem;
+      width: 250px;
+
+      &--left {
+        background: vars.$bookPage;
+        padding: 1rem .5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        text-align: center;
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+
+        img {
+          width: 80px;
+          border: 3px solid vars.$lightColor;
+        }
+      }
+
+      &--right {
+        background: vars.$bookPage;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        padding: 1rem .5rem;
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+
+        ul {
+          display: flex;
+          margin-left: 0;
+
+          li {
+            margin: 0 .5rem;
+
+            a svg {
+              font-size: 1.5rem;
+
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

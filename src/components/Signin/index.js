@@ -8,7 +8,7 @@ import {
 
 import { FaTimes } from 'react-icons/fa';
 
-import './styles.scss';
+import './style.scss';
 
 import Field from './Field';
 
@@ -42,14 +42,14 @@ const Signin = () => {
   };
 
   return (
-    <div className="signin">
-      <div className="signin__content">
+    <div className="modal modal--close">
+      <div className="modal__content">
         <FaTimes
-          className="signin__close"
+          className="modal__close"
           onClick={(event) => handleHideSignin(event)}
         />
-        <div className="signin__h1">Se connecter</div>
-        <form className="signin__form" onSubmit={handleSubmit}>
+        <h2>Se connecter</h2>
+        <form onSubmit={handleSubmit}>
           <Field
             name="email"
             placeholder="Adresse mail"
