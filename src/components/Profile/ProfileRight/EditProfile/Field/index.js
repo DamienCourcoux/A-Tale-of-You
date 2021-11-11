@@ -58,7 +58,6 @@ Field.propTypes = {
 Field.defaultProps = {
   type: 'text',
   minLength: '',
-  // eslint-disable-next-line no-useless-escape
   pattern: '',
   title: '',
 };

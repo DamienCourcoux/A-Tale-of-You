@@ -1,32 +1,6 @@
 @use 'src/styles/vars';
 
 .dice_roller {
-  //   position: fixed;
-  //   z-index: 3;
-  //   left: 0;
-  //   top: 0;
-  //   background-color: rgba(0,0,0,0.5);
-  //   width: 100%;
-  //   height: 100%;
-  //   padding-top: 100px;
-
-  //   &__content {
-  //     padding: 0.5rem;
-  //     position: relative;
-  //     margin: auto;
-  //     background-color: vars.$background;
-  //     border: solid 5px vars.$book;
-  //     width: 90%;
-  //     max-width: 300px;
-  //     text-align: center;
-
-  //     h1 {
-  //       font-size: 1.5rem;
-  //       font-weight: bold;
-  //       text-transform: uppercase;
-  //       padding: 1rem;
-  //     }
-
   &--container {
     display: flex;
     margin-bottom: 1rem;
@@ -34,10 +8,6 @@
   }
 
   &--dice {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // margin: 0 auto;
     width: 100px;
     height: 100px;
 
@@ -104,38 +74,4 @@
   &--h2 {
     text-align: center;
   }
-
-  //     }
-
-  //     p {
-  //       margin: .5rem;
-
-  //       span {
-  //         font-weight: bold;
-  //       }
-  //     }
-
-  //     h2 {
-  //       font-size: 1.5rem;
-  //       font-weight: bold;
-  //     }
-
-  //     button {
-  //       background: vars.$lightColor;
-  //       color: vars.$darkColor;
-  //       border: 3px solid vars.$darkColor;
-  //       padding: .5rem 1rem;
-  //       display: block;
-  //       text-align: center;
-  //       width: 90%;
-  //       height: 3rem;
-  //       margin: .5rem auto;
-  //       font-weight: bold;
-  //       font-size: 1rem;
-
-  //       &:hover {
-  //         transform: scale(0.9);
-  //       }
-  //     }
-  //   }
 }

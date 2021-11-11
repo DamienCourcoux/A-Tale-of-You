@@ -7,12 +7,6 @@
   text-align: center;
   overflow: hidden;
 
-  // h1 {
-  //   font-size: 2rem;
-  //   font-family: 'Marck Script', cursive;
-  //   margin-bottom: 2rem;
-  // }
-
   &__container {
     display: flex;
     flex-direction: row;
@@ -20,7 +14,11 @@
     justify-content: center;
     align-items: stretch;
 
-    &--alexandre, &--damien, &--mikhael, &--guillaume, &--maxence {
+    &--alexandre,
+    &--damien,
+    &--mikhael,
+    &--guillaume,
+    &--maxence {
       background: vars.$book;
       padding: .5rem;
       border-radius: 7px;
@@ -38,19 +36,14 @@
         align-items: center;
         width: 50%;
         text-align: center;
-        box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.7);
-        -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.7);
-        -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.7);
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
 
         img {
           width: 80px;
           border: 3px solid vars.$lightColor;
         }
-
-//         h2 {
-//           font-weight: bold;
-//           margin: .5rem 0;
-//         }
       }
 
       &--right {
@@ -61,14 +54,9 @@
         align-items: center;
         width: 50%;
         padding: 1rem .5rem;
-        box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.7);
-        -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.7);
-        -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.7);
-
-//         h2 {
-//           font-weight: bold;
-//           margin: .5rem 0;
-//         }
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
 
         ul {
           display: flex;

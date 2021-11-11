@@ -1,9 +1,4 @@
 import { useSelector } from 'react-redux';
-// import {
-//   GiBroadsword,
-//   GiShoulderArmor,
-//   GiPearlNecklace,
-// } from 'react-icons/gi';
 
 import './style.scss';
 
