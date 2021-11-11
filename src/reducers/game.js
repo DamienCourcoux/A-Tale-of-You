@@ -89,7 +89,17 @@ export const initialState = {
     name: 'bijoux de famille',
     bonus: 0,
   },
-  inventory: [],
+  inventory: [
+    'clé1',
+    'clé2',
+    'clé3',
+    'clé4',
+    'clé5',
+    'clé6',
+    'clé7',
+    'clé8',
+    'clé9',
+  ],
   // data for DiceRoller
   diceRollerIsOpen: false,
   resultRoll: [],

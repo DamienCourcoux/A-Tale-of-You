@@ -1,83 +1,27 @@
-import { useSelector } from 'react-redux';
-import {
-  GiBroadsword,
-  GiShoulderArmor,
-  GiPearlNecklace,
-} from 'react-icons/gi';
-
 import './style.scss';
 
 import Stats from 'src/components/Stats';
+import Equipments from './Equipments';
+import Inventory from './Inventory';
 
-const InGameRight = () => {
-  const {
-    weapon,
-    armor,
-    accessory,
-    inventory,
-  } = useSelector((state) => ({
-    weapon: state.game.weapon,
-    armor: state.game.armor,
-    accessory: state.game.accessory,
-    inventory: state.game.inventory,
-  }));
+const InGameRight = () => (
+  <div className="page page_right shadow">
+    <h1>Fiche Personnage</h1>
 
-  const jsxList = inventory.map((item) => (
-    <li
-      key={item}
-      className="itemInventory"
-    >
-      {item}
-    </li>
-  ));
+    <div className="step" />
 
-  return (
-    <div className="page page_right shadow">
-      <h1>Fiche Personnage</h1>
+    <Stats />
 
-      <Stats />
+    {/* character's equipments */}
+    <h2 className="ingame_right--h2">Equipements</h2>
+    <Equipments />
 
-      {/* character's equipments */}
-      <h2 className="ingame_right--h2">Equipements</h2>
+    <div className="step" />
 
-      <div className="ingame_right--equipments">
-        <div className="ingame_right--equipments__item">
-          <div className="ingame__page__right__equipments__item--img" title={weapon.name}>
-            <GiBroadsword size={40} />
-          </div>
-          <p className="ingame__page__right__equipments__item__value">
-            +{weapon.bonus}
-          </p>
-        </div>
-        <div className="ingame__page__right__equipments__item">
-          <div className="ingame__page__right__equipments__item--img" title={armor.name}>
-            <GiShoulderArmor size={40} />
-          </div>
-          <p className="ingame__page__right__equipments__item__value">
-            +{armor.bonus}
-          </p>
-        </div>
-        <div className="ingame__page__right__equipments__item">
-          <div className="ingame__page__right__equipments__item--img" title={accessory.name}>
-            <GiPearlNecklace size={40} />
-          </div>
-          <p className="ingame__page__right__equipments__item__value">
-            +{accessory.bonus}
-          </p>
-        </div>
-      </div>
-
-      {/* character's inventory */}
-      <div className="ingame__page__right__inventory">
-        <h2>Inventaire</h2>
-        <div className="ingame__page__right__inventory__scroller">
-          <ul>
-            {jsxList}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
+    {/* character's inventory */}
+    <h2 className="ingame_right--h2">Inventaire</h2>
+    <Inventory />
+  </div>
+);
 
 export default InGameRight;

@@ -1,0 +1,34 @@
+@use 'src/styles/vars';
+
+.inventory {
+  height: calc(100% - 26.5rem);
+  min-height: 4rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  // justify-content: center;
+  border: solid 3px black;
+  // width: 100%;
+  overflow-y: auto;
+
+  // scrollbar-color: rebeccapurple green;
+  // scrollbar-width: thin;
+
+  &--ul {
+    margin-left: 0;
+  }
+  &__item {
+    margin-bottom: 0.1rem;
+
+    &:hover {
+      background: #bbb5a5;
+    }
+
+    //   &:nth-child(2n+1) {
+    //     background: #bbb5a5;
+    //   }
+
+    //   &:nth-child(2n+2) {
+    //     background: #948f80;
+    //   }
+  }
+}

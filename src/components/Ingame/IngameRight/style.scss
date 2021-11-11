@@ -69,28 +69,28 @@
         text-align: center;
       }
 
-      &--equipments {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+      // &--equipments {
+      //   display: flex;
+      //   flex-direction: row;
+      //   justify-content: center;
 
-        // &__item {
-        //   margin: 1rem 1rem 0;
-        //   text-align: center;
+      //   &__item {
+      //     margin: 1rem 1rem 0;
+      //     text-align: center;
 
-    //       &--img {
-    //         background: vars.$lightColor;
-    //         border: 3px solid vars.$darkColor;
-    //         padding: .5rem;
-    //       }
+      //     &__img {
+      //       background: vars.$lightColor;
+      //       border: 3px solid vars.$darkColor;
+      //       padding: .5rem;
+      //     }
 
-    //       &__value {
-    //         margin: .5rem;
-    //         text-align: center;
-    //         font-weight: bold;
-    //       }
-        // }
-      } 
+      //     &__value {
+      //       margin: .5rem;
+      //       text-align: center;
+      //       font-weight: bold;
+      //     }
+      //   }
+      // } 
 
     //   &__stats {
     //     grid-area: stats;
