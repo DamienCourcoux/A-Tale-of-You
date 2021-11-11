@@ -85,12 +85,20 @@ button,
     height: 100%;
     width: 1600px;
     padding: 1rem;
+
+    @media screen and (max-width: 425px) {
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+    }
 }
 
 .shadow {
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
-    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+    @media screen and (min-width: 426px) {
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+    }
 }
 
 .pages {
@@ -107,6 +115,11 @@ button,
     overflow-y: auto;
     position: relative;
 
+    @media screen and (max-width: 425px) {
+        width: 100%;
+        border: solid 1px black;
+    }
+
     &_empty {
         width: 50%;
         position: relative;
@@ -116,11 +129,25 @@ button,
     &_left {
         margin-left: 1rem;
         background: vars.$bookPage;
+
+        @media screen and (max-width: 425px) {
+            margin-left: 0rem;
+        }
     }
 
     &_right {
         margin-right: 1rem;
         background: vars.$bookPage;
+
+        @media screen and (max-width: 425px) {
+            margin-right: 0rem;
+        }
+    }
+
+    &--remove_mobile {
+        @media screen and (max-width: 425px) {
+            display: none;
+        }
     }
 
     &_img {
