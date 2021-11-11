@@ -1,133 +1,141 @@
 @use 'src/styles/vars';
 
-// .diceRoller {
-//   position: fixed;
-//   z-index: 3;
-//   left: 0;
-//   top: 0;
-//   background-color: rgba(0,0,0,0.5);
-//   width: 100%;
-//   height: 100%;
-//   padding-top: 100px;
+.dice_roller {
+  //   position: fixed;
+  //   z-index: 3;
+  //   left: 0;
+  //   top: 0;
+  //   background-color: rgba(0,0,0,0.5);
+  //   width: 100%;
+  //   height: 100%;
+  //   padding-top: 100px;
 
-//   &__content {
-//     padding: 0.5rem;
-//     position: relative;
-//     margin: auto;
-//     background-color: vars.$background;
-//     border: solid 5px vars.$book;
-//     width: 90%;
-//     max-width: 300px;
-//     text-align: center;
+  //   &__content {
+  //     padding: 0.5rem;
+  //     position: relative;
+  //     margin: auto;
+  //     background-color: vars.$background;
+  //     border: solid 5px vars.$book;
+  //     width: 90%;
+  //     max-width: 300px;
+  //     text-align: center;
 
-//     h1 {
-//       font-size: 1.5rem;
-//       font-weight: bold;
-//       text-transform: uppercase;
-//       padding: 1rem;
-//     }
+  //     h1 {
+  //       font-size: 1.5rem;
+  //       font-weight: bold;
+  //       text-transform: uppercase;
+  //       padding: 1rem;
+  //     }
 
-//     &--container {
-//       display: flex;
-//       margin-bottom: 1rem;
+  &--container {
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-around;
+  }
 
-//       .dice {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         margin: 0 auto;
-//         width: 100px;
-//         height: 100px;
+  &--dice {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // margin: 0 auto;
+    width: 100px;
+    height: 100px;
 
-//         &--1 {
-//           background-position-x: 0px;
-//         }
+    &--1 {
+      background-position-x: 0px;
+    }
 
-//         &--2 {
-//           background-position-x: -100px;
-//         }
+    &--2 {
+      background-position-x: -100px;
+    }
 
-//         &--3 {
-//           background-position-x: -200px;
-//         }
+    &--3 {
+      background-position-x: -200px;
+    }
 
-//         &--4 {
-//           background-position-x: -300px;
-//         }
+    &--4 {
+      background-position-x: -300px;
+    }
 
-//         &--5 {
-//           background-position-x: -400px;
-//         }
+    &--5 {
+      background-position-x: -400px;
+    }
 
-//         &--6 {
-//           background-position-x: -500px;
-//         }
-//       }
+    &--6 {
+      background-position-x: -500px;
+    }
+  }
 
-//       .rolll{ 
-//         animation-name: wobble;
-//         animation-duration: 1s;
-//        } 
-//        @keyframes wobble {
-//         from {
-//           transform: translate3d(0, 0, 0);
-//         }
-      
-//         15% {
-//           transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
-//         }
-      
-//         30% {
-//           transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
-//         }
-      
-//         45% {
-//           transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
-//         }
-      
-//         60% {
-//           transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
-//         }
-      
-//         75% {
-//           transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
-//         }
-      
-//         to {
-//           transform: translate3d(0, 0, 0);
-//         }
-//       }
-//     }
+  &--animation {
+    animation-name: wobble;
+    animation-duration: 1s;
+  }
 
-//     p {
-//       margin: .5rem;
+  @keyframes wobble {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
 
-//       span {
-//         font-weight: bold;
-//       }
-//     }
+    15% {
+      transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    }
 
-//     h2 {
-//       font-size: 1.5rem;
-//       font-weight: bold;
-//     }
+    30% {
+      transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    }
 
-//     button {
-//       background: vars.$lightColor;
-//       color: vars.$darkColor;
-//       border: 3px solid vars.$darkColor;
-//       padding: .5rem 1rem;
-//       display: block;
-//       text-align: center;
-//       width: 90%;
-//       height: 3rem;
-//       margin: .5rem auto;
-//       font-weight: bold;
-//       font-size: 1rem;
+    45% {
+      transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    }
 
-//       &:hover {
-//         transform: scale(0.9);
-//       }
-//     }
-//   }
-// }
+    60% {
+      transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    }
+
+    75% {
+      transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &--h2 {
+    text-align: center;
+  }
+
+  //     }
+
+  //     p {
+  //       margin: .5rem;
+
+  //       span {
+  //         font-weight: bold;
+  //       }
+  //     }
+
+  //     h2 {
+  //       font-size: 1.5rem;
+  //       font-weight: bold;
+  //     }
+
+  //     button {
+  //       background: vars.$lightColor;
+  //       color: vars.$darkColor;
+  //       border: 3px solid vars.$darkColor;
+  //       padding: .5rem 1rem;
+  //       display: block;
+  //       text-align: center;
+  //       width: 90%;
+  //       height: 3rem;
+  //       margin: .5rem auto;
+  //       font-weight: bold;
+  //       font-size: 1rem;
+
+  //       &:hover {
+  //         transform: scale(0.9);
+  //       }
+  //     }
+  //   }
+}

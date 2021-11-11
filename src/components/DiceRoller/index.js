@@ -50,39 +50,39 @@ const DiceRoller = () => {
   };
 
   return (
-    <div className="diceRoller">
+    <div className="modal">
       {resultRoll && (
-        <div className="diceRoller__content">
+        <div className="modal__content">
           <h1>Lancer de dés</h1>
-          <div className="diceRoller__content--container">
+          <div className="dice_roller--container">
             <div
-              className={`rolll dice dice--${resultRoll[0]}`}
+              className={`dice_roller--animation dice_roller--dice dice_roller--dice--${resultRoll[0]}`}
               style={{ backgroundImage: `url(${Dice})` }}
             />
             <div
-              className={`rolll dice dice--${resultRoll[1]}`}
+              className={`dice_roller--animation dice_roller--dice dice_roller--dice--${resultRoll[1]}`}
               style={{ backgroundImage: `url(${Dice})` }}
             />
           </div>
           {choice.success_condition_characteristic === 'strength' && (
-            <p>Bonus de force: <span>+{characterCharacteristic}</span></p>
+            <p>Bonus de force: <span className="bold">+{characterCharacteristic}</span></p>
           )}
           {choice.success_condition_characteristic === 'dexterity' && (
-            <p>Bonus de dextérité: <span>+{characterCharacteristic}</span></p>
+            <p>Bonus de dextérité: <span className="bold">+{characterCharacteristic}</span></p>
           )}
           {choice.success_condition_characteristic === 'intelligence' && (
-            <p>Bonus d'intelligence: <span>+{characterCharacteristic}</span></p>
+            <p>Bonus d'intelligence: <span className="bold">+{characterCharacteristic}</span></p>
           )}
           {choice.success_condition_characteristic === 'charism' && (
-            <p>Bonus de charisme: <span>+{characterCharacteristic}</span></p>
+            <p>Bonus de charisme: <span className="bold">+{characterCharacteristic}</span></p>
           )}
-          <p>Bonus d'équipement: <span>+{accessory.bonus}</span></p>
+          <p>Bonus d'équipement: <span className="bold">+{accessory.bonus}</span></p>
           <p>
             Vous avez fait
             : {resultRoll[0] + resultRoll[1]} + {characterCharacteristic} + {accessory.bonus} =
-            <span> {rollTotal}</span>
+            <span className="bold"> {rollTotal}</span>
           </p>
-          <h2>
+          <h2 className="dice_roller--h2">
             {
               rollTotal >= successConditionValue
                 ? 'Succès'
