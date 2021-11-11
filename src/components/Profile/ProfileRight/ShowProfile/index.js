@@ -79,7 +79,6 @@ const ShowProfile = () => {
             <p title="Mot de passe" className="field-label">Mot de passe:</p>
             **********
           </div>
-          ''
         </form>
       </div>
     </>

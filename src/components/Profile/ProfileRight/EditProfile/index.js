@@ -19,7 +19,6 @@ import './style.scss';
 
 // == Composant
 const ProfileRight = () => {
-  const isEdit = useSelector((state) => state.user.isEdit);
   const password = useSelector((state) => state.user.password);
   const isVisibilyPassword = useSelector((state) => state.user.isVisibilyPassword);
   const userPseudo = useSelector((state) => state.user.userPseudo);
@@ -112,11 +111,7 @@ const ProfileRight = () => {
               }
             </span>
           </div>
-          {
-            isEdit
-              ? <button type="submit">Valider</button>
-              : ''
-          }
+          <button type="submit">Valider</button>
         </form>
       </div>
     </>
