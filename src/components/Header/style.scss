@@ -1,86 +1,92 @@
 @use 'src/styles/vars';
 
-.header {
-  background: vars.$background;
-  padding-bottom: 1rem;
+@media screen and (min-width: 850px) {
+  .header {
+    background: vars.$background;
+    padding-bottom: 1rem;
 
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-
-    &--games {
+    &__nav {
       display: flex;
+      justify-content: space-between;
 
-      li {
-        align-self: flex-end;
-        margin: 0rem 1rem .5rem 1rem;
-
-        &:first-child {
-          margin: 0rem 1rem;
-        }
-
-        a {
-          color: vars.$darkColor;
-          display: flex;
-          align-items: flex-end;
-
-          &:hover {
-            text-decoration: underline;
-          }
-
-          img {
-            width: 150px;
-            margin-left: 2rem;
-          }
-
-          svg {
-            margin-right: .5rem;
-            width: 2rem;
-          }
-        }
-
-        & .is-active {
-          text-decoration: underline;
-          font-weight: bold;
-        }
-      }
-    }
-
-    &--settings {
-      display: flex;
-      padding: 0rem 1.5rem;
-
-      .welcome-message {
-        font-size: 1.2rem;
-        font-weight: bold;
+      &--games {
         display: flex;
-        align-items: center;
 
-        svg {
-          margin-right: .5rem;
-          width: 2rem;
+        li {
+          align-self: flex-end;
+          margin: 0rem 1rem .5rem 1rem;
+
+          &:first-child {
+            margin: 0rem 1rem;
+          }
+
+          a {
+            color: vars.$darkColor;
+            display: flex;
+            align-items: flex-end;
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            img {
+              width: 150px;
+              margin-left: 2rem;
+            }
+
+            svg {
+              margin-right: .5rem;
+              width: 2rem;
+            }
+          }
+
+          & .is-active {
+            text-decoration: underline;
+            font-weight: bold;
+          }
         }
       }
 
-      li {
-        align-self: flex-end;
-        margin: 0rem 1rem .5rem 1rem;
+      &--settings {
+        display: flex;
+        padding: 0rem 1.5rem;
 
-        a {
-          color: vars.$darkColor;
+        .welcome-message {
+          font-size: 1.2rem;
+          font-weight: bold;
           display: flex;
-          align-items: flex-end;
-
-          &:hover {
-            text-decoration: underline;
-          }
+          align-items: center;
 
           svg {
             margin-right: .5rem;
             width: 2rem;
+          }
+        }
+
+        li {
+          align-self: flex-end;
+          margin: 0rem 1rem .5rem 1rem;
+
+          a {
+            color: vars.$darkColor;
+            display: flex;
+            align-items: flex-end;
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            svg {
+              margin-right: .5rem;
+              width: 2rem;
+            }
           }
         }
       }
     }
   }
+}
+
+@media screen and (max-width: 850px) {
+  
 }
