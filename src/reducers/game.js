@@ -29,41 +29,41 @@ export const initialState = {
   //     },
   //   ],
   // },
-  paragraph: {
-    description: '<p>Vous vous trouvez dans une pièce. Vous apercevez un coffre, celui-ci semble coincé.</p><p>Vous avez le choix :</p><ul><li>User de votre habileté pour le débloquer.</li><li>Ignorer le coffre, quitter la pièce et aller au bout du couloir précédent.</li></ul>',
-    choices: [
-      {
-        description: 'Débloquer [DEX]',
-        success_condition_value: 27,
-        success_condition_characteristic: 'dexterity',
-        consequences: [
-          {
-            boolean: true,
-            paragraph_id: 4,
-          },
-          {
-            boolean: false,
-            paragraph_id: 5,
-          },
-        ],
-      },
-      {
-        description: 'Partir',
-        success_condition_value: null,
-        success_condition_characteristic: null,
-        consequences: [
-          {
-            boolean: true,
-            paragraph_id: 6,
-          },
-        ],
-      },
-    ],
-  },
   // paragraph: {
-  //   description: '',
-  //   choices: [],
+  //   description: '<p>Vous vous trouvez dans une pièce. Vous apercevez un coffre, celui-ci semble coincé.</p><p>Vous avez le choix :</p><ul><li>User de votre habileté pour le débloquer.</li><li>Ignorer le coffre, quitter la pièce et aller au bout du couloir précédent.</li></ul>',
+  //   choices: [
+  //     {
+  //       description: 'Débloquer [DEX]',
+  //       success_condition_value: 27,
+  //       success_condition_characteristic: 'dexterity',
+  //       consequences: [
+  //         {
+  //           boolean: true,
+  //           paragraph_id: 4,
+  //         },
+  //         {
+  //           boolean: false,
+  //           paragraph_id: 5,
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       description: 'Partir',
+  //       success_condition_value: null,
+  //       success_condition_characteristic: null,
+  //       consequences: [
+  //         {
+  //           boolean: true,
+  //           paragraph_id: 6,
+  //         },
+  //       ],
+  //     },
+  //   ],
   // },
+  paragraph: {
+    description: '',
+    choices: [],
+  },
   enemy: null,
   // Data for /jouer - right page
   character: {
@@ -89,17 +89,7 @@ export const initialState = {
     name: 'bijoux de famille',
     bonus: 0,
   },
-  inventory: [
-    'clé1',
-    'clé2',
-    'clé3',
-    'clé4',
-    'clé5',
-    'clé6',
-    'clé7',
-    'clé8',
-    'clé9',
-  ],
+  inventory: [],
   // data for DiceRoller
   diceRollerIsOpen: false,
   resultRoll: [],

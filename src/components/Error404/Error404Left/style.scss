@@ -1,5 +1,16 @@
 @use 'src/styles/vars';
 
+.error404_left{
+  &--center {
+    &_img {
+      display: block;
+      margin: 0 auto;
+    }
+    &_text {
+      text-align: center;
+    }
+  }
+}
 // .error404Left__page {
 //   width: calc(50% - 1rem);
 //   background: vars.$bookPage;
