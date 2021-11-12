@@ -1,12 +1,11 @@
 // == Import
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 import {
   createMenuDropdownIsOpenAction,
   createEditProfilAction,
   createSubmitEditFormAction,
-  createDeleteProfilAction,
+  createSureToDeleteProfilAction,
 } from 'src/actions/user';
 
 import {
@@ -21,8 +20,6 @@ const ShowProfile = () => {
   const userPseudo = useSelector((state) => state.user.userPseudo);
   const userMail = useSelector((state) => state.user.userMail);
   const userAvatar = useSelector((state) => state.user.userAvatar);
-
-  const history = useHistory();
 
   const dispatch = useDispatch();
 
@@ -39,9 +36,8 @@ const ShowProfile = () => {
     dispatch(createSubmitEditFormAction());
   };
 
-  const handleDelete = () => {
-    dispatch(createDeleteProfilAction());
-    history.replace('/');
+  const handleSureToDelete = () => {
+    dispatch(createSureToDeleteProfilAction());
   };
 
   return (
@@ -56,7 +52,7 @@ const ShowProfile = () => {
         </button>
         <ul className={menuDropdownIsOpen ? 'profile_right--action--menu' : 'profile_right--action--menu menuDropdownIsOpen'}>
           <li onClick={handleEdit}>Modifier mon profil</li>
-          <li onClick={handleDelete}>Supprimer mon profil</li>
+          <li onClick={handleSureToDelete}>Supprimer mon profil</li>
         </ul>
       </div>
       <div className="hr" />
