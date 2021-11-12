@@ -135,6 +135,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isEdit: false,
+        pseudo: '',
+        email: '',
+        password: '',
+        passwordConfirm: '',
+        passwordWrong: '',
       };
 
     case VISIBILITY_PASSWORD:
@@ -155,6 +160,15 @@ const reducer = (state = initialState, action = {}) => {
         isLogged: false,
         menuDropdownIsOpen: false,
         sureToDeleteIsOpen: false,
+        pseudo: '',
+        email: '',
+        password: '',
+        passwordConfirm: '',
+        passwordWrong: '',
+        userPseudo: '',
+        userMail: '',
+        userId: null,
+        userAvatar: '',
       };
 
     case NO_DELETE_PROFIL:
