@@ -5,7 +5,7 @@ import Equipments from './Equipments';
 import Inventory from './Inventory';
 
 const InGameRight = () => (
-  <div className="page page_right shadow">
+  <div className="page page_right shadow page--mobile_order1">
     <h1>Fiche Personnage</h1>
 
     <div className="step" />
