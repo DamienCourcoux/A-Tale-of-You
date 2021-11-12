@@ -28,7 +28,7 @@ const InGameLeft = () => {
     }
 
     if (description === 'Retour au site') {
-      history.replace('/');
+      history.replace('/histoire');
       dispatch(endGame());
     }
   };
