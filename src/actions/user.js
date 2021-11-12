@@ -16,8 +16,10 @@ export const EDIT_PROFIL = 'EDIT_PROFIL';
 export const SUBMIT_EDIT_FORM = 'SUBMIT_EDIT_FORM';
 export const SUBMIT_EDIT_SUCCESS = 'SUBMIT_EDIT_SUCCESS';
 export const VISIBILITY_PASSWORD = 'VISIBILITY_PASSWORD';
+export const SURE_TO_DELETE_PROFIL = 'SURE_TO_DELETE_PROFIL';
 export const DELETE_PROFIL = 'DELETE_PROFIL';
 export const DELETE_PROFIL_SUCCESS = 'DELETE_PROFIL_SUCCESS';
+export const NO_DELETE_PROFIL = 'NO_DELETE_PROFIL';
 
 export const changeField = (value, name) => ({
   type: CHANGE_FIELD,
@@ -96,10 +98,18 @@ export const createVisibilityPasswordAction = () => ({
   type: VISIBILITY_PASSWORD,
 });
 
+export const createSureToDeleteProfilAction = () => ({
+  type: SURE_TO_DELETE_PROFIL,
+});
+
 export const createDeleteProfilAction = () => ({
   type: DELETE_PROFIL,
 });
 
 export const createDeleteProfilSuccessAction = () => ({
   type: DELETE_PROFIL_SUCCESS,
+});
+
+export const createNoDeleteProfilAction = () => ({
+  type: NO_DELETE_PROFIL,
 });

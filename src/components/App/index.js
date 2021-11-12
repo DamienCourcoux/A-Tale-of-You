@@ -21,6 +21,7 @@ import Ingame from 'src/components/Ingame';
 import IngameFight from 'src/components/IngameFight';
 import Error404 from 'src/components/Error404';
 import DiceRoller from 'src/components/DiceRoller';
+import DeleteProfil from 'src/components/Profile/ProfileRight/ShowProfile/DeleteProfile';
 
 import './style.scss';
 
@@ -34,12 +35,14 @@ const App = () => {
     selectCharacterIsOpen,
     isLogged,
     diceRollerIsOpen,
+    sureToDeleteIsOpen,
   } = useSelector((state) => ({
     signinIsOpen: state.user.signinIsOpen,
     signupIsOpen: state.user.signupIsOpen,
     selectCharacterIsOpen: state.user.selectCharacterIsOpen,
     isLogged: state.user.isLogged,
     diceRollerIsOpen: state.game.diceRollerIsOpen,
+    sureToDeleteIsOpen: state.user.sureToDeleteIsOpen,
   }));
 
   const handleHideModals = (event) => {
@@ -97,6 +100,11 @@ const App = () => {
       {
         diceRollerIsOpen && (
           <DiceRoller />
+        )
+      }
+      {
+        sureToDeleteIsOpen && (
+          <DeleteProfil />
         )
       }
       <Footer />
