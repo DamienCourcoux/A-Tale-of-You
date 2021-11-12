@@ -45,7 +45,8 @@ const SelectCharacter = () => {
       <div className="modal__content select_character--modal__content">
         {jsxButtons}
         <div className="step" />
-        <h2> choisis ta classe </h2>
+        <h2> Choisis ta classe </h2>
+        <div className="step" />
         <Stats />
         <button
           onClick={() => handleStartGame()}
