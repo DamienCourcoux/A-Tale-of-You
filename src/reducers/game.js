@@ -5,6 +5,7 @@ import {
   HIDE_DICE_ROLLER,
   ROLL_DICE,
   CHANGE_SELECTED_CHARACTER,
+  END_GAME,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -12,54 +13,6 @@ export const initialState = {
   storyTitle: '',
   storyDescription: '',
   classList: [],
-  // Data for /jouer - left page
-  // paragraph: {
-  //   description: STRING, NOT NULL
-  //   choices: [
-  //     {
-  //       description: STRING, NOT NULL
-  //       success_condition_value: INTEGER
-  //       success_condition_characteristic: STRING
-  //       consequences: [
-  //         {
-  //           boolean: BOOLEAN, NOT NULL
-  //           paragraph_id: INTEGER, NOT NULL
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
-  // paragraph: {
-  //   description: '<p>Vous vous trouvez dans une pièce. Vous apercevez un coffre, celui-ci semble coincé.</p><p>Vous avez le choix :</p><ul><li>User de votre habileté pour le débloquer.</li><li>Ignorer le coffre, quitter la pièce et aller au bout du couloir précédent.</li></ul>',
-  //   choices: [
-  //     {
-  //       description: 'Débloquer [DEX]',
-  //       success_condition_value: 27,
-  //       success_condition_characteristic: 'dexterity',
-  //       consequences: [
-  //         {
-  //           boolean: true,
-  //           paragraph_id: 4,
-  //         },
-  //         {
-  //           boolean: false,
-  //           paragraph_id: 5,
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       description: 'Partir',
-  //       success_condition_value: null,
-  //       success_condition_characteristic: null,
-  //       consequences: [
-  //         {
-  //           boolean: true,
-  //           paragraph_id: 6,
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
   paragraph: {
     description: '',
     choices: [],
@@ -218,6 +171,9 @@ const reducer = (state = initialState, action = {}) => {
           charism: selectedCharacter.charism,
         },
       };
+    }
+    case END_GAME: {
+      return initialState;
     }
     default:
       return state;
