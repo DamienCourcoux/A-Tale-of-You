@@ -116,16 +116,16 @@ button,
 
     &::before {
         content: "";
-        background: #381908;
-        background: -moz-radial-gradient(circle, #662f11 0%, #221107 60%, #381908 100%);
-        background: -webkit-radial-gradient(circle, #662f11 0%, #221107 60%, #381908 100%);
-        background: radial-gradient(circle, #662f11 0%, #221107 60%, #381908 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#44220f",endColorstr="#44220f",GradientType=1);
+        background: rgb(56,25,8);
+        background: -moz-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
+        background: -webkit-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
+        background: linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#381908",endColorstr="#381908",GradientType=1);
         height: 400%;
-        width: 10%;
+        width: 3%;
         position: absolute;
         top: -100px;
-        left: 45%;
+        left: 48.5%;
         z-index: 1;
         box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
         -webkit-box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
