@@ -24,12 +24,12 @@
       grid-area: stats_title;
       justify-self: start;
       margin-top: 0;
-      margin-left: 1rem;
     }
 
     &__name {
       grid-area: stats_name;
-      margin-left: 1rem;
+      justify-self: start;
+      margin-left: 0;
 
       li {
         padding: .1rem 0;
@@ -38,6 +38,8 @@
 
     &__value {
       grid-area: stats_value;
+      justify-self: start;
+      margin-left: 0;
 
       & li {
         padding: .1rem 0;
@@ -61,10 +63,6 @@
         "stats_illustration stats_title stats_title"
         "stats_illustration stats_name  stats_value";
       margin-bottom: 1.5rem;
-    }
-
-    &__class_name {
-      display: none;
     }
 
     &__illustration {

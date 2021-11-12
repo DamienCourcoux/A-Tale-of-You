@@ -5,6 +5,7 @@ import {
   HIDE_DICE_ROLLER,
   ROLL_DICE,
   CHANGE_SELECTED_CHARACTER,
+  TOGGLE_STATS,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -94,7 +95,8 @@ export const initialState = {
   diceRollerIsOpen: false,
   resultRoll: [],
   choiceIndex: null,
-  // isRoll: false,
+  // data for stats on mobile
+  statsIsOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -217,6 +219,13 @@ const reducer = (state = initialState, action = {}) => {
           intelligence: selectedCharacter.intelligence,
           charism: selectedCharacter.charism,
         },
+      };
+    }
+    case TOGGLE_STATS: {
+      console.log(action.statsIsOpen);
+      return {
+        ...state,
+        statsIsOpen: !action.statsIsOpen,
       };
     }
     default:

@@ -1,7 +1,99 @@
 @use 'src/styles/vars';
 
 .ingame_right {
+  overflow-x: hidden;
+  
   &--h2 {
     text-align: center;
+  }
+
+  &--header {
+    display: flex;
+    justify-content: space-between;
+
+    svg {
+      font-size: 1.5rem;
+    }
+
+    .toggler {
+      transition: all 0.5s ease-out;
+      margin-bottom: 1rem;
+
+      &--open {
+        transform: rotate(180deg);
+        margin-bottom: 0rem;
+      }
+    }
+  }
+
+  &--content {
+
+    // Rendering on desktop platform
+    @media screen and (min-width: 426px) {
+      height: calc(100% - 6rem);
+    }
+
+    // Rendering on mobile platform
+    @media screen and (max-width: 425px) {
+      animation: show-content 0.5s ease-out both;
+
+      @keyframes show-content {
+        0% {
+          max-height: 0;
+          opacity: 0;
+        }
+
+        100% {
+          max-height: 26rem;
+          opacity: 1;
+        }
+      }
+
+      &.ingame_right--content--open {
+        animation: hide-content 0.5s ease-out both;
+
+        @keyframes hide-content {
+          0% {
+            max-height: 26rem;
+            opacity: 1;
+          }
+
+          100% {
+            max-height: 0;
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &--class_name {
+
+    // Rendering on desktop platform
+    @media screen and (min-width: 426px) {
+      display: none;
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  &--transparent {
+    color: transparent;
+  }
+
+  &--remove {
+    &_desktop {
+      @media screen and (min-width: 426px) {
+        display: none;
+      }
+    }
+
+    &_mobile {
+      @media screen and (max-width: 425px) {
+        display: none;
+      }
+    }
   }
 }

@@ -13,8 +13,9 @@ const SelectCharacter = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { classList } = useSelector((state) => ({
+  const { classList, character } = useSelector((state) => ({
     classList: state.game.classList,
+    character: state.game.character,
   }));
 
   const handleChangeSelectedCharacter = (selectedClass) => {
@@ -50,6 +51,9 @@ const SelectCharacter = () => {
         <div className="step" />
         <h2> Choisis ta classe </h2>
         <div className="step" />
+        <div className="select_character--class_name">
+          <h2>{character.class.charAt(0).toUpperCase() + character.class.slice(1)}</h2>
+        </div>
         <Stats />
         <button
           onClick={() => handleStartGame()}

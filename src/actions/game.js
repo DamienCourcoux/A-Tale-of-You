@@ -9,6 +9,7 @@ export const HIDE_DICE_ROLLER = 'HIDE_DICE_ROLLER';
 export const ROLL_DICE = 'ROLL_DICE';
 export const CHANGE_SELECTED_CHARACTER = 'CHANGE_SELECTED_CHARACTER';
 export const START_GAME = 'START_GAME';
+export const TOGGLE_STATS = 'TOGGLE_STATS';
 
 export const loadStory = () => ({
   type: LOAD_STORY,
@@ -50,4 +51,9 @@ export const changeSelectedCharacter = (selectedClass) => ({
 
 export const startGame = () => ({
   type: START_GAME,
+});
+
+export const toggleStats = (statsIsOpen) => ({
+  type: TOGGLE_STATS,
+  statsIsOpen,
 });
