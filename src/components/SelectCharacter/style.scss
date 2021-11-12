@@ -5,4 +5,13 @@
     width: 90%;
     max-width: 400px;
   }
+
+  &--buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &--button {
+    width: 50%;
+  }
 }
