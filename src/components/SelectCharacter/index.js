@@ -31,6 +31,7 @@ const SelectCharacter = () => {
     indexButton += 1;
     return (
       <button
+        className="select_character--button"
         key={indexButton}
         onClick={() => handleChangeSelectedCharacter(button.class)}
         type="button"
@@ -43,7 +44,9 @@ const SelectCharacter = () => {
   return (
     <div className="modal modal--close">
       <div className="modal__content select_character--modal__content">
-        {jsxButtons}
+        <div className="select_character--buttons">
+          {jsxButtons}
+        </div>
         <div className="step" />
         <h2> Choisis ta classe </h2>
         <div className="step" />
