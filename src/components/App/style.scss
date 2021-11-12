@@ -12,3 +12,8 @@
   height: calc(100vh - 100px);
   overflow-y: auto;
 }
+
+.main--about {
+  background: vars.$background;
+  overflow-y: auto;
+}
