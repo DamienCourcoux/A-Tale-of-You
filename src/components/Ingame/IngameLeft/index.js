@@ -49,7 +49,7 @@ const InGameLeft = () => {
   ));
 
   return (
-    <div className="page page_left shadow ingame_left">
+    <div className="page page_left shadow ingame_left page--mobile_order2">
       <div>
         {parse(paragraph.description)}
       </div>

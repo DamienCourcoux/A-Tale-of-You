@@ -56,38 +56,52 @@ const App = () => {
   return (
     <div className="app" onMouseDown={(event) => handleHideModals(event)}>
       <Header />
-      <section className="main">
-        <Switch>
-          <Route exact path="/">
+      <Switch>
+        <Route exact path="/">
+          <section className="main">
             <Index />
-          </Route>
-          <Route exact path="/histoire">
+          </section>
+        </Route>
+        <Route exact path="/histoire">
+          <section className="main">
             <Story />
-          </Route>
-          <Route exact path="/regles">
+          </section>
+        </Route>
+        <Route exact path="/regles">
+          <section className="main">
             <Rules />
-          </Route>
-          <Route exact path="/jouer">
+          </section>
+        </Route>
+        <Route exact path="/jouer">
+          <section className="main">
             <Ingame />
-          </Route>
-          <Route exact path="/combat">
+          </section>
+        </Route>
+        <Route exact path="/combat">
+          <section className="main">
             <IngameFight />
-          </Route>
-          <Route exact path="/a-propos">
+          </section>
+        </Route>
+        <Route exact path="/a-propos">
+          <section className="main--about">
             <About />
-          </Route>
-          {
-            isLogged && (
-              <Route exact path="/profil">
+          </section>
+        </Route>
+        {
+          isLogged && (
+            <Route exact path="/profil">
+              <section className="main">
                 <Profile />
-              </Route>
-            )
-          }
-          <Route>
+              </section>
+            </Route>
+          )
+        }
+        <Route>
+          <section className="main">
             <Error404 />
-          </Route>
-        </Switch>
-      </section>
+          </section>
+        </Route>
+      </Switch>
       {signinIsOpen && (
         <Signin />
       )}

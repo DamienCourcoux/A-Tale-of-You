@@ -101,8 +101,19 @@ button,
     }
 }
 
-.pages {
-    // background: vars.$bookPage;
+// .pages rendering for mobile
+@media screen and (max-width: 425px) {
+    .pages {
+        background: vars.$bookPage;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+// .pages rendering for other platform
+@media screen and (min-width: 426px) {
+    .pages {
     background: vars.$bookPage;
     background: -moz-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
     background: -webkit-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
@@ -138,6 +149,7 @@ button,
     padding: 2rem;
     overflow-y: auto;
     position: relative;
+    height: 100%;
     transform-style: preserve-3d;
     z-index: 1;
 
@@ -189,6 +201,18 @@ button,
     &--remove_mobile {
         @media screen and (max-width: 425px) {
             display: none;
+        }
+    }
+
+    @media screen and (max-width: 425px) {
+        &--mobile {
+            &_order1 {
+                order: 1;
+            }
+
+            &_order2 {
+                order: 2;
+            }
         }
     }
 

@@ -13,9 +13,6 @@ const Stats = () => {
 
   return (
     <div className="stats">
-      <div className="stats__class_name">
-        <h2>{character.class.charAt(0).toUpperCase() + character.class.slice(1)}</h2>
-      </div>
       <div className="stats__grid">
         <div className="stats__illustration">
           <img src={character.illustration} alt="img de votre personnage" />
