@@ -57,7 +57,8 @@ export const startGame = () => ({
 export const toggleStats = (statsIsOpen) => ({
   type: TOGGLE_STATS,
   statsIsOpen,
-  
+});
+
 export const endGame = () => ({
   type: END_GAME,
 });
