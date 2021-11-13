@@ -7,6 +7,9 @@ import {
   CHANGE_SELECTED_CHARACTER,
   TOGGLE_STATS,
   END_GAME,
+  SHOW_DICE,
+  START_FIGHT,
+  UPDATE_FIGHT,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -14,11 +17,39 @@ export const initialState = {
   storyTitle: '',
   storyDescription: '',
   classList: [],
+
   paragraph: {
-    description: '',
-    choices: [],
+    description: "<p>Vous avancez jusqu'à la porte à votre droite quand soudain un orc sort de la pièce et vous attaque!</p>",
+    choices: [
+      {
+        description: 'Combattre !',
+        success_condition_value: null,
+        success_condition_characteristic: null,
+        consequences: [
+          {
+            boolean: true,
+            paragraph_id: 15,
+          },
+          {
+            boolean: false,
+            paragraph_id: 16,
+          },
+        ],
+      },
+    ],
   },
-  enemy: null,
+  object: null,
+  enemy: {
+    name: 'orc',
+    illustration: 'https://cdn.pixabay.com/photo/2019/08/11/23/22/orc-4400044_960_720.png',
+    primaryCharacteristic: 'strength',
+    maxHp: 40,
+    strength: 20,
+    dexterity: 20,
+    intelligence: 10,
+    charism: 20,
+  },
+  enemyCurrentHp: 40,
   // Data for /jouer - right page
   character: {
     class: 'guerrier',
@@ -50,6 +81,12 @@ export const initialState = {
   choiceIndex: null,
   // data for stats on mobile
   statsIsOpen: false,
+  // data for IngameFightLeft
+  diceIsShowed: false,
+  fightTextButton: 'attaque - héros',
+  // data for IngameFightRight
+  fightHistory: [],
+  fightTurn: 1,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -182,6 +219,50 @@ const reducer = (state = initialState, action = {}) => {
     }
     case END_GAME: {
       return initialState;
+    }
+    case SHOW_DICE: {
+      return {
+        ...state,
+        diceIsShowed: true,
+      };
+    }
+    case START_FIGHT: {
+      return {
+        ...state,
+        fightAction: 'attaque',
+        fightActivePlayer: 'character',
+        fightTextButton: 'attaque - héros',
+        diceIsShowed: false,
+        fightHistory: [
+          '<span class=bold>Début du combat<span>',
+          "<span class=bold>Tour 1: phase d'attaque<span>",
+        ],
+        fightTurn: 1,
+      };
+    }
+    case UPDATE_FIGHT: {
+      let fightTextButton;
+      switch (state.fightTextButton) {
+        case 'attaque - héros':
+          fightTextButton = 'parade - ennemi';
+          break;
+        case 'parade - ennemi':
+          fightTextButton = 'attaque - ennemi';
+          break;
+        case 'attaque - ennemi':
+          fightTextButton = 'parade - héros';
+          break;
+        case 'parade - héros':
+          fightTextButton = 'attaque - héros';
+          break;
+        default:
+          fightTextButton = 'erreur';
+          break;
+      }
+      return {
+        ...state,
+        fightTextButton,
+      };
     }
     default:
       return state;

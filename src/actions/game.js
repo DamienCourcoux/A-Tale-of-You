@@ -11,6 +11,9 @@ export const CHANGE_SELECTED_CHARACTER = 'CHANGE_SELECTED_CHARACTER';
 export const START_GAME = 'START_GAME';
 export const TOGGLE_STATS = 'TOGGLE_STATS';
 export const END_GAME = 'END_GAME';
+export const SHOW_DICE = 'SHOW_DICE';
+export const START_FIGHT = 'START_FIGHT';
+export const UPDATE_FIGHT = 'UPDATE_FIGHT';
 
 export const loadStory = () => ({
   type: LOAD_STORY,
@@ -61,4 +64,16 @@ export const toggleStats = (statsIsOpen) => ({
 
 export const endGame = () => ({
   type: END_GAME,
+});
+
+export const showDice = () => ({
+  type: SHOW_DICE,
+});
+
+export const startFight = () => ({
+  type: START_FIGHT,
+});
+
+export const updateFight = () => ({
+  type: UPDATE_FIGHT,
 });
