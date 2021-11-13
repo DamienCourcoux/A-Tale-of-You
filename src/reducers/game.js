@@ -241,27 +241,55 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case UPDATE_FIGHT: {
+      const diceRoll = state.resultRoll[0] + state.resultRoll[1];
+      const weaponBonus = state.weapon.bonus;
+      const armorBonus = state.armor.bonus;
+      const characterPrimaryCharacteristic = state.character.primaryCharacteristic;
+      const enemyPrimaryCharacteristic = state.enemy.primaryCharacteristic;
+
       let fightTextButton;
+      let newFightHistory;
+      let sumValues;
+      let statCharacter;
+      let statEnemy;
+
       switch (state.fightTextButton) {
         case 'attaque - héros':
           fightTextButton = 'parade - ennemi';
+          statCharacter = state.character[characterPrimaryCharacteristic];
+          sumValues = diceRoll + statCharacter + weaponBonus;
+          newFightHistory = `Héros : ${diceRoll} + ${statCharacter} + ${weaponBonus} => <span class="bold">${sumValues}<span>`;
           break;
         case 'parade - ennemi':
           fightTextButton = 'attaque - ennemi';
+          statEnemy = state.enemy[characterPrimaryCharacteristic];
+          sumValues = diceRoll + statEnemy;
+          newFightHistory = `Ennemi : ${diceRoll} + ${statEnemy} => <span class="bold">${sumValues}<span>`;
           break;
         case 'attaque - ennemi':
           fightTextButton = 'parade - héros';
+          statEnemy = state.enemy[enemyPrimaryCharacteristic];
+          sumValues = diceRoll + statEnemy;
+          newFightHistory = `Ennemi : ${diceRoll} + ${statEnemy} => <span class="bold">${sumValues}<span>`;
           break;
         case 'parade - héros':
           fightTextButton = 'attaque - héros';
+          statCharacter = state.character[enemyPrimaryCharacteristic];
+          sumValues = diceRoll + statCharacter + armorBonus;
+          newFightHistory = `Héros : ${diceRoll} + ${statCharacter} + ${armorBonus} => <span class="bold">${sumValues}<span>`;
           break;
         default:
           fightTextButton = 'erreur';
+          newFightHistory = '';
           break;
       }
       return {
         ...state,
         fightTextButton,
+        fightHistory: [
+          ...state.fightHistory,
+          newFightHistory,
+        ],
       };
     }
     default:
