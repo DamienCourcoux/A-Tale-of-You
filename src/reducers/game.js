@@ -175,11 +175,11 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case TOGGLE_STATS: {
-      console.log(action.statsIsOpen);
       return {
         ...state,
         statsIsOpen: !action.statsIsOpen,
       };
+    }
     case END_GAME: {
       return initialState;
     }

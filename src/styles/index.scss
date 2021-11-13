@@ -114,33 +114,34 @@ button,
 // .pages rendering for other platform
 @media screen and (min-width: 426px) {
     .pages {
-    background: vars.$bookPage;
-    background: -moz-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
-    background: -webkit-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
-    background: radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3",endColorstr="#d9d2bf",GradientType=1);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    position: relative;
+        background: vars.$bookPage;
+        background: -moz-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        background: -webkit-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        background: radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3", endColorstr="#d9d2bf", GradientType=1);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
 
-    &::before {
-        content: "";
-        background: rgb(56,25,8);
-        background: -moz-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
-        background: -webkit-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
-        background: linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#381908",endColorstr="#381908",GradientType=1);
-        height: 400%;
-        width: 3%;
-        position: absolute;
-        top: -100px;
-        left: 48.5%;
-        z-index: 1;
-        box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
-        -webkit-box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
-        -moz-box-shadow: 0 0 3px 0 rgba(0,0,0,.7);
+        &::before {
+            content: "";
+            background: rgb(56, 25, 8);
+            background: -moz-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
+            background: -webkit-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
+            background: linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#381908", endColorstr="#381908", GradientType=1);
+            height: 400%;
+            width: 3%;
+            position: absolute;
+            top: -100px;
+            left: 48.5%;
+            z-index: 1;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
+            -webkit-box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
+            -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, .7);
+        }
     }
 }
 
@@ -162,11 +163,11 @@ button,
         width: 50%;
         position: relative;
         // background: vars.$book;
-        background: rgb(92,54,28);
-        background: -moz-radial-gradient(circle, rgba(92,54,28,1) 0%, rgba(60,31,12,1) 80%);
-        background: -webkit-radial-gradient(circle, rgba(92,54,28,1) 0%, rgba(60,31,12,1) 80%);
-        background: radial-gradient(circle, rgba(92,54,28,1) 0%, rgba(60,31,12,1) 80%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5c361c",endColorstr="#3c1f0c",GradientType=1);
+        background: rgb(92, 54, 28);
+        background: -moz-radial-gradient(circle, rgba(92, 54, 28, 1) 0%, rgba(60, 31, 12, 1) 80%);
+        background: -webkit-radial-gradient(circle, rgba(92, 54, 28, 1) 0%, rgba(60, 31, 12, 1) 80%);
+        background: radial-gradient(circle, rgba(92, 54, 28, 1) 0%, rgba(60, 31, 12, 1) 80%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5c361c", endColorstr="#3c1f0c", GradientType=1);
         z-index: 0;
     }
 
@@ -177,7 +178,7 @@ button,
         background: -moz-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
         background: -webkit-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
         background: radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3",endColorstr="#d9d2bf",GradientType=1);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3", endColorstr="#d9d2bf", GradientType=1);
 
         @media screen and (max-width: 425px) {
             margin-left: 0rem;
@@ -191,7 +192,7 @@ button,
         background: -moz-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
         background: -webkit-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
         background: radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3",endColorstr="#d9d2bf",GradientType=1);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3", endColorstr="#d9d2bf", GradientType=1);
 
         @media screen and (max-width: 425px) {
             margin-right: 0rem;
