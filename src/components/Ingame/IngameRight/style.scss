@@ -1,8 +1,13 @@
 @use 'src/styles/vars';
 
 .ingame_right {
-  overflow-x: hidden;
-  
+
+  // Rendering on desktop platform
+  @media screen and (min-width: 426px) {
+    overflow-x: hidden;
+    padding-bottom: 0;
+  }
+
   &--h2 {
     text-align: center;
   }
@@ -17,11 +22,11 @@
 
     .toggler {
       transition: all 0.5s ease-out;
-      margin-bottom: 1rem;
+      margin-bottom: 0rem;
 
       &--open {
         transform: rotate(180deg);
-        margin-bottom: 0rem;
+        margin-bottom: 1rem;
       }
     }
   }
@@ -30,37 +35,42 @@
 
     // Rendering on desktop platform
     @media screen and (min-width: 426px) {
-      height: calc(100% - 6rem);
+      display: flex;
+      flex-direction: column;
+      height: calc(100% - 2.5rem);
     }
+
+    // overflow-y: scroll;
 
     // Rendering on mobile platform
     @media screen and (max-width: 425px) {
-      animation: show-content 0.5s ease-out both;
+      overflow: hidden;
+      animation: hide-content 0.5s ease-out both;
 
-      @keyframes show-content {
+      @keyframes hide-content {
         0% {
-          max-height: 0;
-          opacity: 0;
+          max-height: 26.2rem;
+          opacity: 1;
         }
 
         100% {
-          max-height: 26rem;
-          opacity: 1;
+          max-height: 0;
+          opacity: 0;
         }
       }
 
       &.ingame_right--content--open {
-        animation: hide-content 0.5s ease-out both;
+        animation: show-content 0.5s ease-out both;
 
-        @keyframes hide-content {
+        @keyframes show-content {
           0% {
-            max-height: 26rem;
-            opacity: 1;
+            max-height: 0;
+            opacity: 0;
           }
 
           100% {
-            max-height: 0;
-            opacity: 0;
+            max-height: 26.2rem;
+            opacity: 1;
           }
         }
       }
@@ -95,5 +105,9 @@
         display: none;
       }
     }
+  }
+
+  &--padding-bottom {
+    padding-bottom: 2rem;
   }
 }

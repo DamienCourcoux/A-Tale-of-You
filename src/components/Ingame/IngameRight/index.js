@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { FaAngleDown } from 'react-icons/fa';
+import { FaAngleUp } from 'react-icons/fa';
 
 import { toggleStats } from 'src/actions/game';
 
@@ -28,14 +28,14 @@ const InGameRight = () => {
     <div className="page page_right shadow page--mobile_order1 ingame_right">
       <h1 className="ingame_right--remove_mobile">Fiche Personnage</h1>
       <div className="ingame_right--header ingame_right--remove_desktop">
-        <FaAngleDown
+        <FaAngleUp
           className={classNameToggler}
           onClick={() => handleToggleStats(statsIsOpen)}
         />
         <div className="ingame_right--class_name">
           <h2>{character.class.charAt(0).toUpperCase() + character.class.slice(1)}</h2>
         </div>
-        <FaAngleDown className="ingame_right--transparent" />
+        <FaAngleUp className="ingame_right--transparent" />
       </div>
       {/* {statsIsOpen && ( */}
       <div className={classNameContent}>
@@ -52,8 +52,8 @@ const InGameRight = () => {
         {/* character's inventory */}
         <h2 className="ingame_right--h2">Inventaire</h2>
         <Inventory />
+        <div className="ingame_right--padding-bottom" />
       </div>
-      {/* )} */}
     </div>
   );
 };
