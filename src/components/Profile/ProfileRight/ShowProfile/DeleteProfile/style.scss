@@ -1,0 +1,19 @@
+@use 'src/styles/vars';
+
+.modal__content--button {
+  display: flex;
+
+  & .yes {
+    color: vars.$danger;
+    margin: 0 1rem;
+
+    &:hover {
+      background: vars.$danger;
+      color: vars.$lightColor;
+    }
+  }
+
+  & .no {
+    margin: 0 1rem;
+  }
+}

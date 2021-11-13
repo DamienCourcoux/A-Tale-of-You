@@ -14,7 +14,9 @@ import {
   EDIT_PROFIL,
   SUBMIT_EDIT_SUCCESS,
   VISIBILITY_PASSWORD,
+  SURE_TO_DELETE_PROFIL,
   DELETE_PROFIL_SUCCESS,
+  NO_DELETE_PROFIL,
 } from 'src/actions/user';
 
 export const initialState = {
@@ -34,6 +36,7 @@ export const initialState = {
   userMail: '',
   userId: null,
   userAvatar: '',
+  sureToDeleteIsOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -132,6 +135,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isEdit: false,
+        pseudo: '',
+        email: '',
+        password: '',
+        passwordConfirm: '',
+        passwordWrong: '',
       };
 
     case VISIBILITY_PASSWORD:
@@ -140,10 +148,33 @@ const reducer = (state = initialState, action = {}) => {
         isVisibilyPassword: !state.isVisibilyPassword,
       };
 
+    case SURE_TO_DELETE_PROFIL:
+      return {
+        ...state,
+        sureToDeleteIsOpen: true,
+      };
+
     case DELETE_PROFIL_SUCCESS:
       return {
         ...state,
         isLogged: false,
+        menuDropdownIsOpen: false,
+        sureToDeleteIsOpen: false,
+        pseudo: '',
+        email: '',
+        password: '',
+        passwordConfirm: '',
+        passwordWrong: '',
+        userPseudo: '',
+        userMail: '',
+        userId: null,
+        userAvatar: '',
+      };
+
+    case NO_DELETE_PROFIL:
+      return {
+        ...state,
+        sureToDeleteIsOpen: false,
         menuDropdownIsOpen: false,
       };
 
