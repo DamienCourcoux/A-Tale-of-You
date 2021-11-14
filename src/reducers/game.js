@@ -156,13 +156,26 @@ const reducer = (state = initialState, action = {}) => {
             };
           }
           default: {
-            return {
-              ...state,
-              paragraph: action.payload.paragraph,
-              enemy: action.payload.enemy,
-            };
+            break;
           }
         }
+      }
+      if (action.payload.enemy) {
+        return {
+          ...state,
+          paragraph: action.payload.paragraph,
+          enemy: {
+            name: action.payload.enemy.name,
+            illustration: action.payload.enemy.illustration,
+            primaryCharacteristic: action.payload.enemy.characteristic,
+            maxHp: action.payload.enemy.hp,
+            strength: action.payload.enemy.strength,
+            dexterity: action.payload.enemy.dexterity,
+            intelligence: action.payload.enemy.intelligence,
+            charism: action.payload.enemy.charism,
+          },
+          enemyCurrentHp: action.payload.enemy.hp,
+        };
       }
       return {
         ...state,
@@ -212,6 +225,7 @@ const reducer = (state = initialState, action = {}) => {
           intelligence: selectedCharacter.intelligence,
           charism: selectedCharacter.charism,
         },
+        characterCurrentHp: selectedCharacter.hp,
       };
     }
     case TOGGLE_STATS: {
