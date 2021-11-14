@@ -34,7 +34,12 @@ const IngameFightLeft = () => {
     if (!diceIsShowed) {
       dispatch(showDice());
     }
-    dispatch(updateFight());
+    if (fightTextButton === 'Vous avez gagné !' || fightTextButton === 'Vous avez perdu ...') {
+      console.log('fin du combat');
+    }
+    else {
+      dispatch(updateFight());
+    }
   };
 
   return (
