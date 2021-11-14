@@ -82,6 +82,7 @@ export const initialState = {
   // data for stats on mobile
   statsIsOpen: false,
   // data for IngameFight
+  fightStarted: false,
   diceIsShowed: false,
   fightTextButton: 'attaque - héros',
   fightHistory: [],
