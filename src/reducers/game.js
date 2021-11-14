@@ -10,6 +10,7 @@ import {
   SHOW_DICE,
   START_FIGHT,
   UPDATE_FIGHT,
+  END_FIGHT,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -42,11 +43,11 @@ export const initialState = {
   enemy: {
     name: 'orc',
     illustration: 'https://cdn.pixabay.com/photo/2019/08/11/23/22/orc-4400044_960_720.png',
-    primaryCharacteristic: 'strength',
+    primaryCharacteristic: 'intelligence',
     maxHp: 40,
     strength: 20,
     dexterity: 20,
-    intelligence: 10,
+    intelligence: 50,
     charism: 20,
   },
   enemyCurrentHp: 40,
@@ -231,6 +232,7 @@ const reducer = (state = initialState, action = {}) => {
     case START_FIGHT: {
       return {
         ...state,
+        choiceIndex: action.choiceIndex,
         fightStarted: true,
         diceIsShowed: false,
         fightTextButton: 'attaque - héros',
@@ -371,6 +373,19 @@ const reducer = (state = initialState, action = {}) => {
         fightTurn,
         characterCurrentHp,
         enemyCurrentHp,
+      };
+    }
+    case END_FIGHT: {
+      return {
+        ...state,
+        choiceIndex: null,
+        fightStarted: false,
+        diceIsShowed: false,
+        fightTextButton: 'attaque - héros',
+        fightHistory: [],
+        fightTurn: 1,
+        fightCharacterRoll: 0,
+        fightEnemyRoll: 0,
       };
     }
     default:

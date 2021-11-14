@@ -14,6 +14,7 @@ export const END_GAME = 'END_GAME';
 export const SHOW_DICE = 'SHOW_DICE';
 export const START_FIGHT = 'START_FIGHT';
 export const UPDATE_FIGHT = 'UPDATE_FIGHT';
+export const END_FIGHT = 'END_FIGHT';
 
 export const loadStory = () => ({
   type: LOAD_STORY,
@@ -70,10 +71,15 @@ export const showDice = () => ({
   type: SHOW_DICE,
 });
 
-export const startFight = () => ({
+export const startFight = (choiceIndex) => ({
   type: START_FIGHT,
+  choiceIndex,
 });
 
 export const updateFight = () => ({
   type: UPDATE_FIGHT,
+});
+
+export const endFight = () => ({
+  type: END_FIGHT,
 });

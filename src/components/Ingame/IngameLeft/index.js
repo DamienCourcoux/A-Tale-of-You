@@ -26,7 +26,7 @@ const InGameLeft = () => {
       dispatch(showDiceRoller(choiceIndex));
     }
     else if (enemy) {
-      dispatch(startFight());
+      dispatch(startFight(choiceIndex));
     }
     else {
       dispatch(loadParagraph(consequences[0]));

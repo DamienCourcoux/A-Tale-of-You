@@ -5,6 +5,8 @@ import {
   rollDice,
   showDice,
   updateFight,
+  loadParagraph,
+  endFight,
 } from 'src/actions/game';
 import Dice from 'src/assets/dice-sprite.png';
 
@@ -21,21 +23,34 @@ const IngameFightLeft = () => {
     resultRoll,
     diceIsShowed,
     fightTextButton,
+    choiceIndex,
+    choices,
   } = useSelector((state) => ({
     weapon: state.game.weapon,
     armor: state.game.armor,
     resultRoll: state.game.resultRoll,
     diceIsShowed: state.game.diceIsShowed,
     fightTextButton: state.game.fightTextButton,
+    choiceIndex: state.game.choiceIndex,
+    choices: state.game.paragraph.choices,
   }));
+
+  const choice = choices[choiceIndex];
 
   const handleRollDice = () => {
     dispatch(rollDice());
     if (!diceIsShowed) {
       dispatch(showDice());
     }
-    if (fightTextButton === 'Vous avez gagné !' || fightTextButton === 'Vous avez perdu ...') {
-      console.log('fin du combat');
+    if (fightTextButton === 'Vous avez gagné !') {
+      const consequence = choice.consequences.find((target) => target.boolean === true);
+      dispatch(loadParagraph(consequence));
+      dispatch(endFight());
+    }
+    else if (fightTextButton === 'Vous avez perdu ...') {
+      const consequence = choice.consequences.find((target) => target.boolean === false);
+      dispatch(loadParagraph(consequence));
+      dispatch(endFight());
     }
     else {
       dispatch(updateFight());
