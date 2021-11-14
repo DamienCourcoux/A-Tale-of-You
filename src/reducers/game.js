@@ -18,38 +18,11 @@ export const initialState = {
   storyTitle: '',
   storyDescription: '',
   classList: [],
-
   paragraph: {
-    description: "<p>Vous avancez jusqu'à la porte à votre droite quand soudain un orc sort de la pièce et vous attaque!</p>",
-    choices: [
-      {
-        description: 'Combattre !',
-        success_condition_value: null,
-        success_condition_characteristic: null,
-        consequences: [
-          {
-            boolean: true,
-            paragraph_id: 15,
-          },
-          {
-            boolean: false,
-            paragraph_id: 16,
-          },
-        ],
-      },
-    ],
+    description: '',
+    choices: [],
   },
-  object: null,
-  enemy: {
-    name: 'orc',
-    illustration: 'https://cdn.pixabay.com/photo/2019/08/11/23/22/orc-4400044_960_720.png',
-    primaryCharacteristic: 'intelligence',
-    maxHp: 40,
-    strength: 20,
-    dexterity: 20,
-    intelligence: 50,
-    charism: 20,
-  },
+  enemy: null,
   enemyCurrentHp: 40,
   // Data for /jouer - right page
   character: {
