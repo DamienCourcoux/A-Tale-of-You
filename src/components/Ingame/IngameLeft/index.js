@@ -5,6 +5,7 @@ import {
   loadParagraph,
   showDiceRoller,
   endGame,
+  startFight,
 } from 'src/actions/game';
 
 import parse from 'html-react-parser';
@@ -15,13 +16,17 @@ const InGameLeft = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { paragraph } = useSelector((state) => ({
+  const { paragraph, enemy } = useSelector((state) => ({
     paragraph: state.game.paragraph,
+    enemy: state.game.enemy,
   }));
 
   const handleSelectChoice = (successCondition, consequences, description, choiceIndex) => {
     if (successCondition) {
       dispatch(showDiceRoller(choiceIndex));
+    }
+    else if (enemy) {
+      dispatch(startFight());
     }
     else {
       dispatch(loadParagraph(consequences[0]));

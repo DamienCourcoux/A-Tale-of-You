@@ -231,6 +231,7 @@ const reducer = (state = initialState, action = {}) => {
     case START_FIGHT: {
       return {
         ...state,
+        fightStarted: true,
         diceIsShowed: false,
         fightTextButton: 'attaque - héros',
         fightHistory: [

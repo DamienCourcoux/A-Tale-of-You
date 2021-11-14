@@ -1,8 +1,5 @@
 // == Import
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
-import { startFight } from 'src/actions/game';
+import { useSelector } from 'react-redux';
 
 import InGameRight from './IngameRight';
 import InGameLeft from './IngameLeft';
@@ -15,14 +12,6 @@ const Ingame = () => {
   const { fightStarted } = useSelector((state) => ({
     fightStarted: state.game.fightStarted,
   }));
-
-  if (fightStarted) {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-      dispatch(startFight());
-    }, []);
-  }
 
   return (
     <div className="border shadow">
