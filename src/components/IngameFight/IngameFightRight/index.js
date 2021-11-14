@@ -1,5 +1,6 @@
 // == Import
 import { useSelector } from 'react-redux';
+import { useEffect, useRef } from 'react';
 import parse from 'html-react-parser';
 
 import './style.scss';
@@ -23,6 +24,11 @@ const IngameFightRight = () => {
     );
   });
 
+  const scrollElementRef = useRef();
+  useEffect(() => {
+    scrollElementRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
   return (
     <div className="page page_right shadow ingame_fight_right--content">
       <h1>Ennemi</h1>
@@ -32,6 +38,9 @@ const IngameFightRight = () => {
       <div className="ingame_fight_right--history">
         <ul>
           {jsxList}
+          <li
+            ref={scrollElementRef}
+          />
         </ul>
       </div>
     </div>
