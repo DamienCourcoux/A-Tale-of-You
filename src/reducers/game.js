@@ -7,6 +7,10 @@ import {
   CHANGE_SELECTED_CHARACTER,
   TOGGLE_STATS,
   END_GAME,
+  SHOW_DICE,
+  START_FIGHT,
+  UPDATE_FIGHT,
+  END_FIGHT,
 } from 'src/actions/game';
 
 export const initialState = {
@@ -19,6 +23,7 @@ export const initialState = {
     choices: [],
   },
   enemy: null,
+  enemyCurrentHp: 40,
   // Data for /jouer - right page
   character: {
     class: 'guerrier',
@@ -50,6 +55,14 @@ export const initialState = {
   choiceIndex: null,
   // data for stats on mobile
   statsIsOpen: false,
+  // data for IngameFight
+  fightStarted: false,
+  diceIsShowed: false,
+  fightTextButton: 'attaque - héros',
+  fightHistory: [],
+  fightTurn: 1,
+  fightCharacterRoll: 0,
+  fightEnemyRoll: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -116,13 +129,26 @@ const reducer = (state = initialState, action = {}) => {
             };
           }
           default: {
-            return {
-              ...state,
-              paragraph: action.payload.paragraph,
-              enemy: action.payload.enemy,
-            };
+            break;
           }
         }
+      }
+      if (action.payload.enemy) {
+        return {
+          ...state,
+          paragraph: action.payload.paragraph,
+          enemy: {
+            name: action.payload.enemy.name,
+            illustration: action.payload.enemy.illustration,
+            primaryCharacteristic: action.payload.enemy.characteristic,
+            maxHp: action.payload.enemy.hp,
+            strength: action.payload.enemy.strength,
+            dexterity: action.payload.enemy.dexterity,
+            intelligence: action.payload.enemy.intelligence,
+            charism: action.payload.enemy.charism,
+          },
+          enemyCurrentHp: action.payload.enemy.hp,
+        };
       }
       return {
         ...state,
@@ -172,6 +198,7 @@ const reducer = (state = initialState, action = {}) => {
           intelligence: selectedCharacter.intelligence,
           charism: selectedCharacter.charism,
         },
+        characterCurrentHp: selectedCharacter.hp,
       };
     }
     case TOGGLE_STATS: {
@@ -182,6 +209,171 @@ const reducer = (state = initialState, action = {}) => {
     }
     case END_GAME: {
       return initialState;
+    }
+    case SHOW_DICE: {
+      return {
+        ...state,
+        diceIsShowed: true,
+      };
+    }
+    case START_FIGHT: {
+      return {
+        ...state,
+        choiceIndex: action.choiceIndex,
+        fightStarted: true,
+        diceIsShowed: false,
+        fightTextButton: 'attaque - héros',
+        fightHistory: [
+          '<span class=bold>Début du combat<span>',
+          "<span class=bold>Tour 1: phase d'attaque<span>",
+        ],
+        fightTurn: 1,
+        fightCharacterRoll: 0,
+        fightEnemyRoll: 0,
+      };
+    }
+    case UPDATE_FIGHT: {
+      let {
+        fightCharacterRoll,
+        fightEnemyRoll,
+        fightTurn,
+        characterCurrentHp,
+        enemyCurrentHp,
+      } = state;
+      let fightTextButton;
+      const diceRoll = state.resultRoll[0] + state.resultRoll[1];
+      let statCharacter;
+      let statEnemy;
+      const characterPrimaryCharacteristic = state.character.primaryCharacteristic;
+      const enemyPrimaryCharacteristic = state.enemy.primaryCharacteristic;
+      const weaponBonus = state.weapon.bonus;
+      const armorBonus = state.armor.bonus;
+      let fightHistory = [...state.fightHistory];
+
+      switch (state.fightTextButton) {
+        case 'attaque - héros':
+          fightTextButton = 'parade - ennemi';
+          statCharacter = state.character[characterPrimaryCharacteristic];
+          fightCharacterRoll = diceRoll + statCharacter + weaponBonus;
+          fightHistory = [
+            ...fightHistory,
+            `Héros : ${diceRoll} + ${statCharacter} + ${weaponBonus} => <span class="bold">${fightCharacterRoll}<span>`,
+          ];
+          break;
+        case 'parade - ennemi':
+          fightTextButton = 'attaque - ennemi';
+          statEnemy = state.enemy[characterPrimaryCharacteristic];
+          fightEnemyRoll = diceRoll + statEnemy;
+          fightHistory = [
+            ...fightHistory,
+            `Ennemi : ${diceRoll} + ${statEnemy} => <span class="bold">${fightEnemyRoll}<span>`,
+          ];
+          if (fightCharacterRoll > fightEnemyRoll) {
+            fightHistory = [
+              ...fightHistory,
+              `Attaque réussie: <span class="bold">Ennemi: ${fightEnemyRoll} - ${fightCharacterRoll} => ${fightEnemyRoll - fightCharacterRoll} PV !<span>`,
+            ];
+            enemyCurrentHp += fightEnemyRoll - fightCharacterRoll;
+          }
+          else if (fightCharacterRoll <= fightEnemyRoll) {
+            fightHistory = [
+              ...fightHistory,
+              'Attaque échouée: <span class="bold">Ennemi: -0 PV !<span>',
+            ];
+          }
+          if (enemyCurrentHp <= 0) {
+            enemyCurrentHp = 0;
+            fightHistory = [
+              ...fightHistory,
+              '<span class="bold">L\'ennemi est mort !',
+            ];
+            fightTextButton = 'Vous avez gagné !';
+          }
+          else {
+            fightTurn += 1;
+            fightHistory = [
+              ...fightHistory,
+              `<span class=bold>Tour ${fightTurn}: phase de parade<span>`,
+            ];
+          }
+          break;
+        case 'attaque - ennemi':
+          fightTextButton = 'parade - héros';
+          statEnemy = state.enemy[enemyPrimaryCharacteristic];
+          fightEnemyRoll = diceRoll + statEnemy;
+          fightHistory = [
+            ...fightHistory,
+            `Ennemi : ${diceRoll} + ${statEnemy} => <span class="bold">${fightEnemyRoll}<span>`,
+          ];
+          break;
+        case 'parade - héros':
+          fightTextButton = 'attaque - héros';
+          statCharacter = state.character[enemyPrimaryCharacteristic];
+          fightCharacterRoll = diceRoll + statCharacter + armorBonus;
+          fightHistory = [
+            ...fightHistory,
+            `Héros : ${diceRoll} + ${statCharacter} + ${armorBonus} => <span class="bold">${fightCharacterRoll}<span>`,
+          ];
+          if (fightEnemyRoll > fightCharacterRoll) {
+            fightHistory = [
+              ...fightHistory,
+              `Parade échouée: <span class="bold">Héros: ${fightCharacterRoll} - ${fightEnemyRoll} => ${fightCharacterRoll - fightEnemyRoll} PV !<span>`,
+            ];
+            characterCurrentHp += fightCharacterRoll - fightEnemyRoll;
+          }
+          else if (fightEnemyRoll <= fightCharacterRoll) {
+            fightHistory = [
+              ...fightHistory,
+              'Parade réussie: <span class="bold">Héros: -0 PV !<span>',
+            ];
+          }
+          if (characterCurrentHp <= 0) {
+            characterCurrentHp = 0;
+            fightHistory = [
+              ...fightHistory,
+              '<span class="bold">Vous êtes mort ...',
+            ];
+            fightTextButton = 'Vous avez perdu ...';
+          }
+          else {
+            fightTurn += 1;
+            fightHistory = [
+              ...fightHistory,
+              `<span class=bold>Tour ${fightTurn}: phase d'attaque<span>`,
+            ];
+          }
+          break;
+        default:
+          fightTextButton = 'erreur';
+          fightHistory = [
+            ...fightHistory,
+            '',
+          ];
+          break;
+      }
+      return {
+        ...state,
+        fightTextButton,
+        fightCharacterRoll,
+        fightEnemyRoll,
+        fightHistory,
+        fightTurn,
+        characterCurrentHp,
+        enemyCurrentHp,
+      };
+    }
+    case END_FIGHT: {
+      return {
+        ...state,
+        choiceIndex: null,
+        fightStarted: false,
+        diceIsShowed: false,
+        fightTextButton: 'attaque - héros',
+        fightHistory: [],
+        fightTurn: 1,
+        fightCharacterRoll: 0,
+        fightEnemyRoll: 0,
+      };
     }
     default:
       return state;
