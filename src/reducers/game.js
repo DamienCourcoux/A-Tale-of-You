@@ -81,12 +81,13 @@ export const initialState = {
   choiceIndex: null,
   // data for stats on mobile
   statsIsOpen: false,
-  // data for IngameFightLeft
+  // data for IngameFight
   diceIsShowed: false,
   fightTextButton: 'attaque - héros',
-  // data for IngameFightRight
   fightHistory: [],
   fightTurn: 1,
+  fightCharacterRoll: 0,
+  fightEnemyRoll: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -229,67 +230,115 @@ const reducer = (state = initialState, action = {}) => {
     case START_FIGHT: {
       return {
         ...state,
-        fightAction: 'attaque',
-        fightActivePlayer: 'character',
-        fightTextButton: 'attaque - héros',
         diceIsShowed: false,
+        fightTextButton: 'attaque - héros',
         fightHistory: [
           '<span class=bold>Début du combat<span>',
           "<span class=bold>Tour 1: phase d'attaque<span>",
         ],
         fightTurn: 1,
+        fightCharacterRoll: 0,
+        fightEnemyRoll: 0,
       };
     }
     case UPDATE_FIGHT: {
-      const diceRoll = state.resultRoll[0] + state.resultRoll[1];
-      const weaponBonus = state.weapon.bonus;
-      const armorBonus = state.armor.bonus;
-      const characterPrimaryCharacteristic = state.character.primaryCharacteristic;
-      const enemyPrimaryCharacteristic = state.enemy.primaryCharacteristic;
-
       let fightTextButton;
-      let newFightHistory;
-      let sumValues;
+      const diceRoll = state.resultRoll[0] + state.resultRoll[1];
       let statCharacter;
       let statEnemy;
+      const characterPrimaryCharacteristic = state.character.primaryCharacteristic;
+      const enemyPrimaryCharacteristic = state.enemy.primaryCharacteristic;
+      let { fightCharacterRoll, fightEnemyRoll, fightTurn } = state;
+      const weaponBonus = state.weapon.bonus;
+      const armorBonus = state.armor.bonus;
+      let fightHistory = [...state.fightHistory];
 
       switch (state.fightTextButton) {
         case 'attaque - héros':
           fightTextButton = 'parade - ennemi';
           statCharacter = state.character[characterPrimaryCharacteristic];
-          sumValues = diceRoll + statCharacter + weaponBonus;
-          newFightHistory = `Héros : ${diceRoll} + ${statCharacter} + ${weaponBonus} => <span class="bold">${sumValues}<span>`;
+          fightCharacterRoll = diceRoll + statCharacter + weaponBonus;
+          fightHistory = [
+            ...fightHistory,
+            `Héros : ${diceRoll} + ${statCharacter} + ${weaponBonus} => <span class="bold">${fightCharacterRoll}<span>`,
+          ];
           break;
         case 'parade - ennemi':
           fightTextButton = 'attaque - ennemi';
           statEnemy = state.enemy[characterPrimaryCharacteristic];
-          sumValues = diceRoll + statEnemy;
-          newFightHistory = `Ennemi : ${diceRoll} + ${statEnemy} => <span class="bold">${sumValues}<span>`;
+          fightEnemyRoll = diceRoll + statEnemy;
+          fightHistory = [
+            ...fightHistory,
+            `Ennemi : ${diceRoll} + ${statEnemy} => <span class="bold">${fightEnemyRoll}<span>`,
+          ];
+          if (fightCharacterRoll > fightEnemyRoll) {
+            fightHistory = [
+              ...fightHistory,
+              `Attaque réussie: <span class="bold">Ennemi: ${fightEnemyRoll} - ${fightCharacterRoll} => ${fightEnemyRoll - fightCharacterRoll} PV !<span>`,
+            ];
+          }
+          else if (fightCharacterRoll <= fightEnemyRoll) {
+            fightHistory = [
+              ...fightHistory,
+              'Attaque échouée: <span class="bold">Ennemi: -0 PV !<span>',
+            ];
+          }
+          fightTurn += 1;
+          fightHistory = [
+            ...fightHistory,
+            `<span class=bold>Tour ${fightTurn}: phase de parade<span>`,
+          ];
           break;
         case 'attaque - ennemi':
           fightTextButton = 'parade - héros';
           statEnemy = state.enemy[enemyPrimaryCharacteristic];
-          sumValues = diceRoll + statEnemy;
-          newFightHistory = `Ennemi : ${diceRoll} + ${statEnemy} => <span class="bold">${sumValues}<span>`;
+          fightEnemyRoll = diceRoll + statEnemy;
+          fightHistory = [
+            ...fightHistory,
+            `Ennemi : ${diceRoll} + ${statEnemy} => <span class="bold">${fightEnemyRoll}<span>`,
+          ];
           break;
         case 'parade - héros':
           fightTextButton = 'attaque - héros';
           statCharacter = state.character[enemyPrimaryCharacteristic];
-          sumValues = diceRoll + statCharacter + armorBonus;
-          newFightHistory = `Héros : ${diceRoll} + ${statCharacter} + ${armorBonus} => <span class="bold">${sumValues}<span>`;
+          fightCharacterRoll = diceRoll + statCharacter + armorBonus;
+          fightHistory = [
+            ...fightHistory,
+            `Héros : ${diceRoll} + ${statCharacter} + ${armorBonus} => <span class="bold">${fightCharacterRoll}<span>`,
+          ];
+          if (fightEnemyRoll > fightCharacterRoll) {
+            fightHistory = [
+              ...fightHistory,
+              `Parade échouée: <span class="bold">Héros: ${fightCharacterRoll} - ${fightEnemyRoll} => ${fightCharacterRoll - fightEnemyRoll} PV !<span>`,
+            ];
+          }
+          else if (fightEnemyRoll <= fightCharacterRoll) {
+            fightHistory = [
+              ...fightHistory,
+              'Parade réussie: <span class="bold">Héros: -0 PV !<span>',
+            ];
+          }
+          fightTurn += 1;
+          fightHistory = [
+            ...fightHistory,
+            `<span class=bold>Tour ${fightTurn}: phase d'attaque<span>`,
+          ];
           break;
         default:
           fightTextButton = 'erreur';
-          newFightHistory = '';
+          fightHistory = [
+            ...fightHistory,
+            '',
+          ];
           break;
       }
       return {
         ...state,
         fightTextButton,
-        fightHistory: [
-          ...state.fightHistory,
-          newFightHistory,
-        ],
+        fightCharacterRoll,
+        fightEnemyRoll,
+        fightHistory,
+        fightTurn,
       };
     }
     default:
