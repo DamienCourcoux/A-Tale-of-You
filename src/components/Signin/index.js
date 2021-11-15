@@ -15,10 +15,11 @@ import Field from './Field';
 const Signin = () => {
   const dispatch = useDispatch();
 
-  const { email, password } = useSelector((state) => ({
+  const { email, password, error } = useSelector((state) => ({
     email: state.user.email,
     password: state.user.password,
     signinIsOpen: state.user.signinIsOpen,
+    error: state.user.error,
   }));
 
   const handleSubmit = (evt) => {
@@ -53,6 +54,7 @@ const Signin = () => {
         <form onSubmit={handleSubmit}>
           <Field
             name="email"
+            type="email"
             placeholder="Adresse mail"
             onChange={handleChangeField}
             value={email}
@@ -78,6 +80,7 @@ const Signin = () => {
             Valider
           </button>
         </form>
+        <h3 className="error">{error}</h3>
       </div>
     </div>
   );

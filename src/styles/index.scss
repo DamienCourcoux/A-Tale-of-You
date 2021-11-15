@@ -29,6 +29,15 @@ p {
     margin-bottom: .5rem;
 }
 
+.error {
+    color: vars.$danger;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+
 ul {
     margin-left: 2rem;
 }
