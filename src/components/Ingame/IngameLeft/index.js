@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import {
   loadParagraph,
   showDiceRoller,
-  endGame,
   startFight,
 } from 'src/actions/game';
 
@@ -34,7 +33,6 @@ const InGameLeft = () => {
 
     if (description === 'Retour au site') {
       history.replace('/histoire');
-      dispatch(endGame());
     }
   };
 

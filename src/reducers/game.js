@@ -4,9 +4,9 @@ import {
   SHOW_DICE_ROLLER,
   HIDE_DICE_ROLLER,
   ROLL_DICE,
+  CLEAR_STATE_GAME,
   CHANGE_SELECTED_CHARACTER,
   TOGGLE_STATS,
-  END_GAME,
   SHOW_DICE,
   START_FIGHT,
   UPDATE_FIGHT,
@@ -179,6 +179,9 @@ const reducer = (state = initialState, action = {}) => {
         resultRoll,
       };
     }
+    case CLEAR_STATE_GAME: {
+      return initialState;
+    }
     case CHANGE_SELECTED_CHARACTER: {
       let selectedCharacter = {};
       state.classList.forEach((target) => {
@@ -206,9 +209,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         statsIsOpen: !action.statsIsOpen,
       };
-    }
-    case END_GAME: {
-      return initialState;
     }
     case SHOW_DICE: {
       return {

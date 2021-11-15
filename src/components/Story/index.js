@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { loadStory } from 'src/actions/game';
+import { loadStory, clearStateGame } from 'src/actions/game';
 
 import StoryLeft from 'src/components/Story/StoryLeft';
 import StoryRight from 'src/components/Story/StoryRight';
@@ -15,6 +15,7 @@ const Story = () => {
 
   useEffect(() => {
     dispatch(loadStory());
+    dispatch(clearStateGame());
   }, []);
 
   return (
