@@ -32,7 +32,7 @@ export const initialState = {
   selectCharacterIsOpen: false,
   menuDropdownIsOpen: false,
   isEdit: false,
-  isVisibilyPassword: false,
+  isVisiblePassword: false,
   userPseudo: '',
   userMail: '',
   userId: null,
@@ -67,8 +67,6 @@ const reducer = (state = initialState, action = {}) => {
         userMail: action.payload.email,
         userId: action.payload.id,
         userAvatar: action.payload.avatar,
-        signinIsOpen: false,
-        signupIsOpen: false,
       };
     }
     case SHOW_SIGNUP:
@@ -147,7 +145,7 @@ const reducer = (state = initialState, action = {}) => {
     case VISIBILITY_PASSWORD:
       return {
         ...state,
-        isVisibilyPassword: !state.isVisibilyPassword,
+        isVisiblePassword: !state.isVisiblePassword,
       };
 
     case SURE_TO_DELETE_PROFIL:

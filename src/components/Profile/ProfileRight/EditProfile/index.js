@@ -1,5 +1,6 @@
 // == Import
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import {
   createCloseEditProfilAction,
@@ -20,10 +21,12 @@ import './style.scss';
 // == Composant
 const ProfileRight = () => {
   const password = useSelector((state) => state.user.password);
-  const isVisibilyPassword = useSelector((state) => state.user.isVisibilyPassword);
+  const isVisiblePassword = useSelector((state) => state.user.isVisiblePassword);
   const userPseudo = useSelector((state) => state.user.userPseudo);
   const userMail = useSelector((state) => state.user.userMail);
   const userAvatar = useSelector((state) => state.user.userAvatar);
+  const pseudo = useSelector((state) => state.user.pseudo);
+  const email = useSelector((state) => state.user.email);
 
   const dispatch = useDispatch();
 
@@ -43,6 +46,11 @@ const ProfileRight = () => {
   const handleVisibilityPassword = () => {
     dispatch(createVisibilityPasswordAction());
   };
+
+  useEffect(() => {
+    dispatch(changeField(userPseudo, pseudo));
+    dispatch(changeField(userMail, email));
+  }, []);
 
   return (
     <>
@@ -66,24 +74,24 @@ const ProfileRight = () => {
         >
           <div className="profile_right--myProfile--data--title">
             <Field
-              value={userPseudo}
+              value={pseudo}
               onChange={handleChangeField}
               type="text"
               className="field-input"
               placeholder="Pseudo"
-              name="userPseudo"
+              name="pseudo"
               minLength="3"
               pattern="[a-zA-Z0-9\s]+"
               title="Doit contenir un magnifique pseudo"
             />
           </div>
           <div className="profile_right--myProfile--data--mail"><Field
-            value={userMail}
+            value={email}
             onChange={handleChangeField}
             type="email"
             className="field-input"
             placeholder="Email"
-            name="userMail"
+            name="email"
             minLength="1"
             pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}"
             title="Doit contenir une adresse email valide"
@@ -93,7 +101,7 @@ const ProfileRight = () => {
             <Field
               value={password}
               onChange={handleChangeField}
-              type={isVisibilyPassword ? 'text' : 'password'}
+              type={isVisiblePassword ? 'text' : 'password'}
               className="field-input"
               placeholder="Mot de passe"
               name="password"
@@ -105,7 +113,7 @@ const ProfileRight = () => {
             />
             <span id="visibilityPassword" onClick={handleVisibilityPassword}>
               {
-                isVisibilyPassword
+                isVisiblePassword
                   ? <FaEyeSlash />
                   : <FaEye />
               }

@@ -24,6 +24,7 @@ const Signin = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(handleSignin());
+    dispatch(hideSignin());
   };
 
   const handleChangeField = (value, name) => {
