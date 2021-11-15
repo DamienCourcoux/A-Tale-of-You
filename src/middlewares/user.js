@@ -29,7 +29,7 @@ const user = (store) => (next) => (action) => {
           store.dispatch(actionSaveUser);
         }
         catch (error) {
-          const actionError = handleError(error.response.data.error);
+          const actionError = handleError(error.response.data.erreur);
           store.dispatch(actionError);
         }
       };
@@ -59,9 +59,7 @@ const user = (store) => (next) => (action) => {
           store.dispatch(actionSaveUser);
         }
         catch (error) {
-          // créer une fonction pour indiquer à l'utilisateur
-          // que le pseudo et ou le mail existe déjà dans la BDD
-          const actionError = handleError(error.response.data.error);
+          const actionError = handleError(error.response.data.erreur);
           store.dispatch(actionError);
         }
       };

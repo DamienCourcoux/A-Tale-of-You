@@ -32,9 +32,9 @@ export const handleSignin = () => ({
   type: HANDLE_SIGNIN,
 });
 
-export const handleError = (error) => ({
+export const handleError = (erreur) => ({
   type: HANDLE_ERROR,
-  error,
+  erreur,
 });
 
 export const saveUser = (payload) => ({

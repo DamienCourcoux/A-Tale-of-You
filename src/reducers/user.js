@@ -51,7 +51,7 @@ const reducer = (state = initialState, action = {}) => {
     case HANDLE_ERROR:
       return {
         ...state,
-        error: action.error,
+        error: action.erreur,
       };
     case SHOW_SIGNIN:
       return {

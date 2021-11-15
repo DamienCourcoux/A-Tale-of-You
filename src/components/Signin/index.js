@@ -65,11 +65,6 @@ const Signin = () => {
             onChange={handleChangeField}
             value={password}
           />
-          {
-            error === 'password not valid'
-              ? <p className="error">Votre mot de passe n'est pas le bon</p>
-              : ''
-          }
           <a
             href="#"
             onClick={(event) => handleShowSignup(event)}
@@ -83,12 +78,8 @@ const Signin = () => {
           >
             Valider
           </button>
-          {
-            error === 'user does not exist in DB'
-              ? <h3 className="error">Aucun compte trouvé</h3>
-              : ''
-          }
         </form>
+        <h3 className="error">{error}</h3>
       </div>
     </div>
   );

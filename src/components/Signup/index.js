@@ -26,8 +26,6 @@ const Signup = () => {
     error: state.user.error,
   }));
 
-  console.log(error);
-
   const handleHideSignup = (event) => {
     event.preventDefault();
     dispatch(hideSignup());
@@ -90,11 +88,6 @@ const Signup = () => {
           >
             Valider
           </button>
-          {/* {
-            error === 'un des champs est vide'
-              ? <p className="error">Un des champs est vide</p>
-              : ''
-          } */}
         </form>
         <h3 className="error">{error}</h3>
       </div>
