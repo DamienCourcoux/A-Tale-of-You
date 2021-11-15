@@ -7,10 +7,10 @@ export const SAVE_CHARACTERS = 'SAVE_CHARACTERS';
 export const SHOW_DICE_ROLLER = 'SHOW_DICE_ROLLER';
 export const HIDE_DICE_ROLLER = 'HIDE_DICE_ROLLER';
 export const ROLL_DICE = 'ROLL_DICE';
+export const CLEAR_STATE_GAME = 'CLEAR_STATE_GAME';
 export const CHANGE_SELECTED_CHARACTER = 'CHANGE_SELECTED_CHARACTER';
 export const START_GAME = 'START_GAME';
 export const TOGGLE_STATS = 'TOGGLE_STATS';
-export const END_GAME = 'END_GAME';
 export const SHOW_DICE = 'SHOW_DICE';
 export const START_FIGHT = 'START_FIGHT';
 export const UPDATE_FIGHT = 'UPDATE_FIGHT';
@@ -49,6 +49,10 @@ export const rollDice = (number) => ({
   number,
 });
 
+export const clearStateGame = () => ({
+  type: CLEAR_STATE_GAME,
+});
+
 export const changeSelectedCharacter = (selectedClass) => ({
   type: CHANGE_SELECTED_CHARACTER,
   selectedClass,
@@ -61,10 +65,6 @@ export const startGame = () => ({
 export const toggleStats = (statsIsOpen) => ({
   type: TOGGLE_STATS,
   statsIsOpen,
-});
-
-export const endGame = () => ({
-  type: END_GAME,
 });
 
 export const showDice = () => ({
