@@ -33,11 +33,12 @@ export const initialState = {
   selectCharacterIsOpen: false,
   menuDropdownIsOpen: false,
   isEdit: false,
-  isVisibilyPassword: false,
+  isVisiblePassword: false,
   userPseudo: '',
   userMail: '',
   userId: null,
   userAvatar: '',
+  userToken: null,
   sureToDeleteIsOpen: false,
   error: '',
 };
@@ -75,8 +76,7 @@ const reducer = (state = initialState, action = {}) => {
         userMail: action.payload.email,
         userId: action.payload.id,
         userAvatar: action.payload.avatar,
-        signinIsOpen: false,
-        signupIsOpen: false,
+        userToken: action.payload.token,
         error: '',
       };
     }
@@ -152,12 +152,14 @@ const reducer = (state = initialState, action = {}) => {
         password: '',
         passwordConfirm: '',
         passwordWrong: '',
+        userPseudo: action.pseudo,
+        userMail: action.email,
       };
 
     case VISIBILITY_PASSWORD:
       return {
         ...state,
-        isVisibilyPassword: !state.isVisibilyPassword,
+        isVisiblePassword: !state.isVisiblePassword,
       };
 
     case SURE_TO_DELETE_PROFIL:
@@ -167,20 +169,11 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case DELETE_PROFIL_SUCCESS:
+      // ici on vient réinitialiser notre state
+      // en partant des valeurs du state initial
+      localStorage.clear();
       return {
-        ...state,
-        isLogged: false,
-        menuDropdownIsOpen: false,
-        sureToDeleteIsOpen: false,
-        pseudo: '',
-        email: '',
-        password: '',
-        passwordConfirm: '',
-        passwordWrong: '',
-        userPseudo: '',
-        userMail: '',
-        userId: null,
-        userAvatar: '',
+        ...initialState,
       };
 
     case NO_DELETE_PROFIL:

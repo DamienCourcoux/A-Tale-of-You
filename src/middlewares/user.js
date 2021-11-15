@@ -92,17 +92,21 @@ const user = (store) => (next) => (action) => {
         url: 'http://3.80.80.108:3000/profile',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${state.user.userToken}`,
         },
         data: {
-          id: state.user.userId,
-          pseudo: state.user.userPseudo,
-          email: state.user.userMail,
+          pseudo: state.user.pseudo,
+          email: state.user.email,
           password: state.user.password,
         },
       };
       axios(config)
         .then((response) => {
           store.dispatch(createSubmitEditSuccessAction(response.data.pseudo, response.data.email));
+          localStorage.removeItem('userPseudo');
+          localStorage.removeItem('userMail');
+          localStorage.setItem('userPseudo', response.data.pseudo);
+          localStorage.setItem('userMail', response.data.email);
         })
         .catch((error) => {
           console.log(error);
