@@ -16,13 +16,17 @@ const Signup = () => {
     password,
     passwordConfirm,
     passwordWrong,
+    error,
   } = useSelector((state) => ({
     pseudo: state.user.pseudo,
     email: state.user.email,
     password: state.user.password,
     passwordConfirm: state.user.passwordConfirm,
     passwordWrong: state.user.passwordWrong,
+    error: state.user.error,
   }));
+
+  console.log(error);
 
   const handleHideSignup = (event) => {
     event.preventDefault();
@@ -55,6 +59,7 @@ const Signup = () => {
           />
           <Field
             name="email"
+            type="email"
             placeholder="Adresse mail"
             onChange={handleChangeField}
             value={email}
@@ -74,7 +79,7 @@ const Signup = () => {
             value={passwordConfirm}
           />
           {passwordWrong && (
-            <p className="signup__password_wrong">
+            <p className="error">
               Les mots de passe ne correspondent pas
             </p>
           )}
@@ -85,7 +90,13 @@ const Signup = () => {
           >
             Valider
           </button>
+          {/* {
+            error === 'un des champs est vide'
+              ? <p className="error">Un des champs est vide</p>
+              : ''
+          } */}
         </form>
+        <h3 className="error">{error}</h3>
       </div>
     </div>
   );

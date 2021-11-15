@@ -1,5 +1,6 @@
 import {
   CHANGE_FIELD,
+  HANDLE_ERROR,
   SHOW_SIGNIN,
   HIDE_SIGNIN,
   SAVE_USER,
@@ -37,6 +38,7 @@ export const initialState = {
   userId: null,
   userAvatar: '',
   sureToDeleteIsOpen: false,
+  error: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -45,6 +47,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+    case HANDLE_ERROR:
+      return {
+        ...state,
+        error: action.error,
       };
     case SHOW_SIGNIN:
       return {
@@ -57,6 +64,7 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
         signinIsOpen: false,
+        error: '',
       };
     case SAVE_USER: {
       return {
@@ -68,6 +76,7 @@ const reducer = (state = initialState, action = {}) => {
         userAvatar: action.payload.avatar,
         signinIsOpen: false,
         signupIsOpen: false,
+        error: '',
       };
     }
     case SHOW_SIGNUP:
@@ -84,6 +93,7 @@ const reducer = (state = initialState, action = {}) => {
         passwordConfirm: '',
         passwordWrong: '',
         signupIsOpen: false,
+        error: '',
       };
     case SHOW_PASSWORD_WRONG:
       return {
