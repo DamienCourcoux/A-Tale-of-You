@@ -77,11 +77,15 @@ const App = () => {
             <Rules />
           </section>
         </Route>
-        <Route exact path="/jouer">
-          <section className="main">
-            <Ingame />
-          </section>
-        </Route>
+        {
+          isLogged && (
+            <Route exact path="/jouer">
+              <section className="main">
+                <Ingame />
+              </section>
+            </Route>
+          )
+        }
         <Route exact path="/a-propos">
           <section className="main--about">
             <About />

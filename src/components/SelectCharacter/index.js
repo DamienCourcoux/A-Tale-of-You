@@ -1,7 +1,7 @@
 // == Import
 import { useSelector, useDispatch } from 'react-redux';
 import { changeSelectedCharacter } from 'src/actions/game';
-import { hideSelectCharacter } from 'src/actions/user';
+import { hideSelectCharacter, showSignin } from 'src/actions/user';
 import { useHistory } from 'react-router-dom';
 
 import './style.scss';
@@ -13,9 +13,10 @@ const SelectCharacter = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { classList, character } = useSelector((state) => ({
+  const { classList, character, isLogged } = useSelector((state) => ({
     classList: state.game.classList,
     character: state.game.character,
+    isLogged: state.user.isLogged,
   }));
 
   const handleChangeSelectedCharacter = (selectedClass) => {
@@ -24,7 +25,12 @@ const SelectCharacter = () => {
 
   const handleStartGame = () => {
     dispatch(hideSelectCharacter());
-    history.replace('/jouer');
+    if (isLogged) {
+      history.replace('/jouer');
+    }
+    else {
+      dispatch(showSignin());
+    }
   };
 
   let indexButton = 0;
