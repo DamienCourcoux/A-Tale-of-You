@@ -134,6 +134,10 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isEdit: false,
+        pseudo: '',
+        email: '',
+        password: '',
+        error: '',
       };
 
     case EDIT_PROFIL:
