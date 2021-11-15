@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 
+import IllustrationOrc from 'src/assets/orc.png';
+
 import './style.scss';
 
 const StatsEnemy = () => {
@@ -16,7 +18,11 @@ const StatsEnemy = () => {
       {enemy && (
         <div className="stats_enemy__grid">
           <div className="stats_enemy__illustration">
-            <img src={enemy.illustration} alt="img de votre personnage" />
+            {
+              enemy.illustration === 'LogoOrc' && (
+                <img src={IllustrationOrc} alt="img de votre ennemi: L'Orc" />
+              )
+            }
           </div>
 
           <h2 className="stats_enemy__title">Caractéristiques</h2>
