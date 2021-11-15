@@ -1,10 +1,12 @@
 // == Import
 import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import {
   hideSignin,
   hideSignup,
   hideSelectCharacter,
+  stayLogged,
 } from 'src/actions/user';
 
 import Header from 'src/components/Header';
@@ -27,6 +29,10 @@ import './style.scss';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(stayLogged());
+  }, []);
 
   const {
     signinIsOpen,
