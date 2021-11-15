@@ -1,5 +1,6 @@
 export const CHANGE_FIELD = 'CHANGE_FIELD';
 export const HANDLE_SIGNIN = 'HANDLE_SIGNIN';
+export const HANDLE_ERROR = 'HANDLE_ERROR';
 export const SAVE_USER = 'SAVE_USER';
 export const SHOW_SIGNIN = 'SHOW_SIGNIN';
 export const HIDE_SIGNIN = 'HIDE_SIGNIN';
@@ -30,6 +31,11 @@ export const changeField = (value, name) => ({
 
 export const handleSignin = () => ({
   type: HANDLE_SIGNIN,
+});
+
+export const handleError = (erreur) => ({
+  type: HANDLE_ERROR,
+  erreur,
 });
 
 export const saveUser = (payload) => ({

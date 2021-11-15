@@ -8,6 +8,7 @@ import {
   createSubmitEditSuccessAction,
   DELETE_PROFIL,
   createDeleteProfilSuccessAction,
+  handleError,
 } from 'src/actions/user';
 
 // const urlServer = 'http://localhost:3000';
@@ -33,8 +34,8 @@ const user = (store) => (next) => (action) => {
           store.dispatch(actionSaveUser);
         }
         catch (error) {
-          // créer une fonction pour indiquer l'utilisateur n'existe pas dans la BDD
-          console.log(error);
+          const actionError = handleError(error.response.data.erreur);
+          store.dispatch(actionError);
         }
       };
 
@@ -68,9 +69,8 @@ const user = (store) => (next) => (action) => {
           store.dispatch(actionSaveUser);
         }
         catch (error) {
-          // créer une fonction pour indiquer à l'utilisateur
-          // que le pseudo et ou le mail existe déjà dans la BDD
-          console.log(error);
+          const actionError = handleError(error.response.data.erreur);
+          store.dispatch(actionError);
         }
       };
 
