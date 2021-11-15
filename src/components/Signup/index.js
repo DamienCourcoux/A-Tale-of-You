@@ -34,7 +34,6 @@ const Signup = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(handleSignup());
-    dispatch(hideSignup());
   };
 
   const handleChangeField = (value, name) => {
