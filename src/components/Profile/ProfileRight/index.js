@@ -1,10 +1,5 @@
 // == Import
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-
-import {
-  createCloseEditProfilAction,
-} from 'src/actions/user';
+import { useSelector } from 'react-redux';
 
 import './style.scss';
 
@@ -13,16 +8,12 @@ import ShowProfile from './ShowProfile';
 
 // == Composant
 const ProfileRight = () => {
-  const dispatch = useDispatch();
   const isEdit = useSelector((state) => state.user.isEdit);
-
-  useEffect(() => {
-    dispatch(createCloseEditProfilAction());
-  }, []);
-
   return (
     <div className="page page_right shadow">
-      <h1>Profil</h1>
+      <h1>
+        { isEdit ? 'Modifier le profil' : 'Profil' }
+      </h1>
       { isEdit ? <EditProfile /> : <ShowProfile /> }
     </div>
   );

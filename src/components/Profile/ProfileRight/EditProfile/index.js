@@ -27,6 +27,7 @@ const ProfileRight = () => {
   const userAvatar = useSelector((state) => state.user.userAvatar);
   const pseudo = useSelector((state) => state.user.pseudo);
   const email = useSelector((state) => state.user.email);
+  const error = useSelector((state) => state.user.error);
 
   const dispatch = useDispatch();
 
@@ -81,8 +82,6 @@ const ProfileRight = () => {
               className="field-input"
               placeholder="Pseudo"
               name="pseudo"
-              minLength="3"
-              pattern="[a-zA-Z0-9\s]+"
               title="Doit contenir un magnifique pseudo"
             />
           </div>
@@ -93,8 +92,6 @@ const ProfileRight = () => {
             className="field-input"
             placeholder="Email"
             name="email"
-            minLength="1"
-            pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}"
             title="Doit contenir une adresse email valide"
           />
           </div>
@@ -106,11 +103,7 @@ const ProfileRight = () => {
               className="field-input"
               placeholder="Mot de passe"
               name="password"
-              minLength="7"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              title="Doit contenir au moins un chiffre,
-                une lettre majuscule ainsi qu'une minuscule,
-                pour une taille de 7 caractères minimum"
+              title="Doit contenir un magnifique mot de passe"
             />
             <span id="visibilityPassword" onClick={handleVisibilityPassword}>
               {
@@ -123,6 +116,7 @@ const ProfileRight = () => {
           <button type="submit">Valider</button>
         </form>
       </div>
+      <h3 className="error">{error}</h3>
     </>
   );
 };

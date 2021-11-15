@@ -113,7 +113,8 @@ const user = (store) => (next) => (action) => {
           localStorage.setItem('userMail', response.data.email);
         })
         .catch((error) => {
-          console.log(error);
+          const actionError = handleError(error.response.data.erreur);
+          store.dispatch(actionError);
         });
       break;
     }
