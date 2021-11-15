@@ -24,6 +24,11 @@ const user = (store) => (next) => (action) => {
             email,
             password,
           });
+          localStorage.setItem('isLogged', response.data.isLogged);
+          localStorage.setItem('userPseudo', response.data.pseudo);
+          localStorage.setItem('userToken', response.data.token);
+          localStorage.setItem('userMail', response.data.email);
+          localStorage.setItem('userAvatar', response.data.avatar);
           const actionSaveUser = saveUser(response.data);
           store.dispatch(actionSaveUser);
         }
@@ -54,6 +59,11 @@ const user = (store) => (next) => (action) => {
             password,
             passwordConfirm,
           });
+          localStorage.setItem('isLogged', response.data.isLogged);
+          localStorage.setItem('userPseudo', response.data.pseudo);
+          localStorage.setItem('userToken', response.data.token);
+          localStorage.setItem('userMail', response.data.email);
+          localStorage.setItem('userAvatar', response.data.avatar);
           const actionSaveUser = saveUser(response.data);
           store.dispatch(actionSaveUser);
         }

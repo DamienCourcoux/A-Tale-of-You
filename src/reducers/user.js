@@ -17,6 +17,7 @@ import {
   SURE_TO_DELETE_PROFIL,
   DELETE_PROFIL_SUCCESS,
   NO_DELETE_PROFIL,
+  STAY_LOGGED,
 } from 'src/actions/user';
 
 export const initialState = {
@@ -94,6 +95,7 @@ const reducer = (state = initialState, action = {}) => {
     case LOGOUT:
       // ici on vient réinitialiser notre state
       // en partant des valeurs du state initial
+      localStorage.clear();
       return {
         ...initialState,
       };
@@ -178,6 +180,15 @@ const reducer = (state = initialState, action = {}) => {
         menuDropdownIsOpen: false,
       };
 
+    case STAY_LOGGED:
+      return {
+        ...state,
+        isLogged: localStorage.getItem('isLogged'),
+        userPseudo: localStorage.getItem('userPseudo'),
+        userToken: localStorage.getItem('userToken'),
+        userMail: localStorage.getItem('userMail'),
+        userAvatar: localStorage.getItem('userAvatar'),
+      };
     default:
       return state;
   }

@@ -20,6 +20,7 @@ export const SURE_TO_DELETE_PROFIL = 'SURE_TO_DELETE_PROFIL';
 export const DELETE_PROFIL = 'DELETE_PROFIL';
 export const DELETE_PROFIL_SUCCESS = 'DELETE_PROFIL_SUCCESS';
 export const NO_DELETE_PROFIL = 'NO_DELETE_PROFIL';
+export const STAY_LOGGED = 'STAY_LOGGED';
 
 export const changeField = (value, name) => ({
   type: CHANGE_FIELD,
@@ -112,4 +113,8 @@ export const createDeleteProfilSuccessAction = () => ({
 
 export const createNoDeleteProfilAction = () => ({
   type: NO_DELETE_PROFIL,
+});
+
+export const stayLogged = () => ({
+  type: STAY_LOGGED,
 });
