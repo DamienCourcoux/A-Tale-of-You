@@ -9,6 +9,8 @@ import {
   DELETE_PROFIL,
   createDeleteProfilSuccessAction,
   handleError,
+  hideSignin,
+  hideSignup,
 } from 'src/actions/user';
 
 // const urlServer = 'http://localhost:3000';
@@ -32,6 +34,7 @@ const user = (store) => (next) => (action) => {
           localStorage.setItem('userAvatar', response.data.avatar);
           const actionSaveUser = saveUser(response.data);
           store.dispatch(actionSaveUser);
+          store.dispatch(hideSignin());
         }
         catch (error) {
           const actionError = handleError(error.response.data.erreur);
@@ -67,6 +70,7 @@ const user = (store) => (next) => (action) => {
           localStorage.setItem('userAvatar', response.data.avatar);
           const actionSaveUser = saveUser(response.data);
           store.dispatch(actionSaveUser);
+          store.dispatch(hideSignup());
         }
         catch (error) {
           const actionError = handleError(error.response.data.erreur);
