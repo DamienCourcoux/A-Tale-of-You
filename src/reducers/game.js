@@ -222,10 +222,10 @@ const reducer = (state = initialState, action = {}) => {
         choiceIndex: action.choiceIndex,
         fightStarted: true,
         diceIsShowed: false,
-        fightTextButton: 'attaque - héros',
+        fightTextButton: 'Attaque - Héros',
         fightHistory: [
           '<span class=bold>Début du combat<span>',
-          "<span class=bold>Tour 1: phase d'attaque<span>",
+          "<span class=bold>Tour 1: Phase d'attaque<span>",
         ],
         fightTurn: 1,
         fightCharacterRoll: 0,
@@ -251,8 +251,8 @@ const reducer = (state = initialState, action = {}) => {
       let fightHistory = [...state.fightHistory];
 
       switch (state.fightTextButton) {
-        case 'attaque - héros':
-          fightTextButton = 'parade - ennemi';
+        case 'Attaque - Héros':
+          fightTextButton = 'Parade - Ennemi';
           statCharacter = state.character[characterPrimaryCharacteristic];
           fightCharacterRoll = diceRoll + statCharacter + weaponBonus;
           fightHistory = [
@@ -260,8 +260,8 @@ const reducer = (state = initialState, action = {}) => {
             `Héros : ${diceRoll} + ${statCharacter} + ${weaponBonus} => <span class="bold">${fightCharacterRoll}<span>`,
           ];
           break;
-        case 'parade - ennemi':
-          fightTextButton = 'attaque - ennemi';
+        case 'Parade - Ennemi':
+          fightTextButton = 'Attaque - Ennemi';
           statEnemy = state.enemy[characterPrimaryCharacteristic];
           fightEnemyRoll = diceRoll + statEnemy;
           fightHistory = [
@@ -293,12 +293,12 @@ const reducer = (state = initialState, action = {}) => {
             fightTurn += 1;
             fightHistory = [
               ...fightHistory,
-              `<span class=bold>Tour ${fightTurn}: phase de parade<span>`,
+              `<span class=bold>Tour ${fightTurn}: Phase de parade<span>`,
             ];
           }
           break;
-        case 'attaque - ennemi':
-          fightTextButton = 'parade - héros';
+        case 'Attaque - Ennemi':
+          fightTextButton = 'Parade - Héros';
           statEnemy = state.enemy[enemyPrimaryCharacteristic];
           fightEnemyRoll = diceRoll + statEnemy;
           fightHistory = [
@@ -306,8 +306,8 @@ const reducer = (state = initialState, action = {}) => {
             `Ennemi : ${diceRoll} + ${statEnemy} => <span class="bold">${fightEnemyRoll}<span>`,
           ];
           break;
-        case 'parade - héros':
-          fightTextButton = 'attaque - héros';
+        case 'Parade - Héros':
+          fightTextButton = 'Attaque - Héros';
           statCharacter = state.character[enemyPrimaryCharacteristic];
           fightCharacterRoll = diceRoll + statCharacter + armorBonus;
           fightHistory = [
@@ -339,7 +339,7 @@ const reducer = (state = initialState, action = {}) => {
             fightTurn += 1;
             fightHistory = [
               ...fightHistory,
-              `<span class=bold>Tour ${fightTurn}: phase d'attaque<span>`,
+              `<span class=bold>Tour ${fightTurn}: Phase d'attaque<span>`,
             ];
           }
           break;
@@ -368,7 +368,7 @@ const reducer = (state = initialState, action = {}) => {
         choiceIndex: null,
         fightStarted: false,
         diceIsShowed: false,
-        fightTextButton: 'attaque - héros',
+        fightTextButton: 'Attaque - Héros',
         fightHistory: [],
         fightTurn: 1,
         fightCharacterRoll: 0,
