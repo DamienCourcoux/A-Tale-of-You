@@ -20,7 +20,6 @@ const Stats = () => {
     <div className="stats">
       <div className="stats__grid">
         <div className="stats__illustration">
-          {/* <img src={character.illustration} alt="img de votre personnage" /> */}
           {
             character.class === 'guerrier' && (
               <img src={IllustrationGuerrier} alt="img de votre personnage: Le Guerrier" />
