@@ -1,5 +1,10 @@
 // == Import
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+import {
+  createCloseEditProfilAction,
+} from 'src/actions/user';
 
 import './style.scss';
 
@@ -8,7 +13,12 @@ import ShowProfile from './ShowProfile';
 
 // == Composant
 const ProfileRight = () => {
+  const dispatch = useDispatch();
   const isEdit = useSelector((state) => state.user.isEdit);
+
+  useEffect(() => {
+    dispatch(createCloseEditProfilAction());
+  }, []);
 
   return (
     <div className="page page_right shadow">

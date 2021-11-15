@@ -48,8 +48,9 @@ const ProfileRight = () => {
   };
 
   useEffect(() => {
-    dispatch(changeField(userPseudo, pseudo));
-    dispatch(changeField(userMail, email));
+    dispatch(changeField(userPseudo, 'pseudo'));
+    dispatch(changeField(userMail, 'email'));
+    dispatch(changeField('', 'password'));
   }, []);
 
   return (
