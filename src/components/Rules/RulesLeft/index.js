@@ -83,7 +83,7 @@ const RulesLeft = () => (
 
     <p>
       Au cours de vos aventures, il vous sera demandé d'effectuer des jets.
-      Un jet consiste à lancer deux dés à faces et y ajouter d'autres valeurs
+      Un jet consiste à lancer deux dés à six faces et d'y ajouter d'autres valeurs
       telles que celle d'une caractéristique ou d'un bonus d'équipement.
       Trois types de jets peuvent avoir lieux au cours d'une partie :
     </p>
@@ -156,37 +156,29 @@ const RulesLeft = () => (
     <h2>Interface de jeu en dehors des combats</h2>
 
     <p>
-      Cette interface sera décomposée en deux parties :
+      Cette interface sera décomposée en plusieurs parties :
     </p>
 
     <ul className="ul_description">
-      <li>Dans un premier temps (à gauche sur ordinateur, en bas sur mobile) :
-        <ul className="ul_description">
-          <li>
-            La contenu textuel du paragraphe en cours. Décrit la scène et
-            les différentes actions qui vous sont proposées de faire.
-          </li>
-          <li>
-            Des boutons. Permet d'envoyer une information au jeu sur l'action que vous décidez
-            d'effectuer. Selon les paragraphes, le nombre de boutons peut varier, vous proposant
-            diverses actions possibles.
-          </li>
-        </ul>
+      <li>
+        La contenu textuel du paragraphe en cours. Décrit la scène et
+        les différentes actions qui vous sont proposées de faire.
       </li>
-      <li>Dans un second temps (à droite sur ordinateur, en haut sur mobile) :
-        <ul className="ul_description">
-          <li>
-            Les caractéristiques du personnage joué. Sa caractéristique
-            primaire est affichée en gras.
-          </li>
-          <li>
-            Les trois emplacements d'équipements du personnage joué et les bonus conférés par chacun
-            d'entre eux.
-          </li>
-          <li>
-            L'inventaire du personnage joué.
-          </li>
-        </ul>
+      <li>
+        Des boutons. Permet d'envoyer une information au jeu sur l'action que vous décidez
+        d'effectuer. Selon les paragraphes, le nombre de boutons peut varier, vous proposant
+        diverses actions possibles.
+      </li>
+      <li>
+        Les caractéristiques du personnage joué. Sa caractéristique
+        primaire est affichée en gras.
+      </li>
+      <li>
+        Les trois emplacements d'équipements du personnage joué et les bonus conférés par chacun
+        d'entre eux.
+      </li>
+      <li>
+        L'inventaire du personnage joué.
       </li>
     </ul>
 
@@ -195,42 +187,70 @@ const RulesLeft = () => (
     <h2>Interface de jeu durant les combats</h2>
 
     <p>
-      Cette interface sera décomposée en deux parties sur ordinateur (l'interface mobile est en
-      cours de conception):
+      Cette interface sera décomposée en plusieurs parties :
     </p>
 
     <ul className="ul_description">
-      <li>A gauche :
-        <ul className="ul_description">
-          <li>
-            Les caractéristiques du personnage joué. Sa caractéristique
-            primaire est affichée en gras.
-          </li>
-          <li>
-            Les éventuels bonus conférés par l'arme et l'armure du personnage joué.
-          </li>
-          <li>
-            Un interface de jet de dés. Le bouton permet de continuer le déroulement
-            du combat et de passer au paragraphe suivant selon l'issue du combat.
-          </li>
-        </ul>
+      <li>
+        Les caractéristiques du personnage joué. Sa caractéristique
+        primaire est affichée en gras.
       </li>
-      <li>A droite :
-        <ul className="ul_description">
-          <li>
-            Les caractéristiques de l'ennemi joué. Sa caractéristique
-            primaire est affichée en gras.
-          </li>
-          <li>
-            L'historique des combat résument 
-          </li>
-        </ul>
+      <li>
+        Les éventuels bonus conférés par l'arme et l'armure du personnage joué.
+      </li>
+      <li>
+        Un interface de jet de dés. Le bouton permet de continuer le déroulement
+        du combat et de passer au paragraphe suivant selon l'issue du combat.
+      </li>
+      <li>
+        Les caractéristiques de l'ennemi joué. Sa caractéristique
+        primaire est affichée en gras.
+      </li>
+      <li>
+        L'historique de combat détaillant le tour de jeu, la phase, les jets réalisés
+        ainsi que l'issue du tour.
       </li>
     </ul>
 
     <div className="step" />
 
     <h2>Le système de combat</h2>
+
+    <p>En combat est divisé en tours correspondant à une des deux phases suivantes :</p>
+    <ul className="ul_description">
+      <li>
+        Phase d'attaque : Le héros et l'ennemi effectuent tour à tour un lancer de dés. Ils
+        additionnent la valeur de la caractéristique associée à la caractéristique primaire
+        du héros. Le héros ajoute enfin la valeur de son bonus en attaque.
+        <ul className="ul_description">
+          <li>
+            Si le résultat du jet du héros est supérieur à celui de l'ennemi, alors l'attaque est
+            réussie et le héros inflige des dégâts à l'ennemi égaux à la différence des jets des
+            deux entités.
+          </li>
+          <li>
+            Si le résultat du jet du héros est inférieur ou égal à celui de l'ennemi, alors
+            l'attaque échoue et le héros n'inflige aucun dégâts à l'ennemi.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Phase de parade : L'ennemi et le héros effectuent tour à tour un lancer de dés. Ils
+        additionnent la valeur de la caractéristique associée à la caractéristique primaire
+        de l'ennemi. Le héros ajoute enfin la valeur de son bonus en parade.
+        <ul className="ul_description">
+          <li>
+            Si le résultat du jet du héros est supérieur ou égal à celui de l'ennemi, alors la
+            parade est réussie et le héros ne subit aucun dégât.
+          </li>
+          <li>
+            Si le résultat du jet du héros est inférieur à celui de l'ennemi, alors la parade
+            échoue et le héros subit des dégâts égaux à la différence des jets des deux entités.
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p>Un combat débute toujours par la phase d'attaque du personnage incarné par le joueur</p>
 
     <div className="hr" />
   </div>
