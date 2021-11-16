@@ -1,5 +1,5 @@
 // == Import
-import ImgRegles from 'src/assets/regles.png';
+import ImgProfile from 'src/assets/profile.png';
 
 import './style.scss';
 
@@ -9,8 +9,8 @@ const ProfileLeft = () => (
     <img
       className="page--remove_mobile"
       title="Img de Dženis Hasanica sur Pexels"
-      src={ImgRegles}
-      alt="Illustration des règles
+      src={ImgProfile}
+      alt="Illustration du profil
       (crédit: Img de Dženis Hasanica sur Pexels)"
     />
   </div>
