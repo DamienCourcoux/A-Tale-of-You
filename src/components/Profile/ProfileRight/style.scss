@@ -58,13 +58,13 @@
     align-items: center;
 
     &--image {
-      background: vars.$lightColor;
-      border: 3px solid vars.$darkColor;
-      padding: 1rem;
-      margin: 1rem;
 
-      & img {
-        width: 150px;
+      & .icon {
+        font-size: 10rem;
+        background: vars.$lightColor;
+        border: 3px solid vars.$darkColor;
+        margin: .5rem;
+        padding: .5rem;
       }
     }
 

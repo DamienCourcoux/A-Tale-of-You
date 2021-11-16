@@ -8,9 +8,8 @@ import {
   createSureToDeleteProfilAction,
 } from 'src/actions/user';
 
-import {
-  FaEllipsisH,
-} from 'react-icons/fa';
+import { FaEllipsisH } from 'react-icons/fa';
+import { GiOverlordHelm } from 'react-icons/gi';
 
 import './style.scss';
 
@@ -19,7 +18,6 @@ const ShowProfile = () => {
   const menuDropdownIsOpen = useSelector((state) => state.user.menuDropdownIsOpen);
   const userPseudo = useSelector((state) => state.user.userPseudo);
   const userMail = useSelector((state) => state.user.userMail);
-  const userAvatar = useSelector((state) => state.user.userAvatar);
 
   const dispatch = useDispatch();
 
@@ -58,7 +56,7 @@ const ShowProfile = () => {
       <div className="hr" />
       <div className="profile_right--myProfile">
         <div className="profile_right--myProfile--image">
-          <img title="Avatar" src={userAvatar} alt="Votre img de profil" />
+          <GiOverlordHelm className="icon" title="Votre Avatar de profil" />
         </div>
         <form
           onSubmit={handleSubmitEditForm}

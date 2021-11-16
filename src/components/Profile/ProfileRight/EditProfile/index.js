@@ -14,6 +14,7 @@ import {
   FaEyeSlash,
   FaTimes,
 } from 'react-icons/fa';
+import { GiOverlordHelm } from 'react-icons/gi';
 import Field from './Field';
 
 import './style.scss';
@@ -24,7 +25,6 @@ const ProfileRight = () => {
   const isVisiblePassword = useSelector((state) => state.user.isVisiblePassword);
   const userPseudo = useSelector((state) => state.user.userPseudo);
   const userMail = useSelector((state) => state.user.userMail);
-  const userAvatar = useSelector((state) => state.user.userAvatar);
   const pseudo = useSelector((state) => state.user.pseudo);
   const email = useSelector((state) => state.user.email);
   const error = useSelector((state) => state.user.error);
@@ -68,7 +68,7 @@ const ProfileRight = () => {
       <div className="hr" />
       <div className="profile_right--myProfile">
         <div className="profile_right--myProfile--image">
-          <img title="Avatar" src={userAvatar} alt="Votre img de profil" />
+          <GiOverlordHelm className="icon" title="Votre Avatar de profil" />
         </div>
         <form
           onSubmit={handleSubmitEditForm}
