@@ -73,15 +73,10 @@ const HeaderDesktop = () => {
       {isLogged && (
         <ul className="header_desktop__right">
           <li>
-            <NavLink
-              to="/profil"
-              title="Profil"
-              activeClassName="is-active"
-              className="welcome-message"
-            >
+            <p className="user">
               <FaUserAlt />
               Bonjour {userPseudo}
-            </NavLink>
+            </p>
           </li>
           <li>
             <NavLink

@@ -92,16 +92,10 @@ const MenuBurger = () => {
           isLogged && (
             <>
               <li>
-                <NavLink
-                  to="/profil"
-                  title="Profil"
-                  activeClassName="is-active"
-                  className="welcome-message"
-                  onClick={handleCloseMenuBurger}
-                >
+                <p className="user">
                   <FaUserAlt />
                   Bonjour {userPseudo}
-                </NavLink>
+                </p>
               </li>
               <li>
                 <NavLink
