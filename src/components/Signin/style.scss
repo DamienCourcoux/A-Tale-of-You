@@ -7,3 +7,14 @@
     margin-bottom: 0.5rem;
   }
 }
+
+.password {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    cursor: pointer;
+  }
+}

@@ -74,23 +74,23 @@
         margin: 1rem 0;
       }
 
-      &--password {
-        position: relative;
-
-        span {
-          position: absolute;
-          top: 50%;
-          right: 10%;
-          cursor: pointer;
-        }
-      }
-
       & .field-label {
         font-weight: bold;
       }
 
       & button {
         margin-top: 1rem;
+      }
+    }
+
+    & .password {
+      position: relative;
+  
+      span {
+        position: absolute;
+        top: 50%;
+        right: 10%;
+        cursor: pointer;
       }
     }
   }
