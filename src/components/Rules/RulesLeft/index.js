@@ -43,7 +43,7 @@ const RulesLeft = () => (
         possédant une force élevée,
       </li>
       <li>
-        Scruter une pièce sans se faire repéré par de potentielles ennemis
+        Scruter une pièce sans se faire repérer par de potentielles ennemis
         pourrait être plus simple pour un personnage possédant une dextérité élevée,
       </li>
       <li>
@@ -85,7 +85,7 @@ const RulesLeft = () => (
       Au cours de vos aventures, il vous sera demandé d'effectuer des jets.
       Un jet consiste à lancer deux dés à six faces et d'y ajouter d'autres valeurs
       telles que celle d'une caractéristique ou d'un bonus d'équipement.
-      Trois types de jets peuvent avoir lieux au cours d'une partie :
+      Trois types de jets peuvent avoir lieu au cours d'une partie :
     </p>
 
     <ul className="ul_description">
