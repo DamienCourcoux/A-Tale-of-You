@@ -214,8 +214,9 @@ button,
         align-items: center;
 
         & img {
-            max-width: 400px;
+            max-width: 350px;
             min-width: 200px;
+            border: 3px solid vars.$darkColor;
         }
     }
 
