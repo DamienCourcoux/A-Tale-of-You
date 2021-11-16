@@ -1,4 +1,14 @@
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import {
+  FaLinkedin,
+  FaGithub,
+  FaDAndD,
+} from 'react-icons/fa';
+import {
+  GiMonkey,
+  GiSpaceNeedle,
+  GiOneEyed,
+  GiMagicGate,
+} from 'react-icons/gi';
 
 import './style.scss';
 
@@ -8,7 +18,7 @@ const About = () => (
     <div className="about__container">
       <div className="about__container--alexandre">
         <div className="about__container--alexandre--left">
-          <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img d'Alexandre, un développeur d'A Tale of You" />
+          <FaDAndD className="aboutIcon" title="Une illustration d'un excellent développeur d'A Tale of You (Alexandre)" />
           <h2 title="Un excellent développeur">Alexandre</h2>
           <div>Lead dev back</div>
         </div>
@@ -40,7 +50,7 @@ const About = () => (
       </div>
       <div className="about__container--damien">
         <div className="about__container--damien--left">
-          <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img de Damien, un développeur d'A Tale of You" />
+          <GiMonkey className="aboutIcon" title="Une illustration d'un excellent développeur d'A Tale of You (Damien)" />
           <h2 title="Un excellent développeur">Damien</h2>
           <div>Dev front / Git master</div>
         </div>
@@ -72,7 +82,7 @@ const About = () => (
       </div>
       <div className="about__container--mikhael">
         <div className="about__container--mikhael--left">
-          <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img de Mikhael, un développeur d'A Tale of You" />
+          <GiSpaceNeedle className="aboutIcon" title="Une illustration d'un excellent développeur d'A Tale of You (Mikhael)" />
           <h2 title="Un excellent développeur">Mikhael</h2>
           <div>Lead dev front</div>
         </div>
@@ -104,7 +114,7 @@ const About = () => (
       </div>
       <div className="about__container--guillaume">
         <div className="about__container--guillaume--left">
-          <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img de Guillaume, un développeur d'A Tale of You" />
+          <GiOneEyed className="aboutIcon" title="Une illustration d'un excellent développeur d'A Tale of You (Guillaume)" />
           <h2 title="Un excellent développeur">Guillaume</h2>
           <div>Dev front / Scrum master</div>
         </div>
@@ -136,7 +146,7 @@ const About = () => (
       </div>
       <div className="about__container--maxence">
         <div className="about__container--maxence--left">
-          <img src="https://picsum.photos/50" title="Un excellent développeur" alt="Img de Maxence, un développeur d'A Tale of You" />
+          <GiMagicGate className="aboutIcon" title="Une illustration d'un excellent développeur d'A Tale of You (Maxence)" />
           <h2 title="Un excellent développeur">Maxence</h2>
           <div>Dev front / Product owner</div>
         </div>
