@@ -127,12 +127,9 @@ const user = (store) => (next) => (action) => {
         url: 'http://3.80.80.108:3000/profile',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${state.user.userToken}`,
         },
         data: {
-          id: state.user.userId,
-          pseudo: state.user.userPseudo,
-          email: state.user.userMail,
-          password: state.user.password,
         },
       };
 
