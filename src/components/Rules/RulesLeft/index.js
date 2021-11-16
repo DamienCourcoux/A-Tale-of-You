@@ -20,16 +20,16 @@ const RulesLeft = () => (
     </p>
 
     <ul className="ul_description">
-      <li>La force (FOR en jeu)</li>
-      <li>La dextérité (DEX en jeu)</li>
-      <li>L'intelligence (INT en jeu)</li>
-      <li>Le charisme (CHA en jeu)</li>
+      <li>La force (FOR en jeu),</li>
+      <li>La dextérité (DEX en jeu),</li>
+      <li>L'intelligence (INT en jeu),</li>
+      <li>Le charisme (CHA en jeu).</li>
     </ul>
 
     <p>
       Une de ces quatre caractéristiques sera la caractéristique
-      dite "primaire"d'une entité. Cela sera représenté sur la fiche
-      de l'entité par l'intitulé de la caractéristique en gras.
+      dite "primaire" d'une entité. Cela sera représenté sur la fiche
+      de l'entité par l'intitulé de la caractéristique et sa valeur en gras.
     </p>
 
     <p>
@@ -40,19 +40,19 @@ const RulesLeft = () => (
     <ul className="ul_description">
       <li>
         Intimider une entité pourrait être plus simple pour un personnage
-        possédant une force élevée
+        possédant une force élevée,
       </li>
       <li>
         Scruter une pièce sans se faire repéré par de potentielles ennemis
-        pourrait être plus simple pour un personnage possédant une dextérité élevée
+        pourrait être plus simple pour un personnage possédant une dextérité élevée,
       </li>
       <li>
         Comprendre l'utilité d'un artefact pourrait être plus simple
-        pour un personnage possédant une intelligence élevée
+        pour un personnage possédant une intelligence élevée,
       </li>
       <li>
         Diminuer l'hostilité d'une entité envers vous pourrait être
-        plus simple pour un personnage possédant un charisme élevé
+        plus simple pour un personnage possédant un charisme élevé.
       </li>
     </ul>
 
@@ -71,10 +71,10 @@ const RulesLeft = () => (
     </p>
 
     <ul className="ul_description">
-      <li>Le guerrier : force</li>
-      <li>Le roublard : dextérité</li>
-      <li>Le magicien : intelligence</li>
-      <li>Le barde : charisme</li>
+      <li>Le guerrier : force,</li>
+      <li>Le roublard : dextérité,</li>
+      <li>Le magicien : intelligence,</li>
+      <li>Le barde : charisme.</li>
     </ul>
 
     <div className="step" />
@@ -82,23 +82,24 @@ const RulesLeft = () => (
     <h2>Les jets</h2>
 
     <p>
-      Un jet consiste à lancer un dé à 20 faces et y ajouter d'autres valeurs
-      telles celle d'une caractéristique ou d'un bonus d'équipement.
+      Au cours de vos aventures, il vous sera demandé d'effectuer des jets.
+      Un jet consiste à lancer deux dés à faces et y ajouter d'autres valeurs
+      telles que celle d'une caractéristique ou d'un bonus d'équipement.
       Trois types de jets peuvent avoir lieux au cours d'une partie :
     </p>
 
     <ul className="ul_description">
       <li>
-        Les jets d'action, lorsque le joueur doit effectuer un jet
-        pour déterminer l'issue d'une action.
+        Les jets d'action, lorsque le joueur tente d'effectuer un jet
+        pour déterminer l'issue d'une action en dehors d'un combat,
       </li>
       <li>
-        Les jets d'attaque, en combat lorsque le joueur tente d'attaquer
-        un ennemi.
+        Les jets d'attaque, lorsque le joueur tente d'attaquer
+        un ennemi durant un combat,
       </li>
       <li>
-        Les jets de parade, en combat lorsque le joueur tente de parer
-        une attaque ennemie.
+        Les jets de parade, lorsque le joueur tente de parer
+        une attaque ennemie durant un combat.
       </li>
     </ul>
 
@@ -108,10 +109,11 @@ const RulesLeft = () => (
 
     <p>
       Au cours de son aventure, le joueur pourrait être amené à effectuer
-      un jet afin de déterminer l'issue d'une action. Cette action est appelée
-      "jet d'action". Le joueur lance alors un dé à 20 faces et additionne le
-      résultat du lancer à la caractéristique liée à l'action. Si le résultat
-      est supérieur ou égale à une valeur (stockée sur nos serveurs),
+      un jet afin de déterminer l'issue d'une action en dehors d'un combat.
+      Cette action est appelée "jet d'action". Le joueur lance alors deux dés
+      à six faces et additionne le résultat du lancer à la caractéristique
+      liée à l'action ainsi que son bonus d'accessoire. Si le résultat
+      est supérieur ou égale à une valeur (fixe, stockée sur nos serveurs),
       alors l'action est réussie!
     </p>
 
@@ -130,18 +132,13 @@ const RulesLeft = () => (
     </p>
 
     <p>
-      Il sera amené au cours de ses péripéties à en trouver de plus performants.
-      Les équipements procureront des bonus fixes aux jets effectués par le joueur.
-    </p>
-
-    <p>
       Il existe trois types d'équipements :
     </p>
 
     <ul className="ul_description">
-      <li>Les armes : bonus aux jets d'attaque</li>
-      <li>Les armures : bonus aux jets de défense</li>
-      <li>Les accessoires : bonus aux jets d'action</li>
+      <li>Les armes : bonus aux jets d'attaque,</li>
+      <li>Les armures : bonus aux jets de parade,</li>
+      <li>Les accessoires : bonus aux jets d'action.</li>
     </ul>
 
     <div className="step" />
@@ -152,53 +149,43 @@ const RulesLeft = () => (
       Au cours de l'aventure, le personnage sera amené à prendre possession
       d'objets tels que des clés, des parchemins ou encore des artefacts.
       Ces objets permettront au joueur d'avoir accès à de nouvelles actions
-      à certains moments de l'aventure, ils sont donc très importants et peuvent
-      même être indispensables à la réussite de l'aventure, alors ne les ratez pas!
+      à certains moments de l'aventure, ils sont donc très importants et pourraient
+      même devenir indispensables pour la réussite de l'aventure, alors ne les ratez pas!
     </p>
 
     <h2>Interface de jeu en dehors des combats</h2>
 
     <p>
-      Cette interface sera décomposée en 2 parties :
+      Cette interface sera décomposée en deux parties :
     </p>
 
     <ul className="ul_description">
-      <li>A gauche :
+      <li>Dans un premier temps (à gauche sur ordinateur, en bas sur mobile) :
         <ul className="ul_description">
           <li>
             La contenu textuel du paragraphe en cours. Décrit la scène et
             les différentes actions qui vous sont proposées de faire.
           </li>
           <li>
-            Des boutons. Permet d'envoyer une information au jeu :
-            <ul className="ul_description">
-              <li>
-                Si un seul bouton : indique au jeu d'afficher le paragraphe suivant.
-                Généralement "Continuer" sera inscrit à l'intérieur du bouton.
-              </li>
-              <li>
-                Si plusieurs boutons : indique au jeu l'action que vous avez
-                décidé d'exécuter. Un bref résumé de l'action en question sera inscrit
-                à l'intérieur du bouton. Si l'issue d'une action est conditionnée
-                par un jet de dé, la caractéristique utilisée pour déterminer
-                l'issue sera indiquée entre guillemets.
-              </li>
-            </ul>
+            Des boutons. Permet d'envoyer une information au jeu sur l'action que vous décidez
+            d'effectuer. Selon les paragraphes, le nombre de boutons peut varier, vous proposant
+            diverses actions possibles.
           </li>
         </ul>
       </li>
-      <li>A droite :
-        <ul>
-          <li>
-            Une icone permettant d'accéder à un résumé des règles.
-          </li>
+      <li>Dans un second temps (à droite sur ordinateur, en haut sur mobile) :
+        <ul className="ul_description">
           <li>
             Les caractéristiques du personnage joué. Sa caractéristique
             primaire est affichée en gras.
           </li>
-          {/* <li></li>
-          <li></li>
-          <li></li> */}
+          <li>
+            Les trois emplacements d'équipements du personnage joué et les bonus conférés par chacun
+            d'entre eux.
+          </li>
+          <li>
+            L'inventaire du personnage joué.
+          </li>
         </ul>
       </li>
     </ul>
@@ -206,7 +193,45 @@ const RulesLeft = () => (
     <div className="step" />
 
     <h2>Interface de jeu durant les combats</h2>
-    {/* à compléter */}
+
+    <p>
+      Cette interface sera décomposée en deux parties sur ordinateur (l'interface mobile est en
+      cours de conception):
+    </p>
+
+    <ul className="ul_description">
+      <li>A gauche :
+        <ul className="ul_description">
+          <li>
+            Les caractéristiques du personnage joué. Sa caractéristique
+            primaire est affichée en gras.
+          </li>
+          <li>
+            Les éventuels bonus conférés par l'arme et l'armure du personnage joué.
+          </li>
+          <li>
+            Un interface de jet de dés. Le bouton permet de continuer le déroulement
+            du combat et de passer au paragraphe suivant selon l'issue du combat.
+          </li>
+        </ul>
+      </li>
+      <li>A droite :
+        <ul className="ul_description">
+          <li>
+            Les caractéristiques de l'ennemi joué. Sa caractéristique
+            primaire est affichée en gras.
+          </li>
+          <li>
+            L'historique des combat résument 
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div className="step" />
+
+    <h2>Le système de combat</h2>
+
     <div className="hr" />
   </div>
 );
