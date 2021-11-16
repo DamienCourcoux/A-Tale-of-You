@@ -20,6 +20,11 @@ const Footer = () => (
             to="/"
             target="_blank"
             rel="noopener noreferrer"
+            className="link"
+            title="Prochainement"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
           >
             <FaDiscord />
           </Link>
@@ -29,6 +34,11 @@ const Footer = () => (
             to="/"
             target="_blank"
             rel="noopener noreferrer"
+            className="link"
+            title="Prochainement"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
           >
             <FaTwitter />
           </Link>
@@ -38,6 +48,11 @@ const Footer = () => (
             to="/"
             target="_blank"
             rel="noopener noreferrer"
+            className="link"
+            title="Prochainement"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
           >
             <FaFacebook />
           </Link>
