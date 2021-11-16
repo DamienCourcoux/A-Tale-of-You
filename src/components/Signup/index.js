@@ -1,7 +1,16 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { hideSignup, handleSignup, changeField } from 'src/actions/user';
+import {
+  hideSignup,
+  handleSignup,
+  changeField,
+  createVisibilityPasswordAction,
+} from 'src/actions/user';
 
-import { FaTimes } from 'react-icons/fa';
+import {
+  FaTimes,
+  FaEye,
+  FaEyeSlash,
+} from 'react-icons/fa';
 
 import './style.scss';
 
@@ -17,6 +26,7 @@ const Signup = () => {
     passwordConfirm,
     passwordWrong,
     error,
+    isVisiblePassword,
   } = useSelector((state) => ({
     pseudo: state.user.pseudo,
     email: state.user.email,
@@ -24,6 +34,7 @@ const Signup = () => {
     passwordConfirm: state.user.passwordConfirm,
     passwordWrong: state.user.passwordWrong,
     error: state.user.error,
+    isVisiblePassword: state.user.isVisiblePassword,
   }));
 
   const handleHideSignup = (event) => {
@@ -40,6 +51,10 @@ const Signup = () => {
     dispatch(changeField(value, name));
   };
 
+  const handleVisibilityPassword = () => {
+    dispatch(createVisibilityPasswordAction());
+  };
+
   return (
     <div className="modal modal--close">
       <div className="modal__content">
@@ -50,32 +65,59 @@ const Signup = () => {
         <h2>S'inscrire</h2>
         <form onSubmit={handleSubmit}>
           <Field
-            name="pseudo"
-            placeholder="Pseudonyme"
-            onChange={handleChangeField}
             value={pseudo}
+            onChange={handleChangeField}
+            type="text"
+            className="field-input"
+            placeholder="Pseudonyme"
+            name="pseudo"
+            title="Doit contenir un magnifique pseudo"
           />
           <Field
-            name="email"
-            type="email"
-            placeholder="Adresse mail"
-            onChange={handleChangeField}
             value={email}
-          />
-          <Field
-            name="password"
-            type="password"
-            placeholder="Mot de passe"
             onChange={handleChangeField}
-            value={password}
+            type="email"
+            className="field-input"
+            placeholder="Email"
+            name="email"
+            title="Doit contenir une adresse email valide"
           />
-          <Field
-            name="passwordConfirm"
-            type="password"
-            placeholder="Confirmer le mot de passe"
-            onChange={handleChangeField}
-            value={passwordConfirm}
-          />
+          <div className="password">
+            <Field
+              value={password}
+              onChange={handleChangeField}
+              type={isVisiblePassword ? 'text' : 'password'}
+              className="field-input"
+              placeholder="Mot de passe"
+              name="password"
+              title="Doit contenir un magnifique mot de passe"
+            />
+            <span id="visibilityPassword" onClick={handleVisibilityPassword}>
+              {
+                isVisiblePassword
+                  ? <FaEyeSlash />
+                  : <FaEye />
+              }
+            </span>
+          </div>
+          <div className="password">
+            <Field
+              value={passwordConfirm}
+              onChange={handleChangeField}
+              type={isVisiblePassword ? 'text' : 'password'}
+              className="field-input"
+              placeholder="Confirmer le mot de passe"
+              name="passwordConfirm"
+              title="Doit contenir le même magnifique mot de passe"
+            />
+            <span id="visibilityPassword" onClick={handleVisibilityPassword}>
+              {
+                isVisiblePassword
+                  ? <FaEyeSlash />
+                  : <FaEye />
+              }
+            </span>
+          </div>
           {passwordWrong && (
             <p className="error">
               Les mots de passe ne correspondent pas

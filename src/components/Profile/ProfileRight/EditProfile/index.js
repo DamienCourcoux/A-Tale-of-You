@@ -80,22 +80,23 @@ const ProfileRight = () => {
               onChange={handleChangeField}
               type="text"
               className="field-input"
-              placeholder="Pseudo"
+              placeholder="Pseudonyme"
               name="pseudo"
               title="Doit contenir un magnifique pseudo"
             />
           </div>
-          <div className="profile_right--myProfile--data--mail"><Field
-            value={email}
-            onChange={handleChangeField}
-            type="email"
-            className="field-input"
-            placeholder="Email"
-            name="email"
-            title="Doit contenir une adresse email valide"
-          />
+          <div className="profile_right--myProfile--data--mail">
+            <Field
+              value={email}
+              onChange={handleChangeField}
+              type="email"
+              className="field-input"
+              placeholder="Email"
+              name="email"
+              title="Doit contenir une adresse email valide"
+            />
           </div>
-          <div className="profile_right--myProfile--data--password">
+          <div className="profile_right--myProfile--data password">
             <Field
               value={password}
               onChange={handleChangeField}

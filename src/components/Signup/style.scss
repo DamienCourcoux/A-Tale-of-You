@@ -1,1 +1,12 @@
 @use 'src/styles/vars';
+
+.password {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    cursor: pointer;
+  }
+}
