@@ -49,17 +49,29 @@
 
         // pour mobile
         @media screen and (max-width: 500px) {
-        margin: 0 0.5rem;
+          margin: 0 0.5rem;
         }
 
-        a svg {
+        // a svg {
+        //   font-size: 1.5rem;
+
+        //   &:hover {
+        //     transform: scale(1.1);
+        //   }
+        // }
+
+        .link {
           font-size: 1.5rem;
+          opacity: .3;
 
           &:hover {
-            transform: scale(1.1);
+            transform: none;
+            cursor: not-allowed;
           }
         }
       }
+
+
     }
 
     &--aboutUs {
