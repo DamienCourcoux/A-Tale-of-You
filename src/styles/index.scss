@@ -208,6 +208,17 @@ button,
         }
     }
 
+    &_center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & img {
+            max-width: 400px;
+            min-width: 200px;
+        }
+    }
+
     &--remove_mobile {
         @media screen and (max-width: 425px) {
             display: none;
