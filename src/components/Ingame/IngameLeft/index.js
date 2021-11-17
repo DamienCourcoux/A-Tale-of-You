@@ -46,6 +46,7 @@ const InGameLeft = () => {
         choice.description,
         index,
       )}
+      className="choice"
     >
       {choice.description}
     </button>
