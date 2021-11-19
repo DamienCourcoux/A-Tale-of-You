@@ -1,0 +1,29 @@
+@use 'src/styles/vars';
+
+@media screen and (max-width: 849px) {
+  .header_desktop {
+    display: none;
+  }
+
+  .header {
+    border-bottom: solid 3px vars.$book;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .header_mobile {
+    display: none;
+  }
+}
+
+.header {
+  background: vars.$background;
+  margin-bottom: .5rem;
+  padding-bottom: .5rem;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+}

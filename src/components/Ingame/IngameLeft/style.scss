@@ -1,0 +1,11 @@
+@use 'src/styles/vars';
+
+.ingame_left {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.choice {
+  margin: .5rem auto;
+}

@@ -1,0 +1,19 @@
+@use 'src/styles/vars';
+
+.app {
+  background: vars.$background;
+}
+
+.main {
+  background: vars.$background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.main--about {
+  background: vars.$background;
+  overflow-y: auto;
+}

@@ -1,0 +1,109 @@
+@use 'src/styles/vars';
+
+// Mobile rendering
+@media screen and (max-width: 425px) {
+  .stats {
+    &__grid {
+      display: grid;
+      align-items: center;
+      width: calc(8rem + 4rem);
+      margin: 0 auto;
+      grid-template-columns: 8rem 4rem;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "stats_title stats_title"
+        "stats_name  stats_value";
+      margin-bottom: 1.5rem;
+    }
+
+    &__illustration {
+      display: none;
+    }
+
+    &__title {
+      grid-area: stats_title;
+      justify-self: start;
+      margin-top: 0;
+    }
+
+    &__name {
+      grid-area: stats_name;
+      justify-self: start;
+      margin-left: 0;
+
+      li {
+        padding: .1rem 0;
+      }
+    }
+
+    &__value {
+      grid-area: stats_value;
+      justify-self: start;
+      margin-left: 0;
+
+      & li {
+        padding: .1rem 0;
+      }
+    }
+  }
+}
+
+// Other platform rendering
+@media screen and (min-width: 426px) {
+  .stats {
+
+    &__grid {
+      display: grid;
+      align-items: center;
+      width: calc(150px + 8rem + 4rem);
+      margin: 0 auto;
+      grid-template-columns: 150px 8rem 4rem;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "stats_illustration stats_title stats_title"
+        "stats_illustration stats_name  stats_value";
+      margin-bottom: 1.5rem;
+    }
+
+    &__illustration {
+      grid-area: stats_illustration;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      width: 150px;
+      height: 150px;
+      border: 3px solid #000;
+
+      & img {
+        width: 150px;
+        border: 3px solid #000;
+      }
+    }
+
+    &__title {
+      grid-area: stats_title;
+      justify-self: start;
+      margin-top: 0;
+      margin-left: 1rem;
+    }
+
+    &__name {
+      grid-area: stats_name;
+      margin-left: 1rem;
+
+      li {
+        padding: .1rem 0;
+      }
+    }
+
+    &__value {
+      grid-area: stats_value;
+      margin-left: 1rem;
+
+      & li {
+        padding: .1rem 0;
+      }
+    }
+  }
+}

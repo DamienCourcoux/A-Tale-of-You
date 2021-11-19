@@ -1,0 +1,30 @@
+.ingame_fight_left {
+  &--content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  &--bonus {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    div {
+      margin: 0 1rem;
+    }
+  }
+
+  &--dice_roller {
+    &__container {
+      display: flex;
+      margin-bottom: 1rem;
+      justify-content: center;
+
+      div {
+        margin: 0 1rem;
+      }
+    }
+  }
+}

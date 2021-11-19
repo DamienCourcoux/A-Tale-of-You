@@ -1,18 +1,297 @@
 @use 'reset';
 @use 'vars';
 
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Roboto:wght@300;400;700&display=swap');
+
+*,
 body {
-  font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-/* 
-  // or you can import your own font
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf');
-  }
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: .5rem;
+}
 
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-*/
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: .5rem;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: justify;
+    margin-bottom: .5rem;
+}
+
+.error {
+    color: vars.$danger;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+
+ul {
+    margin-left: 2rem;
+}
+
+li {
+    padding-bottom: .2rem;
+}
+
+.ul_description {
+    list-style: square;
+    margin-bottom: .5rem;
+}
+
+a {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.hr {
+    height: 1px;
+    width: 50%;
+    background-image: linear-gradient(to right, vars.$bookPage, vars.$darkColor, vars.$bookPage);
+    margin: 1.5rem auto;
+}
+
+.step {
+    margin-bottom: 1rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+button,
+.button {
+    background: vars.$lightColor;
+    color: vars.$darkColor;
+    border: 3px solid vars.$darkColor;
+    display: block;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+
+    &:hover {
+        background: vars.$buttonHover;
+        color: vars.$lightColor;
+    }
+}
+
+.border {
+    background: vars.$book;
+    border-radius: 10px;
+    max-width: calc(100% - 2rem);
+    height: 100%;
+    width: 1600px;
+    padding: 1rem;
+
+    @media screen and (max-width: 425px) {
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+    }
+}
+
+.shadow {
+    @media screen and (min-width: 426px) {
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+    }
+}
+
+// .pages rendering for mobile
+@media screen and (max-width: 425px) {
+    .pages {
+        background: vars.$bookPage;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+// .pages rendering for other platform
+@media screen and (min-width: 426px) {
+    .pages {
+        background: vars.$bookPage;
+        background: -moz-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        background: -webkit-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        background: radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3", endColorstr="#d9d2bf", GradientType=1);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+
+        &::before {
+            content: "";
+            background: rgb(56, 25, 8);
+            background: -moz-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
+            background: -webkit-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
+            background: linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#381908", endColorstr="#381908", GradientType=1);
+            height: calc(100% + 2rem);
+            width: 3%;
+            position: absolute;
+            top: -1rem;
+            left: 48.5%;
+            z-index: 1;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
+            -webkit-box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
+            -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, .7);
+        }
+    }
+}
+
+.page {
+    width: calc(50% - 1rem);
+    padding: 2rem;
+    overflow-y: auto;
+    position: relative;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: 1;
+
+    @media screen and (max-width: 425px) {
+        width: 100%;
+        border: solid 1px black;
+    }
+
+    &_empty {
+        width: 50%;
+        position: relative;
+        // background: vars.$book;
+        background: rgb(92, 54, 28);
+        background: -moz-radial-gradient(circle, rgba(92, 54, 28, 1) 0%, rgba(60, 31, 12, 1) 80%);
+        background: -webkit-radial-gradient(circle, rgba(92, 54, 28, 1) 0%, rgba(60, 31, 12, 1) 80%);
+        background: radial-gradient(circle, rgba(92, 54, 28, 1) 0%, rgba(60, 31, 12, 1) 80%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5c361c", endColorstr="#3c1f0c", GradientType=1);
+        z-index: 0;
+    }
+
+    &_left {
+        margin-left: 1rem;
+        // background: vars.$bookPage;
+        background: vars.$bookPage;
+        background: -moz-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        background: -webkit-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        background: radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3", endColorstr="#d9d2bf", GradientType=1);
+
+        @media screen and (max-width: 425px) {
+            margin-left: 0rem;
+        }
+    }
+
+    &_right {
+        margin-right: 1rem;
+        // background: vars.$bookPage;
+        background: vars.$bookPage;
+        background: -moz-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        background: -webkit-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        background: radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3", endColorstr="#d9d2bf", GradientType=1);
+
+        @media screen and (max-width: 425px) {
+            margin-right: 0rem;
+        }
+    }
+
+    &_center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & img {
+            max-width: 350px;
+            min-width: 200px;
+            border: 3px solid vars.$darkColor;
+        }
+    }
+
+    &--remove_mobile {
+        @media screen and (max-width: 425px) {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 425px) {
+        &--mobile {
+            &_order1 {
+                order: 1;
+            }
+
+            &_order2 {
+                order: 2;
+            }
+        }
+    }
+
+    &_img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.modal {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+
+    &__content {
+        top: 5%;
+        padding: 0.5rem;
+        position: relative;
+        margin: 0 auto;
+        background-color: vars.$background;
+        border: solid 5px vars.$book;
+        width: 90%;
+        max-width: 300px;
+    }
+
+    &__close {
+        color: vars.$book;
+        float: right;
+        cursor: pointer;
+    }
+}
+
+.field {
+    margin-bottom: 0.5rem;
+
+    &-label {
+        margin-bottom: 0.2rem;
+    }
+
+    &-input {
+        background: vars.$lightColor;
+        color: vars.$darkColor;
+        border: 3px solid vars.$darkColor;
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        padding: .5rem 1rem;
+    }
+}
