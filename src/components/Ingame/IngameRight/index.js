@@ -37,9 +37,7 @@ const InGameRight = () => {
         </div>
         <FaAngleUp className="ingame_right--transparent" />
       </div>
-      {/* {statsIsOpen && ( */}
       <div className={classNameContent}>
-        {/* <div className="step" /> */}
 
         <Stats />
 
