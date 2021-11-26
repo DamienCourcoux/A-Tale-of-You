@@ -218,9 +218,9 @@ button,
         align-items: center;
 
         & img {
-            max-width: 350px;
-            min-width: 200px;
-            border: 3px solid vars.$darkColor;
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
         }
     }
 
