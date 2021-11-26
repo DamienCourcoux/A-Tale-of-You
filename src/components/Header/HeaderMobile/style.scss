@@ -1,22 +1,22 @@
-@use 'src/styles/vars';
+// @use 'src/styles/vars';
 
-.header_mobile {
-  &__left {
-    display: flex;
+// .header_mobile {
+//   &__left {
+//     display: flex;
 
-    img {
-      width: 150px;
-    }
-  }
+//     img {
+//       width: 150px;
+//     }
+//   }
 
-  &__right {
-    padding-top: 1rem;
-    padding-right: 2rem;
-    display: flex;
-    align-items: center;
-  }
+//   &__right {
+//     padding-top: 1rem;
+//     padding-right: 2rem;
+//     display: flex;
+//     align-items: center;
+//   }
 
-  .FaBars {
-    font-size: 1.5rem;
-  }
-}
+//   .FaBars {
+//     font-size: 1.5rem;
+//   }
+// }
