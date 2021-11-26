@@ -1,1 +1,9 @@
 @use 'src/styles/vars';
+
+
+// .pages rendering for mobile
+@media screen and (max-width: 910px) {
+  .pages--ingame {
+      height: auto;
+  }
+}

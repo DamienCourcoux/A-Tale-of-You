@@ -26,7 +26,7 @@ const Ingame = () => {
 
   return (
     <div className="border shadow">
-      <div className="pages">
+      <div className="pages pages--ingame">
         {!fightStarted && (
           <>
             <InGameLeft />
