@@ -26,8 +26,8 @@ const DeleteProfile = () => {
   return (
     <div className="modal modal--close">
       <div className="modal__content">
-        <h2>Supprimer mon compte</h2>
-        <p>Vous voulez vraiment quitez l'aventure A Tale of You ?</p>
+        <h2>Supprimer mon profil</h2>
+        <p>Souhaitez-vous vraiment nous quitter? Cette action est définitive.</p>
         <div className="modal__content--button">
           <button
             type="button"
