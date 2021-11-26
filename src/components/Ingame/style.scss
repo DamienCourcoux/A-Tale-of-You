@@ -4,44 +4,6 @@
 // .pages rendering for mobile
 @media screen and (max-width: 910px) {
   .pages--ingame {
-      background: vars.$bookPage;
-      // height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-  }
-}
-
-// .pages rendering for other platform
-@media screen and (min-width: 911px) {
-  .pages--ingame {
-      background: vars.$bookPage;
-      background: -moz-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
-      background: -webkit-radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
-      background: radial-gradient(circle, #e5c79c 0%, vars.$bookPage 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c3baa3", endColorstr="#d9d2bf", GradientType=1);
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      position: relative;
-
-      &::before {
-          content: "";
-          background: rgb(56, 25, 8);
-          background: -moz-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
-          background: -webkit-linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
-          background: linear-gradient(90deg, #231005 0%, #371b0b 50%, #231005 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#381908", endColorstr="#381908", GradientType=1);
-          height: calc(100% + 2rem);
-          width: 3%;
-          position: absolute;
-          top: -1rem;
-          left: 48.5%;
-          z-index: 1;
-          box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
-          -webkit-box-shadow: 0 0 3px 0 rgb(0 0 0 / 70%);
-          -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, .7);
-      }
+      height: auto;
   }
 }

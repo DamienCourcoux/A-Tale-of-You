@@ -26,18 +26,20 @@ const Ingame = () => {
 
   return (
     <div className="border shadow">
-      {!fightStarted && (
-        <div className="pages--ingame">
-          <InGameLeft />
-          <InGameRight />
-        </div>
-      )}
-      {fightStarted && (
-        <div className="pages--ingame">
-          <IngameFightLeft />
-          <IngameFightRight />
-        </div>
-      )}
+      <div className="pages pages--ingame">
+        {!fightStarted && (
+          <>
+            <InGameLeft />
+            <InGameRight />
+          </>
+        )}
+        {fightStarted && (
+          <>
+            <IngameFightLeft />
+            <IngameFightRight />
+          </>
+        )}
+      </div>
     </div>
   );
 };
