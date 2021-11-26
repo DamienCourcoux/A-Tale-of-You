@@ -40,77 +40,61 @@ const HeaderDesktop = () => {
 
   return (
     <>
-      <ul className="header_desktop__left">
-        <li>
-          <Link
-            to="/"
-            title="A Tale of You"
-          >
-            <img src={Logo} alt="Logo du site" />
-          </Link>
-        </li>
-        <li>
+      <div className="header_desktop__left">
+        <Link
+          to="/"
+          title="A Tale of You"
+        >
+          <img src={Logo} alt="Logo du site" />
+        </Link>
+        <NavLink
+          to="/histoire"
+          title="Jouer"
+          activeClassName="is-active"
+        >
+          <FaBook />
+          Jouer
+        </NavLink>
+        <NavLink
+          to="/regles"
+          title="Règles du jeu"
+          activeClassName="is-active"
+        >
+          <FaScroll />
+          Règles du jeu
+        </NavLink>
+      </div>
+      {isLogged && (
+        <div className="header_desktop__right">
+          {/* <div className="user">
+            <FaUserAlt />
+            Bonjour {userPseudo}
+          </div> */}
           <NavLink
-            to="/histoire"
-            title="Jouer"
+            to="/profil"
+            title={`Profil de ${userPseudo}`}
             activeClassName="is-active"
           >
             <FaBook />
-            Jouer
+            Profil
           </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/regles"
-            title="Règles du jeu"
-            activeClassName="is-active"
-          >
-            <FaScroll />
-            Règles du jeu
-          </NavLink>
-        </li>
-      </ul>
-      {isLogged && (
-        <ul className="header_desktop__right">
-          <li>
-            <p className="user">
-              <FaUserAlt />
-              Bonjour {userPseudo}
-            </p>
-          </li>
-          <li>
-            <NavLink
-              to="/profil"
-              title="Profil"
-              activeClassName="is-active"
-            >
-              <FaBook />
-              Profil
-            </NavLink>
-          </li>
-          <li>
-            <a href="#" onClick={(event) => handleLogout(event)}>
-              <FaUserSlash />
-              Se déconnecter
-            </a>
-          </li>
-        </ul>
+          <a href="#" onClick={(event) => handleLogout(event)}>
+            <FaUserSlash />
+            Se déconnecter
+          </a>
+        </div>
       )}
       {!isLogged && (
-        <ul className="header_desktop__right">
-          <li>
-            <a href="#" onClick={(event) => handleShowSignin(event)}>
-              <FaUserAlt />
-              Se connecter
-            </a>
-          </li>
-          <li>
-            <a href="#" onClick={(event) => handleShowSignup(event)}>
-              <FaUserPlus />
-              S'inscrire
-            </a>
-          </li>
-        </ul>
+        <div className="header_desktop__right">
+          <a href="#" onClick={(event) => handleShowSignin(event)}>
+            <FaUserAlt />
+            Se connecter
+          </a>
+          <a href="#" onClick={(event) => handleShowSignup(event)}>
+            <FaUserPlus />
+            S'inscrire
+          </a>
+        </div>
       )}
     </>
   );

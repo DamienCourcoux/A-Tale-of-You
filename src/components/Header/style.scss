@@ -1,6 +1,6 @@
 @use 'src/styles/vars';
 
-@media screen and (max-width: 849px) {
+@media screen and (max-width: 634px) {
   .header_desktop {
     display: none;
   }
@@ -10,7 +10,7 @@
   }
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 635px) {
   .header_mobile {
     display: none;
   }

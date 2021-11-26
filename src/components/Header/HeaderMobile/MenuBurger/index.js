@@ -54,88 +54,72 @@ const MenuBurger = () => {
         className="close"
         onClick={handleCloseMenuBurger}
       />
-      <ul className="menuBurger--list">
-        <li>
-          <Link
-            to="/"
-            title="Retour à l'accueil"
-            onClick={handleCloseMenuBurger}
-          >
-            <FaHome />
-            Accueil
-          </Link>
-        </li>
-        <li>
-          <NavLink
-            to="/histoire"
-            title="Jouer"
-            activeClassName="is-active"
-            onClick={handleCloseMenuBurger}
-          >
-            <FaBook />
-            Jouer
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/regles"
-            title="Règles du jeu"
-            activeClassName="is-active"
-            onClick={handleCloseMenuBurger}
-          >
-            <FaScroll />
-            Règles du jeu
-          </NavLink>
-        </li>
+      <div className="menuBurger--list">
+        <Link
+          to="/"
+          title="Retour à l'accueil"
+          onClick={handleCloseMenuBurger}
+        >
+          <FaHome />
+          Accueil
+        </Link>
+        <NavLink
+          to="/histoire"
+          title="Jouer"
+          activeClassName="is-active"
+          onClick={handleCloseMenuBurger}
+        >
+          <FaBook />
+          Jouer
+        </NavLink>
+        <NavLink
+          to="/regles"
+          title="Règles du jeu"
+          activeClassName="is-active"
+          onClick={handleCloseMenuBurger}
+        >
+          <FaScroll />
+          Règles du jeu
+        </NavLink>
         <div className="hr" />
         {
           isLogged && (
             <>
-              <li>
-                <p className="user">
-                  <FaUserAlt />
-                  Bonjour {userPseudo}
-                </p>
-              </li>
-              <li>
-                <NavLink
-                  to="/profil"
-                  title="Profil"
-                  activeClassName="is-active"
-                  onClick={handleCloseMenuBurger}
-                >
-                  <FaBook />
-                  Profil
-                </NavLink>
-              </li>
-              <li>
-                <a href="#" onClick={(event) => handleLogout(event)}>
-                  <FaUserSlash />
-                  Se déconnecter
-                </a>
-              </li>
+              {/* <div className="user">
+                <FaUserAlt />
+                Bonjour {userPseudo}
+              </div> */}
+              <NavLink
+                to="/profil"
+                title="Profil"
+                activeClassName="is-active"
+                onClick={handleCloseMenuBurger}
+              >
+                <FaBook />
+                Profil
+              </NavLink>
+              <a href="#" onClick={(event) => handleLogout(event)}>
+                <FaUserSlash />
+                Se déconnecter
+              </a>
             </>
           )
         }
         {
           !isLogged && (
             <>
-              <li>
-                <a href="#" onClick={(event) => handleShowSignin(event)}>
-                  <FaUserAlt />
-                  Se connecter
-                </a>
-              </li>
-              <li>
-                <a href="#" onClick={(event) => handleShowSignup(event)}>
-                  <FaUserPlus />
-                  S'inscrire
-                </a>
-              </li>
+              <a href="#" onClick={(event) => handleShowSignin(event)}>
+                <FaUserAlt />
+                Se connecter
+              </a>
+              <a href="#" onClick={(event) => handleShowSignup(event)}>
+                <FaUserPlus />
+                S'inscrire
+              </a>
             </>
           )
         }
-      </ul>
+      </div>
     </section>
   );
 };

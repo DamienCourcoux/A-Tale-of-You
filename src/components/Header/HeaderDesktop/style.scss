@@ -1,88 +1,52 @@
 @use 'src/styles/vars';
 
 .header_desktop {
+
+  .is-active {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  svg {
+    margin-right: .2rem;
+  }
+  
   &__left {
+    margin-left: 1rem;
     display: flex;
+    align-items: flex-end;
 
-    li {
-      align-self: flex-end;
-      margin: 0rem 1rem .5rem 1rem;
+    a:not(:first-child) {
+      display: flex;
+      align-items: center;
+      margin-left: 1rem;
+      padding-bottom: .45rem;
+      color: vars.$darkColor;
+      white-space: nowrap;
+    }
 
-      &:first-child {
-        margin: 0rem 1rem;
-      }
-
-      a {
-        color: vars.$darkColor;
-        display: flex;
-        align-items: flex-end;
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        img {
-          width: 150px;
-        }
-
-        svg {
-          margin-right: .5rem;
-          width: 2rem;
-        }
-      }
-
-      & .is-active {
-        text-decoration: underline;
-        font-weight: bold;
-      }
-
+    img {
+      max-width: 150px;
     }
   }
 
   &__right {
+    margin-right: 1rem;
     display: flex;
-    padding: 0rem 1.5rem;
+    align-items: flex-end;
 
-    .welcome-message {
-      font-size: 1.2rem;
-      font-weight: bold;
+    .user,
+    a {
       display: flex;
       align-items: center;
-
-      svg {
-        margin-right: .5rem;
-        width: 2rem;
-      }
+      margin-left: 1rem;
+      padding-bottom: .45rem;
+      color: vars.$darkColor;
+      white-space: nowrap;
     }
 
-    li {
-      align-self: flex-end;
-      margin: 0rem 1rem .5rem 1rem;
-
-      a {
-        color: vars.$darkColor;
-        display: flex;
-        align-items: flex-end;
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        svg {
-          margin-right: .5rem;
-          width: 2rem;
-        }
-      }
-
-      .user {
-        font-weight: bold;
-        margin-bottom: 0;
-        display: flex;
-
-        & svg {
-          margin-right: .5rem;
-        }
-      }
+    .user {
+      font-weight: bold;
     }
   }
 }

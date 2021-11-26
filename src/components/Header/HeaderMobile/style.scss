@@ -2,21 +2,20 @@
 
 .header_mobile {
   &__left {
-    display: flex;
-
+    margin-left: 1rem;
     img {
-      width: 150px;
+      max-width: 150px;
     }
   }
 
   &__right {
-    padding-top: 1rem;
-    padding-right: 2rem;
+    margin-right: 1rem;
     display: flex;
-    align-items: center;
-  }
+    align-items: flex-end;
 
-  .FaBars {
-    font-size: 1.5rem;
+    .FaBars {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
   }
 }

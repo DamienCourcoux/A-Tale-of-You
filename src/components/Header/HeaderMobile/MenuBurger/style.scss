@@ -15,9 +15,9 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5c361c",endColorstr="#3c1f0c",GradientType=1);
   color: vars.$bookPage;
   text-align: center;
-  animation: .3s linear moveYourAss;
+  animation: .3s linear moveLeft;
 
-  @keyframes moveYourAss {
+  @keyframes moveLeft {
     from {
       right: -100vw;
     }
@@ -34,38 +34,27 @@
 
   &--list {
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    & li {
+    .user,
+    a {
+      display: flex;
+      align-items: center;
       padding: 1rem;
-
-      &:first-child {
-        padding: 0.5rem 1rem 1rem 1rem;
-      }
-
-      & a {
-        display: inline-flex;
-        justify-content: center;
-        font-size: 1.2rem;
-
-        & svg {
-          margin: 0 .5rem;
-        }
-      }
-
-      .user {
-        font-weight: bold;
-        margin-bottom: 0;
-        display: inline-flex;
-        justify-content: center;
-        font-size: 1.2rem;
-    
-        & svg {
-          margin: 0 .5rem;
-        }
-      }
+      font-size: 1.2rem;
     }
 
-    & .hr {
+    .user {
+      font-weight: bold;
+    }
+
+    svg {
+      margin-right: .2rem;
+    }
+
+    .hr {
       background-image: -webkit-gradient(linear,left top,right top,from(vars.$bookPage),color-stop(vars.$book),to(vars.$bookPage));
       background-image: linear-gradient(90deg,vars.$book,vars.$bookPage,vars.$book);
       width: 30%;

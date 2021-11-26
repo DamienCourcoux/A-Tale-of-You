@@ -26,22 +26,20 @@ const HeaderMobile = () => {
 
   return (
     <>
-      <ul className="header_mobile__left">
-        <li>
-          <Link
-            to="/"
-            title="A Tale of You"
-          >
-            <img src={Logo} alt="Logo du site" />
-          </Link>
-        </li>
-      </ul>
-      <ul className="header_mobile__right">
+      <div className="header_mobile__left">
+        <Link
+          to="/"
+          title="A Tale of You"
+        >
+          <img src={Logo} alt="Logo du site" />
+        </Link>
+      </div>
+      <div className="header_mobile__right">
         <FaBars
           className="FaBars"
           onClick={handleOpenMenuBurger}
         />
-      </ul>
+      </div>
       {
         isOpen && (
           <MenuBurger />
