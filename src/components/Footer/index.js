@@ -64,7 +64,7 @@ const Footer = () => (
       >
         A propos de nous
       </NavLink>
-      <p className="footer__links--copyright">© 2021 <span>A Tale of You</span>. Tous droits réservés.</p>
+      <div className="footer__links--copyright">© 2021 <span>A Tale of You</span>. Tous droits réservés.</div>
     </div>
   </footer>
 );
